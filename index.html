@@ -248,6 +248,114 @@
             color: var(--secondary);
         }
         
+        /* Mortgage Calculator */
+        .calculator {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .calculator-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .calculator-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-results {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        #calculate-btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .result-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .result-card h3 {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .result-breakdown {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .result-breakdown h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .breakdown-item.total {
+            font-weight: 700;
+            margin-top: 10px;
+            border-top: 2px solid var(--secondary);
+            padding-top: 10px;
+            border-bottom: none;
+        }
+        
         /* Testimonials */
         .testimonials {
             padding: 80px 0;
@@ -434,6 +542,10 @@
             .guide-container {
                 flex-direction: column;
             }
+            
+            .calculator-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -523,6 +635,75 @@
                     </ul>
                     <p><strong>Free Download:</strong> "First-Time Homebuyer's Checklist: Your Step-by-Step Guide to Homeownership"</p>
                     <a href="#contact" class="cta-button">Get Your Free Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mortgage Calculator -->
+    <section class="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mortgage Calculator</h2>
+                <p>Estimate your monthly payments and see how much home you can afford.</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="home-price">Home Price ($)</label>
+                        <input type="number" id="home-price" value="500000" min="50000" step="10000">
+                    </div>
+                    <div class="form-group">
+                        <label for="down-payment">Down Payment ($)</label>
+                        <input type="number" id="down-payment" value="100000" min="0" step="5000">
+                    </div>
+                    <div class="form-group">
+                        <label for="loan-term">Loan Term (years)</label>
+                        <select id="loan-term">
+                            <option value="30">30 years</option>
+                            <option value="20">20 years</option>
+                            <option value="15">15 years</option>
+                            <option value="10">10 years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+                    </div>
+                    <button id="calculate-btn" class="cta-button">Calculate Payment</button>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Monthly Payment</h3>
+                        <div class="result-amount" id="monthly-payment">$2,271</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Total Interest</h3>
+                        <div class="result-amount" id="total-interest">$402,407</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Total Cost</h3>
+                        <div class="result-amount" id="total-cost">$802,407</div>
+                    </div>
+                    <div class="result-breakdown">
+                        <h4>Payment Breakdown</h4>
+                        <div class="breakdown-item">
+                            <span>Principal & Interest</span>
+                            <span id="principal-interest">$2,271</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Property Tax (est.)</span>
+                            <span id="property-tax">$417</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Home Insurance (est.)</span>
+                            <span id="home-insurance">$125</span>
+                        </div>
+                        <div class="breakdown-item total">
+                            <span>Total Monthly Payment</span>
+                            <span id="total-monthly">$2,813</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -646,5 +827,86 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const homePriceInput = document.getElementById('home-price');
+            const downPaymentInput = document.getElementById('down-payment');
+            const loanTermSelect = document.getElementById('loan-term');
+            const interestRateInput = document.getElementById('interest-rate');
+            const calculateBtn = document.getElementById('calculate-btn');
+            
+            // Result elements
+            const monthlyPaymentEl = document.getElementById('monthly-payment');
+            const totalInterestEl = document.getElementById('total-interest');
+            const totalCostEl = document.getElementById('total-cost');
+            const principalInterestEl = document.getElementById('principal-interest');
+            const propertyTaxEl = document.getElementById('property-tax');
+            const homeInsuranceEl = document.getElementById('home-insurance');
+            const totalMonthlyEl = document.getElementById('total-monthly');
+            
+            // Calculate mortgage on button click
+            calculateBtn.addEventListener('click', calculateMortgage);
+            
+            // Also calculate when any input changes
+            [homePriceInput, downPaymentInput, loanTermSelect, interestRateInput].forEach(input => {
+                input.addEventListener('input', calculateMortgage);
+            });
+            
+            // Initial calculation
+            calculateMortgage();
+            
+            function calculateMortgage() {
+                // Get input values
+                const homePrice = parseFloat(homePriceInput.value) || 0;
+                const downPayment = parseFloat(downPaymentInput.value) || 0;
+                const loanTerm = parseInt(loanTermSelect.value);
+                const annualInterestRate = parseFloat(interestRateInput.value) || 0;
+                
+                // Calculate loan amount
+                const loanAmount = homePrice - downPayment;
+                
+                // Monthly interest rate
+                const monthlyInterestRate = (annualInterestRate / 100) / 12;
+                
+                // Number of payments
+                const numberOfPayments = loanTerm * 12;
+                
+                // Calculate monthly payment (principal + interest)
+                const monthlyPayment = loanAmount * 
+                    (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+                
+                // Calculate total interest
+                const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
+                
+                // Calculate total cost
+                const totalCost = loanAmount + totalInterest + downPayment;
+                
+                // Estimate property tax (1.25% of home price annually)
+                const propertyTax = (homePrice * 0.0125) / 12;
+                
+                // Estimate home insurance ($1500 annually)
+                const homeInsurance = 1500 / 12;
+                
+                // Total monthly payment
+                const totalMonthly = monthlyPayment + propertyTax + homeInsurance;
+                
+                // Update the UI
+                monthlyPaymentEl.textContent = formatCurrency(monthlyPayment);
+                totalInterestEl.textContent = formatCurrency(totalInterest);
+                totalCostEl.textContent = formatCurrency(totalCost);
+                principalInterestEl.textContent = formatCurrency(monthlyPayment);
+                propertyTaxEl.textContent = formatCurrency(propertyTax);
+                homeInsuranceEl.textContent = formatCurrency(homeInsurance);
+                totalMonthlyEl.textContent = formatCurrency(totalMonthly);
+            }
+            
+            function formatCurrency(amount) {
+                return '$' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+        });
+    </script>
 </body>
 </html>
