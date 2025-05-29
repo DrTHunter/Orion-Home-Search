@@ -670,6 +670,18 @@
                         <label for="interest-rate">Interest Rate (%)</label>
                         <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
                     </div>
+                    <div class="form-group">
+                        <label for="property-tax-rate">Property Tax Rate (%)</label>
+                        <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="insurance-rate">Home Insurance Rate (%)</label>
+                        <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="hoa-fee">Monthly HOA Fee ($)</label>
+                        <input type="number" id="hoa-fee" value="100" min="0" step="25">
+                    </div>
                     <button id="calculate-btn" class="cta-button">Calculate Payment</button>
                 </div>
                 <div class="calculator-results">
@@ -692,16 +704,20 @@
                             <span id="principal-interest">$2,271</span>
                         </div>
                         <div class="breakdown-item">
-                            <span>Property Tax (est.)</span>
-                            <span id="property-tax">$417</span>
+                            <span>Property Tax</span>
+                            <span id="property-tax">$750</span>
                         </div>
                         <div class="breakdown-item">
-                            <span>Home Insurance (est.)</span>
-                            <span id="home-insurance">$125</span>
+                            <span>Home Insurance</span>
+                            <span id="home-insurance">$208</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>HOA Fee</span>
+                            <span id="hoa-fee-display">$30</span>
                         </div>
                         <div class="breakdown-item total">
                             <span>Total Monthly Payment</span>
-                            <span id="total-monthly">$2,813</span>
+                            <span id="total-monthly">$3,329</span>
                         </div>
                     </div>
                 </div>
@@ -835,6 +851,9 @@
             const downPaymentInput = document.getElementById('down-payment');
             const loanTermSelect = document.getElementById('loan-term');
             const interestRateInput = document.getElementById('interest-rate');
+            const propertyTaxRateInput = document.getElementById('property-tax-rate');
+            const insuranceRateInput = document.getElementById('insurance-rate');
+            const hoaFeeInput = document.getElementById('hoa-fee');
             const calculateBtn = document.getElementById('calculate-btn');
             
             // Result elements
@@ -844,13 +863,15 @@
             const principalInterestEl = document.getElementById('principal-interest');
             const propertyTaxEl = document.getElementById('property-tax');
             const homeInsuranceEl = document.getElementById('home-insurance');
+            const hoaFeeDisplayEl = document.getElementById('hoa-fee-display');
             const totalMonthlyEl = document.getElementById('total-monthly');
             
             // Calculate mortgage on button click
             calculateBtn.addEventListener('click', calculateMortgage);
             
             // Also calculate when any input changes
-            [homePriceInput, downPaymentInput, loanTermSelect, interestRateInput].forEach(input => {
+            [homePriceInput, downPaymentInput, loanTermSelect, interestRateInput, 
+             propertyTaxRateInput, insuranceRateInput, hoaFeeInput].forEach(input => {
                 input.addEventListener('input', calculateMortgage);
             });
             
@@ -863,6 +884,9 @@
                 const downPayment = parseFloat(downPaymentInput.value) || 0;
                 const loanTerm = parseInt(loanTermSelect.value);
                 const annualInterestRate = parseFloat(interestRateInput.value) || 0;
+                const propertyTaxRate = parseFloat(propertyTaxRateInput.value) || 0;
+                const insuranceRate = parseFloat(insuranceRateInput.value) || 0;
+                const hoaFee = parseFloat(hoaFeeInput.value) || 0;
                 
                 // Calculate loan amount
                 const loanAmount = homePrice - downPayment;
@@ -884,14 +908,14 @@
                 // Calculate total cost
                 const totalCost = loanAmount + totalInterest + downPayment;
                 
-                // Estimate property tax (1.25% of home price annually)
-                const propertyTax = (homePrice * 0.0125) / 12;
+                // Calculate property tax (based on home price and tax rate)
+                const propertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
                 
-                // Estimate home insurance ($1500 annually)
-                const homeInsurance = 1500 / 12;
+                // Calculate home insurance (based on home price and insurance rate)
+                const homeInsurance = (homePrice * (insuranceRate / 100)) / 12;
                 
                 // Total monthly payment
-                const totalMonthly = monthlyPayment + propertyTax + homeInsurance;
+                const totalMonthly = monthlyPayment + propertyTax + homeInsurance + hoaFee;
                 
                 // Update the UI
                 monthlyPaymentEl.textContent = formatCurrency(monthlyPayment);
@@ -900,11 +924,12 @@
                 principalInterestEl.textContent = formatCurrency(monthlyPayment);
                 propertyTaxEl.textContent = formatCurrency(propertyTax);
                 homeInsuranceEl.textContent = formatCurrency(homeInsurance);
+                hoaFeeDisplayEl.textContent = formatCurrency(hoaFee);
                 totalMonthlyEl.textContent = formatCurrency(totalMonthly);
             }
             
             function formatCurrency(amount) {
-                return '$' + amount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
             }
         });
     </script>
