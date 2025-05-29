@@ -44,35 +44,48 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Updated Header Styles */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             z-index: 100;
+            padding: 10px 0;
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 0 15px;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 18px; /* Reduced from 24px */
             font-weight: 700;
             color: var(--primary);
+            white-space: nowrap;
         }
         
         .logo span {
             color: var(--secondary);
         }
         
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 15px; /* Reduced from 30px */
+            align-items: center;
         }
         
         .nav-links a {
@@ -80,6 +93,7 @@
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 14px; /* Added font size */
         }
         
         .nav-links a:hover {
@@ -89,10 +103,11 @@
         .cta-button {
             background-color: var(--primary);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 12px; /* Reduced from 10px 20px */
             border-radius: 5px;
             font-weight: 600;
             transition: background-color 0.3s;
+            font-size: 14px; /* Added font size */
         }
         
         .cta-button:hover {
@@ -100,6 +115,36 @@
             color: white;
         }
         
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .logo {
+                font-size: 16px;
+            }
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80');
@@ -550,12 +595,15 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Updated Header HTML -->
     <header>
         <div class="container">
             <nav>
                 <div class="logo"><span>Sanhenry Garcia</span> Real Estate</div>
-                <div class="nav-links">
+                <button class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="nav-links">
                     <a href="#about">About</a>
                     <a href="#neighborhoods">Neighborhoods</a>
                     <a href="#testimonials">Testimonials</a>
