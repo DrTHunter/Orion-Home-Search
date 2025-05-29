@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Dream Home in [City] | [Agent Name] Real Estate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5b84;
+            --primary-light: #3a7bb8;
+            --secondary: #e8a628;
+            --dark: #333333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .hero-buttons .cta-button {
+            font-size: 1.1rem;
+            padding: 12px 25px;
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .secondary-button:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Why Choose Me */
+        .why-choose {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Homebuyer Guide */
+        .guide {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .guide-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .guide-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .guide-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .guide-content {
+            flex: 1;
+        }
+        
+        .guide-content h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .guide-list {
+            margin-bottom: 30px;
+        }
+        
+        .guide-list li {
+            margin-bottom: 15px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .guide-list li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: "\"";
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(0,0,0,0.05);
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+        }
+        
+        /* Neighborhoods */
+        .neighborhoods {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .neighborhood-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .neighborhood-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .neighborhood-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .neighborhood-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .neighborhood-card:hover .neighborhood-image img {
+            transform: scale(1.1);
+        }
+        
+        .neighborhood-content {
+            padding: 20px;
+            background-color: var(--white);
+        }
+        
+        .neighborhood-content h3 {
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-links h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .guide-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><span>[Agent Name]</span> Real Estate</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#neighborhoods">Neighborhoods</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact" class="cta-button">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find Your Dream Home in [City]</h1>
+            <p>Your keys to the perfect home are just a click away! Searching for a home in [City]? I'll help you find the right fit—faster, smarter, and with less stress.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-button">Start Your Search</a>
+                <a href="#guide" class="secondary-button">First-Time Buyer Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me -->
+    <section class="why-choose" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Work With Me?</h2>
+                <p>I don't just sell houses—I help you find a home where your life happens.</p>
+            </div>
+            <div class="benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Local Market Expert</h3>
+                    <p>I know [City] inside and out, from hidden gems to the hottest neighborhoods.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Strong Negotiator</h3>
+                    <p>I fight for your best interests to save you money and avoid overpaying.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Stress-Free Process</h3>
+                    <p>From pre-approval to closing, I'll guide you every step of the way.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Off-Market Listings</h3>
+                    <p>Get first dibs on homes before they hit the market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homebuyer Guide -->
+    <section class="guide" id="guide">
+        <div class="container">
+            <div class="guide-container">
+                <div class="guide-image">
+                    <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Happy homeowners with keys">
+                </div>
+                <div class="guide-content">
+                    <h2>First-Time Homebuyer? Start Here</h2>
+                    <p>Buying your first home is a big deal—but it doesn't have to be confusing.</p>
+                    <ul class="guide-list">
+                        <li>Learn how much you can afford</li>
+                        <li>Understand mortgage options</li>
+                        <li>Find neighborhoods that fit your lifestyle</li>
+                        <li>Avoid common buyer mistakes</li>
+                    </ul>
+                    <p><strong>Free Download:</strong> "First-Time Homebuyer's Checklist: Your Step-by-Step Guide to Homeownership"</p>
+                    <a href="#contact" class="cta-button">Get Your Free Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What My Clients Say</h2>
+                <p>Don't just take my word for it—hear from happy homeowners!</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Working with [Agent Name] was a game-changer! They found us a home we loved under budget and made the whole process easy.
+                    </div>
+                    <div class="testimonial-author">- Sarah & Mike T.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        As a first-time buyer, I had no idea what I was doing. [Agent Name] explained everything, negotiated like a pro, and got us the keys in 30 days!
+                    </div>
+                    <div class="testimonial-author">- James L.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        I was about to give up on finding a home until [Agent] stepped in. They found listings I never saw online and got my offer accepted below asking price!
+                    </div>
+                    <div class="testimonial-author">- David R.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhoods -->
+    <section class="neighborhoods" id="neighborhoods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore [City]'s Best Neighborhoods</h2>
+                <p>Not sure where to buy? Tell me your lifestyle, and I'll match you with the perfect location.</p>
+            </div>
+            <div class="neighborhood-grid">
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Family neighborhood">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Family-Friendly Areas</h3>
+                        <p>Great schools, parks, and community vibes perfect for raising a family.</p>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Urban neighborhood">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Downtown Living</h3>
+                        <p>Luxury condos and walkable urban spaces with vibrant nightlife.</p>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <div class="neighborhood-image">
+                        <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Upcoming neighborhood">
+                    </div>
+                    <div class="neighborhood-content">
+                        <h3>Up-and-Coming Hotspots</h3>
+                        <p>Smart investments with high growth potential in emerging areas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Search?</h2>
+            <p>The best homes sell fast. Let's get you ahead of the competition! I'm here to answer all your questions—no obligation, just honest help.</p>
+            <div class="hero-buttons">
+                <a href="tel:+1234567890" class="cta-button"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="mailto:agent@example.com" class="secondary-button"><i class="fas fa-envelope"></i> Email Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo"><span>[Agent Name]</span> Real Estate</a>
+                    <p>Helping you find not just a house, but a home where your life happens.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#neighborhoods">Neighborhoods</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#guide">Buyer's Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> agent@example.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> [Brokerage Name], [City]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 [Agent Name] Real Estate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
