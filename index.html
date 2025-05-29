@@ -566,6 +566,15 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Footer Image */
+        .footer-image {
+            width: 100%; /* Full width on mobile */
+            max-width: 400px; /* Maximum size on desktop */
+            height: auto;
+            margin-bottom: 20px;
+            display: block;
+        }
+
         /* Contact Modal Styles */
         .contact-modal {
             position: fixed;
@@ -686,13 +695,17 @@
                 width: 90%;
                 padding: 20px;
             }
+
+            .footer-image {
+                max-width: 100%; /* Full width on mobile */
+            }
         }
 
-        /* Footer Image */
-        .footer-image {
-            max-width: 400px; /* Changed from 200px to 400px (100% bigger) */
-            height: auto;
-            margin-bottom: 20px;
+        /* Make the image match the text width on desktop */
+        @media (min-width: 769px) {
+            .footer-about {
+                max-width: 400px; /* Matches the image max-width */
+            }
         }
     </style>
 </head>
