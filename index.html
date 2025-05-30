@@ -609,6 +609,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            display: none;
         }
         
         .modal-content {
@@ -782,7 +783,7 @@
                    target="_blank" 
                    rel="noopener noreferrer"
                    class="cta-button">
-                    Unlock All Search Features on Our Full Website
+                    Unlock All Features on Our Full Website
                 </a>
                 <iframe src="https://sanhenrygarcia.exprealty.com/" 
                         style="width:100%; height:80vh; border:none;" 
@@ -1015,7 +1016,7 @@
     </section>
 
     <!-- Contact Modal -->
-    <div class="contact-modal" id="contact-modal" style="display: none;">
+    <div class="contact-modal" id="contact-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2>Get in Touch</h2>
@@ -1241,7 +1242,7 @@
             });
             
             // Form submission
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 // Get form values
@@ -1250,26 +1251,40 @@
                 const email = document.getElementById('contact-email').value;
                 const timeline = document.getElementById('contact-timeline').value;
                 
-                // Format the message
-                const message = `New contact request:\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nBuying Timeline: ${timeline}`;
-                
-                // Send via SMS (using SMS API link)
-                const smsUrl = `sms:8432959920?body=${encodeURIComponent(message)}`;
-                window.open(smsUrl, '_blank');
-                
-                // Send via email (using mailto link)
-                const emailUrl = `mailto:hunter.trent@ymail.com?subject=New%20Real%20Estate%20Inquiry&body=${encodeURIComponent(message)}`;
-                window.open(emailUrl);
-                
-                // Close modal
-                contactModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Show confirmation (optional)
-                alert('Thank you! Your information has been sent. I will contact you shortly.');
+                try {
+                    // Send data to AWS backend
+                    const response = await fetch('https://bqib7dcgzc.execute-api.us-east-2.amazonaws.com/prod', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name,
+                            phone,
+                            email,
+                            timeline
+                        })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        // Close modal
+                        contactModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Show confirmation
+                        alert('Thank you! Your information has been submitted successfully. We will contact you shortly.');
+                    } else {
+                        throw new Error(data.message || 'Failed to submit form');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your form. Please try again or contact us directly.');
+                }
             });
         });
     </script>
