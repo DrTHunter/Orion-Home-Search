@@ -591,8 +591,8 @@
 
         /* Footer Image */
         .footer-image {
-            width: 100%; /* Full width on mobile */
-            max-width: 400px; /* Maximum size on desktop */
+            width: 100%;
+            max-width: 400px;
             height: auto;
             margin-bottom: 20px;
             display: block;
@@ -615,10 +615,12 @@
         
         .modal-content {
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
             width: 100%;
             max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
             position: relative;
         }
         
@@ -636,30 +638,36 @@
         }
         
         #contact-form .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         #contact-form label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 600;
+            font-size: 14px;
         }
         
         #contact-form input,
         #contact-form select,
         #contact-form textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 14px;
+        }
+        
+        #contact-form textarea {
+            min-height: 80px;
         }
         
         #contact-form button {
             width: 100%;
             margin-top: 10px;
+            padding: 10px;
         }
-        
+
         /* Add these new styles for error messages */
         .error-message {
             background: #ffeeee;
@@ -739,11 +747,16 @@
 
             .modal-content {
                 width: 90%;
-                padding: 20px;
+                max-height: 90vh;
+                padding: 15px;
+            }
+
+            #contact-form .form-group {
+                margin-bottom: 12px;
             }
 
             .footer-image {
-                max-width: 100%; /* Full width on mobile */
+                max-width: 100%;
             }
 
             .listings {
@@ -754,7 +767,7 @@
         /* Make the image match the text width on desktop */
         @media (min-width: 769px) {
             .footer-about {
-                max-width: 400px; /* Matches the image max-width */
+                max-width: 400px;
             }
         }
     </style>
@@ -1043,7 +1056,7 @@
     <div class="contact-modal" id="contact-modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>Get in Touch</h2>
+            <h2 style="margin-bottom: 15px; font-size: 1.5rem;">Get in Touch</h2>
             <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeh63XOX0d5IFWeIrxmXyBHTsGB3P6TJ2SBiuHnBpjGzkdHVQ/formResponse" method="POST" target="_blank">
                 <div class="form-group">
                     <label for="entry.2005620554">Full Name *</label>
@@ -1059,19 +1072,19 @@
                 </div>
                 <div class="form-group">
                     <label for="entry.839337160">Preferred Locations</label>
-                    <input type="text" name="entry.839337160" id="entry.839337160">
+                    <input type="text" name="entry.839337160" id="entry.839337160" placeholder="e.g., Downtown, Suburbs">
                 </div>
                 <div class="form-group">
                     <label for="entry.1065046570">Timeline to Move/Sell</label>
-                    <input type="text" name="entry.1065046570" id="entry.1065046570">
+                    <input type="text" name="entry.1065046570" id="entry.1065046570" placeholder="e.g., 3-6 months">
                 </div>
                 <div class="form-group">
                     <label for="entry.839337160">Estimated Budget</label>
-                    <input type="text" name="entry.839337160" id="entry.839337160">
+                    <input type="text" name="entry.839337160" id="entry.839337160" placeholder="e.g., $300,000 - $400,000">
                 </div>
                 <div class="form-group">
-                    <label for="entry.2146418439">How can I help you? (Optional)</label>
-                    <textarea name="entry.2146418439" id="entry.2146418439" rows="3"></textarea>
+                    <label for="entry.2146418439">How can I help you?</label>
+                    <textarea name="entry.2146418439" id="entry.2146418439" rows="3" placeholder="Optional message"></textarea>
                 </div>
                 <button type="submit" class="cta-button">Submit</button>
             </form>
@@ -1088,7 +1101,6 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
