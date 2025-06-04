@@ -668,6 +668,25 @@
             padding: 10px;
         }
 
+        /* Checkbox styles */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
         /* Add these new styles for error messages */
         .error-message {
             background: #ffeeee;
@@ -1060,44 +1079,63 @@
             <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeh63XOX0d5IFWeIrxmXyBHTsGB3P6TJ2SBiuHnBpjGzkdHVQ/formResponse" method="POST" target="_blank">
                 <!-- Full Name -->
                 <div class="form-group">
-                    <label for="entry.809130517">Full Name *</label>
-                    <input type="text" name="entry.809130517" id="entry.809130517" required>
+                    <label for="entry.2005620554">Full Name *</label>
+                    <input type="text" name="entry.2005620554" id="entry.2005620554" required>
                 </div>
                 
                 <!-- Email -->
                 <div class="form-group">
-                    <label for="entry.1229100888">Email Address *</label>
-                    <input type="email" name="entry.1229100888" id="entry.1229100888" required>
+                    <label for="entry.1045781291">Email Address *</label>
+                    <input type="email" name="entry.1045781291" id="entry.1045781291" required>
                 </div>
                 
-                <!-- Phone -->
+                <!-- Phone Number -->
                 <div class="form-group">
-                    <label for="entry.931614018">Phone Number *</label>
-                    <input type="tel" name="entry.931614018" id="entry.931614018" required>
+                    <label for="entry.1166974658">Phone Number *</label>
+                    <input type="tel" name="entry.1166974658" id="entry.1166974658" required>
                 </div>
                 
                 <!-- Preferred Locations -->
                 <div class="form-group">
-                    <label for="entry.129217083">Preferred Locations</label>
-                    <input type="text" name="entry.129217083" id="entry.129217083">
+                    <label for="entry.839337160">Preferred Locations (check all that apply)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="entry.839337160" value="Downtown San Antonio"> Downtown San Antonio</label>
+                        <label><input type="checkbox" name="entry.839337160" value="Alamo Heights"> Alamo Heights</label>
+                        <label><input type="checkbox" name="entry.839337160" value="Stone Oak"> Stone Oak</label>
+                        <label><input type="checkbox" name="entry.839337160" value="Northwest Side"> Northwest Side</label>
+                        <label><input type="checkbox" name="entry.839337160" value="Medical Center"> Medical Center</label>
+                        <label><input type="checkbox" name="entry.839337160" value="Other"> Other</label>
+                    </div>
                 </div>
                 
                 <!-- Timeline -->
                 <div class="form-group">
-                    <label for="entry.1320523987">Timeline to Move/Sell</label>
-                    <input type="text" name="entry.1320523987" id="entry.1320523987">
+                    <label for="entry.1065046570">When are you planning to buy/sell?</label>
+                    <select name="entry.1065046570" id="entry.1065046570">
+                        <option value="Immediately">Immediately</option>
+                        <option value="1-3 months">1-3 months</option>
+                        <option value="3-6 months">3-6 months</option>
+                        <option value="6-12 months">6-12 months</option>
+                        <option value="Just exploring">Just exploring</option>
+                    </select>
                 </div>
                 
-                <!-- Estimated Budget -->
+                <!-- Budget -->
                 <div class="form-group">
-                    <label for="entry.243124002">Estimated Budget</label>
-                    <input type="text" name="entry.243124002" id="entry.243124002">
+                    <label for="entry.1555816499">What is your estimated budget?</label>
+                    <select name="entry.1555816499" id="entry.1555816499">
+                        <option value="Under $200,000">Under $200,000</option>
+                        <option value="$200,000 - $300,000">$200,000 - $300,000</option>
+                        <option value="$300,000 - $400,000">$300,000 - $400,000</option>
+                        <option value="$400,000 - $500,000">$400,000 - $500,000</option>
+                        <option value="Over $500,000">Over $500,000</option>
+                    </select>
                 </div>
                 
-                <!-- Additional Message -->
+                <!-- Additional Information -->
                 <div class="form-group">
-                    <label for="entry.1827010495">How can I help you?</label>
-                    <textarea name="entry.1827010495" id="entry.1827010495" rows="3"></textarea>
+                    <label for="entry.2146418439">Additional information or questions</label>
+                    <textarea name="entry.2146418439" id="entry.2146418439" rows="3"></textarea>
                 </div>
                 
                 <button type="submit" class="cta-button">Submit</button>
@@ -1274,12 +1312,12 @@
             // Open modal for both buttons
             callNowBtn.addEventListener('click', function() {
                 contactModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
             });
             
             emailMeBtn.addEventListener('click', function() {
                 contactModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                document.body.style.overflow = 'hidden';
             });
             
             // Close modal
@@ -1296,12 +1334,45 @@
                 }
             });
             
-            // Google Form submission handler
+            // Enhanced Google Form submission handler
             contactForm.addEventListener('submit', function(e) {
-                // Show a simple confirmation since we're submitting to Google Forms
-                alert('Thank you! Your information has been submitted successfully. We will contact you shortly.');
-                contactModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                e.preventDefault();
+                
+                // Validate required fields
+                let isValid = true;
+                document.querySelectorAll('#contact-form [required]').forEach(field => {
+                    if (!field.value.trim()) {
+                        field.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (isValid) {
+                    // Create hidden iframe for submission
+                    const iframe = document.createElement('iframe');
+                    iframe.name = 'hidden-iframe';
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                    
+                    // Set form target to iframe
+                    contactForm.target = 'hidden-iframe';
+                    
+                    // Submit form
+                    contactForm.submit();
+                    
+                    // Show success message
+                    alert('Thank you! Your information has been submitted successfully.');
+                    contactModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    contactForm.reset();
+                    
+                    // Remove iframe after delay
+                    setTimeout(() => {
+                        document.body.removeChild(iframe);
+                    }, 3000);
+                }
             });
         });
     </script>
