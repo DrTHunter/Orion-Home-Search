@@ -687,16 +687,28 @@
             margin: 0;
         }
 
-        /* Add these new styles for error messages */
-        .error-message {
-            background: #ffeeee;
-            border-left: 4px solid #ff0000;
+        /* Form message styles */
+        .success-message {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
             padding: 10px;
-            margin-top: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #2e7d32;
+            font-size: 14px;
+        }
+
+        .error-message {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 10px;
+            margin: 15px 0;
             border-radius: 4px;
             color: #d32f2f;
             font-size: 14px;
         }
+
+        .success-message i,
         .error-message i {
             margin-right: 5px;
         }
@@ -1097,7 +1109,7 @@
                 
                 <!-- Preferred Locations -->
                 <div class="form-group">
-                    <label for="entry.839337160">Preferred Locations (check all that apply)</label>
+                    <label>Preferred Locations (check all that apply)</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" name="entry.839337160" value="Downtown San Antonio"> Downtown San Antonio</label>
                         <label><input type="checkbox" name="entry.839337160" value="Alamo Heights"> Alamo Heights</label>
@@ -1138,7 +1150,9 @@
                     <textarea name="entry.2146418439" id="entry.2146418439" rows="3"></textarea>
                 </div>
                 
-                <button type="submit" class="cta-button">Submit</button>
+                <div id="form-messages"></div>
+                
+                <button type="submit" class="cta-button" id="submit-button">Submit</button>
             </form>
         </div>
     </div>
@@ -1308,6 +1322,8 @@
             const emailMeBtn = document.getElementById('email-me-btn');
             const closeModal = document.querySelector('.close-modal');
             const contactForm = document.getElementById('contact-form');
+            const submitButton = document.getElementById('submit-button');
+            const formMessages = document.getElementById('form-messages');
             
             // Open modal for both buttons
             callNowBtn.addEventListener('click', function() {
@@ -1349,30 +1365,74 @@
                     }
                 });
                 
-                if (isValid) {
-                    // Create hidden iframe for submission
-                    const iframe = document.createElement('iframe');
-                    iframe.name = 'hidden-iframe';
-                    iframe.style.display = 'none';
-                    document.body.appendChild(iframe);
+                if (!isValid) {
+                    formMessages.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i> Please fill out all required fields.
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                formMessages.innerHTML = '';
+                
+                // Create hidden iframe for submission
+                const iframe = document.createElement('iframe');
+                iframe.name = 'hidden-iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                // Set form target to iframe
+                contactForm.target = 'hidden-iframe';
+                
+                // Submit form
+                contactForm.submit();
+                
+                // Check for submission success after a delay
+                setTimeout(function() {
+                    try {
+                        // Check if iframe loaded Google's response
+                        if (iframe.contentWindow.document.body.innerHTML.includes('Your response has been recorded')) {
+                            // Success
+                            formMessages.innerHTML = `
+                                <div class="success-message">
+                                    <i class="fas fa-check-circle"></i> Thank you! Your information has been submitted successfully.
+                                </div>
+                            `;
+                            contactForm.reset();
+                            setTimeout(() => {
+                                contactModal.style.display = 'none';
+                                document.body.style.overflow = 'auto';
+                            }, 2000);
+                        } else {
+                            // Error
+                            formMessages.innerHTML = `
+                                <div class="error-message">
+                                    <i class="fas fa-exclamation-circle"></i> There was an error submitting your form. Please try again.
+                                </div>
+                            `;
+                        }
+                    } catch (e) {
+                        // Error
+                        formMessages.innerHTML = `
+                            <div class="error-message">
+                                <i class="fas fa-exclamation-circle"></i> There was an error submitting your form. Please try again.
+                            </div>
+                        `;
+                    }
                     
-                    // Set form target to iframe
-                    contactForm.target = 'hidden-iframe';
-                    
-                    // Submit form
-                    contactForm.submit();
-                    
-                    // Show success message
-                    alert('Thank you! Your information has been submitted successfully.');
-                    contactModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    contactForm.reset();
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
                     
                     // Remove iframe after delay
                     setTimeout(() => {
                         document.body.removeChild(iframe);
                     }, 3000);
-                }
+                }, 2000);
             });
         });
     </script>
