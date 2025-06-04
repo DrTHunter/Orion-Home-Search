@@ -668,19 +668,27 @@
             padding: 10px;
         }
 
-        /* Checkbox styles */
+        /* Updated Checkbox styles */
         .checkbox-group label {
           display: flex;
+          justify-content: space-between;
           align-items: center;
           margin-bottom: 8px;
           font-size: 16px;
           cursor: pointer;
+          padding: 8px;
+          background-color: #f8f9fa;
+          border-radius: 4px;
+          transition: background-color 0.3s;
+        }
+        
+        .checkbox-group label:hover {
+          background-color: #e9ecef;
         }
         
         .checkbox-group input[type="checkbox"] {
-          margin-right: 10px;
+          margin-left: 10px;
         }
-
 
         /* Form message styles */
         .success-message {
@@ -1106,12 +1114,30 @@
                 <div class="form-group">
                     <label>Preferred Locations (check all that apply)</label>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" name="entry.839337160" value="Downtown San Antonio"> Downtown San Antonio</label>
-                        <label><input type="checkbox" name="entry.839337160" value="Alamo Heights"> Alamo Heights</label>
-                        <label><input type="checkbox" name="entry.839337160" value="Stone Oak"> Stone Oak</label>
-                        <label><input type="checkbox" name="entry.839337160" value="Northwest Side"> Northwest Side</label>
-                        <label><input type="checkbox" name="entry.839337160" value="Medical Center"> Medical Center</label>
-                        <label><input type="checkbox" name="entry.839337160" value="Other"> Other</label>
+                        <label>
+                            Downtown San Antonio
+                            <input type="checkbox" name="entry.839337160" value="Downtown San Antonio" />
+                        </label>
+                        <label>
+                            Alamo Heights
+                            <input type="checkbox" name="entry.839337160" value="Alamo Heights" />
+                        </label>
+                        <label>
+                            Stone Oak
+                            <input type="checkbox" name="entry.839337160" value="Stone Oak" />
+                        </label>
+                        <label>
+                            Northwest Side
+                            <input type="checkbox" name="entry.839337160" value="Northwest Side" />
+                        </label>
+                        <label>
+                            Medical Center
+                            <input type="checkbox" name="entry.839337160" value="Medical Center" />
+                        </label>
+                        <label>
+                            Other
+                            <input type="checkbox" name="entry.839337160" value="Other" />
+                        </label>
                     </div>
                 </div>
                 
