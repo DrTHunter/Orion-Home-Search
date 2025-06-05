@@ -591,8 +591,8 @@
 
         /* Footer Image */
         .footer-image {
-            width: 100%;
-            max-width: 400px;
+            width: 100%; /* Full width on mobile */
+            max-width: 400px; /* Maximum size on desktop */
             height: auto;
             margin-bottom: 20px;
             display: block;
@@ -615,12 +615,10 @@
         
         .modal-content {
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             width: 100%;
             max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
             position: relative;
         }
         
@@ -638,80 +636,39 @@
         }
         
         #contact-form .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         #contact-form label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 600;
-            font-size: 14px;
         }
         
         #contact-form input,
-        #contact-form select,
-        #contact-form textarea {
+        #contact-form select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 14px;
-        }
-        
-        #contact-form textarea {
-            min-height: 80px;
+            font-size: 16px;
         }
         
         #contact-form button {
             width: 100%;
             margin-top: 10px;
-            padding: 10px;
-        }
-
-        /* Updated Checkbox styles */
-        .checkbox-group label {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 8px;
-          font-size: 16px;
-          cursor: pointer;
-          padding: 8px;
-          background-color: #f8f9fa;
-          border-radius: 4px;
-          transition: background-color 0.3s;
         }
         
-        .checkbox-group label:hover {
-          background-color: #e9ecef;
-        }
-        
-        .checkbox-group input[type="checkbox"] {
-          margin-left: 10px;
-        }
-
-        /* Form message styles */
-        .success-message {
-            background: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 10px;
-            margin: 15px 0;
-            border-radius: 4px;
-            color: #2e7d32;
-            font-size: 14px;
-        }
-
+        /* Add these new styles for error messages */
         .error-message {
-            background: #ffebee;
-            border-left: 4px solid #f44336;
+            background: #ffeeee;
+            border-left: 4px solid #ff0000;
             padding: 10px;
-            margin: 15px 0;
+            margin-top: 15px;
             border-radius: 4px;
             color: #d32f2f;
             font-size: 14px;
         }
-
-        .success-message i,
         .error-message i {
             margin-right: 5px;
         }
@@ -781,16 +738,11 @@
 
             .modal-content {
                 width: 90%;
-                max-height: 90vh;
-                padding: 15px;
-            }
-
-            #contact-form .form-group {
-                margin-bottom: 12px;
+                padding: 20px;
             }
 
             .footer-image {
-                max-width: 100%;
+                max-width: 100%; /* Full width on mobile */
             }
 
             .listings {
@@ -801,7 +753,7 @@
         /* Make the image match the text width on desktop */
         @media (min-width: 769px) {
             .footer-about {
-                max-width: 400px;
+                max-width: 400px; /* Matches the image max-width */
             }
         }
     </style>
@@ -1074,13 +1026,53 @@
         </div>
     </section>
 
-    <!-- Bottom CTA Buttons to Open Modal -->
-    <div class="cta-buttons" style="display:flex; justify-content:center; gap:1rem; margin:2rem auto;">
-      <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display = 'flex';" style="padding: 0.8rem 1.5rem; background: #28a745; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">Call Us</a>
-      <a href="javascript:void(0);" onclick="document.getElementById('contactModal').style.display = 'flex';" style="padding: 0.8rem 1.5rem; background: #17a2b8; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">Email Us</a>
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your Search?</h2>
+            <p>The best homes sell fast. Let's get you ahead of the competition! I'm here to answer all your questions—no obligation, just honest help.</p>
+            <div class="hero-buttons">
+                <button id="call-now-btn" class="cta-button"><i class="fas fa-phone"></i> Call Now</button>
+                <button id="email-me-btn" class="secondary-button"><i class="fas fa-envelope"></i> Email Me</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Get in Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Your Name</label>
+                    <input type="text" id="contact-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone Number</label>
+                    <input type="tel" id="contact-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email Address</label>
+                    <input type="email" id="contact-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-timeline">How soon do you plan on buying?</label>
+                    <select id="contact-timeline" required>
+                        <option value="">Select timeline</option>
+                        <option value="Immediately">Immediately</option>
+                        <option value="Within 1 month">Within 1 month</option>
+                        <option value="1-3 months">1-3 months</option>
+                        <option value="3-6 months">3-6 months</option>
+                        <option value="6+ months">6+ months</option>
+                        <option value="Just browsing">Just browsing</option>
+                    </select>
+                </div>
+                <button type="submit" class="cta-button">Submit</button>
+            </form>
+        </div>
     </div>
 
-    
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1246,18 +1238,16 @@
             const emailMeBtn = document.getElementById('email-me-btn');
             const closeModal = document.querySelector('.close-modal');
             const contactForm = document.getElementById('contact-form');
-            const submitButton = document.getElementById('submit-button');
-            const formMessages = document.getElementById('form-messages');
             
             // Open modal for both buttons
             callNowBtn.addEventListener('click', function() {
                 contactModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
             });
             
             emailMeBtn.addEventListener('click', function() {
                 contactModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
             });
             
             // Close modal
@@ -1274,89 +1264,92 @@
                 }
             });
             
-            // Enhanced Google Form submission handler
-            contactForm.addEventListener('submit', function(e) {
+            // COMPLETE FORM SUBMISSION HANDLER
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Validate required fields
-                let isValid = true;
-                document.querySelectorAll('#contact-form [required]').forEach(field => {
-                    if (!field.value.trim()) {
-                        field.style.borderColor = 'red';
-                        isValid = false;
-                    } else {
-                        field.style.borderColor = '#ddd';
-                    }
-                });
-                
-                if (!isValid) {
-                    formMessages.innerHTML = `
-                        <div class="error-message">
-                            <i class="fas fa-exclamation-circle"></i> Please fill out all required fields.
-                        </div>
-                    `;
-                    return;
-                }
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
                 
                 // Show loading state
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                formMessages.innerHTML = '';
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 
-                // Create hidden iframe for submission
-                const iframe = document.createElement('iframe');
-                iframe.name = 'hidden-iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
+                // Clear any previous errors
+                const existingErrors = document.querySelectorAll('.form-error');
+                existingErrors.forEach(error => error.remove());
                 
-                // Set form target to iframe
-                contactForm.target = 'hidden-iframe';
-                
-                // Submit form
-                contactForm.submit();
-                
-                // Check for submission success after a delay
-                setTimeout(function() {
-                    try {
-                        // Check if iframe loaded Google's response
-                        if (iframe.contentWindow.document.body.innerHTML.includes('Your response has been recorded')) {
-                            // Success
-                            formMessages.innerHTML = `
-                                <div class="success-message">
-                                    <i class="fas fa-check-circle"></i> Thank you! Your information has been submitted successfully.
-                                </div>
-                            `;
-                            contactForm.reset();
-                            setTimeout(() => {
-                                contactModal.style.display = 'none';
-                                document.body.style.overflow = 'auto';
-                            }, 2000);
-                        } else {
-                            // Error
-                            formMessages.innerHTML = `
-                                <div class="error-message">
-                                    <i class="fas fa-exclamation-circle"></i> There was an error submitting your form. Please try again.
-                                </div>
-                            `;
-                        }
-                    } catch (e) {
-                        // Error
-                        formMessages.innerHTML = `
-                            <div class="error-message">
-                                <i class="fas fa-exclamation-circle"></i> There was an error submitting your form. Please try again.
-                            </div>
-                        `;
+                try {
+                    // Get form values
+                    const formData = {
+                        name: document.getElementById('contact-name').value.trim(),
+                        phone: document.getElementById('contact-phone').value.trim(),
+                        email: document.getElementById('contact-email').value.trim(),
+                        timeline: document.getElementById('contact-timeline').value
+                    };
+                    
+                    // Validate inputs
+                    if (!formData.name || !formData.phone || !formData.email || !formData.timeline) {
+                        throw new Error('Please fill in all required fields');
                     }
                     
-                    // Reset button state
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = 'Submit';
+                    // Replace with your actual API Gateway endpoint
+                    const apiUrl = 'https://bqib7dcgzc.execute-api.us-east-2.amazonaws.com/prod/contact';
                     
-                    // Remove iframe after delay
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    // Check for HTTP errors
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(errorData.message || `Server responded with status ${response.status}`);
+                    }
+                    
+                    // Parse successful response
+                    const responseData = await response.json();
+                    console.log('Form submission successful:', responseData);
+                    
+                    // Close modal and reset form
+                    contactModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    contactForm.reset();
+                    
+                    // Show success message
+                    alert('Thank you! Your information has been submitted successfully. We will contact you shortly.');
+                    
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    
+                    // Create and display error message
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'form-error';
+                    errorDiv.innerHTML = `
+                        <p style="color: #d32f2f; margin: 10px 0; padding: 10px; background: #ffeeee; border-left: 4px solid #d32f2f;">
+                            <i class="fas fa-exclamation-circle"></i> 
+                            ${error.message || 'There was an error submitting your form. Please try again or contact us directly at (210) 608-3275.'}
+                        </p>
+                    `;
+                    
+                    // Insert error message after the submit button
+                    submitBtn.insertAdjacentElement('afterend', errorDiv);
+                    
+                    // Remove error after 5 seconds
                     setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 3000);
-                }, 2000);
+                        if (errorDiv.parentNode) {
+                            errorDiv.remove();
+                        }
+                    }, 5000);
+                    
+                } finally {
+                    // Reset button state
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
             });
         });
     </script>
