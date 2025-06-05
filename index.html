@@ -1078,8 +1078,8 @@
     <button id="contactTrigger" class="contact-button">Get In Touch</button>
     
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999; justify-content:center; align-items:center;">
-      <div class="modal-content" style="background:white; padding:2rem; border-radius:12px; max-width:600px; width:90%; position:relative;">
+    <div id="contactModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999; justify-content:center; align-items:center; overflow-y:auto;">
+      <div class="modal-content" style="background:white; padding:2rem; border-radius:12px; max-width:600px; width:90%; position:relative; box-sizing:border-box;">
         <span id="closeModal" style="position:absolute; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer;">&times;</span>
         <h2>Contact Us</h2>
         <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxrACk9Puk57JOaKcR2VLAU_yGji_0f8qPLWgWVn5hXrrM5rBJhXNBzteqhpiFSnvnY1g/exec" method="POST">
@@ -1138,9 +1138,11 @@
             <textarea id="message" name="additional" rows="4"></textarea>
           </div>
     
-          <button type="submit">Submit</button>
+          <div style="text-align:center; margin-top: 1rem;">
+            <button type="submit" style="padding: 0.6rem 1.5rem; font-size: 1rem; cursor: pointer;">Submit</button>
+          </div>
         </form>
-        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">Thank you! Your form has been submitted.</div>
+        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold; text-align:center;">Thank you! Your form has been submitted.</div>
       </div>
     </div>
     
