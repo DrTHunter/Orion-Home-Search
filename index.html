@@ -1086,97 +1086,85 @@
         </div>
     </section>
 
-    <!-- Contact Modal -->
-    <div class="contact-modal" id="contact-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 style="margin-bottom: 15px; font-size: 1.5rem;">Get in Touch</h2>
-            <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeh63XOX0d5IFWeIrxmXyBHTsGB3P6TJ2SBiuHnBpjGzkdHVQ/formResponse" method="POST" target="_blank">
-                <!-- Full Name -->
-                <div class="form-group">
-                    <label for="entry.2005620554">Full Name *</label>
-                    <input type="text" name="entry.2005620554" id="entry.2005620554" required>
-                </div>
-                
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="entry.1045781291">Email Address *</label>
-                    <input type="email" name="entry.1045781291" id="entry.1045781291" required>
-                </div>
-                
-                <!-- Phone Number -->
-                <div class="form-group">
-                    <label for="entry.1166974658">Phone Number *</label>
-                    <input type="tel" name="entry.1166974658" id="entry.1166974658" required>
-                </div>
-                
-                <!-- Preferred Locations -->
-                <div class="form-group">
-                    <label>Preferred Locations (check all that apply)</label>
-                    <div class="checkbox-group">
-                        <label>
-                            Downtown San Antonio
-                            <input type="checkbox" name="entry.839337160" value="Downtown San Antonio" />
-                        </label>
-                        <label>
-                            Alamo Heights
-                            <input type="checkbox" name="entry.839337160" value="Alamo Heights" />
-                        </label>
-                        <label>
-                            Stone Oak
-                            <input type="checkbox" name="entry.839337160" value="Stone Oak" />
-                        </label>
-                        <label>
-                            Northwest Side
-                            <input type="checkbox" name="entry.839337160" value="Northwest Side" />
-                        </label>
-                        <label>
-                            Medical Center
-                            <input type="checkbox" name="entry.839337160" value="Medical Center" />
-                        </label>
-                        <label>
-                            Other
-                            <input type="checkbox" name="entry.839337160" value="Other" />
-                        </label>
-                    </div>
-                </div>
-                
-                <!-- Timeline -->
-                <div class="form-group">
-                    <label for="entry.867507612">When are you planning to buy/sell?</label>
-                    <select name="entry.867507612" id="entry.867507612">
-                        <option value="Immediately">Immediately</option>
-                        <option value="1-3 months">1-3 months</option>
-                        <option value="3-6 months">3-6 months</option>
-                        <option value="6-12 months">6-12 months</option>
-                        <option value="Just exploring">Just exploring</option>
-                    </select>
-                </div>
-                
-                <!-- Budget -->
-                <div class="form-group">
-                    <label for="entry.1912173959">What is your estimated budget?</label>
-                    <select name="entry.1912173959" id="entry.1912173959">
-                        <option value="Under $200,000">Under $200,000</option>
-                        <option value="$200,000 - $300,000">$200,000 - $300,000</option>
-                        <option value="$300,000 - $400,000">$300,000 - $400,000</option>
-                        <option value="$400,000 - $500,000">$400,000 - $500,000</option>
-                        <option value="Over $500,000">Over $500,000</option>
-                    </select>
-                </div>
-                
-                <!-- Additional Information -->
-                <div class="form-group">
-                    <label for="entry.1318342273">Additional information or questions</label>
-                    <textarea name="entry.1318342273" id="entry.1318342273" rows="3"></textarea>
-                </div>
-                
-                <div id="form-messages"></div>
-                
-                <button type="submit" class="cta-button" id="submit-button">Submit</button>
-            </form>
-        </div>
-    </div>
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form action="https://formsubmit.co/dr_hunter@yahoo.com" method="POST" target="_blank">
+    
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+    
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+    
+          <!-- Phone Number -->
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+    
+          <!-- Preferred Locations -->
+          <div class="form-group">
+            <label>Preferred Locations (check all that apply)</label>
+            <div class="checkbox-group">
+              <label>Downtown San Antonio <input type="checkbox" name="locations" value="Downtown San Antonio"></label>
+              <label>Alamo Heights <input type="checkbox" name="locations" value="Alamo Heights"></label>
+              <label>Stone Oak <input type="checkbox" name="locations" value="Stone Oak"></label>
+              <label>Northwest Side <input type="checkbox" name="locations" value="Northwest Side"></label>
+              <label>Medical Center <input type="checkbox" name="locations" value="Medical Center"></label>
+              <label>Other <input type="checkbox" name="locations" value="Other"></label>
+            </div>
+          </div>
+    
+          <!-- Timeline to Move -->
+          <div class="form-group">
+            <label for="timeline">Timeline to Move</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select</option>
+              <option value="ASAP">ASAP</option>
+              <option value="1-3 Months">1-3 Months</option>
+              <option value="3-6 Months">3-6 Months</option>
+              <option value="6+ Months">6+ Months</option>
+            </select>
+          </div>
+    
+          <!-- Budget Range -->
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select</option>
+              <option value="$100k - $200k">$100k - $200k</option>
+              <option value="$200k - $300k">$200k - $300k</option>
+              <option value="$300k - $400k">$300k - $400k</option>
+              <option value="$400k+">$400k+</option>
+            </select>
+          </div>
+    
+          <!-- Additional Information -->
+          <div class="form-group">
+            <label for="message">Other Info or Preferences?</label>
+            <textarea id="message" name="additional" rows="4"></textarea>
+          </div>
+    
+          <!-- Hidden config for FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://drthunter.github.io/Real-Estate-Landing-Page/thank-you.html">
+    
+          <!-- Honeypot (Spam Trap) -->
+          <input type="text" name="_honey" style="display:none">
+    
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
 
     <!-- Footer -->
     <footer>
