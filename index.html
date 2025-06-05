@@ -1074,44 +1074,43 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact" id="contact">
-      <div class="container">
+    <!-- Contact Modal Trigger -->
+<button id="contactTrigger" class="contact-button">Get In Touch</button>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999; justify-content:center; align-items:center;">
+      <div class="modal-content" style="background:white; padding:2rem; border-radius:12px; max-width:600px; width:90%; position:relative;">
+        <span id="closeModal" style="position:absolute; top:1rem; right:1rem; font-size:1.5rem; cursor:pointer;">&times;</span>
         <h2>Contact Us</h2>
         <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxMe18S0eSJzo8U9dYekjGISnqzjiB2-Y1A2VtCI5Wvtf_xKPOOqB8wfCKzFcyvoXGCyg/exec" method="POST">
     
-          <!-- Full Name -->
           <div class="form-group">
             <label for="fullName">Full Name</label>
             <input type="text" id="fullName" name="fullName" required>
           </div>
     
-          <!-- Email -->
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
           </div>
     
-          <!-- Phone Number -->
           <div class="form-group">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" required>
           </div>
     
-          <!-- Preferred Locations -->
           <div class="form-group">
             <label>Preferred Locations (check all that apply)</label>
             <div class="checkbox-group">
-              <label>Downtown San Antonio <input type="checkbox" name="locations" value="Downtown San Antonio"></label>
-              <label>Alamo Heights <input type="checkbox" name="locations" value="Alamo Heights"></label>
-              <label>Stone Oak <input type="checkbox" name="locations" value="Stone Oak"></label>
-              <label>Northwest Side <input type="checkbox" name="locations" value="Northwest Side"></label>
-              <label>Medical Center <input type="checkbox" name="locations" value="Medical Center"></label>
-              <label>Other <input type="checkbox" name="locations" value="Other"></label>
+              <label><input type="checkbox" name="locations" value="Downtown San Antonio"> Downtown San Antonio</label><br>
+              <label><input type="checkbox" name="locations" value="Alamo Heights"> Alamo Heights</label><br>
+              <label><input type="checkbox" name="locations" value="Stone Oak"> Stone Oak</label><br>
+              <label><input type="checkbox" name="locations" value="Northwest Side"> Northwest Side</label><br>
+              <label><input type="checkbox" name="locations" value="Medical Center"> Medical Center</label><br>
+              <label><input type="checkbox" name="locations" value="Other"> Other</label>
             </div>
           </div>
     
-          <!-- Timeline to Move -->
           <div class="form-group">
             <label for="timeline">Timeline to Move</label>
             <select id="timeline" name="timeline">
@@ -1123,7 +1122,6 @@
             </select>
           </div>
     
-          <!-- Budget Range -->
           <div class="form-group">
             <label for="budget">Budget Range</label>
             <select id="budget" name="budget">
@@ -1135,7 +1133,6 @@
             </select>
           </div>
     
-          <!-- Additional Information -->
           <div class="form-group">
             <label for="message">Other Info or Preferences?</label>
             <textarea id="message" name="additional" rows="4"></textarea>
@@ -1143,16 +1140,27 @@
     
           <button type="submit">Submit</button>
         </form>
-    
-        <!-- Success Popup -->
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">Thank you! Your form has been submitted.</div>
       </div>
-    </section>
+    </div>
     
     <script>
+      // Modal controls
+      document.getElementById("contactTrigger").onclick = function() {
+        document.getElementById("contactModal").style.display = "flex";
+      };
+      document.getElementById("closeModal").onclick = function() {
+        document.getElementById("contactModal").style.display = "none";
+      };
+      window.onclick = function(event) {
+        if (event.target === document.getElementById("contactModal")) {
+          document.getElementById("contactModal").style.display = "none";
+        }
+      };
+    
+      // Form submission logic
       document.getElementById("contactForm").addEventListener("submit", function(e) {
         e.preventDefault();
-    
         const form = e.target;
         const data = new FormData(form);
     
@@ -1171,6 +1179,7 @@
         });
       });
     </script>
+
     
     <!-- Footer -->
     <footer>
