@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="autoplay=()">
-    <title>Unlock Your Next Chapter | Orion AI Real Estate Network – San Antonio</title>
     <meta name="description" content="AI-powered real estate service in San Antonio. Find your perfect home with Orion's cutting-edge property matching technology. Free home valuation and mortgage calculator.">
-    
+    <title>Unlock Your Next Chapter | Orion AI Real Estate Network – San Antonio</title>
+
     <!-- Buying Buddy plugin v5.02 for General HTML; Authorized Domain: github.com -->
     <!-- ** DO NOT DEFER ** This must load at the top of the page, e.g. in the page head. -->
     <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
@@ -15,8 +15,8 @@
       function mbbMapLoaded() { MBB.googleMaps = true; };
     </script>
     <!-- NOTE: Google MAP API must load AFTER the declaration of mbbMapLoaded(), and BEFORE my-buying-buddy.5.0.js.gz -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
-    <script src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
+    <script defer src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
     <!-- End Buying Buddy Plugin. Copyright 2003-2025 -->
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-  
         :root {
           --primary: #2a5b84;         /* Deep tech blue */
           --primary-light: #4b91c9;   /* Soft, clickable blue */
@@ -563,6 +562,108 @@
             font-size: 1.1rem;
         }
         
+        /* Blog Section */
+        .blog-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .blog-category {
+            background-color: var(--secondary);
+            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .blog-excerpt {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .blog-read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        
+        .blog-read-more:hover {
+            color: var(--primary-light);
+        }
+        
+        .view-all-blog {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -772,6 +873,18 @@
             .listings {
                 padding: 60px 0;
             }
+            
+            .blog-section {
+                padding: 60px 0;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .blog-title {
+                font-size: 1.3rem;
+            }
         }
 
         /* Make the image match the text width on desktop */
@@ -798,6 +911,7 @@
                     <a href="https://drthunter.github.io/listing-results/">Listings</a>
                     <a href="https://drthunter.github.io/listing-details/">Listing Details</a>
                     <a href="#about">About</a>
+                    <a href="#blog">Blog</a>
                     <a href="#neighborhoods">Neighborhoods</a>
                     <a href="#contact" class="cta-button">Contact</a>
                 </div>
@@ -1058,6 +1172,70 @@
             </div>
         </div>
     </section>
+    
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="blog-container">
+            <div class="section-title">
+                <h2>Latest from the Orion Blog</h2>
+                <p>Insights, trends, and expert advice on San Antonio real estate</p>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Modern kitchen with island" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>June 5, 2025</span>
+                            <span class="blog-category">Market Trends</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio Market Update: Summer 2025</h3>
+                        <p class="blog-excerpt">Discover the latest trends in San Antonio's real estate market and what they mean for buyers and sellers this season.</p>
+                        <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Modern house exterior" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>May 28, 2025</span>
+                            <span class="blog-category">Home Buying</span>
+                        </div>
+                        <h3 class="blog-title">5 Neighborhoods First-Time Buyers Love in San Antonio</h3>
+                        <p class="blog-excerpt">Explore the top neighborhoods that offer the perfect balance of affordability, amenities, and community for new homeowners.</p>
+                        <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="Luxury living room" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>May 15, 2025</span>
+                            <span class="blog-category">Home Staging</span>
+                        </div>
+                        <h3 class="blog-title">AI-Powered Staging: How to Sell Your Home 30% Faster</h3>
+                        <p class="blog-excerpt">Learn how Orion's AI technology helps sellers stage their homes virtually to attract more buyers and secure offers faster.</p>
+                        <a href="#" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="view-all-blog">
+                <a href="#" class="cta-button">View All Blog Posts</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Modal -->
     <div class="contact-modal" id="contact-modal">
@@ -1193,6 +1371,7 @@
                         <li><a href="https://drthunter.github.io/listing-results/">Listings</a></li>
                         <li><a href="https://drthunter.github.io/listing-details/">Listing Details</a></li>
                         <li><a href="#about">About Orion</a></li>
+                        <li><a href="#blog">Blog</a></li>
                         <li><a href="#neighborhoods">Lifestyle Zones</a></li>
                         <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
                     </ul>
