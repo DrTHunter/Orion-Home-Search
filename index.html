@@ -693,91 +693,6 @@
             margin-top: 50px;
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .footer-about h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-logo span {
-            color: var(--secondary);
-        }
-        
-        .footer-links h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Footer Image */
-        .footer-image {
-            width: 100%; /* Full width on mobile */
-            max-width: 400px; /* Maximum size on desktop */
-            height: auto;
-            margin-bottom: 20px;
-            display: block;
-        }
-
         /* Contact Modal Styles */
         .contact-modal {
           display: none;
@@ -834,6 +749,91 @@
             margin-top: 10px;
         }
         
+        /* Footer with Transparent Background Effect */
+        footer {
+          background-color: var(--dark);
+          color: white;
+          padding: 30px 0 20px;
+          text-align: center;
+          position: relative;
+        }
+        
+        footer:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+          opacity: 0.05;
+          z-index: 0;
+        }
+        
+        footer .container {
+          position: relative;
+          z-index: 1;
+        }
+        
+        .footer-logo {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 15px;
+          display: block;
+        }
+        
+        .footer-logo span {
+          color: var(--secondary);
+        }
+        
+        .footer-contact {
+          margin-bottom: 20px;
+        }
+        
+        .footer-contact p {
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+        
+        .footer-contact i {
+          color: var(--accent);
+          width: 20px;
+        }
+        
+        .social-links {
+          display: flex;
+          gap: 15px;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+        
+        .social-links a {
+          color: white;
+          font-size: 1.2rem;
+          transition: all 0.3s;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(255,255,255,0.1);
+        }
+        
+        .social-links a:hover {
+          color: var(--secondary);
+          background-color: rgba(255,255,255,0.2);
+          transform: translateY(-3px);
+        }
+        
+        .copyright {
+          font-size: 0.9rem;
+          opacity: 0.8;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -913,13 +913,6 @@
             
             .blog-title {
                 font-size: 1.3rem;
-            }
-        }
-
-        /* Make the image match the text width on desktop */
-        @media (min-width: 769px) {
-            .footer-about {
-                max-width: 400px; /* Matches the image max-width */
             }
         }
     </style>
@@ -1375,42 +1368,25 @@
         });
         </script>
 
-
-    <!-- Footer -->
+    <!-- Footer with Transparent Background Effect -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <h3>Orion AI Real Estate Network</h3>
-                    <p>Helping you find not just a house, but a home where your next chapter begins—powered by AI, guided by heart.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="https://www.orionhomesearch.com/listing-results/">Listings</a></li>
-                        <li><a href="https://www.orionhomesearch.com/listing-details/">Listing Details</a></li>
-                        <li><a href="#about">About Orion</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#neighborhoods">Lifestyle Zones</a></li>
-                        <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
-                    </ul>
-                </div>
-            <div class="footer-links">
-              <h3>Contact</h3>
-              <ul>
-                <li><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</li>
-                  <li><i class="fas fa-phone"></i> Text (843) 510-7311</li>
-                <li><i class="fas fa-envelope"></i> dr_hunter@yahoo.com</li>
-                <li><i class="fas fa-map-marker-alt"></i> San Antonio, TX</li>
-              </ul>
+            <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+            
+            <div class="footer-contact">
+                <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+                <p><i class="fas fa-phone"></i> Text (843) 510-7311</p>
+                <p><i class="fas fa-envelope"></i> dr_hunter@yahoo.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
             </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
+            
             <div class="copyright">
                 <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
             </div>
