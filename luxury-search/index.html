@@ -117,6 +117,9 @@
       font-weight: 500;
       transition: color 0.3s;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     
     .nav-links a:hover {
@@ -129,15 +132,20 @@
       padding: 8px 12px;
       border-radius: 5px;
       font-weight: 600;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       font-size: 14px;
       border: none;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cta-button:hover {
       background-color: var(--primary-light);
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     /* Mobile Menu Overlay */
@@ -192,7 +200,7 @@
     
     /* Luxury Homes Hero */
     .luxury-hero {
-      height: 400px;
+      height: 500px;
       background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                   url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
       background-size: cover;
@@ -205,17 +213,22 @@
       text-align: center;
       color: white;
       margin-bottom: 40px;
+      position: relative;
     }
     
     .luxury-hero h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
     
     .luxury-hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       max-width: 600px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     
     /* CTA Section */
@@ -224,6 +237,25 @@
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
     }
     
     .cta-section h2 {
@@ -264,6 +296,8 @@
     .cta-button:hover {
       background-color: var(--primary-light);
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     .secondary-button {
@@ -284,6 +318,8 @@
     .secondary-button:hover {
       background-color: white;
       color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     /* Contact Modal Styles */
@@ -299,6 +335,12 @@
       background-color: rgba(0,0,0,0.6);
       align-items: center;
       justify-content: center;
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     
     .modal-content {
@@ -313,6 +355,12 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       color: var(--dark);
       position: relative;
+      animation: slideIn 0.3s;
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
     }
     
     .close-modal {
@@ -323,6 +371,11 @@
       font-weight: bold;
       cursor: pointer;
       color: var(--dark);
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
     }
     
     #contact-form .form-group {
@@ -343,11 +396,32 @@
       border: 1px solid #ddd;
       border-radius: 5px;
       font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
     #contact-form button {
       width: 100%;
       margin-top: 10px;
+      padding: 12px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    #contact-form button:hover {
+      background-color: var(--primary-light);
     }
     
     /* Checkboxes in form */
@@ -372,6 +446,24 @@
       color: white;
       padding: 30px 0 20px;
       text-align: center;
+      position: relative;
+    }
+    
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    footer .container {
+      position: relative;
+      z-index: 1;
     }
     
     .footer-logo {
@@ -391,6 +483,15 @@
     
     .footer-contact p {
       margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .footer-contact i {
+      color: var(--accent);
+      width: 20px;
     }
     
     .social-links {
@@ -403,11 +504,20 @@
     .social-links a {
       color: white;
       font-size: 1.2rem;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
     }
     
     .social-links a:hover {
       color: var(--secondary);
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
     }
     
     .copyright {
@@ -426,12 +536,16 @@
       }
       
       .luxury-hero {
-        height: 300px;
+        height: 350px;
         padding: 0 20px;
       }
       
       .luxury-hero h2 {
         font-size: 2rem;
+      }
+      
+      .luxury-hero p {
+        font-size: 1.1rem;
       }
       
       .menu-toggle {
@@ -496,8 +610,8 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/">Home</a>
-          <a href="#contact" class="cta-button">Contact</a>
+          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Contact</a>
         </div>
       </nav>
     </div>
