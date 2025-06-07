@@ -1380,6 +1380,8 @@
     </section>
     
     <!-- Contact Modal -->
+    
+    <!-- Contact Modal -->
     <div class="contact-modal" id="contact-modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
@@ -1458,6 +1460,21 @@
             <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
           </div>
     
+          <!-- Added Terms of Service checkbox -->
+          <div class="form-group">
+            <div class="checkbox-group after-text">
+              <label class="checkbox-inline" style="display: flex; align-items: flex-start; gap: 10px;">
+                <input type="checkbox" name="terms" required style="margin-top: 3px;">
+                <span>I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank">Terms of Service</a></span>
+              </label>
+            </div>
+          </div>
+    
+          <!-- Added communication consent text -->
+          <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 20px;">
+            By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+          </p>
+    
           <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
           <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
             Thank you! Your form has been submitted.
@@ -1465,7 +1482,6 @@
         </form>
       </div>
     </div>
-
     <!-- Footer with Transparent Background -->
     <footer>
         <div class="container">
