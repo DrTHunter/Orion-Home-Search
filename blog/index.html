@@ -197,10 +197,12 @@
     }
     
     .read-more {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       color: var(--primary);
       font-weight: 600;
       text-decoration: none;
+      gap: 5px;
     }
     
     .featured-post {
@@ -330,40 +332,55 @@
   <!-- Blog Posts -->
   <main class="container">
     <div class="posts-grid">
-      <!-- Featured Post -->
+      <!-- Featured Post (Post 3) -->
       <article class="post-card featured-post">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio neighborhood" class="post-image">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" class="post-image">
         <div class="featured-content">
           <div class="post-meta">
             <span class="post-date">June 7, 2025</span>
-            <span class="post-category">Neighborhoods</span>
+            <span class="post-category">Neighborhood Insights</span>
           </div>
-          <h2 class="post-title">5 Underrated San Antonio Neighborhoods with Great Value in 2025</h2>
+          <h2 class="post-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h2>
           <div class="post-excerpt">
-            <p>While everyone talks about Alamo Heights and Stone Oak, savvy homebuyers know San Antonio has incredible hidden gem neighborhoods offering better value, unique character, and strong appreciation potential.</p>
-            <p>Discover where Orion AI's predictive algorithms are identifying the next hot areas before prices rise.</p>
+            <p>Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
           </div>
-          <a href="#" class="read-more">Read Full Analysis →</a>
+          <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
       
       <!-- Post 1 -->
       <article class="post-card">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="First time home buyer" class="post-image">
+        <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio Suburban Homes" class="post-image">
         <div class="post-content">
           <div class="post-meta">
-            <span class="post-date">May 28, 2025</span>
-            <span class="post-category">First-Time Buyers</span>
+            <span class="post-date">June 6, 2025</span>
+            <span class="post-category">Neighborhood Guide</span>
           </div>
-          <h2 class="post-title">First-Time Home Buyer's Guide to San Antonio: 2025 Edition</h2>
+          <h2 class="post-title">Best Neighborhoods in San Antonio for First-Time Homebuyers (2025 Edition)</h2>
           <div class="post-excerpt">
-            <p>Navigating the San Antonio market as a first-time buyer? Learn about special programs, down payment assistance, and how Orion AI matches you with the right starter homes.</p>
+            <p>From Alamo Ranch to Tobin Hill, explore the top 5 areas where first-time buyers are getting the most for their money—and how Orion AI helps you choose smart.</p>
           </div>
-          <a href="#" class="read-more">Continue Reading →</a>
+          <a href="https://www.orionhomesearch.com/blog/best-neighborhoods/" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
       
       <!-- Post 2 -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="San Antonio housing market 2025" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">June 7, 2025</span>
+            <span class="post-category">Market Forecast</span>
+          </div>
+          <h2 class="post-title">San Antonio Housing Market Forecast 2025: What Buyers Need to Know</h2>
+          <div class="post-excerpt">
+            <p>Explore expert insights into pricing trends, inventory shifts, and strategic buying tips for 2025. Orion AI helps you make smarter moves in San Antonio's evolving market.</p>
+          </div>
+          <a href="https://www.orionhomesearch.com/blog/San-Antonio-2025-Housing-Market-Forecast" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+      
+      <!-- Post 4 -->
       <article class="post-card">
         <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury home" class="post-image">
         <div class="post-content">
@@ -375,11 +392,11 @@
           <div class="post-excerpt">
             <p>An inside look at the most exclusive neighborhoods and emerging luxury enclaves in San Antonio, with price projections through 2026.</p>
           </div>
-          <a href="#" class="read-more">Continue Reading →</a>
+          <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
       
-      <!-- Post 3 -->
+      <!-- Post 5 -->
       <article class="post-card">
         <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Military housing" class="post-image">
         <div class="post-content">
@@ -391,11 +408,11 @@
           <div class="post-excerpt">
             <p>For service members stationed in San Antonio, we analyze the best housing options near Lackland, Randolph, and Fort Sam Houston with commute times and VA loan insights.</p>
           </div>
-          <a href="#" class="read-more">Continue Reading →</a>
+          <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
       
-      <!-- Post 4 -->
+      <!-- Post 6 -->
       <article class="post-card">
         <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New construction" class="post-image">
         <div class="post-content">
@@ -407,23 +424,7 @@
           <div class="post-excerpt">
             <p>A comparison of San Antonio's newest master-planned developments, including amenities, builder quality, and Orion AI's appreciation projections.</p>
           </div>
-          <a href="#" class="read-more">Continue Reading →</a>
-        </div>
-      </article>
-      
-      <!-- Post 5 -->
-      <article class="post-card">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Historic home" class="post-image">
-        <div class="post-content">
-          <div class="post-meta">
-            <span class="post-date">April 5, 2025</span>
-            <span class="post-category">Historic Homes</span>
-          </div>
-          <h2 class="post-title">Restoring vs. Renovating: A Guide to San Antonio's Historic Districts</h2>
-          <div class="post-excerpt">
-            <p>What you need to know before buying in King William, Monte Vista, or other historic areas - including preservation guidelines and modernization limitations.</p>
-          </div>
-          <a href="#" class="read-more">Continue Reading →</a>
+          <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
         </div>
       </article>
     </div>
