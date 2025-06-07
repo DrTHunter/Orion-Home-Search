@@ -368,21 +368,45 @@
         box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
-    #contact-form button {
-        width: 100%;
-        margin-top: 10px;
-        padding: 12px;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
+    /* Add this to your existing CSS */
+    #contact-form button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 20px;
     }
     
-    #contact-form button:hover {
-        background-color: var(--primary-light);
+    #contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    #contact-form button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+    
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button[type="submit"] .fa-spinner {
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
     }
     
     /* Checkboxes in form */
@@ -661,7 +685,7 @@
           <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
         </div>
   
-        <button type="submit">Submit</button>
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
         </div>
