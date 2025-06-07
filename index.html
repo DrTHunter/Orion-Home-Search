@@ -1360,7 +1360,7 @@
             <h2>Ready to Begin Your Search?</h2>
             <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
             <div class="hero-buttons">
-                <button id="call-now-btn" class="cta-button"></i>👋 Talk to a Real Estate Agent Now</button>
+                <button id="contact-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
             </div>
         </div>
     </section>
@@ -1385,8 +1385,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- Contact Modal -->
     
     <!-- Contact Modal -->
     <div class="contact-modal" id="contact-modal">
@@ -1651,13 +1649,13 @@
 
             // Contact Modal functionality
             const contactModal = document.getElementById('contact-modal');
-            const callNowBtn = document.getElementById('call-now-btn');
+            const contactBtn = document.getElementById('contact-btn');
             const closeModal = document.querySelector('.close-modal');
             const contactForm = document.getElementById('contact-form');
             const successMessage = document.getElementById('successMessage');
             
-            // Open modal for call now button
-            callNowBtn.addEventListener('click', function() {
+            // Open modal for contact button
+            contactBtn.addEventListener('click', function() {
                 contactModal.style.display = 'flex';
                 document.body.style.overflow = 'hidden'; // Prevent scrolling
             });
@@ -1676,7 +1674,7 @@
                 }
             });
             
-            // Form submission handler
+            // Form submission handler - Updated to use JSON
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -1687,11 +1685,13 @@
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 
-                // Get form data
+                // Get form data and convert to object
                 const formData = new FormData(contactForm);
                 const formObject = {};
+                
+                // Convert FormData to plain object
                 formData.forEach((value, key) => {
-                    // Handle checkboxes
+                    // Handle checkboxes - group values into arrays
                     if (key === 'locations') {
                         if (!formObject[key]) {
                             formObject[key] = [];
@@ -1702,28 +1702,34 @@
                     }
                 });
                 
-                // Send to Google Apps Script
-                fetch('https://script.google.com/macros/s/AKfycbzmq69_vFf0ArhHK7QT9deff-tx1jI5Zf3xMXqRiPnTKc4PhQx-Nv8yTOwpSloPzbGkuA/exec', {
+                // Send as JSON
+                fetch('https://script.google.com/macros/s/AKfycbynX54Xz1zjkKB0TSwhx9bj9KZHxI6SYDmi7ZMGpWhkAmiAJaEBozG_5QqQIREDCQ3GRw/exec', {
                     method: 'POST',
                     body: JSON.stringify(formObject),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
-                .then(response => {
-                    // Show success message
-                    successMessage.style.display = 'block';
-                    
-                    // Reset form after 2 seconds
-                    setTimeout(() => {
-                        contactForm.reset();
-                        successMessage.style.display = 'none';
-                        contactModal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }, 2000);
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        // Show success message
+                        successMessage.style.display = 'block';
+                        
+                        // Reset form after 2 seconds
+                        setTimeout(() => {
+                            contactForm.reset();
+                            successMessage.style.display = 'none';
+                            contactModal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 2000);
+                    } else {
+                        throw new Error(data.message || 'Unknown error');
+                    }
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    alert('There was an error submitting the form. Please try again.');
                 })
                 .finally(() => {
                     // Reset button state
