@@ -7,7 +7,6 @@
     <meta name="description" content="AI-powered real estate service in San Antonio. Find your perfect home with Orion's cutting-edge property matching technology. Free home valuation and mortgage calculator.">
     <title>Unlock Your Next Chapter | Orion AI Real Estate Network – San Antonio</title>
 
-    
     <!-- begin Widget Tracker Code -->
     <script>
     (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
@@ -1701,12 +1700,6 @@
                     }
                 })
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
                     // Show success message
                     successMessage.style.display = 'block';
                     
@@ -1720,7 +1713,6 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('There was an error submitting your form. Please try again.');
                 })
                 .finally(() => {
                     // Reset button state
