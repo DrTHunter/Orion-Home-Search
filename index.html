@@ -591,7 +591,7 @@
             font-size: 1.1rem;
         }
         
-        /* Blog Section */
+        /* Blog Section - Updated for Horizontal Scrolling */
         .blog-section {
             padding: 80px 0;
             background-color: var(--light);
@@ -603,14 +603,40 @@
             padding: 0 20px;
         }
         
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Horizontal Scrolling Container */
+        .blog-scroll-container {
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 20px;
             margin-top: 40px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        /* Hide scrollbar but keep functionality */
+        .blog-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .blog-scroll-container::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .blog-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 10px;
+        }
+        
+        /* Blog Grid - Now Horizontal */
+        .blog-grid {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            width: max-content;
         }
         
         .blog-card {
+            flex: 0 0 350px; /* Fixed width for each card */
             background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
@@ -994,12 +1020,14 @@
                 padding: 60px 0;
             }
             
-            .blog-grid {
-                grid-template-columns: 1fr;
+            /* Mobile adjustments for horizontal scrolling */
+            .blog-card {
+                flex: 0 0 300px; /* Slightly smaller cards on mobile */
             }
             
-            .blog-title {
-                font-size: 1.3rem;
+            .blog-cta-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
             }
 
             .footer-container {
@@ -1013,11 +1041,6 @@
 
             .footer-contact p {
               justify-content: center;
-            }
-
-            .blog-cta-button {
-                padding: 12px 25px;
-                font-size: 1.1rem;
             }
         }
     </style>
@@ -1299,7 +1322,7 @@
         </div>
     </section>
     
-    <!-- Blog Section -->
+    <!-- Blog Section - Updated for Horizontal Scrolling -->
     <section class="blog-section" id="blog">
         <div class="blog-container">
             <div class="section-title">
@@ -1307,53 +1330,87 @@
                 <p>Insights, trends, and expert advice on San Antonio real estate</p>
             </div>
             
-            <div class="blog-grid">
-                <!-- Blog Post 1 -->
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio Suburban Homes" loading="lazy">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span>June 6, 2025</span>
-                            <span class="blog-category">Neighborhood Guide</span>
+            <div class="blog-scroll-container">
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio Suburban Homes" loading="lazy">
                         </div>
-                        <h3 class="blog-title">Best Neighborhoods in San Antonio for First-Time Homebuyers (2025 Edition)</h3>
-                        <p class="blog-excerpt">From Alamo Ranch to Tobin Hill, explore the top 5 areas where first-time buyers are getting the most for their money—and how Orion AI helps you choose smart.</p>
-                        <a href="https://www.orionhomesearch.com/blog/best-neighborhoods/" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span>June 6, 2025</span>
+                                <span class="blog-category">Neighborhood Guide</span>
+                            </div>
+                            <h3 class="blog-title">Best Neighborhoods in San Antonio for First-Time Homebuyers (2025 Edition)</h3>
+                            <p class="blog-excerpt">From Alamo Ranch to Tobin Hill, explore the top 5 areas where first-time buyers are getting the most for their money—and how Orion AI helps you choose smart.</p>
+                            <a href="https://www.orionhomesearch.com/blog/best-neighborhoods/" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Blog Post 2 -->
-                <div class="blog-card">
-                  <div class="blog-image">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="San Antonio housing market 2025" loading="lazy">
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span>June 7, 2025</span>
-                      <span class="blog-category">Market Forecast</span>
+                    
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="San Antonio housing market 2025" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>June 7, 2025</span>
+                          <span class="blog-category">Market Forecast</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio Housing Market Forecast 2025: What Buyers Need to Know</h3>
+                        <p class="blog-excerpt">Explore expert insights into pricing trends, inventory shifts, and strategic buying tips for 2025. Orion AI helps you make smarter moves in San Antonio's evolving market.</p>
+                        <a href="https://www.orionhomesearch.com/blog/San-Antonio-2025-Housing-Market-Forecast" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                      </div>
                     </div>
-                    <h3 class="blog-title">San Antonio Housing Market Forecast 2025: What Buyers Need to Know</h3>
-                    <p class="blog-excerpt">Explore expert insights into pricing trends, inventory shifts, and strategic buying tips for 2025. Orion AI helps you make smarter moves in San Antonio's evolving market.</p>
-                    <a href="https://www.orionhomesearch.com/blog/San-Antonio-2025-Housing-Market-Forecast" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                  </div>
-                </div>
-                
-                <!-- Blog Post 3 -->
-                <div class="blog-card">
-                  <div class="blog-image">
-                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" loading="lazy">
-                  </div>
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <span>June 7, 2025</span>
-                      <span class="blog-category">Neighborhood Insights</span>
+                    
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>June 7, 2025</span>
+                          <span class="blog-category">Neighborhood Insights</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h3>
+                        <p class="blog-excerpt">Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
+                        <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                      </div>
                     </div>
-                    <h3 class="blog-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h3>
-                    <p class="blog-excerpt">Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
-                    <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                  </div>
+                    
+                    <!-- Blog Post 4 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury home" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>May 15, 2025</span>
+                          <span class="blog-category">Luxury Market</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio Luxury Market Trends: Where the Elite Are Buying</h3>
+                        <p class="blog-excerpt">An inside look at the most exclusive neighborhoods and emerging luxury enclaves in San Antonio, with price projections through 2026.</p>
+                        <a href="https://www.orionhomesearch.com/blog/San-Antonio-Luxury-Market-Trends" class="blog-read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                      </div>
+                    </div>
+                    
+                    <!-- Blog Post 5 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Military housing" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>April 30, 2025</span>
+                          <span class="blog-category">Military</span>
+                        </div>
+                        <h3 class="blog-title">Best Neighborhoods Near Military Bases in San Antonio</h3>
+                        <p class="blog-excerpt">For service members stationed in San Antonio, we analyze the best housing options near Lackland, Randolph, and Fort Sam Houston with commute times and VA loan insights.</p>
+                        <a href="https://www.orionhomesearch.com/blog/Best-Neighborhoods-Near-Military-Bases" class="blog-read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                      </div>
+                    </div>
                 </div>
             </div>
 
