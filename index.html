@@ -687,6 +687,47 @@
         .blog-read-more:hover {
             color: var(--primary-light);
         }
+
+        /* Blog CTA Button */
+        .blog-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .blog-cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .blog-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+        }
+        
+        .blog-cta-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        .blog-cta-button i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .blog-cta-subtext {
+            margin-top: 20px;
+            color: var(--primary);
+            font-weight: 500;
+        }
                 
         /* Contact Modal Styles */
         .contact-modal {
@@ -972,6 +1013,11 @@
 
             .footer-contact p {
               justify-content: center;
+            }
+
+            .blog-cta-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -1309,6 +1355,15 @@
                     <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
                   </div>
                 </div>
+            </div>
+
+            <!-- Blog CTA Button -->
+            <div class="blog-cta">
+                <a href="https://www.orionhomesearch.com/blog" class="blog-cta-button">
+                    <span>Explore More Articles</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <p class="blog-cta-subtext">Dive deeper into San Antonio real estate insights</p>
             </div>
         </div>
     </section>
