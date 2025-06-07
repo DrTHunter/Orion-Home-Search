@@ -288,11 +288,18 @@
         
         .checkbox-inline {
           display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.95rem;
-          gap: 12px;
+          align-items: flex-start;
+          gap: 10px;
           padding: 4px 0;
+          justify-content: flex-start;
+        }
+        
+        .checkbox-inline input[type="checkbox"] {
+          margin-top: 3px;
+        }
+        
+        .checkbox-inline span {
+          text-align: left;
         }
         
         /*Other Info/Preferences*/
