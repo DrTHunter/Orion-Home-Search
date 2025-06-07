@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>San Antonio Polygon Search | Orion AI Real Estate Network</title>
+  <title>San Antonio Downtown Search | Orion AI Real Estate Network</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
@@ -117,6 +117,9 @@
       font-weight: 500;
       transition: color 0.3s;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     
     .nav-links a:hover {
@@ -129,15 +132,20 @@
       padding: 8px 12px;
       border-radius: 5px;
       font-weight: 600;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       font-size: 14px;
       border: none;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cta-button:hover {
       background-color: var(--primary-light);
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     /* Mobile Menu Overlay */
@@ -192,13 +200,14 @@
     
     /* Map Preview */
     .map-preview {
-      height: 300px;
+      height: 350px;
       background-color: #eee;
       border-radius: 8px;
       margin-bottom: 20px;
-      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x300&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x350&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
       background-size: cover;
       background-position: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
     /* CTA Section */
@@ -207,6 +216,25 @@
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
     }
     
     .cta-section h2 {
@@ -235,6 +263,9 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cta-section .cta-button {
@@ -245,6 +276,8 @@
     
     .cta-section .cta-button:hover {
       background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     .cta-section .secondary-button {
@@ -256,6 +289,8 @@
     .cta-section .secondary-button:hover {
       background-color: white;
       color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     /* Contact Modal Styles */
@@ -269,18 +304,30 @@
       height: 100%;
       overflow: auto;
       background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     
     .modal-content {
       background-color: #fff;
       margin: 5% auto;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
       max-width: 500px;
       width: 90%;
       max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      animation: slideIn 0.3s;
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
     }
     
     .close-modal {
@@ -288,6 +335,11 @@
       font-size: 24px;
       font-weight: bold;
       cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
     }
     
     #contact-form .form-group {
@@ -308,11 +360,32 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         font-size: 16px;
+        transition: border-color 0.3s;
+    }
+    
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
     #contact-form button {
         width: 100%;
         margin-top: 10px;
+        padding: 12px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    #contact-form button:hover {
+        background-color: var(--primary-light);
     }
     
     /* Checkboxes in form */
@@ -337,6 +410,24 @@
       color: white;
       padding: 30px 0 20px;
       text-align: center;
+      position: relative;
+    }
+    
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    footer .container {
+      position: relative;
+      z-index: 1;
     }
     
     .footer-logo {
@@ -356,6 +447,15 @@
     
     .footer-contact p {
       margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .footer-contact i {
+      color: var(--accent);
+      width: 20px;
     }
     
     .social-links {
@@ -368,11 +468,20 @@
     .social-links a {
       color: white;
       font-size: 1.2rem;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
     }
     
     .social-links a:hover {
       color: var(--secondary);
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
     }
     
     .copyright {
@@ -419,7 +528,7 @@
       }
       
       .map-preview {
-        height: 200px;
+        height: 250px;
       }
       
       .cta-buttons {
@@ -448,8 +557,8 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/">Home</a>
-          <a href="#contact" class="cta-button">Contact</a>
+          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Contact</a>
         </div>
       </nav>
     </div>
