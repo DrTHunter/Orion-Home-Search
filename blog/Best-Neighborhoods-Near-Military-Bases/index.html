@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Best Neighborhoods Near Military Bases in San Antonio | Orion AI Real Estate Network</title>
-  <meta name="description" content="2025 guide to the best neighborhoods near Lackland AFB, Fort Sam Houston, and Randolph AFB. Find military-friendly communities with great schools and easy commutes.">
+  <meta name="description" content="Discover the best neighborhoods near Lackland AFB, Fort Sam Houston, and Randolph AFB in our 2025 relocation guide for military families.">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
@@ -33,17 +33,17 @@
   
   <style>
     :root {
-      --primary: #2a5b84;         /* Deep military blue */
+      --primary: #2a5b84;         /* Deep tech blue */
       --primary-light: #4b91c9;   /* Soft, clickable blue */
-      --secondary: #b88cf3;       /* Muted violet */
-      --accent: #5ef2c2;          /* Highlight color */
-      --dark: #1e1e2f;            /* Deep navy-charcoal */
-      --light: #f4f6f8;           /* Soft light background */
-      --gray: #d1d5db;            /* Light cool gray */
+      --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
+      --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
+      --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
+      --light: #f4f6f8;           /* Soft, breathable light background */
+      --gray: #d1d5db;            /* Light cool gray for body text on dark */
       --white: #ffffff;
-      --military-green: #4b5320;  /* Added military color */
+      --military-green: #4b5320;  /* Military green color */
     }
-     
+    
     * {
       margin: 0;
       padding: 0;
@@ -259,20 +259,118 @@
       margin-bottom: 20px;
     }
     
+    .neighborhood-card {
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .neighborhood-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .neighborhood-card h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .neighborhood-card h3 i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .neighborhood-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .neighborhood-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    
+    .stat-item {
+      background: rgba(42, 91, 132, 0.1);
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .stat-item i {
+      color: var(--primary);
+    }
+    
+    .highlight-box {
+      background-color: rgba(42, 91, 132, 0.1);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 0 8px 8px 0;
+      position: relative;
+    }
+    
+    .highlight-box:before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 60px;
+      font-family: serif;
+      color: rgba(42, 91, 132, 0.2);
+      line-height: 1;
+    }
+    
+    .highlight-box p {
+      margin-bottom: 0;
+      font-style: italic;
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    /* Featured Image */
+    .featured-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 30px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    /* Military-specific styles */
     .military-badge {
+      display: inline-block;
       background-color: var(--military-green);
       color: white;
       padding: 3px 8px;
       border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.8rem;
       margin-left: 10px;
-      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
     }
     
     .base-commute {
       display: flex;
       align-items: center;
+      gap: 10px;
       margin: 15px 0;
       padding: 10px;
       background-color: rgba(75, 83, 32, 0.1);
@@ -282,37 +380,387 @@
     .base-commute i {
       font-size: 1.5rem;
       color: var(--military-green);
-      margin-right: 15px;
     }
     
     .commute-info h4 {
-      margin-bottom: 5px;
+      margin: 0;
+      font-size: 1rem;
       color: var(--military-green);
     }
     
+    .commute-info p {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+    }
+    
     .va-loan-tip {
-      background-color: rgba(42, 91, 132, 0.1);
-      border-left: 3px solid var(--primary);
+      background-color: rgba(75, 83, 32, 0.1);
+      border-left: 4px solid var(--military-green);
       padding: 15px;
       margin: 20px 0;
-      border-radius: 0 5px 5px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    
+    .va-loan-tip p {
+      margin: 0;
+    }
+    
+    .va-loan-tip strong {
+      color: var(--military-green);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    /* Updated Button Styles for CTA Section */
+    .cta-section .cta-button,
+    .cta-section .secondary-button {
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cta-section .cta-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+    
+    .cta-section .cta-button:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-section .secondary-button {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .cta-section .secondary-button:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Contact Modal Styles */
+    .contact-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      animation: slideIn 0.3s;
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    
+    .close-modal {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
+    }
+    
+    #contact-form .form-group {
+        margin-bottom: 20px;
+    }
+    
+    #contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+    
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
+    }
+    
+    #contact-form button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    #contact-form button:hover {
+        background-color: var(--primary-light);
+    }
+    
+    /* Checkboxes in form */
+    .checkbox-group.after-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .checkbox-inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      gap: 12px;
+      padding: 4px 0;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 30px 0 20px;
+      text-align: center;
       position: relative;
     }
     
-    .va-loan-tip:before {
-      content: "VA TIP";
+    footer:before {
+      content: '';
       position: absolute;
-      top: -10px;
-      left: 15px;
-      background-color: var(--primary);
-      color: white;
-      font-size: 0.7rem;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-weight: bold;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.05;
+      z-index: 0;
     }
     
-    /* Responsive styles remain the same */
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .footer-logo span {
+      color: var(--secondary);
+    }
+    
+    .footer-contact {
+      margin-bottom: 20px;
+    }
+    
+    .footer-contact p {
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .footer-contact i {
+      color: var(--accent);
+      width: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+    }
+    
+    .social-links a:hover {
+      color: var(--secondary);
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 100px 0 40px;
+      }
+      
+      .blog-title {
+        font-size: 2rem;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 100;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .logo {
+        font-size: 16px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-section .cta-button,
+      .cta-section .secondary-button {
+        width: 100%;
+        max-width: 250px;
+      }
+      
+      .featured-image {
+        height: 250px;
+      }
+      
+      .neighborhood-image {
+        height: 180px;
+      }
+    }
+    
+    /* Animations */
+    .animate-pop {
+      animation: popIn 0.5s ease-out;
+    }
+    
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
   </style>
 </head>
 <body>
@@ -506,7 +954,7 @@
   <div class="contact-modal" id="contact-modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
-      <h2>Military Home Search Assistance</h2>
+      <h2>Get in Touch</h2>
       <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
         
         <div class="form-group">
@@ -524,53 +972,48 @@
           <input type="tel" id="phone" name="phone" required>
         </div>
   
-        <div class="form-group">
-          <label for="militaryStatus">Military Status</label>
-          <select id="militaryStatus" name="militaryStatus" required>
-            <option value="">Select</option>
-            <option value="Active Duty">Active Duty</option>
-            <option value="Veteran">Veteran</option>
-            <option value="Reservist">Reservist</option>
-            <option value="National Guard">National Guard</option>
-            <option value="Military Spouse">Military Spouse</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-  
-        <div class="form-group">
-          <label>Base Location (check all that apply)</label>
-          <div class="checkbox-group after-text">
-            <label class="checkbox-inline">
-              Lackland AFB
-              <input type="checkbox" name="bases" value="Lackland AFB">
-            </label>
-            <label class="checkbox-inline">
-              Fort Sam Houston
-              <input type="checkbox" name="bases" value="Fort Sam Houston">
-            </label>
-            <label class="checkbox-inline">
-              Randolph AFB
-              <input type="checkbox" name="bases" value="Randolph AFB">
-            </label>
-            <label class="checkbox-inline">
-              Other/Not Sure
-              <input type="checkbox" name="bases" value="Other">
-            </label>
+          <div class="form-group">
+            <label>Preferred Locations (check all that apply)</label>
+            <div class="checkbox-group after-text">
+              <label class="checkbox-inline">
+                Downtown San Antonio
+                <input type="checkbox" name="locations" value="Downtown San Antonio">
+              </label>
+              <label class="checkbox-inline">
+                Alamo Heights
+                <input type="checkbox" name="locations" value="Alamo Heights">
+              </label>
+              <label class="checkbox-inline">
+                Stone Oak
+                <input type="checkbox" name="locations" value="Stone Oak">
+              </label>
+              <label class="checkbox-inline">
+                Northwest Side
+                <input type="checkbox" name="locations" value="Northwest Side">
+              </label>
+              <label class="checkbox-inline">
+                Medical Center
+                <input type="checkbox" name="locations" value="Medical Center">
+              </label>
+              <label class="checkbox-inline">
+                Other
+                <input type="checkbox" name="locations" value="Other">
+              </label>
+            </div>
           </div>
-        </div>
   
         <div class="form-group">
-          <label for="timeline">PCS Timeline</label>
+          <label for="timeline">Timeline to Move</label>
           <select id="timeline" name="timeline" required>
             <option value="">Select</option>
-            <option value="ASAP">ASAP/Already Here</option>
+            <option value="ASAP">ASAP</option>
             <option value="1-3 Months">1-3 Months</option>
             <option value="3-6 Months">3-6 Months</option>
             <option value="6+ Months">6+ Months</option>
           </select>
         </div>
   
-        <div class="form-group">
+      <div class="form-group">
           <label for="budget">Budget Range</label>
           <select id="budget" name="budget" required>
             <option value="">Select</option>
@@ -582,24 +1025,13 @@
         </div>
   
         <div class="form-group">
-          <label for="loanType">Loan Type</label>
-          <select id="loanType" name="loanType">
-            <option value="">Select</option>
-            <option value="VA Loan">VA Loan</option>
-            <option value="Conventional">Conventional</option>
-            <option value="Cash">Cash</option>
-            <option value="Not Sure">Not Sure</option>
-          </select>
-        </div>
-  
-        <div class="form-group">
-          <label for="message">Specific Needs or Preferences?</label>
-          <textarea id="message" name="additional" rows="4" style="width: 100%;" placeholder="School districts, must-have features, etc."></textarea>
+          <label for="message">Other Info or Preferences?</label>
+          <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
         </div>
   
         <button type="submit">Submit</button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
-          Thank you! Your form has been submitted. A military-savvy agent will contact you shortly.
+          Thank you! Your form has been submitted.
         </div>
       </form>
     </div>
@@ -625,8 +1057,7 @@
       </div>
       
       <div class="copyright">
-        <p>&copy; 2025 Orion AI Real Estate Network. Proudly serving military families.</p>
-        <p style="font-size:0.8rem; margin-top:5px;">Not affiliated with the Department of Defense or any military branch.</p>
+        <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
       </div>
     </div>
   </footer>
@@ -641,6 +1072,7 @@
       mobileMenu.addEventListener('click', function() {
         navLinks.classList.toggle('active');
         mobileOverlay.classList.toggle('active');
+        // Toggle between hamburger and close icon
         if (navLinks.classList.contains('active')) {
           mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
         } else {
@@ -669,16 +1101,17 @@
       const callNowBtn = document.getElementById('call-now-btn');
       const emailMeBtn = document.getElementById('email-me-btn');
       const closeModal = document.querySelector('.close-modal');
+      const contactForm = document.getElementById('contact-form');
       
       // Open modal for both buttons
       callNowBtn.addEventListener('click', function() {
         contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
       
       emailMeBtn.addEventListener('click', function() {
         contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
       
       // Close modal
@@ -714,12 +1147,17 @@
           body: data
         }).then(() => {
           e.target.reset();
-          status.innerText = "Thank you! A military-savvy agent will contact you shortly.";
+          status.innerText = "Thank you! Your form has been submitted.";
         }).catch(() => {
           status.innerText = "Something went wrong. Please try again later.";
         });
       });
     });
   </script>
+
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="RfCRY6zG0cFaXP1SpqUgu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+  
 </body>
 </html>
