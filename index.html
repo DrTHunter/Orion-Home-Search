@@ -1373,7 +1373,59 @@
                 <p>Insights, trends, and expert advice on San Antonio real estate</p>
             </div>
             
-          
+            <!-- Horizontal Scrolling Container -->
+            <div class="blog-scroll-container">
+                <!-- Blog Grid - Now Horizontal -->
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio Suburban Homes" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span>June 6, 2025</span>
+                                <span class="blog-category">Neighborhood Guide</span>
+                            </div>
+                            <h3 class="blog-title">Best Neighborhoods in San Antonio for First-Time Homebuyers (2025 Edition)</h3>
+                            <p class="blog-excerpt">From Alamo Ranch to Tobin Hill, explore the top 5 areas where first-time buyers are getting the most for their money—and how Orion AI helps you choose smart.</p>
+                            <a href="https://www.orionhomesearch.com/blog/best-neighborhoods/" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="San Antonio housing market 2025" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>June 7, 2025</span>
+                          <span class="blog-category">Market Forecast</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio Housing Market Forecast 2025: What Buyers Need to Know</h3>
+                        <p class="blog-excerpt">Explore expert insights into pricing trends, inventory shifts, and strategic buying tips for 2025. Orion AI helps you make smarter moves in San Antonio's evolving market.</p>
+                        <a href="https://www.orionhomesearch.com/blog/San-Antonio-2025-Housing-Market-Forecast" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                      </div>
+                    </div>
+                    
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card">
+                      <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" loading="lazy">
+                      </div>
+                      <div class="blog-content">
+                        <div class="blog-meta">
+                          <span>June 7, 2025</span>
+                          <span class="blog-category">Neighborhood Insights</span>
+                        </div>
+                        <h3 class="blog-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h3>
+                        <p class="blog-excerpt">Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
+                        <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                      </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Blog CTA Button -->
             <div class="blog-cta">
@@ -1391,7 +1443,7 @@
       <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h2>Get in Touch</h2>
-        <form id="contact-form">
+        <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
           
           <div class="form-group">
             <label for="fullName">Full Name</label>
@@ -1412,28 +1464,28 @@
               <label>Preferred Locations (check all that apply)</label>
               <div class="checkbox-group after-text">
                 <label class="checkbox-inline">
-                  Downtown San Antonio
                   <input type="checkbox" name="locations" value="Downtown San Antonio">
+                  <span>Downtown San Antonio</span>
                 </label>
                 <label class="checkbox-inline">
-                  Alamo Heights
                   <input type="checkbox" name="locations" value="Alamo Heights">
+                  <span>Alamo Heights</span>
                 </label>
                 <label class="checkbox-inline">
-                  Stone Oak
                   <input type="checkbox" name="locations" value="Stone Oak">
+                  <span>Stone Oak</span>
                 </label>
                 <label class="checkbox-inline">
-                  Northwest Side
                   <input type="checkbox" name="locations" value="Northwest Side">
+                  <span>Northwest Side</span>
                 </label>
                 <label class="checkbox-inline">
-                  Medical Center
                   <input type="checkbox" name="locations" value="Medical Center">
+                  <span>Medical Center</span>
                 </label>
                 <label class="checkbox-inline">
-                  Other
                   <input type="checkbox" name="locations" value="Other">
+                  <span>Other</span>
                 </label>
               </div>
             </div>
@@ -1674,8 +1726,8 @@
                 }
             });
             
-            // Form submission handler - Updated to use JSON
-            contactForm.addEventListener('submit', function(e) {
+            // Form submission handler
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const submitBtn = contactForm.querySelector('button[type="submit"]');
@@ -1685,57 +1737,86 @@
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
                 
-                // Get form data and convert to object
-                const formData = new FormData(contactForm);
-                const formObject = {};
+                // Clear any previous errors
+                const existingErrors = document.querySelectorAll('.form-error');
+                existingErrors.forEach(error => error.remove());
                 
-                // Convert FormData to plain object
-                formData.forEach((value, key) => {
-                    // Handle checkboxes - group values into arrays
-                    if (key === 'locations') {
-                        if (!formObject[key]) {
-                            formObject[key] = [];
+                try {
+                    // Get form values
+                    const formData = {
+                        name: document.getElementById('fullName').value.trim(),
+                        phone: document.getElementById('phone').value.trim(),
+                        email: document.getElementById('email').value.trim(),
+                        timeline: document.getElementById('timeline').value,
+                        budget: document.getElementById('budget').value,
+                        additional: document.getElementById('message').value.trim(),
+                        // Add locations checkboxes
+                        locations: Array.from(document.querySelectorAll('input[name="locations"]:checked')).map(el => el.value).join(', ')
+                    };
+                    
+                    // Validate inputs
+                    if (!formData.name || !formData.phone || !formData.email || !formData.timeline) {
+                        throw new Error('Please fill in all required fields');
+                    }
+                    
+                    // Submit form data
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                    
+                    // Check for HTTP errors
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(errorData.message || `Server responded with status ${response.status}`);
+                    }
+                    
+                    // Parse successful response
+                    const responseData = await response.json();
+                    console.log('Form submission successful:', responseData);
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form after 2 seconds
+                    setTimeout(() => {
+                        contactForm.reset();
+                        successMessage.style.display = 'none';
+                        contactModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    
+                    // Create and display error message
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'form-error';
+                    errorDiv.innerHTML = `
+                        <p style="color: #d32f2f; margin: 10px 0; padding: 10px; background: #ffeeee; border-left: 4px solid #d32f2f;">
+                            <i class="fas fa-exclamation-circle"></i> 
+                            ${error.message || 'There was an error submitting your form. Please try again or contact us directly at (843) 212-7235.'}
+                        </p>
+                    `;
+                    
+                    // Insert error message after the submit button
+                    submitBtn.insertAdjacentElement('afterend', errorDiv);
+                    
+                    // Remove error after 5 seconds
+                    setTimeout(() => {
+                        if (errorDiv.parentNode) {
+                            errorDiv.remove();
                         }
-                        formObject[key].push(value);
-                    } else {
-                        formObject[key] = value;
-                    }
-                });
-                
-                // Send as JSON
-                fetch('https://script.google.com/macros/s/AKfycbwhPj2tuL7J7YsPK8xo3f5ZprHJJX6pVv7ucI6tcE8vqRnmrhEXarjwY069ggKvUVT97w/exec', {
-                    method: 'POST',
-                    body: JSON.stringify(formObject),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        // Show success message
-                        successMessage.style.display = 'block';
-                        
-                        // Reset form after 2 seconds
-                        setTimeout(() => {
-                            contactForm.reset();
-                            successMessage.style.display = 'none';
-                            contactModal.style.display = 'none';
-                            document.body.style.overflow = 'auto';
-                        }, 2000);
-                    } else {
-                        throw new Error(data.message || 'Unknown error');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('There was an error submitting the form. Please try again.');
-                })
-                .finally(() => {
+                    }, 5000);
+                    
+                } finally {
                     // Reset button state
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalBtnText;
-                });
+                }
             });
         });
     </script>
