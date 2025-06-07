@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
   <style>
     :root {
@@ -52,6 +53,7 @@
       color: var(--dark);
       line-height: 1.6;
       background-color: var(--white);
+      scroll-behavior: smooth;
     }
     
     h1, h2, h3, h4 {
@@ -75,6 +77,12 @@
       width: 100%;
       z-index: 100;
       padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 5px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     
     nav {
@@ -129,15 +137,20 @@
       padding: 8px 12px;
       border-radius: 5px;
       font-weight: 600;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       font-size: 14px;
       border: none;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cta-button:hover {
       background-color: var(--primary-light);
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
     /* Mobile Menu Overlay */
@@ -190,6 +203,25 @@
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
     }
     
     .cta-section h2 {
@@ -218,6 +250,9 @@
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     
     .cta-section .cta-button {
@@ -228,6 +263,8 @@
     
     .cta-section .cta-button:hover {
       background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     .cta-section .secondary-button {
@@ -239,6 +276,8 @@
     .cta-section .secondary-button:hover {
       background-color: white;
       color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
     
     /* Contact Modal Styles */
@@ -252,18 +291,30 @@
       height: 100%;
       overflow: auto;
       background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     
     .modal-content {
       background-color: #fff;
       margin: 5% auto;
-      padding: 20px;
+      padding: 30px;
       border-radius: 12px;
       max-width: 500px;
       width: 90%;
       max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      animation: slideIn 0.3s;
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
     }
     
     .close-modal {
@@ -271,6 +322,11 @@
       font-size: 24px;
       font-weight: bold;
       cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
     }
     
     #contact-form .form-group {
@@ -291,11 +347,32 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         font-size: 16px;
+        transition: border-color 0.3s;
+    }
+    
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
     #contact-form button {
         width: 100%;
         margin-top: 10px;
+        padding: 12px;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    #contact-form button:hover {
+        background-color: var(--primary-light);
     }
     
     /* Checkboxes in form */
@@ -320,6 +397,24 @@
       color: white;
       padding: 30px 0 20px;
       text-align: center;
+      position: relative;
+    }
+    
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    footer .container {
+      position: relative;
+      z-index: 1;
     }
     
     .footer-logo {
@@ -339,6 +434,15 @@
     
     .footer-contact p {
       margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .footer-contact i {
+      color: var(--accent);
+      width: 20px;
     }
     
     .social-links {
@@ -351,11 +455,20 @@
     .social-links a {
       color: white;
       font-size: 1.2rem;
-      transition: color 0.3s;
+      transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
     }
     
     .social-links a:hover {
       color: var(--secondary);
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
     }
     
     .copyright {
@@ -412,6 +525,22 @@
         max-width: 250px;
       }
     }
+    
+    /* Animations */
+    .animate-pop {
+      animation: popIn 0.5s ease-out;
+    }
+    
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
   </style>
 </head>
 <body>
@@ -419,7 +548,7 @@
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 
   <!-- Header -->
-  <header>
+  <header id="main-header">
     <div class="container">
       <nav>
         <div class="logo"><span>Orion</span> AI Real Estate Network</div>
@@ -428,7 +557,7 @@
         </button>
         <div class="nav-links" id="nav-links">
           <a href="https://www.orionhomesearch.com/">Home</a>
-          <a href="#contact" class="cta-button">Contact</a>
+          <a href="#contact" class="cta-button"><i class="fas fa-home"></i> Contact</a>
         </div>
       </nav>
     </div>
@@ -437,12 +566,12 @@
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <div class="page-title">
+      <div class="page-title animate__animated animate__fadeIn">
         <h1>Property Search Results</h1>
         <p>Browse our curated selection of available properties in the San Antonio area</p>
       </div>
       
-      <div class="search-results-container">
+      <div class="search-results-container animate-pop delay-1">
         <!-- Your specified widget with custom filters -->
         <div id="MBBv3_SearchForm" filter="mls_id:tx521+listing_status:active+representation_type:any_listing"></div>
       </div>
@@ -662,6 +791,16 @@
         }).catch(() => {
           status.innerText = "Something went wrong. Please try again later.";
         });
+      });
+
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.getElementById('main-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
       });
     });
   </script>
