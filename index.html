@@ -1220,9 +1220,27 @@
       <div class="container">
         <h2 class="section-title">Property Search Tool</h2>
    
-          <!-- Replaced iframe with the widget div -->
-          <div id="MBBv3_InteractiveMap" filter="mls_id:demo+listing_status:active+bedrooms_total_min:1+property_type:residential+property_subtype:apartment,condominium,half duplex,manufactured home - post 1977,single family residence,townhouse,villa+representation_type:any_listing+limit:12+order:create_dt desc"></div>
-            
+          <!-- In the Listings Section, replace the current widget with this: -->
+            <section id="listings" class="section listings-section">
+              <div class="container">
+                <h2 class="section-title">Property Search Tool</h2>
+                
+                <!-- Search Toggle Buttons -->
+                <div class="search-toggle" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                  <button id="map-toggle" class="cta-button" style="border-radius: 5px 0 0 5px; margin-right: 0;">Map View</button>
+                  <button id="form-toggle" class="secondary-button" style="border-radius: 0 5px 5px 0; margin-left: 0;">Form Search</button>
+                </div>
+                
+                <!-- Map Search Widget (initially visible) -->
+                <div id="map-search-container">
+                  <div id="MBBv3_InteractiveMap" filter="mls_id:demo+listing_status:active+bedrooms_total_min:1+property_type:residential+property_subtype:apartment,condominium,half duplex,manufactured home - post 1977,single family residence,townhouse,villa+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+                </div>
+                
+                <!-- Form Search Widget (initially hidden) -->
+                <div id="form-search-container" style="display: none;">
+                  <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+bedrooms_total_min:1+property_type:single residential+house_type:apartment,apartments,condominium,manufactured,modular home,townhome,townhome style+representation_type:any_listing"></div>
+                </div>
+
           <!-- Moved Neighborhoods section here -->
           <div class="section-title" style="margin-top: 60px;">
               <h2>Explore Lifestyle Zones with Orion</h2>
@@ -1718,7 +1736,30 @@
             });
           });
         });
-      
+
+        // Add this to your existing script section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search Widget Toggle
+            const mapToggle = document.getElementById('map-toggle');
+            const formToggle = document.getElementById('form-toggle');
+            const mapSearch = document.getElementById('map-search-container');
+            const formSearch = document.getElementById('form-search-container');
+            
+            mapToggle.addEventListener('click', function() {
+                mapSearch.style.display = 'block';
+                formSearch.style.display = 'none';
+                mapToggle.className = 'cta-button';
+                formToggle.className = 'secondary-button';
+            });
+            
+            formToggle.addEventListener('click', function() {
+                mapSearch.style.display = 'none';
+                formSearch.style.display = 'block';
+                mapToggle.className = 'secondary-button';
+                formToggle.className = 'cta-button';
+            });
+        });
+        
         // Contact Modal
         document.addEventListener('DOMContentLoaded', function () {
           const contactModal = document.getElementById('contact-modal');
