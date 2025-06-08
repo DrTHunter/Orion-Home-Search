@@ -284,6 +284,7 @@
           display: flex;
           flex-direction: column;
           gap: 8px;
+          align-items: flex-start;
         }
         
         .checkbox-inline {
@@ -292,14 +293,17 @@
           gap: 10px;
           padding: 4px 0;
           justify-content: flex-start;
+          width: 100%;
         }
         
         .checkbox-inline input[type="checkbox"] {
           margin-top: 3px;
+          flex-shrink: 0;
         }
         
         .checkbox-inline span {
           text-align: left;
+          flex-grow: 1;
         }
         
         /*Other Info/Preferences*/
@@ -1517,11 +1521,11 @@
             <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
           </div>
     
-          <!-- Added Terms of Service checkbox -->
+          <!-- Updated Terms of Service checkbox -->
           <div class="form-group">
             <div class="checkbox-group after-text">
-              <label class="checkbox-inline" style="display: flex; align-items: flex-start; gap: 10px;">
-                <input type="checkbox" name="terms" required style="margin-top: 3px;">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="terms" required>
                 <span>I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank">Terms of Service</a></span>
               </label>
             </div>
@@ -1827,5 +1831,3 @@
     
 </body>
 </html>
-
- 
