@@ -279,29 +279,31 @@
             margin-bottom: 15px;
         }
 
-        /* Updated Checkbox Styles */
+        /*checkboxes in form*/
         .checkbox-group.after-text {
-          display: grid;
-          grid-template-columns: auto 1fr;
+          display: flex;
+          flex-direction: column;
           gap: 8px;
           align-items: flex-start;
-          width: 100%;
         }
         
         .checkbox-inline {
-          display: contents; /* This makes the label children participate in the grid */
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 4px 0;
+          justify-content: flex-start;
+          width: 100%;
         }
         
         .checkbox-inline input[type="checkbox"] {
-          grid-column: 1;
           margin-top: 3px;
-          margin-right: 0;
+          flex-shrink: 0;
         }
         
         .checkbox-inline span {
-          grid-column: 2;
           text-align: left;
-          padding-left: 0;
+          flex-grow: 1;
         }
         
         /*Other Info/Preferences*/
