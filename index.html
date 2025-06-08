@@ -280,20 +280,30 @@
         }
 
         /*checkboxes in form*/
-        .checkbox-group {
+        .checkbox-group.after-text {
           display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          margin-top: 0.5rem;
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-start;
         }
         
-        .checkbox-item {
+        .checkbox-inline {
           display: flex;
-          flex-direction: row-reverse; /* Text first, checkbox second */
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.95rem;
-          cursor: pointer;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 4px 0;
+          justify-content: flex-start;
+          width: 100%;
+        }
+        
+        .checkbox-inline input[type="checkbox"] {
+          margin-top: 3px;
+          flex-shrink: 0;
+        }
+        
+        .checkbox-inline span {
+          text-align: left;
+          flex-grow: 1;
         }
         
         /*Other Info/Preferences*/
@@ -1455,37 +1465,31 @@
           </div>
     
             <div class="form-group">
-              <label>Preferred Locations <small>(Check all that apply)</small></label>
-              
-              <div class="checkbox-group">
-                <label class="checkbox-item">
+              <label>Preferred Locations (check all that apply)</label>
+              <div class="checkbox-group after-text">
+                <label class="checkbox-inline">
                   <input type="checkbox" name="locations" value="Downtown San Antonio">
-                  Downtown San Antonio
+                  <span>Downtown San Antonio</span>
                 </label>
-            
-                <label class="checkbox-item">
+                <label class="checkbox-inline">
                   <input type="checkbox" name="locations" value="Alamo Heights">
-                  Alamo Heights
+                  <span>Alamo Heights</span>
                 </label>
-            
-                <label class="checkbox-item">
+                <label class="checkbox-inline">
                   <input type="checkbox" name="locations" value="Stone Oak">
-                  Stone Oak
+                  <span>Stone Oak</span>
                 </label>
-            
-                <label class="checkbox-item">
-                  <input type="checkbox" name="locations" value="The Dominion">
-                  The Dominion
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="locations" value="Northwest Side">
+                  <span>Northwest Side</span>
                 </label>
-            
-                <label class="checkbox-item">
-                  <input type="checkbox" name="locations" value="Northwest San Antonio">
-                  Northwest San Antonio
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="locations" value="Medical Center">
+                  <span>Medical Center</span>
                 </label>
-            
-                <label class="checkbox-item">
-                  <input type="checkbox" name="locations" value="Bulverde / Spring Branch">
-                  Bulverde / Spring Branch
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="locations" value="Other">
+                  <span>Other</span>
                 </label>
               </div>
             </div>
