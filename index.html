@@ -244,11 +244,20 @@
             margin-bottom: 50px;
         }
         
+
         .section-title h2 {
+            margin-bottom: 10px;
             font-size: 2.5rem;
             color: var(--primary);
         }
-        
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
         .benefits {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -278,33 +287,6 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
         }
-
-        /*checkboxes in form*/
-        .checkbox-group.after-text {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          align-items: flex-start;
-        }
-        
-        .checkbox-inline {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
-          padding: 4px 0;
-          justify-content: flex-start;
-          width: 100%;
-        }
-        
-        .checkbox-inline input[type="checkbox"] {
-          margin-top: 3px;
-          flex-shrink: 0;
-        }
-        
-        .checkbox-inline span {
-          text-align: left;
-          flex-grow: 1;
-        }
         
         /*Other Info/Preferences*/
         textarea#message {
@@ -316,6 +298,62 @@
         body > div[style*="color: red"] {
           display: none !important;
           visibility: hidden !important;
+        }
+
+        /* Success Popup */
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            z-index: 2000;
+            text-align: center;
+            max-width: 400px;
+            display: none;
+        }
+        
+        .success-popup i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .success-popup h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .success-popup p {
+            margin-bottom: 20px;
+        }
+        
+        .success-popup .close-popup {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .success-popup .close-popup:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1999;
+            display: none;
         }
         
         /* Homebuyer Guide */
@@ -401,6 +439,33 @@
             gap: 20px;
         }
         
+        /* Calculator Toggle Buttons */
+        .calculator-toggle button {
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 12px 30px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 5px 0 0 5px;
+            box-shadow: 0 2px 8px rgba(42,91,132,0.07);
+        }
+
+        .calculator-toggle .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border: none;
+            z-index: 2;
+        }
+
+        .calculator-toggle .secondary-button {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            z-index: 1;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -432,7 +497,7 @@
             width: 100%;
             margin-top: 10px;
         }
-        
+
         .result-card {
             background-color: var(--white);
             padding: 20px;
@@ -519,6 +584,28 @@
         .testimonial-author {
             font-weight: 600;
         }
+
+        /* textbox alternative to locations */
+        .toggle-option {
+          padding: 10px;
+          background: #f0f0f0;
+          border: 1px solid #ccc;
+        }
+    
+        .toggle-option.selected {
+          background-color: #4caf50;
+          color: white;
+        }
+
+          .checkbox-group label,
+          .toggle-option {
+            display: inline-block;
+            margin: 10px 15px 10px 0; /* top right bottom left */
+          }
+        
+          .checkbox-group {
+            margin-bottom: 20px;
+          }
         
         /* Neighborhoods */
         .neighborhoods {
@@ -1243,14 +1330,22 @@
         </div>
     </section>
 
-    <!-- Mortgage Calculator -->
+    <!-- Replace your existing Mortgage Calculator section with this updated version -->
     <section class="calculator">
         <div class="container">
             <div class="section-title">
-                <h2>Mortgage Calculator</h2>
-                <p>Estimate your monthly payments and see how much home you can afford.</p>
+                <h2>Financial Calculators</h2>
+                <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
+                
+                <!-- Calculator Toggle Buttons -->
+                <div class="calculator-toggle" style="display: flex; justify-content: center; margin-bottom: 20px;">
+                    <button id="mortgage-toggle" class="cta-button" style="border-radius: 5px 0 0 5px; margin-right: 0;">Mortgage Calculator</button>
+                    <button id="dti-toggle" class="secondary-button" style="border-radius: 0 5px 5px 0; margin-left: 0;">Debt-to-Income Calculator</button>
+                </div>
             </div>
-            <div class="calculator-container">
+            
+            <!-- Mortgage Calculator (initially visible) -->
+            <div class="calculator-container" id="mortgage-calculator">
                 <div class="calculator-form">
                     <div class="form-group">
                         <label for="home-price">Home Price ($)</label>
@@ -1325,38 +1420,63 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-     <!-- Testimonials -->
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <div class="section-title">
-                    <h2>What Clients Say About Orion</h2>
-                    <p>Don't just take my word for it—these stories came from real journeys, real humans, and real homes unlocked by AI clarity.</p>
+            
+            <!-- Debt-to-Income Calculator (initially hidden) -->
+            <div class="calculator-container" id="dti-calculator" style="display: none;">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="monthly-income">Monthly Gross Income ($)</label>
+                        <input type="number" id="monthly-income" value="6000" min="1000" step="500">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthly-debts">Monthly Debt Payments ($)</label>
+                        <input type="number" id="monthly-debts" value="1000" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
+                        <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
+                    </div>
+                    <button id="calculate-dti-btn" class="cta-button">Calculate DTI Ratio</button>
                 </div>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "Working with Orion was a total game-changer. It guided us to a home we loved—under budget—and the process felt effortless."
-                        </div>
-                        <div class="testimonial-author">- Sarah & Mike T.</div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Front-End Ratio</h3>
+                        <div class="result-amount" id="front-end-ratio">25%</div>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">(Mortgage ÷ Income)</p>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "As a first-time buyer, I was overwhelmed. Orion explained every step clearly, negotiated like a master, and got us our home in just 30 days."
-                        </div>
-                        <div class="testimonial-author">- James L.</div>
+                    <div class="result-card">
+                        <h3>Back-End Ratio</h3>
+                        <div class="result-amount" id="back-end-ratio">42%</div>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">(Debts + Mortgage ÷ Income)</p>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">
-                            "I almost gave up—until Orion stepped in. It surfaced listings I never found online and got our offer accepted *below* asking."
+                    <div class="result-card">
+                        <h3>Lender Preference</h3>
+                        <div class="result-amount" id="lender-preference">Good</div>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">(Based on typical standards)</p>
+                    </div>
+                    <div class="result-breakdown">
+                        <h4>DTI Guidelines</h4>
+                        <div class="breakdown-item">
+                            <span>Ideal Front-End Ratio</span>
+                            <span>≤ 28%</span>
                         </div>
-                        <div class="testimonial-author">- David R.</div>
+                        <div class="breakdown-item">
+                            <span>Ideal Back-End Ratio</span>
+                            <span>≤ 36%</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Maximum Back-End Ratio</span>
+                            <span>≤ 43% (typical)</span>
+                        </div>
+                        <div class="breakdown-item total">
+                            <span>Your Back-End Ratio</span>
+                            <span id="your-back-end">42%</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     
     <!-- CTA Section with Background Image -->
     <section class="cta-section" id="contact">
@@ -1464,34 +1584,18 @@
             <input type="tel" id="phone" name="phone" required>
           </div>
     
-            <div class="form-group">
-              <label>Preferred Locations (check all that apply)</label>
-                <div class="checkbox-group">
-                  <label class="checkbox-item">
-                    Downtown San Antonio
-                    <input type="checkbox" name="locations" value="Downtown San Antonio">
-                  </label>
-                  <label class="checkbox-item">
-                    Alamo Heights
-                    <input type="checkbox" name="locations" value="Alamo Heights">
-                  </label>
-                  <label class="checkbox-item">
-                    Stone Oak
-                    <input type="checkbox" name="locations" value="Stone Oak">
-                  </label>
-                  <label class="checkbox-item">
-                    The Dominion
-                    <input type="checkbox" name="locations" value="The Dominion">
-                  </label>
-                  <label class="checkbox-item">
-                    Northwest San Antonio
-                    <input type="checkbox" name="locations" value="Northwest San Antonio">
-                  </label>
-                  <label class="checkbox-item">
-                    Bulverde / Spring Branch
-                    <input type="checkbox" name="locations" value="Bulverde / Spring Branch">
-                  </label>
-                </div>
+          <div class="form-group">
+            <label>Preferred Locations</label>
+            <div class="toggle-group">
+              <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+              <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+              <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+              <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+              <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+              <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
+            </div>
+            <input type="hidden" name="locations" id="selectedLocations">
+          </div>
     
           <div class="form-group">
             <label for="timeline">Timeline to Move</label>
@@ -1520,14 +1624,14 @@
             <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
           </div>
     
-          <!-- Updated Terms of Service checkbox -->
+          <!-- Updated Terms of Service Toggle -->
             <div class="form-group">
-              <div class="checkbox-group after-text">
-                <label class="checkbox-inline">
-                  I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank">Terms of Service</a>
-                  <input type="checkbox" name="terms" required>
-                </label>
-              </div>
+              <label style="display: block; font-weight: 600;">Consent Required</label>
+              <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+                I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+              </button>
+              <input type="hidden" name="terms" id="termsAgreed" value="">
+              <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
             </div>
     
           <!-- Added communication consent text -->
@@ -1542,6 +1646,16 @@
         </form>
       </div>
     </div>
+  
+    <!-- Success Popup -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="success-popup" id="success-popup">
+        <i class="fas fa-check-circle"></i>
+        <h3>Form Submitted Successfully!</h3>
+        <p>Thank you for your submission. We'll get back to you soon.</p>
+        <button class="close-popup" id="close-popup">Close</button>
+    </div>
+    
     <!-- Footer with Transparent Background -->
     <footer>
         <div class="container">
@@ -1583,250 +1697,253 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu functionality
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            const mobileOverlay = document.getElementById('mobile-overlay');
-            
-            mobileMenu.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                mobileOverlay.classList.toggle('active');
-                // Toggle between hamburger and close icon
-                if (navLinks.classList.contains('active')) {
-                    mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
-                } else {
-                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                }
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+          const mobileMenu = document.getElementById('mobile-menu');
+          const navLinks = document.getElementById('nav-links');
+          const mobileOverlay = document.getElementById('mobile-overlay');
+      
+          mobileMenu.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+            mobileOverlay.classList.toggle('active');
+            mobileMenu.innerHTML = navLinks.classList.contains('active') 
+              ? '<i class="fas fa-times"></i>' 
+              : '<i class="fas fa-bars"></i>';
+          });
+      
+          mobileOverlay.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+          });
+      
+          document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+              navLinks.classList.remove('active');
+              mobileOverlay.classList.remove('active');
+              mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
             });
-            
-            // Close menu when clicking overlay
-            mobileOverlay.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                mobileOverlay.classList.remove('active');
-                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-            
-            // Close menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                });
-            });
-            
-            // Mortgage Calculator
-            const homePriceInput = document.getElementById('home-price');
-            const downPaymentInput = document.getElementById('down-payment');
-            const loanTermSelect = document.getElementById('loan-term');
-            const interestRateInput = document.getElementById('interest-rate');
-            const propertyTaxRateInput = document.getElementById('property-tax-rate');
-            const insuranceRateInput = document.getElementById('insurance-rate');
-            const hoaFeeInput = document.getElementById('hoa-fee');
-            const calculateBtn = document.getElementById('calculate-btn');
-            
-            // Result elements
-            const monthlyPaymentEl = document.getElementById('monthly-payment');
-            const totalInterestEl = document.getElementById('total-interest');
-            const totalCostEl = document.getElementById('total-cost');
-            const principalInterestEl = document.getElementById('principal-interest');
-            const propertyTaxEl = document.getElementById('property-tax');
-            const homeInsuranceEl = document.getElementById('home-insurance');
-            const hoaFeeDisplayEl = document.getElementById('hoa-fee-display');
-            const totalMonthlyEl = document.getElementById('total-monthly');
-            
-            // Calculate mortgage on button click
-            calculateBtn.addEventListener('click', calculateMortgage);
-            
-            // Also calculate when any input changes
-            [homePriceInput, downPaymentInput, loanTermSelect, interestRateInput, 
-             propertyTaxRateInput, insuranceRateInput, hoaFeeInput].forEach(input => {
-                input.addEventListener('input', calculateMortgage);
-            });
-            
-            // Initial calculation
-            calculateMortgage();
-            
-            function calculateMortgage() {
-                // Get input values
-                const homePrice = parseFloat(homePriceInput.value) || 0;
-                const downPayment = parseFloat(downPaymentInput.value) || 0;
-                const loanTerm = parseInt(loanTermSelect.value);
-                const annualInterestRate = parseFloat(interestRateInput.value) || 0;
-                const propertyTaxRate = parseFloat(propertyTaxRateInput.value) || 0;
-                const insuranceRate = parseFloat(insuranceRateInput.value) || 0;
-                const hoaFee = parseFloat(hoaFeeInput.value) || 0;
-                
-                // Calculate loan amount
-                const loanAmount = homePrice - downPayment;
-                
-                // Monthly interest rate
-                const monthlyInterestRate = (annualInterestRate / 100) / 12;
-                
-                // Number of payments
-                const numberOfPayments = loanTerm * 12;
-                
-                // Calculate monthly payment (principal + interest)
-                const monthlyPayment = loanAmount * 
-                    (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
-                    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-                
-                // Calculate total interest
-                const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
-                
-                // Calculate total cost
-                const totalCost = loanAmount + totalInterest + downPayment;
-                
-                // Calculate property tax (based on home price and tax rate)
-                const propertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
-                
-                // Calculate home insurance (based on home price and insurance rate)
-                const homeInsurance = (homePrice * (insuranceRate / 100)) / 12;
-                
-                // Total monthly payment
-                const totalMonthly = monthlyPayment + propertyTax + homeInsurance + hoaFee;
-                
-                // Update the UI
-                monthlyPaymentEl.textContent = formatCurrency(monthlyPayment);
-                totalInterestEl.textContent = formatCurrency(totalInterest);
-                totalCostEl.textContent = formatCurrency(totalCost);
-                principalInterestEl.textContent = formatCurrency(monthlyPayment);
-                propertyTaxEl.textContent = formatCurrency(propertyTax);
-                homeInsuranceEl.textContent = formatCurrency(homeInsurance);
-                hoaFeeDisplayEl.textContent = formatCurrency(hoaFee);
-                totalMonthlyEl.textContent = formatCurrency(totalMonthly);
-            }
-            
-            function formatCurrency(amount) {
-                return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            }
-
-            // Contact Modal functionality
-            const contactModal = document.getElementById('contact-modal');
-            const contactBtn = document.getElementById('contact-btn');
-            const closeModal = document.querySelector('.close-modal');
-            const contactForm = document.getElementById('contact-form');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Open modal for contact button
-            contactBtn.addEventListener('click', function() {
-                contactModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-            
-            // Close modal
-            closeModal.addEventListener('click', function() {
-                contactModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close when clicking outside modal
-            window.addEventListener('click', function(event) {
-                if (event.target === contactModal) {
-                    contactModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Form submission handler
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalBtnText = submitBtn.innerHTML;
-                
-                // Show loading state
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                
-                // Clear any previous errors
-                const existingErrors = document.querySelectorAll('.form-error');
-                existingErrors.forEach(error => error.remove());
-                
-                try {
-                    // Get form values
-                    const formData = {
-                        name: document.getElementById('fullName').value.trim(),
-                        phone: document.getElementById('phone').value.trim(),
-                        email: document.getElementById('email').value.trim(),
-                        timeline: document.getElementById('timeline').value,
-                        budget: document.getElementById('budget').value,
-                        additional: document.getElementById('message').value.trim(),
-                        // Add locations checkboxes
-                        locations: Array.from(document.querySelectorAll('input[name="locations"]:checked')).map(el => el.value).join(', ')
-                    };
-                    
-                    // Validate inputs
-                    if (!formData.name || !formData.phone || !formData.email || !formData.timeline) {
-                        throw new Error('Please fill in all required fields');
-                    }
-                    
-                    // Submit form data
-                    const response = await fetch(contactForm.action, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: new URLSearchParams(formData).toString()
-                    });
-                    
-                    // Check for HTTP errors
-                    if (!response.ok) {
-                        const errorData = await response.json().catch(() => ({}));
-                        throw new Error(errorData.message || `Server responded with status ${response.status}`);
-                    }
-                    
-                    // Parse successful response
-                    const responseData = await response.json();
-                    console.log('Form submission successful:', responseData);
-                    
-                    // Show success message
-                    successMessage.style.display = 'block';
-                    
-                    // Reset form after 2 seconds
-                    setTimeout(() => {
-                        contactForm.reset();
-                        successMessage.style.display = 'none';
-                        contactModal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }, 2000);
-                    
-                } catch (error) {
-                    console.error('Form submission error:', error);
-                    
-                    // Create and display error message
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'form-error';
-                    errorDiv.innerHTML = `
-                        <p style="color: #d32f2f; margin: 10px 0; padding: 10px; background: #ffeeee; border-left: 4px solid #d32f2f;">
-                            <i class="fas fa-exclamation-circle"></i> 
-                            ${error.message || 'There was an error submitting your form. Please try again or contact us directly at (843) 212-7235.'}
-                        </p>
-                    `;
-                    
-                    // Insert error message after the submit button
-                    submitBtn.insertAdjacentElement('afterend', errorDiv);
-                    
-                    // Remove error after 5 seconds
-                    setTimeout(() => {
-                        if (errorDiv.parentNode) {
-                            errorDiv.remove();
-                        }
-                    }, 5000);
-                    
-                } finally {
-                    // Reset button state
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalBtnText;
-                }
-            });
+          });
         });
-    </script>
+      
+        // Contact Modal
+        document.addEventListener('DOMContentLoaded', function () {
+          const contactModal = document.getElementById('contact-modal');
+          const contactBtn = document.getElementById('contact-btn');
+          const closeModal = document.querySelector('.close-modal');
+      
+          contactBtn.addEventListener('click', () => {
+            contactModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
+      
+          closeModal.addEventListener('click', () => {
+            contactModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          });
+      
+          window.addEventListener('click', function (e) {
+            if (e.target === contactModal) {
+              contactModal.style.display = 'none';
+              document.body.style.overflow = 'auto';
+            }
+          });
+        });
+      
+        // Toggle button selections (for locations)
+        const buttons = document.querySelectorAll('.toggle-option');
+        const hiddenInput = document.getElementById('selectedLocations');
+        let selected = [];
+      
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const value = button.dataset.value;
+            if (selected.includes(value)) {
+              selected = selected.filter(v => v !== value);
+              button.classList.remove('selected');
+            } else {
+              selected.push(value);
+              button.classList.add('selected');
+            }
+            hiddenInput.value = selected.join(', ');
+          });
+        });
+      
+        // Terms Toggle
+        const termsToggle = document.getElementById('termsToggle');
+        const termsAgreed = document.getElementById('termsAgreed');
+      
+        termsToggle.addEventListener('click', () => {
+          const agreed = termsToggle.getAttribute('data-agreed') === 'true';
+          termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
+          termsToggle.classList.toggle('selected', !agreed);
+          termsAgreed.value = agreed ? '' : 'agreed';
+        });
+      
+        // Success Popup & Form Submission Handler
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('successMessage');
+        const successPopup = document.getElementById('success-popup');
+        const popupOverlay = document.getElementById('popup-overlay');
+      
+        contactForm.addEventListener('submit', async function (e) {
+          if (termsAgreed.value !== 'agreed') {
+            e.preventDefault();
+            alert('You must agree to the Terms of Service before submitting.');
+            return;
+          }
+      
+          e.preventDefault();
+      
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+          try {
+            const formData = new FormData(contactForm);
+            const data = new URLSearchParams(formData);
+      
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: data
+            });
+      
+            if (!response.ok) throw new Error('Submission failed');
+      
+            successMessage.style.display = 'block';
+            successPopup.style.display = 'block';
+            popupOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+      
+            setTimeout(() => {
+              contactForm.reset();
+              successMessage.style.display = 'none';
+              successPopup.style.display = 'none';
+              popupOverlay.style.display = 'none';
+              document.body.style.overflow = 'auto';
+              selected = [];
+              buttons.forEach(btn => btn.classList.remove('selected'));
+              hiddenInput.value = '';
+              termsToggle.classList.remove('selected');
+              termsToggle.setAttribute('data-agreed', 'false');
+              termsAgreed.value = '';
+            }, 3500);
+          } catch (err) {
+            alert('There was an error submitting the form. Please try again later.');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        });
+      
+        // Close popup
+        document.getElementById('close-popup')?.addEventListener('click', () => {
+          successPopup.style.display = 'none';
+          popupOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      
+        popupOverlay?.addEventListener('click', () => {
+          successPopup.style.display = 'none';
+          popupOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
 
-   <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="RfCRY6zG0cFaXP1SpqUgu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-    </script>
+            // Calculator Toggle Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mortgageToggle = document.getElementById('mortgage-toggle');
+        const dtiToggle = document.getElementById('dti-toggle');
+        const mortgageCalc = document.getElementById('mortgage-calculator');
+        const dtiCalc = document.getElementById('dti-calculator');
+        
+        mortgageToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'flex';
+            dtiCalc.style.display = 'none';
+            mortgageToggle.className = 'cta-button';
+            dtiToggle.className = 'secondary-button';
+        });
+        
+        dtiToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'none';
+            dtiCalc.style.display = 'flex';
+            mortgageToggle.className = 'secondary-button';
+            dtiToggle.className = 'cta-button';
+        });
+        
+        // DTI Calculator Logic
+        document.getElementById('calculate-dti-btn').addEventListener('click', calculateDTI);
+        
+        function calculateDTI() {
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
+            const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
+            
+            if (monthlyIncome <= 0) {
+                alert('Please enter a valid monthly income');
+                return;
+            }
+            
+            // Calculate ratios
+            const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
+            const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
+            
+            // Determine lender preference
+            let preference;
+            if (backEndRatio <= 36) {
+                preference = 'Excellent';
+            } else if (backEndRatio <= 43) {
+                preference = 'Good';
+            } else if (backEndRatio <= 50) {
+                preference = 'Marginal';
+            } else {
+                preference = 'Challenging';
+            }
+            
+            // Update the UI
+            document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(1) + '%';
+            document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(1) + '%';
+            document.getElementById('lender-preference').textContent = preference;
+            document.getElementById('your-back-end').textContent = backEndRatio.toFixed(1) + '%';
+        }
+        
+        // Initialize DTI calculator
+        calculateDTI();
+    });
+      </script>
+      
+      <!-- ✅ Chatbase Embed (place once, at the very bottom) -->
+      <script>
+        (function () {
+          if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+            window.chatbase = (...args) => {
+              if (!window.chatbase.q) window.chatbase.q = [];
+              window.chatbase.q.push(args);
+            };
+            window.chatbase = new Proxy(window.chatbase, {
+              get(target, prop) {
+                if (prop === "q") return target.q;
+                return (...args) => target(prop, ...args);
+              }
+            });
+          }
+      
+          const onLoad = function () {
+            const script = document.createElement("script");
+            script.src = "https://www.chatbase.co/embed.min.js";
+            script.id = "RfCRY6zG0cFaXP1SpqUgu";
+            script.setAttribute("chatbotId", "RfCRY6zG0cFaXP1SpqUgu");
+            script.setAttribute("domain", "www.chatbase.co");
+            document.body.appendChild(script);
+          };
+      
+          if (document.readyState === "complete") {
+            onLoad();
+          } else {
+            window.addEventListener("load", onLoad);
+          }
+        })();
+      </script>
     
 </body>
 </html>
