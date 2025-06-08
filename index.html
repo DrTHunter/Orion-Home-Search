@@ -1816,55 +1816,59 @@
         const popupOverlay = document.getElementById('popup-overlay');
       
         contactForm.addEventListener('submit', async function (e) {
-          if (termsAgreed.value !== 'agreed') {
-            e.preventDefault();
-            alert('You must agree to the Terms of Service before submitting.');
-            return;
-          }
-      
-          e.preventDefault();
-      
-          const submitBtn = contactForm.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      
-          try {
-            const formData = new FormData(contactForm);
-            const data = new URLSearchParams(formData);
-      
-            const response = await fetch(contactForm.action, {
-              method: 'POST',
-              body: data
-            });
-      
-            if (!response.ok) throw new Error('Submission failed');
-      
-            successMessage.style.display = 'block';
-            successPopup.style.display = 'block';
-            popupOverlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-      
-            setTimeout(() => {
-              contactForm.reset();
-              successMessage.style.display = 'none';
-              successPopup.style.display = 'none';
-              popupOverlay.style.display = 'none';
-              document.body.style.overflow = 'auto';
-              selected = [];
-              buttons.forEach(btn => btn.classList.remove('selected'));
-              hiddenInput.value = '';
-              termsToggle.classList.remove('selected');
-              termsToggle.setAttribute('data-agreed', 'false');
-              termsAgreed.value = '';
-            }, 3500);
-          } catch (err) {
-            alert('There was an error submitting the form. Please try again later.');
-          } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-          }
-        });
+  if (termsAgreed.value !== 'agreed') {
+    e.preventDefault();
+    alert('You must agree to the Terms of Service before submitting.');
+    return;
+  }
+
+  e.preventDefault();
+
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+  try {
+    const formData = new FormData(contactForm);
+    const data = new URLSearchParams(formData);
+
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: data
+    });
+
+    if (!response.ok) throw new Error('Submission failed');
+
+    // Close the contact modal immediately after submit
+    document.getElementById('contact-modal').style.display = 'none';
+
+    // Show success popup
+    successMessage.style.display = 'block';
+    successPopup.style.display = 'block';
+    popupOverlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      contactForm.reset();
+      successMessage.style.display = 'none';
+      successPopup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      selected = [];
+      buttons.forEach(btn => btn.classList.remove('selected'));
+      hiddenInput.value = '';
+      termsToggle.classList.remove('selected');
+      termsToggle.setAttribute('data-agreed', 'false');
+      termsAgreed.value = '';
+    }, 3500);
+  } catch (err) {
+    alert('There was an error submitting the form. Please try again later.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
+});
       
         // Close popup
         document.getElementById('close-popup')?.addEventListener('click', () => {
