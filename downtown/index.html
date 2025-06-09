@@ -187,14 +187,6 @@
       max-width: 800px;
       margin: 0 auto 40px;
       text-align: center;
-      color: #73a4d6;
-    }
-    
-    .section-title p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      font-size: 1.1rem;
-      color: #73a4d6;
     }
     
     /* Search Results Container */
@@ -714,12 +706,6 @@
         justify-content: center;
       }
     }
-
-    .section-title h2 {
-      margin-bottom: 10px;
-      font-size: 2.5rem;
-      color: #1a2633; /* Darker than var(--primary) */
-    }
   </style>
 </head>
 <body>
@@ -804,9 +790,13 @@
             <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
             <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
             <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
+          </div>
+          <input type="hidden" name="locations" id="selectedLocations">
         </div>
-          
-        </div>
+  
+        <div class="form-group">
           <label for="timeline">Timeline to Move</label>
           <select id="timeline" name="timeline" required>
             <option value="">Select</option>
