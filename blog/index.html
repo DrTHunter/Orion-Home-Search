@@ -1549,7 +1549,7 @@
 
       // Contact Modal functionality
       const contactModal = document.getElementById('contact-modal');
-      const contactBtn = document.getElementById('contact-btn');
+      const contactBtn = document.getElementById('contact-btn') || document.getElementById('call-now-btn'); // fallback
       const closeModal = document.querySelector('.close-modal');
       
       // Open modal
