@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>San Antonio Downtown Search | Orion AI Real Estate Network</title>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-ZF6721FNMD');
+  </script>
+  
+  <!-- Buying Buddy plugin v5.02 for General HTML -->
+  <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
+  <script>
+    var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
+    function mbbMapLoaded() { MBB.googleMaps = true; }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
+  <script src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #2a5b84;         /* Deep tech blue */
+      --primary-light: #4b91c9;   /* Soft, clickable blue */
+      --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
+      --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
+      --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
+      --light: #f4f6f8;           /* Soft, breathable light background */
+      --gray: #d1d5db;            /* Light cool gray for body text on dark */
+      --white: #ffffff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background-color: var(--white);
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      padding: 10px 0;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    
+    .logo span {
+      color: var(--secondary);
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      z-index: 101;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--primary-light);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Main Content */
+    .main-content {
+      padding: 120px 0 60px;
+    }
+    
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .page-title h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    
+    .page-description {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    
+    .page-description p {
+      color: #73a4d6;
+    }
+    
+    /* Search Results Container */
+    .search-results-container {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 40px;
+    }
+    
+    /* Map Preview */
+    .map-preview {
+      height: 350px;
+      background-color: #eee;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x350&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+    
+    /* Updated Button Styles for CTA Section */
+    .cta-section .cta-button,
+    .cta-section .secondary-button {
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cta-section .cta-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+    
+    .cta-section .cta-button:hover {
+      background-color: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    .cta-section .secondary-button {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .cta-section .secondary-button:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Contact Modal Styles */
+    .contact-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      animation: slideIn 0.3s;
+    }
+    
+    @keyframes slideIn {
+      from {transform: translateY(-50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    
+    .close-modal {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+      color: var(--primary);
+    }
+    
+    #contact-form .form-group {
+        margin-bottom: 20px;
+    }
+    
+    #contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+    
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+    
+    #contact-form input:focus,
+    #contact-form select:focus,
+    #contact-form textarea:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
+    }
+    
+    /* Add this to your existing CSS */
+    #contact-form button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 20px;
+    }
+    
+    #contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    #contact-form button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+    
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button[type="submit"] .fa-spinner {
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
+    }
+    
+    /* Checkboxes in form */
+    .checkbox-group.after-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .checkbox-inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      gap: 12px;
+      padding: 4px 0;
+    }
+
+    /* Toggle button selections (for locations) */
+    .toggle-option {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-option.selected {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .checkbox-group label,
+    .toggle-option {
+      display: inline-block;
+      margin: 10px 15px 10px 0; /* top right bottom left */
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    /* Success Popup */
+    .success-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        z-index: 2000;
+        text-align: center;
+        max-width: 400px;
+        display: none;
+    }
+    
+    .success-popup i {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+    
+    .success-popup h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .success-popup p {
+        margin-bottom: 20px;
+    }
+    
+    .success-popup .close-popup {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .success-popup .close-popup:hover {
+        background-color: var(--primary-light);
+    }
+    
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1999;
+        display: none;
+    }
+    
+    /* Footer with Transparent Background */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 50px 0 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    footer .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    .footer-about {
+      max-width: 400px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--white);
+    }
+
+    .footer-logo span {
+      color: var(--secondary);
+    }
+
+    .footer-about h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-about p {
+      margin-bottom: 20px;
+    }
+
+    .footer-links h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      padding-left: 100px; /* Increase this value for more right spacing */
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-contact i {
+      color: var(--accent);
+      width: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      background-color: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        padding: 100px 0 40px;
+      }
+      
+      .page-title h1 {
+        font-size: 2rem;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 100;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .logo {
+        font-size: 16px;
+      }
+      
+      .map-preview {
+        height: 250px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-section .cta-button,
+      .cta-section .secondary-button {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-contact p {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><span>Orion</span> AI Real Estate Network</div>
+        <button class="menu-toggle" id="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title">
+        <h1>San Antonio Downtown Search</h1>
+      </div>
+      
+      <div class="page-description">
+        <p>Explore properties Downtown in San Antonio. This search focuses on active listings Downtown, sorted by price.</p>
+      </div>
+      
+      <div class="map-preview"></div>
+      
+      <div class="search-results-container">
+        <!-- Custom polygon search widget -->
+        <div id="MBBv3_FeaturedGallery" 
+             filter="mls_id:demo+listing_status:active+shapesearch:29.438440970486027 -98.47759324564198,29.439935931386533 -98.48583299173573,29.43305892897451 -98.49887925638417,29.41601391570481 -98.5028274680541,29.406892163929836 -98.51038056864003,29.396872247349016 -98.51192552103261,29.39388103611215 -98.4786232139037,29.402854405882685 -98.48136979593495,29.407938963911718 -98.47999650491933,29.42139686045126 -98.47999650491933,29.42767660219584 -98.48171311868886,29.438440970486027 -98.47759324564198+representation_type:any_listing+limit:12+order:price">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ready to Begin Your Search?</h2>
+      <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
+      <div class="hero-buttons">
+        <button id="contact-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal" id="contact-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Get in Touch</h2>
+      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyuXIxuyvX6J4gPxql3JJreQGUbrvbykyXOfbGxb8M5rfuBpKyErZvp3w6YY2jQi-fccw/exec" method="POST">
+        
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+  
+        <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
+          </div>
+          <input type="hidden" name="locations" id="selectedLocations">
+        </div>
+  
+        <div class="form-group">
+          <label for="timeline">Timeline to Move</label>
+          <select id="timeline" name="timeline" required>
+            <option value="">Select</option>
+            <option value="ASAP">ASAP</option>
+            <option value="1-3 Months">1-3 Months</option>
+            <option value="3-6 Months">3-6 Months</option>
+            <option value="6+ Months">6+ Months</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="budget">Budget Range</label>
+          <select id="budget" name="budget" required>
+            <option value="">Select</option>
+            <option value="$100k - $200k">$100k - $200k</option>
+            <option value="$200k - $300k">$200k - $300k</option>
+            <option value="$300k - $400k">$300k - $400k</option>
+            <option value="$400k+">$400k+</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="message">Other Info or Preferences?</label>
+          <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
+        </div>
+  
+        <!-- Updated Terms of Service Toggle -->
+          <div class="form-group">
+            <label style="display: block; font-weight: 600;">Consent Required</label>
+            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+              I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+            </button>
+            <input type="hidden" name="terms" id="termsAgreed" value="">
+            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+          </div>
+  
+        <!-- Added communication consent text -->
+        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+        </p>
+  
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+          Thank you! Your form has been submitted.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="success-popup" id="success-popup">
+      <i class="fas fa-check-circle"></i>
+      <h3>Form Submitted Successfully!</h3>
+      <p>Thank you for your submission. We'll get back to you soon.</p>
+      <button class="close-popup" id="close-popup">Close</button>
+  </div>
+  
+  <!-- Footer with Transparent Background -->
+  <footer>
+      <div class="container">
+          <div class="footer-container">
+              <div class="footer-about">
+                  <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+                  <h3>Helping You Find Your Perfect Home</h3>
+                  <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
+              </div>
+              <div class="footer-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li><a href="https://www.orionhomesearch.com/blog">Blog</a></li>
+                      <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
+                  </ul>
+              </div>
+              <div class="footer-contact">
+                  <h3>Contact</h3>
+                  <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+                  <p><i class="fas fa-envelope"></i> dr_hunter@yahoo.com</p>
+                  <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+              </div>
+          </div>
+          <div class="copyright">
+                  <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+                  <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
+          </div>
+      </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileMenu = document.getElementById('mobile-menu');
+      const navLinks = document.getElementById('nav-links');
+      const mobileOverlay = document.getElementById('mobile-overlay');
+      
+      mobileMenu.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        mobileOverlay.classList.toggle('active');
+        // Toggle between hamburger and close icon
+        if (navLinks.classList.contains('active')) {
+          mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+      
+      // Close menu when clicking overlay
+      mobileOverlay.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+      
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Contact Modal functionality
+      const contactModal = document.getElementById('contact-modal');
+      const contactBtn = document.getElementById('contact-btn');
+      const closeModal = document.querySelector('.close-modal');
+      
+      // Open modal
+      contactBtn.addEventListener('click', function() {
+        contactModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+      
+      // Close modal
+      closeModal.addEventListener('click', function() {
+        contactModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+      
+      // Close when clicking outside modal
+      window.addEventListener('click', function(event) {
+        if (event.target === contactModal) {
+          contactModal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Toggle button selections (for locations)
+      const buttons = document.querySelectorAll('.toggle-option');
+      const hiddenInput = document.getElementById('selectedLocations');
+      let selected = [];
+    
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const value = button.dataset.value;
+          if (selected.includes(value)) {
+            selected = selected.filter(v => v !== value);
+            button.classList.remove('selected');
+          } else {
+            selected.push(value);
+            button.classList.add('selected');
+          }
+          hiddenInput.value = selected.join(', ');
+        });
+      });
+    
+      // Terms Toggle
+      const termsToggle = document.getElementById('termsToggle');
+      const termsAgreed = document.getElementById('termsAgreed');
+    
+      termsToggle.addEventListener('click', () => {
+        const agreed = termsToggle.getAttribute('data-agreed') === 'true';
+        termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
+        termsToggle.classList.toggle('selected', !agreed);
+        termsAgreed.value = agreed ? '' : 'agreed';
+      });
+    
+      // Success Popup & Form Submission Handler
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('successMessage');
+      const successPopup = document.getElementById('success-popup');
+      const popupOverlay = document.getElementById('popup-overlay');
+    
+      contactForm.addEventListener('submit', async function (e) {
+        if (termsAgreed.value !== 'agreed') {
+          e.preventDefault();
+          alert('You must agree to the Terms of Service before submitting.');
+          return;
+        }
+
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const formData = new FormData(contactForm);
+          const data = new URLSearchParams(formData);
+
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data
+          });
+
+          if (!response.ok) throw new Error('Submission failed');
+
+          // Close the contact modal immediately after submit
+          document.getElementById('contact-modal').style.display = 'none';
+
+          // Show success popup
+          successMessage.style.display = 'block';
+          successPopup.style.display = 'block';
+          popupOverlay.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            contactForm.reset();
+            successMessage.style.display = 'none';
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            selected = [];
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            hiddenInput.value = '';
+            termsToggle.classList.remove('selected');
+            termsToggle.setAttribute('data-agreed', 'false');
+            termsAgreed.value = '';
+          }, 3500);
+        } catch (err) {
+          alert('There was an error submitting the form. Please try again later.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+    
+      // Close popup
+      document.getElementById('close-popup')?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    
+      popupOverlay?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    });
+  </script>
+
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="RfCRY6zG0cFaXP1SpqUgu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+  
+</body>
+</html>
