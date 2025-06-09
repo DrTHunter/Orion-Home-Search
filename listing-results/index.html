@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Search Results | Orion AI Real Estate Network</title>
-
+  <title>San Antonio Downtown Search | Orion AI Real Estate Network</title>
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
   <script>
@@ -117,6 +117,9 @@
       font-weight: 500;
       transition: color 0.3s;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     
     .nav-links a:hover {
@@ -180,6 +183,16 @@
       color: var(--primary);
     }
     
+    .page-description {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    
+    .page-description p {
+      color: #73a4d6;
+    }
+    
     /* Search Results Container */
     .search-results-container {
       background-color: var(--white);
@@ -187,6 +200,18 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 20px;
       margin-bottom: 40px;
+    }
+    
+    /* Map Preview */
+    .map-preview {
+      height: 350px;
+      background-color: #eee;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x350&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
     /* CTA Section */
@@ -199,7 +224,7 @@
       overflow: hidden;
     }
     
-    .cta-section:before {
+    .cta-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -225,12 +250,6 @@
       max-width: 700px;
       margin: 0 auto 30px;
       font-size: 1.1rem;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
     }
     
     /* Updated Button Styles for CTA Section */
@@ -270,24 +289,6 @@
       color: var(--primary);
       transform: translateY(-2px);
       box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    }
-    
-    /* Secondary Button (general) */
-    .secondary-button {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-      padding: 12px 25px;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    
-    .secondary-button:hover {
-      background-color: white;
-      color: var(--primary);
     }
     
     /* Contact Modal Styles */
@@ -424,16 +425,94 @@
       gap: 12px;
       padding: 4px 0;
     }
+
+    /* Toggle button selections (for locations) */
+    .toggle-option {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-option.selected {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .checkbox-group label,
+    .toggle-option {
+      display: inline-block;
+      margin: 10px 15px 10px 0; /* top right bottom left */
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    /* Success Popup */
+    .success-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        z-index: 2000;
+        text-align: center;
+        max-width: 400px;
+        display: none;
+    }
     
-    /* Footer */
+    .success-popup i {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+    
+    .success-popup h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .success-popup p {
+        margin-bottom: 20px;
+    }
+    
+    .success-popup .close-popup {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .success-popup .close-popup:hover {
+        background-color: var(--primary-light);
+    }
+    
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1999;
+        display: none;
+    }
+    
+    /* Footer with Transparent Background */
     footer {
       background-color: var(--dark);
       color: white;
-      padding: 30px 0 20px;
+      padding: 50px 0 20px;
       text-align: center;
       position: relative;
     }
-    
+
     footer:before {
       content: '';
       position: absolute;
@@ -445,47 +524,99 @@
       opacity: 0.05;
       z-index: 0;
     }
-    
+
     footer .container {
       position: relative;
       z-index: 1;
     }
-    
-    .footer-logo {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      display: block;
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+      text-align: left;
     }
-    
+
+    .footer-about {
+      max-width: 400px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--white);
+    }
+
     .footer-logo span {
       color: var(--secondary);
     }
-    
-    .footer-contact {
+
+    .footer-about h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-about p {
       margin-bottom: 20px;
     }
-    
+
+    .footer-links h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      padding-left: 100px; /* Increase this value for more right spacing */
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
     .footer-contact p {
       margin-bottom: 5px;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
     }
-    
+
     .footer-contact i {
       color: var(--accent);
       width: 20px;
     }
-    
+
     .social-links {
       display: flex;
       gap: 15px;
-      justify-content: center;
-      margin-bottom: 20px;
+      margin-top: 20px;
+      justify-content: flex-start;
     }
-    
+
     .social-links a {
       color: white;
       font-size: 1.2rem;
@@ -498,19 +629,140 @@
       justify-content: center;
       background-color: rgba(255,255,255,0.1);
     }
-    
+
     .social-links a:hover {
       color: var(--secondary);
       background-color: rgba(255,255,255,0.2);
       transform: translateY(-3px);
     }
-    
+
     .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
       opacity: 0.8;
     }
     
-    /* Responsive */
+    /* Calculator Styles */
+    .calculator {
+        padding: 40px 0;
+        background-color: var(--white);
+    }
+    
+    .calculator-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .calculator-toggle button {
+        border-radius: 0;
+        margin: 0;
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+    
+    .calculator-toggle button:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .calculator-toggle button:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .calculator-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        padding: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .calculator-form {
+        flex: 1;
+        min-width: 210px;
+        padding: 10px;
+    }
+    
+    .calculator-results {
+        flex: 1;
+        min-width: 210px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+        font-size: 0.98rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
+    .result-card {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    
+    .result-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: var(--primary);
+    }
+    
+    .result-amount {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    .result-breakdown {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    .result-breakdown h4 {
+        font-size: 0.98rem;
+        margin-bottom: 7px;
+        color: var(--primary);
+    }
+    
+    .breakdown-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.97rem;
+    }
+    
+    .breakdown-item.total {
+        font-weight: 600;
+        border-bottom: none;
+        padding-top: 8px;
+    }
+    
     @media (max-width: 768px) {
       .main-content {
         padding: 100px 0 40px;
@@ -548,6 +800,10 @@
         font-size: 16px;
       }
       
+      .map-preview {
+        height: 250px;
+      }
+      
       .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -558,7 +814,108 @@
         width: 100%;
         max-width: 250px;
       }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-contact p {
+        justify-content: center;
+      }
     }
+
+    /* Add or update these styles for a cleaner, more compact calculator */
+.calculator .container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.calculator-flex-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calculator-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  padding: 12px;
+}
+.calculator-form, .calculator-results {
+  flex: 1 1 240px;
+  min-width: 180px;
+  padding: 6px;
+}
+.calculator-form {
+  max-width: 270px;
+}
+.calculator-results {
+  max-width: 320px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-size: 0.97rem;
+}
+.form-group input, .form-group select {
+  font-size: 15px;
+  padding: 6px 8px;
+}
+.result-card {
+  padding: 8px;
+  margin-bottom: 6px;
+}
+.result-card h3 {
+  font-size: 1rem;
+}
+.result-amount {
+  font-size: 1.18rem;
+}
+.result-breakdown {
+  padding: 8px;
+}
+.result-breakdown h4 {
+  font-size: 0.97rem;
+  margin-bottom: 6px;
+}
+.breakdown-item {
+  font-size: 0.96rem;
+  padding: 4px 0;
+}
+.breakdown-item.total {
+  padding-top: 6px;
+}
+@media (max-width: 900px) {
+  .calculator .container, .calculator-container {
+    max-width: 98vw;
+  }
+  .calculator-flex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .calculator-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+  .calculator-form, .calculator-results {
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+}
   </style>
 </head>
 <body>
@@ -574,8 +931,9 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/">Home</a>
-          <a href="#contact" class="cta-button">Contact</a>
+          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+          <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
+          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
         </div>
       </nav>
     </div>
@@ -595,13 +953,161 @@
     </div>
   </main>
 
+  <!-- Mortgage Calculator Section -->
+    <section class="calculator">
+        <div class="container">
+          <div class="page-title">
+            <h1>Financial Calculators</h1>
+          </div>
+          <div class="page-description">
+            <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
+          </div>
+          <div class="calculator-toggle">
+            <button id="mortgage-toggle" class="cta-button">Mortgage Calculator</button>
+            <button id="dti-toggle" class="secondary-button">Debt-to-Income Calculator</button>
+          </div>
+          <div class="calculator-flex-wrap">
+            <!-- Mortgage Calculator (initially visible) -->
+            <div class="calculator-container" id="mortgage-calculator">
+              <div class="calculator-form">
+                <div class="form-group">
+                  <label for="home-price">Home Price ($)</label>
+                  <input type="number" id="home-price" value="300000" min="50000" step="10000">
+                </div>
+                <div class="form-group">
+                  <label for="down-payment">Down Payment ($)</label>
+                  <input type="number" id="down-payment" value="100000" min="0" step="5000">
+                </div>
+                <div class="form-group">
+                  <label for="loan-term">Loan Term (years)</label>
+                  <select id="loan-term">
+                    <option value="30">30 years</option>
+                    <option value="20">20 years</option>
+                    <option value="15">15 years</option>
+                    <option value="10">10 years</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="interest-rate">Interest Rate (%)</label>
+                  <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+                </div>
+                <div class="form-group">
+                  <label for="property-tax-rate">Property Tax Rate (%)</label>
+                  <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
+                </div>
+                <div class="form-group">
+                  <label for="insurance-rate">Home Insurance Rate (%)</label>
+                  <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
+                </div>
+                <div class="form-group">
+                  <label for="hoa-fee">Monthly HOA Fee ($)</label>
+                  <input type="number" id="hoa-fee" value="100" min="0" step="25">
+                </div>
+                <button id="calculate-btn" class="cta-button" style="width:100%;">Calculate Payment</button>
+              </div>
+              <div class="calculator-results">
+                <div class="result-card">
+                  <h3>Monthly Payment</h3>
+                  <div class="result-amount" id="monthly-payment">$0</div>
+                </div>
+                <div class="result-card">
+                  <h3>Total Interest</h3>
+                  <div class="result-amount" id="total-interest">$0</div>
+                </div>
+                <div class="result-card">
+                  <h3>Total Cost</h3>
+                  <div class="result-amount" id="total-cost">$0</div>
+                </div>
+                <div class="result-breakdown">
+                  <h4>Payment Breakdown</h4>
+                  <div class="breakdown-item">
+                    <span>Principal & Interest</span>
+                    <span id="principal-interest">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Property Tax</span>
+                    <span id="property-tax">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Home Insurance</span>
+                    <span id="home-insurance">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>HOA Fee</span>
+                    <span id="hoa-fee-display">$0</span>
+                  </div>
+                  <div class="breakdown-item total">
+                    <span>Total Monthly Payment</span>
+                    <span id="total-monthly">$0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Debt-to-Income Calculator (initially hidden) -->
+            <div class="calculator-container" id="dti-calculator" style="display: none;">
+              <div class="calculator-form">
+                <div class="form-group">
+                  <label for="monthly-income">Monthly Gross Income ($)</label>
+                  <input type="number" id="monthly-income" value="6000" min="1000" step="500">
+                </div>
+                <div class="form-group">
+                  <label for="monthly-debts">Monthly Debt Payments ($)</label>
+                  <input type="number" id="monthly-debts" value="1000" min="0" step="100">
+                </div>
+                <div class="form-group">
+                  <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
+                  <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
+                </div>
+                <button id="calculate-dti-btn" class="cta-button" style="width:100%;">Calculate DTI Ratio</button>
+              </div>
+              <div class="calculator-results">
+                <div class="result-card">
+                  <h3>Front-End Ratio</h3>
+                  <div class="result-amount" id="front-end-ratio">0%</div>
+                  <p style="font-size:0.9em;">(Mortgage ÷ Income)</p>
+                </div>
+                <div class="result-card">
+                  <h3>Back-End Ratio</h3>
+                  <div class="result-amount" id="back-end-ratio">0%</div>
+                  <p style="font-size:0.9em;">(Debts + Mortgage ÷ Income)</p>
+                </div>
+                <div class="result-card">
+                  <h3>Lender Preference</h3>
+                  <div class="result-amount" id="lender-preference">-</div>
+                  <p style="font-size:0.9em;">(Based on typical standards)</p>
+                </div>
+                <div class="result-breakdown">
+                  <h4>DTI Guidelines</h4>
+                  <div class="breakdown-item">
+                    <span>Ideal Front-End Ratio</span>
+                    <span>≤ 28%</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Ideal Back-End Ratio</span>
+                    <span>≤ 36%</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Maximum Back-End Ratio</span>
+                    <span>≤ 43% (typical)</span>
+                  </div>
+                  <div class="breakdown-item total">
+                    <span>Your Back-End Ratio</span>
+                    <span id="your-back-end">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
   <!-- CTA Section -->
   <section class="cta-section" id="contact">
     <div class="container">
       <h2>Ready to Begin Your Search?</h2>
       <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
-      <div class="cta-buttons">
-        <button id="call-now-btn" class="cta-button"></i>👋 Talk to a Real Estate Agent Now</button>
+      <div class="hero-buttons">
+        <button id="contact-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
       </div>
     </div>
   </section>
@@ -611,7 +1117,7 @@
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2>Get in Touch</h2>
-      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
+      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyuXIxuyvX6J4gPxql3JJreQGUbrvbykyXOfbGxb8M5rfuBpKyErZvp3w6YY2jQi-fccw/exec" method="POST">
         
         <div class="form-group">
           <label for="fullName">Full Name</label>
@@ -628,35 +1134,18 @@
           <input type="tel" id="phone" name="phone" required>
         </div>
   
-          <div class="form-group">
-            <label>Preferred Locations (check all that apply)</label>
-            <div class="checkbox-group after-text">
-              <label class="checkbox-inline">
-                Downtown San Antonio
-                <input type="checkbox" name="locations" value="Downtown San Antonio">
-              </label>
-              <label class="checkbox-inline">
-                Alamo Heights
-                <input type="checkbox" name="locations" value="Alamo Heights">
-              </label>
-              <label class="checkbox-inline">
-                Stone Oak
-                <input type="checkbox" name="locations" value="Stone Oak">
-              </label>
-              <label class="checkbox-inline">
-                Northwest Side
-                <input type="checkbox" name="locations" value="Northwest Side">
-              </label>
-              <label class="checkbox-inline">
-                Medical Center
-                <input type="checkbox" name="locations" value="Medical Center">
-              </label>
-              <label class="checkbox-inline">
-                Other
-                <input type="checkbox" name="locations" value="Other">
-              </label>
-            </div>
+        <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
           </div>
+          <input type="hidden" name="locations" id="selectedLocations">
+        </div>
   
         <div class="form-group">
           <label for="timeline">Timeline to Move</label>
@@ -685,6 +1174,21 @@
           <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
         </div>
   
+        <!-- Updated Terms of Service Toggle -->
+          <div class="form-group">
+            <label style="display: block; font-weight: 600;">Consent Required</label>
+            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+              I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+            </button>
+            <input type="hidden" name="terms" id="termsAgreed" value="">
+            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+          </div>
+  
+        <!-- Added communication consent text -->
+        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+        </p>
+  
         <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
@@ -693,29 +1197,43 @@
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="success-popup" id="success-popup">
+      <i class="fas fa-check-circle"></i>
+      <h3>Form Submitted Successfully!</h3>
+      <p>Thank you for your submission. We'll get back to you soon.</p>
+      <button class="close-popup" id="close-popup">Close</button>
+  </div>
+  
+  <!-- Footer with Transparent Background -->
   <footer>
-    <div class="container">
-      <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-      
-      <div class="footer-contact">
-        <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-        <p><i class="fas fa-phone"></i> Text (843) 212-7235</p>
-        <p><i class="fas fa-envelope"></i> dr_hunter@yahoo.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+      <div class="container">
+          <div class="footer-container">
+              <div class="footer-about">
+                  <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+                  <h3>Helping You Find Your Perfect Home</h3>
+                  <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
+              </div>
+              <div class="footer-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li><a href="https://www.orionhomesearch.com/blog">Blog</a></li>
+                      <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
+                  </ul>
+              </div>
+              <div class="footer-contact">
+                  <h3>Contact</h3>
+                  <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+                  <p><i class="fas fa-envelope"></i> trenth@orionhomesearch.com</p>
+                  <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+              </div>
+          </div>
+          <div class="copyright">
+                  <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+                  <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
+          </div>
       </div>
-      
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-      
-      <div class="copyright">
-        <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-      </div>
-    </div>
   </footer>
 
   <script>
@@ -754,18 +1272,11 @@
 
       // Contact Modal functionality
       const contactModal = document.getElementById('contact-modal');
-      const callNowBtn = document.getElementById('call-now-btn');
-      const emailMeBtn = document.getElementById('email-me-btn');
+      const contactBtn = document.getElementById('contact-btn');
       const closeModal = document.querySelector('.close-modal');
-      const contactForm = document.getElementById('contact-form');
       
-      // Open modal for both buttons
-      callNowBtn.addEventListener('click', function() {
-        contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      });
-      
-      emailMeBtn.addEventListener('click', function() {
+      // Open modal
+      contactBtn.addEventListener('click', function() {
         contactModal.style.display = 'flex';
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
@@ -783,31 +1294,239 @@
           document.body.style.overflow = 'auto';
         }
       });
-      
-      // Form submission handler
-      document.getElementById("contact-form").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const status = document.getElementById("successMessage");
-        status.style.display = "block";
-        status.innerText = "Sending...";
-      
-        const formData = new FormData(e.target);
-        const data = new URLSearchParams();
-      
-        formData.forEach((value, key) => {
-          data.append(key, value);
-        });
-      
-        fetch("https://script.google.com/macros/s/AKfycbzXR803CTcnI65DYrw3l6KrHscarAHMmKTPGkI9ssdGs1YYYMKXf5tPs2ecj9yWJ3RzIw/exec", {
-          method: "POST",
-          body: data
-        }).then(() => {
-          e.target.reset();
-          status.innerText = "Thank you! Your form has been submitted.";
-        }).catch(() => {
-          status.innerText = "Something went wrong. Please try again later.";
+
+      // Toggle button selections (for locations)
+      const buttons = document.querySelectorAll('.toggle-option');
+      const hiddenInput = document.getElementById('selectedLocations');
+      let selected = [];
+    
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const value = button.dataset.value;
+          if (selected.includes(value)) {
+            selected = selected.filter(v => v !== value);
+            button.classList.remove('selected');
+          } else {
+            selected.push(value);
+            button.classList.add('selected');
+          }
+          hiddenInput.value = selected.join(', ');
         });
       });
+    
+      // Terms Toggle
+      const termsToggle = document.getElementById('termsToggle');
+      const termsAgreed = document.getElementById('termsAgreed');
+    
+      termsToggle.addEventListener('click', () => {
+        const agreed = termsToggle.getAttribute('data-agreed') === 'true';
+        termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
+        termsToggle.classList.toggle('selected', !agreed);
+        termsAgreed.value = agreed ? '' : 'agreed';
+      });
+    
+      // Success Popup & Form Submission Handler
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('successMessage');
+      const successPopup = document.getElementById('success-popup');
+      const popupOverlay = document.getElementById('popup-overlay');
+    
+      contactForm.addEventListener('submit', async function (e) {
+        if (termsAgreed.value !== 'agreed') {
+          e.preventDefault();
+          alert('You must agree to the Terms of Service before submitting.');
+          return;
+        }
+
+        e.preventDefault();
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const formData = new FormData(contactForm);
+          const data = new URLSearchParams(formData);
+
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data
+          });
+
+          if (!response.ok) throw new Error('Submission failed');
+
+          // Close the contact modal immediately after submit
+          document.getElementById('contact-modal').style.display = 'none';
+
+          // Show success popup
+          successMessage.style.display = 'block';
+          successPopup.style.display = 'block';
+          popupOverlay.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            contactForm.reset();
+            successMessage.style.display = 'none';
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            selected = [];
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            hiddenInput.value = '';
+            termsToggle.classList.remove('selected');
+            termsToggle.setAttribute('data-agreed', 'false');
+            termsAgreed.value = '';
+          }, 3500);
+        } catch (err) {
+          alert('There was an error submitting the form. Please try again later.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+    
+      // Close popup
+      document.getElementById('close-popup')?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    
+      popupOverlay?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calculator toggle functionality
+        const mortgageToggle = document.getElementById('mortgage-toggle');
+        const dtiToggle = document.getElementById('dti-toggle');
+        const mortgageCalc = document.getElementById('mortgage-calculator');
+        const dtiCalc = document.getElementById('dti-calculator');
+        
+        mortgageToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'flex';
+            dtiCalc.style.display = 'none';
+            mortgageToggle.classList.add('cta-button');
+            mortgageToggle.classList.remove('secondary-button');
+            dtiToggle.classList.add('secondary-button');
+            dtiToggle.classList.remove('cta-button');
+        });
+        
+        dtiToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'none';
+            dtiCalc.style.display = 'flex';
+            dtiToggle.classList.add('cta-button');
+            dtiToggle.classList.remove('secondary-button');
+            mortgageToggle.classList.add('secondary-button');
+            mortgageToggle.classList.remove('cta-button');
+        });
+        
+        // Mortgage Calculator functionality
+        const calculateBtn = document.getElementById('calculate-btn');
+        calculateBtn.addEventListener('click', calculateMortgage);
+        
+        // Add event listeners to all mortgage inputs to recalculate when changed
+        const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
+        mortgageInputs.forEach(input => {
+            input.addEventListener('change', calculateMortgage);
+            input.addEventListener('keyup', calculateMortgage);
+        });
+        
+        function calculateMortgage() {
+            // Get input values
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loan-term').value) || 30;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
+            const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
+            const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
+            
+            // Calculate loan amount
+            const loanAmount = homePrice - downPayment;
+            
+            // Calculate monthly interest rate
+            const monthlyInterestRate = interestRate / 100 / 12;
+            
+            // Calculate number of payments
+            const numberOfPayments = loanTerm * 12;
+            
+            // Calculate monthly payment (principal & interest)
+            const monthlyPayment = loanAmount * 
+                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            
+            // Calculate other monthly costs
+            const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
+            const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
+            
+            // Calculate totals
+            const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
+            const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
+            const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) + 
+                (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+            
+            // Update the UI
+            document.getElementById('monthly-payment').textContent = formatCurrency(totalMonthlyPayment);
+            document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
+            document.getElementById('total-cost').textContent = formatCurrency(totalCost);
+            document.getElementById('principal-interest').textContent = formatCurrency(monthlyPayment);
+            document.getElementById('property-tax').textContent = formatCurrency(monthlyPropertyTax);
+            document.getElementById('home-insurance').textContent = formatCurrency(monthlyInsurance);
+            document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
+            document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
+        }
+        
+        // DTI Calculator functionality
+        const calculateDtiBtn = document.getElementById('calculate-dti-btn');
+        calculateDtiBtn.addEventListener('click', calculateDTI);
+        
+        // Add event listeners to all DTI inputs to recalculate when changed
+        const dtiInputs = document.querySelectorAll('#dti-calculator input');
+        dtiInputs.forEach(input => {
+            input.addEventListener('change', calculateDTI);
+            input.addEventListener('keyup', calculateDTI);
+        });
+        
+        function calculateDTI() {
+            // Get input values
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
+            const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
+            
+            // Calculate ratios
+            const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
+            const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
+            
+            // Determine lender preference
+            let lenderPreference = 'Poor';
+            if (backEndRatio <= 36) {
+                lenderPreference = 'Excellent';
+            } else if (backEndRatio <= 43) {
+                lenderPreference = 'Good';
+            } else if (backEndRatio <= 50) {
+                lenderPreference = 'Fair';
+            }
+            
+            // Update the UI
+            document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(0) + '%';
+            document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(0) + '%';
+            document.getElementById('lender-preference').textContent = lenderPreference;
+            document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
+        }
+        
+        // Helper function to format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        
+        // Calculate initial values
+        calculateMortgage();
+        calculateDTI();
     });
   </script>
 
