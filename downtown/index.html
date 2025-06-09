@@ -644,7 +644,125 @@
       opacity: 0.8;
     }
     
-    /* Responsive */
+    /* Calculator Styles */
+    .calculator {
+        padding: 40px 0;
+        background-color: var(--white);
+    }
+    
+    .calculator-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .calculator-toggle button {
+        border-radius: 0;
+        margin: 0;
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+    
+    .calculator-toggle button:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .calculator-toggle button:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .calculator-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        padding: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .calculator-form {
+        flex: 1;
+        min-width: 210px;
+        padding: 10px;
+    }
+    
+    .calculator-results {
+        flex: 1;
+        min-width: 210px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+        font-size: 0.98rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
+    .result-card {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    
+    .result-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: var(--primary);
+    }
+    
+    .result-amount {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    .result-breakdown {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    .result-breakdown h4 {
+        font-size: 0.98rem;
+        margin-bottom: 7px;
+        color: var(--primary);
+    }
+    
+    .breakdown-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.97rem;
+    }
+    
+    .breakdown-item.total {
+        font-weight: 600;
+        border-bottom: none;
+        padding-top: 8px;
+    }
+    
     @media (max-width: 768px) {
       .main-content {
         padding: 100px 0 40px;
@@ -753,6 +871,154 @@
       </div>
     </div>
   </main>
+
+  <!-- Mortgage Calculator Section -->
+    <section class="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Financial Calculators</h2>
+                <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
+                
+                <!-- Calculator Toggle Buttons -->
+                <div class="calculator-toggle">
+                    <button id="mortgage-toggle" class="cta-button">Mortgage Calculator</button>
+                    <button id="dti-toggle" class="secondary-button">Debt-to-Income Calculator</button>
+                </div>
+            </div>
+            
+            <!-- Mortgage Calculator (initially visible) -->
+            <div class="calculator-container" id="mortgage-calculator">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="home-price">Home Price ($)</label>
+                        <input type="number" id="home-price" value="300000" min="50000" step="10000">
+                    </div>
+                    <div class="form-group">
+                        <label for="down-payment">Down Payment ($)</label>
+                        <input type="number" id="down-payment" value="100000" min="0" step="5000">
+                    </div>
+                    <div class="form-group">
+                        <label for="loan-term">Loan Term (years)</label>
+                        <select id="loan-term">
+                            <option value="30">30 years</option>
+                            <option value="20">20 years</option>
+                            <option value="15">15 years</option>
+                            <option value="10">10 years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+                    </div>
+                    <div class="form-group">
+                        <label for="property-tax-rate">Property Tax Rate (%)</label>
+                        <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="insurance-rate">Home Insurance Rate (%)</label>
+                        <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="hoa-fee">Monthly HOA Fee ($)</label>
+                        <input type="number" id="hoa-fee" value="100" min="0" step="25">
+                    </div>
+                    <button id="calculate-btn" class="cta-button">Calculate Payment</button>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Monthly Payment</h3>
+                        <div class="result-amount" id="monthly-payment">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Total Interest</h3>
+                        <div class="result-amount" id="total-interest">$0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Total Cost</h3>
+                        <div class="result-amount" id="total-cost">$0</div>
+                    </div>
+                    <div class="result-breakdown">
+                        <h4>Payment Breakdown</h4>
+                        <div class="breakdown-item">
+                            <span>Principal & Interest</span>
+                            <span id="principal-interest">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Property Tax</span>
+                            <span id="property-tax">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Home Insurance</span>
+                            <span id="home-insurance">$0</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>HOA Fee</span>
+                            <span id="hoa-fee-display">$0</span>
+                        </div>
+                        <div class="breakdown-item total">
+                            <span>Total Monthly Payment</span>
+                            <span id="total-monthly">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Debt-to-Income Calculator (initially hidden) -->
+            <div class="calculator-container" id="dti-calculator" style="display: none;">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="monthly-income">Monthly Gross Income ($)</label>
+                        <input type="number" id="monthly-income" value="6000" min="1000" step="500">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthly-debts">Monthly Debt Payments ($)</label>
+                        <input type="number" id="monthly-debts" value="1000" min="0" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
+                        <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
+                    </div>
+                    <button id="calculate-dti-btn" class="cta-button">Calculate DTI Ratio</button>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>Front-End Ratio</h3>
+                        <div class="result-amount" id="front-end-ratio">0%</div>
+                        <p>(Mortgage ÷ Income)</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Back-End Ratio</h3>
+                        <div class="result-amount" id="back-end-ratio">0%</div>
+                        <p>(Debts + Mortgage ÷ Income)</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>Lender Preference</h3>
+                        <div class="result-amount" id="lender-preference">-</div>
+                        <p>(Based on typical standards)</p>
+                    </div>
+                    <div class="result-breakdown">
+                        <h4>DTI Guidelines</h4>
+                        <div class="breakdown-item">
+                            <span>Ideal Front-End Ratio</span>
+                            <span>≤ 28%</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Ideal Back-End Ratio</span>
+                            <span>≤ 36%</span>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Maximum Back-End Ratio</span>
+                            <span>≤ 43% (typical)</span>
+                        </div>
+                        <div class="breakdown-item total">
+                            <span>Your Back-End Ratio</span>
+                            <span id="your-back-end">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <!-- CTA Section -->
   <section class="cta-section" id="contact">
@@ -1051,6 +1317,135 @@
         popupOverlay.style.display = 'none';
         document.body.style.overflow = 'auto';
       });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calculator toggle functionality
+        const mortgageToggle = document.getElementById('mortgage-toggle');
+        const dtiToggle = document.getElementById('dti-toggle');
+        const mortgageCalc = document.getElementById('mortgage-calculator');
+        const dtiCalc = document.getElementById('dti-calculator');
+        
+        mortgageToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'flex';
+            dtiCalc.style.display = 'none';
+            mortgageToggle.classList.add('cta-button');
+            mortgageToggle.classList.remove('secondary-button');
+            dtiToggle.classList.add('secondary-button');
+            dtiToggle.classList.remove('cta-button');
+        });
+        
+        dtiToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'none';
+            dtiCalc.style.display = 'flex';
+            dtiToggle.classList.add('cta-button');
+            dtiToggle.classList.remove('secondary-button');
+            mortgageToggle.classList.add('secondary-button');
+            mortgageToggle.classList.remove('cta-button');
+        });
+        
+        // Mortgage Calculator functionality
+        const calculateBtn = document.getElementById('calculate-btn');
+        calculateBtn.addEventListener('click', calculateMortgage);
+        
+        // Add event listeners to all mortgage inputs to recalculate when changed
+        const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
+        mortgageInputs.forEach(input => {
+            input.addEventListener('change', calculateMortgage);
+            input.addEventListener('keyup', calculateMortgage);
+        });
+        
+        function calculateMortgage() {
+            // Get input values
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loan-term').value) || 30;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
+            const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
+            const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
+            
+            // Calculate loan amount
+            const loanAmount = homePrice - downPayment;
+            
+            // Calculate monthly interest rate
+            const monthlyInterestRate = interestRate / 100 / 12;
+            
+            // Calculate number of payments
+            const numberOfPayments = loanTerm * 12;
+            
+            // Calculate monthly payment (principal & interest)
+            const monthlyPayment = loanAmount * 
+                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            
+            // Calculate other monthly costs
+            const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
+            const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
+            
+            // Calculate totals
+            const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
+            const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
+            const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) + 
+                (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+            
+            // Update the UI
+            document.getElementById('monthly-payment').textContent = formatCurrency(totalMonthlyPayment);
+            document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
+            document.getElementById('total-cost').textContent = formatCurrency(totalCost);
+            document.getElementById('principal-interest').textContent = formatCurrency(monthlyPayment);
+            document.getElementById('property-tax').textContent = formatCurrency(monthlyPropertyTax);
+            document.getElementById('home-insurance').textContent = formatCurrency(monthlyInsurance);
+            document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
+            document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
+        }
+        
+        // DTI Calculator functionality
+        const calculateDtiBtn = document.getElementById('calculate-dti-btn');
+        calculateDtiBtn.addEventListener('click', calculateDTI);
+        
+        // Add event listeners to all DTI inputs to recalculate when changed
+        const dtiInputs = document.querySelectorAll('#dti-calculator input');
+        dtiInputs.forEach(input => {
+            input.addEventListener('change', calculateDTI);
+            input.addEventListener('keyup', calculateDTI);
+        });
+        
+        function calculateDTI() {
+            // Get input values
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
+            const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
+            
+            // Calculate ratios
+            const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
+            const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
+            
+            // Determine lender preference
+            let lenderPreference = 'Poor';
+            if (backEndRatio <= 36) {
+                lenderPreference = 'Excellent';
+            } else if (backEndRatio <= 43) {
+                lenderPreference = 'Good';
+            } else if (backEndRatio <= 50) {
+                lenderPreference = 'Fair';
+            }
+            
+            // Update the UI
+            document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(0) + '%';
+            document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(0) + '%';
+            document.getElementById('lender-preference').textContent = lenderPreference;
+            document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
+        }
+        
+        // Helper function to format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        
+        // Calculate initial values
+        calculateMortgage();
+        calculateDTI();
     });
   </script>
 
