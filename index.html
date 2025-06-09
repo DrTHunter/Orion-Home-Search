@@ -1547,7 +1547,7 @@
                     <!-- Blog Post 3 -->
                     <div class="blog-card">
                       <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.2.0&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" loading="lazy">
                       </div>
                       <div class="blog-content">
                         <div class="blog-meta">
@@ -1728,27 +1728,26 @@
           });
         });
 
-        // Add this to your existing script section
-        document.addEventListener('DOMContentLoaded', function() {
-            // Search Widget Toggle
-            const mapToggle = document.getElementById('map-toggle');
-            const formToggle = document.getElementById('form-toggle');
-            const mapSearch = document.getElementById('map-search-container');
-            const formSearch = document.getElementById('form-search-container');
-            
-            mapToggle.addEventListener('click', function() {
-                mapSearch.style.display = 'block';
-                formSearch.style.display = 'none';
-                mapToggle.className = 'cta-button';
-                formToggle.className = 'secondary-button';
-            });
-            
-            formToggle.addEventListener('click', function() {
-                mapSearch.style.display = 'none';
-                formSearch.style.display = 'block';
-                mapToggle.className = 'secondary-button';
-                formToggle.className = 'cta-button';
-            });
+        // Search Widget Toggle
+        document.addEventListener('DOMContentLoaded', function () {
+          const mapToggle = document.getElementById('map-toggle');
+          const formToggle = document.getElementById('form-toggle');
+          const mapSearch = document.getElementById('map-search-container');
+          const formSearch = document.getElementById('form-search-container');
+      
+          mapToggle.addEventListener('click', function () {
+            mapSearch.style.display = 'block';
+            formSearch.style.display = 'none';
+            mapToggle.className = 'cta-button';
+            formToggle.className = 'secondary-button';
+          });
+      
+          formToggle.addEventListener('click', function () {
+            mapSearch.style.display = 'none';
+            formSearch.style.display = 'block';
+            mapToggle.className = 'secondary-button';
+            formToggle.className = 'cta-button';
+          });
         });
         
         // Contact Modal
@@ -1812,59 +1811,59 @@
         const popupOverlay = document.getElementById('popup-overlay');
       
         contactForm.addEventListener('submit', async function (e) {
-  if (termsAgreed.value !== 'agreed') {
-    e.preventDefault();
-    alert('You must agree to the Terms of Service before submitting.');
-    return;
-  }
-
-  e.preventDefault();
-
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-  try {
-    const formData = new FormData(contactForm);
-    const data = new URLSearchParams(formData);
-
-    const response = await fetch(contactForm.action, {
-      method: 'POST',
-      body: data
-    });
-
-    if (!response.ok) throw new Error('Submission failed');
-
-    // Close the contact modal immediately after submit
-    document.getElementById('contact-modal').style.display = 'none';
-
-    // Show success popup
-    successMessage.style.display = 'block';
-    successPopup.style.display = 'block';
-    popupOverlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-
-    setTimeout(() => {
-      contactForm.reset();
-      successMessage.style.display = 'none';
-      successPopup.style.display = 'none';
-      popupOverlay.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      selected = [];
-      buttons.forEach(btn => btn.classList.remove('selected'));
-      hiddenInput.value = '';
-      termsToggle.classList.remove('selected');
-      termsToggle.setAttribute('data-agreed', 'false');
-      termsAgreed.value = '';
-    }, 3500);
-  } catch (err) {
-    alert('There was an error submitting the form. Please try again later.');
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-  }
-});
+          if (termsAgreed.value !== 'agreed') {
+            e.preventDefault();
+            alert('You must agree to the Terms of Service before submitting.');
+            return;
+          }
+      
+          e.preventDefault();
+      
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+          try {
+            const formData = new FormData(contactForm);
+            const data = new URLSearchParams(formData);
+      
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: data
+            });
+      
+            if (!response.ok) throw new Error('Submission failed');
+      
+            // Close the contact modal immediately after submit
+            document.getElementById('contact-modal').style.display = 'none';
+      
+            // Show success popup
+            successMessage.style.display = 'block';
+            successPopup.style.display = 'block';
+            popupOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+      
+            setTimeout(() => {
+              contactForm.reset();
+              successMessage.style.display = 'none';
+              successPopup.style.display = 'none';
+              popupOverlay.style.display = 'none';
+              document.body.style.overflow = 'auto';
+              selected = [];
+              buttons.forEach(btn => btn.classList.remove('selected'));
+              hiddenInput.value = '';
+              termsToggle.classList.remove('selected');
+              termsToggle.setAttribute('data-agreed', 'false');
+              termsAgreed.value = '';
+            }, 3500);
+          } catch (err) {
+            alert('There was an error submitting the form. Please try again later.');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        });
       
         // Close popup
         document.getElementById('close-popup')?.addEventListener('click', () => {
@@ -1878,71 +1877,133 @@
           popupOverlay.style.display = 'none';
           document.body.style.overflow = 'auto';
         });
+      
+        // Calculator Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+          const mortgageToggle = document.getElementById('mortgage-toggle');
+          const dtiToggle = document.getElementById('dti-toggle');
+          const mortgageCalc = document.getElementById('mortgage-calculator');
+          const dtiCalc = document.getElementById('dti-calculator');
 
-            // Calculator Toggle Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const mortgageToggle = document.getElementById('mortgage-toggle');
-        const dtiToggle = document.getElementById('dti-toggle');
-        const mortgageCalc = document.getElementById('mortgage-calculator');
-        const dtiCalc = document.getElementById('dti-calculator');
-        
-        mortgageToggle.addEventListener('click', function() {
+          mortgageToggle.addEventListener('click', function () {
             mortgageCalc.style.display = 'flex';
             dtiCalc.style.display = 'none';
             mortgageToggle.className = 'cta-button';
             dtiToggle.className = 'secondary-button';
-        });
-        
-        dtiToggle.addEventListener('click', function() {
+          });
+
+          dtiToggle.addEventListener('click', function () {
             mortgageCalc.style.display = 'none';
             dtiCalc.style.display = 'flex';
             mortgageToggle.className = 'secondary-button';
             dtiToggle.className = 'cta-button';
-        });
-        
-        // DTI Calculator Logic
-        document.getElementById('calculate-dti-btn').addEventListener('click', calculateDTI);
-        
-        function calculateDTI() {
+          });
+
+          // DTI Calculator Logic
+          const dtiInputs = [
+            document.getElementById('monthly-income'),
+            document.getElementById('monthly-debts'),
+            document.getElementById('proposed-mortgage')
+          ];
+          const dtiForm = dtiCalc.querySelector('.calculator-form');
+          const dtiButton = document.getElementById('calculate-dti-btn');
+
+          function calculateDTI() {
             const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
             const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
             const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
-            
+
             if (monthlyIncome <= 0) {
-                alert('Please enter a valid monthly income');
-                return;
+              document.getElementById('front-end-ratio').textContent = '--';
+              document.getElementById('back-end-ratio').textContent = '--';
+              document.getElementById('lender-preference').textContent = '--';
+              document.getElementById('your-back-end').textContent = '--';
+              return;
             }
-            
+
             // Calculate ratios
             const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
             const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
-            
+
             // Determine lender preference
             let preference;
             if (backEndRatio <= 36) {
-                preference = 'Excellent';
+              preference = 'Excellent';
             } else if (backEndRatio <= 43) {
-                preference = 'Good';
+              preference = 'Good';
             } else if (backEndRatio <= 50) {
-                preference = 'Marginal';
+              preference = 'Marginal';
             } else {
-                preference = 'Challenging';
+              preference = 'Challenging';
             }
-            
+
             // Update the UI
             document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(1) + '%';
             document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(1) + '%';
             document.getElementById('lender-preference').textContent = preference;
             document.getElementById('your-back-end').textContent = backEndRatio.toFixed(1) + '%';
-        }
-        
-        // Initialize DTI calculator
-        calculateDTI();
-    });
+          }
 
+          // Calculate on input change
+          dtiInputs.forEach(input => {
+            input.addEventListener('input', calculateDTI);
+          });
+
+          // Calculate on pressing Enter in any input
+          dtiInputs.forEach(input => {
+            input.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                calculateDTI();
+              }
+            });
+          });
+
+          // Still allow button click for accessibility
+          dtiButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            calculateDTI();
+          });
+
+          // Prevent form submission if user presses Enter
+          dtiForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateDTI();
+          });
+
+          // Initialize DTI calculator
+          calculateDTI();
+        });
+      
         // Mortgage Calculator Logic
         document.getElementById('calculate-btn').addEventListener('click', calculateMortgage);
-        
+
+        // Also calculate when pressing Enter in any input in the mortgage calculator
+        const mortgageInputs = [
+          document.getElementById('home-price'),
+          document.getElementById('down-payment'),
+          document.getElementById('loan-term'),
+          document.getElementById('interest-rate'),
+          document.getElementById('property-tax-rate'),
+          document.getElementById('insurance-rate'),
+          document.getElementById('hoa-fee')
+        ];
+
+        // Calculate on pressing Enter in any input
+        mortgageInputs.forEach(input => {
+          input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              calculateMortgage();
+            }
+          });
+        });
+
+        // Optionally, calculate on input change for instant feedback (remove if not desired)
+        // mortgageInputs.forEach(input => {
+        //   input.addEventListener('input', calculateMortgage);
+        // });
+
         function calculateMortgage() {
             // Get input values
             const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
@@ -1952,42 +2013,42 @@
             const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
             const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
             const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
-        
+
             // Validate inputs
             if (homePrice <= 0 || downPayment < 0 || interestRate <= 0) {
-                alert('Please enter valid values for Home Price, Down Payment, and Interest Rate');
-                return;
+              alert('Please enter valid values for Home Price, Down Payment, and Interest Rate');
+              return;
             }
-        
+
             if (downPayment >= homePrice) {
-                alert('Down payment must be less than home price');
-                return;
+              alert('Down payment must be less than home price');
+              return;
             }
-        
+
             // Calculate loan amount
             const loanAmount = homePrice - downPayment;
-            
+
             // Calculate monthly interest rate
             const monthlyInterestRate = (interestRate / 100) / 12;
-            
+
             // Calculate number of payments
             const numberOfPayments = loanTerm * 12;
-            
+
             // Calculate monthly payment (principal + interest)
-            const monthlyPayment = loanAmount * 
-                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
-                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-            
+            const monthlyPayment = loanAmount *
+              (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+              (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
             // Calculate other monthly costs
             const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
             const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
-            
+
             // Calculate totals
             const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
             const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
-            const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) + 
-                             (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
-        
+            const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) +
+              (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+
             // Update the UI
             document.getElementById('monthly-payment').textContent = formatCurrency(monthlyPayment);
             document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
@@ -2006,9 +2067,8 @@
         
         // Initialize mortgage calculator
         calculateMortgage();
-    
-      <!-- ✅ Chatbase Embed (place once, at the very bottom) -->
-      <script>
+
+        // ✅ Chatbase Embed (place once, at the very bottom)
         (function () {
           if (!window.chatbase || window.chatbase("getState") !== "initialized") {
             window.chatbase = (...args) => {
@@ -2038,7 +2098,7 @@
             window.addEventListener("load", onLoad);
           }
         })();
-      </script>
+    </script>
     
 </body>
 </html>
