@@ -68,86 +68,7 @@
     }
     
     /* Header */
-    header {
-      background-color: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed;
-      width: 100%;
-      z-index: 100;
-      padding: 10px 0;
-    }
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 15px;
-    }
-    
-    .logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-      white-space: nowrap;
-    }
-    
-    .logo span {
-      color: var(--secondary);
-    }
-    
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
-      z-index: 101;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      transition: color 0.3s;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    .cta-button {
-      background-color: var(--primary);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .cta-button:hover {
-      background-color: var(--primary-light);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
+   
     /* Mobile Menu Overlay */
     .mobile-menu-overlay {
       position: fixed;
@@ -626,22 +547,7 @@
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 
   <!-- Header -->
-  <header id="main-header">
-    <div class="container">
-      <nav>
-        <div class="logo"><span>Orion</span> AI Real Estate Network</div>
-        <button class="menu-toggle" id="mobile-menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/"> Home</a>
-          <a href="https://www.orionhomesearch.com/"> Home Search Tool</a>
-          <a href="https://www.orionhomesearch.com/blog/">Blog</a>
-          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<div id="header-placeholder"></div>
 
   <!-- Blog Header -->
   <section class="blog-header">
@@ -861,6 +767,12 @@
    <div id="footer-placeholder"></div>
 
   <script>
+    fetch('https://www.orionhomesearch.com/header/header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+    });
+    
     fetch('https://www.orionhomesearch.com/footer/footer.html')
       .then(res => res.text())
       .then(html => {
