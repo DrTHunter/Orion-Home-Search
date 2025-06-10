@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Best Neighborhoods in San Antonio for First-Time Homebuyers | Orion AI Real Estate Network</title>
-  <meta name="description" content="Discover the top 5 neighborhoods in San Antonio for first-time homebuyers in 2025. Get expert insights and find your perfect home with Orion AI.">
+  <title>San Antonio Downtown Search | Orion AI Real Estate Network</title>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
@@ -29,17 +28,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
-    <style>
+  <style>
     :root {
       --primary: #2a5b84;         /* Deep tech blue */
       --primary-light: #4b91c9;   /* Soft, clickable blue */
-      --secondary: #b88cf3;       /* Muted violet */
-      --accent: #5ef2c2;          /* Futuristic mint */
-      --dark: #1e1e2f;            /* Deep navy-charcoal */
-      --light: #f4f6f8;           /* Soft light background */
-      --gray: #d1d5db;            /* Light cool gray */
+      --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
+      --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
+      --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
+      --light: #f4f6f8;           /* Soft, breathable light background */
+      --gray: #d1d5db;            /* Light cool gray for body text on dark */
       --white: #ffffff;
     }
     
@@ -54,7 +52,6 @@
       color: var(--dark);
       line-height: 1.6;
       background-color: var(--white);
-      scroll-behavior: smooth;
     }
     
     h1, h2, h3, h4 {
@@ -78,12 +75,6 @@
       width: 100%;
       z-index: 100;
       padding: 10px 0;
-      transition: all 0.3s ease;
-    }
-    
-    header.scrolled {
-      padding: 5px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     
     nav {
@@ -126,6 +117,9 @@
       font-weight: 500;
       transition: color 0.3s;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     
     .nav-links a:hover {
@@ -154,7 +148,6 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     
-    
     /* Mobile Menu Overlay */
     .mobile-menu-overlay {
       position: fixed;
@@ -175,7 +168,119 @@
       visibility: visible;
     }
     
-    /* Main Content */
+        /* Blog Layout */
+    .blog-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 6rem 0 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .blog-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-description {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .post-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .post-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .post-image {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .post-content {
+      padding: 1.5rem;
+    }
+    
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+    
+    .post-category {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .post-title {
+      font-size: 1.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+    
+    .post-excerpt {
+      color: #495057;
+      margin-bottom: 1.5rem;
+    }
+    
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      gap: 5px;
+      transition: all 0.3s;
+    }
+    
+    .read-more:hover {
+      color: var(--primary-light);
+      transform: translateX(5px);
+    }
+    
+    .featured-post {
+      grid-column: span 2;
+      display: flex;
+    }
+    
+    .featured-post .post-image {
+      height: auto;
+      flex: 1;
+    }
+    
+    .featured-content {
+      flex: 1;
+      padding: 2rem;
+    }
+    
+    .featured-post .post-title {
+      font-size: 2rem;
+    }
+
     /* Main Content */
     .main-content {
       padding: 120px 0 60px;
@@ -191,170 +296,37 @@
       color: var(--primary);
     }
     
-    /* Blog Content Styles */
-    .blog-container {
+    .page-description {
       max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .blog-header {
-      margin-bottom: 40px;
+      margin: 0 auto 40px;
       text-align: center;
     }
     
-    .blog-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--primary);
-      line-height: 1.2;
+    .page-description p {
+      color: #73a4d6;
     }
     
-    .blog-meta {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-    
-    .blog-meta i {
-      color: var(--primary-light);
-    }
-    
-    .blog-content {
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-    
-    .blog-content h2 {
-      font-size: 1.8rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      color: var(--primary);
-      position: relative;
-      padding-bottom: 10px;
-    }
-    
-    .blog-content h2:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 3px;
-    }
-    
-    .blog-content h3 {
-      font-size: 1.4rem;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      color: var(--primary-light);
-    }
-    
-    .blog-content p {
-      margin-bottom: 20px;
-    }
-    
-    .neighborhood-card {
-      background-color: var(--light);
-      border-radius: 8px;
-      padding: 25px;
-      margin-bottom: 30px;
-      border-left: 4px solid var(--primary);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .neighborhood-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .neighborhood-card h3 {
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .neighborhood-card h3 i {
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .neighborhood-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .neighborhood-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 15px 0;
-    }
-    
-    .stat-item {
-      background: rgba(42, 91, 132, 0.1);
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    .stat-item i {
-      color: var(--primary);
-    }
-    
-    .highlight-box {
-      background-color: rgba(42, 91, 132, 0.1);
-      border-left: 4px solid var(--primary);
+    /* Search Results Container */
+    .search-results-container {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 20px;
-      margin: 30px 0;
-      border-radius: 0 8px 8px 0;
-      position: relative;
+      margin-bottom: 40px;
     }
     
-    .highlight-box:before {
-      content: '"';
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      font-size: 60px;
-      font-family: serif;
-      color: rgba(42, 91, 132, 0.2);
-      line-height: 1;
-    }
-    
-    .highlight-box p {
-      margin-bottom: 0;
-      font-style: italic;
-      position: relative;
-      padding-left: 30px;
-    }
-    
-    /* Featured Image */
-    .featured-image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
+    /* Map Preview */
+    .map-preview {
+      height: 350px;
+      background-color: #eee;
       border-radius: 8px;
-      margin: 30px 0;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom: 20px;
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x350&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-
+    
     /* CTA Section */
     .cta-section {
       padding: 80px 0;
@@ -365,7 +337,7 @@
       overflow: hidden;
     }
     
-    .cta-section:before {
+    .cta-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -391,12 +363,6 @@
       max-width: 700px;
       margin: 0 auto 30px;
       font-size: 1.1rem;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
     }
     
     /* Updated Button Styles for CTA Section */
@@ -452,7 +418,6 @@
       animation: fadeIn 0.3s;
     }
     
-
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -517,21 +482,45 @@
         box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
-    #contact-form button {
-        width: 100%;
-        margin-top: 10px;
-        padding: 12px;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
+    /* Add this to your existing CSS */
+    #contact-form button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 20px;
     }
     
-    #contact-form button:hover {
-        background-color: var(--primary-light);
+    #contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    #contact-form button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+    
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button[type="submit"] .fa-spinner {
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
     }
     
     /* Checkboxes in form */
@@ -550,255 +539,94 @@
       padding: 4px 0;
     }
 
-    /* Footer with Transparent Background */
-    footer {
-      background-color: var(--dark);
+    /* Toggle button selections (for locations) */
+    .toggle-option {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-option.selected {
+      background-color: #4caf50;
       color: white;
-      padding: 50px 0 20px;
-      text-align: center;
-      position: relative;
     }
 
-    footer:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-      opacity: 0.05;
-      z-index: 0;
+    .checkbox-group label,
+    .toggle-option {
+      display: inline-block;
+      margin: 10px 15px 10px 0; /* top right bottom left */
     }
 
-    footer .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
-      text-align: left;
-    }
-
-    .footer-about {
-      max-width: 400px;
-    }
-
-    .footer-logo {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      display: block;
-      color: var(--white);
-    }
-
-    .footer-logo span {
-      color: var(--secondary);
-    }
-
-    .footer-about h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-about p {
+    .checkbox-group {
       margin-bottom: 20px;
     }
 
-    .footer-links h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-links {
-      padding-left: 100px; /* Increase this value for more right spacing */
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    .footer-contact h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-contact p {
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-contact i {
-      color: var(--accent);
-      width: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-      justify-content: flex-start;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.2rem;
-      transition: all 0.3s;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(255,255,255,0.1);
-    }
-
-    .social-links a:hover {
-      color: var(--secondary);
-      background-color: rgba(255,255,255,0.2);
-      transform: translateY(-3px);
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    
-    /* Animations */
-    .animate-pop {
-      animation: popIn 0.5s ease-out;
-    }
-    
-    @keyframes popIn {
-      0% { transform: scale(0.95); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-
-    .main-content {
-      padding-top: 100px; /* Adjust this value to match your header's height */
-    }
-
-    @media (max-width: 768px) {
-      .main-content {
-        padding: 300px 0 40px;
-      }
-      
-      .blog-title {
-        font-size: 2rem;
-      }
-      
-      .menu-toggle {
-        display: block;
-      }
-      
-      .nav-links {
+    /* Success Popup */
+    .success-popup {
         position: fixed;
-        top: 60px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        z-index: 2000;
+        text-align: center;
+        max-width: 400px;
+        display: none;
+    }
+    
+    .success-popup i {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+    
+    .success-popup h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .success-popup p {
+        margin-bottom: 20px;
+    }
+    
+    .success-popup .close-popup {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .success-popup .close-popup:hover {
+        background-color: var(--primary-light);
+    }
+    
+    .popup-overlay {
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: var(--white);
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        gap: 15px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 100;
-      }
-      
-      .nav-links.active {
-        transform: translateY(0);
-      }
-      
-      .logo {
-        font-size: 16px;
-      }
-      
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .cta-section .cta-button,
-      .cta-section .secondary-button {
-        width: 100%;
-        max-width: 250px;
-      }
-      
-      .featured-image {
-        height: 250px;
-      }
-      
-      .neighborhood-image {
-        height: 180px;
-      }
-      
-     .footer-links {
-      text-align: center;
-      padding-left: 0;
-      }
-  
-    .footer-links ul {
-      display: inline-block;
-      text-align: left;
-      margin: 0 auto;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1999;
+        display: none;
     }
-  
-    .footer-container {
-      text-align: center;
-    }
-  
-    .footer-about,
-    .footer-contact {
-      text-align: center;
-    }
-  
-    .social-links {
-      justify-content: center;
-    }
-  }
-    </style>
-  
-  </head>
-  <body>
+    
+    /* Footer with Transparent Background */
+    
+  </style>
+</head>
+<body>
   <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 
   <!-- Header -->
-  <header>
+  <header id="main-header">
     <div class="container">
       <nav>
         <div class="logo"><span>Orion</span> AI Real Estate Network</div>
@@ -806,130 +634,121 @@
           <i class="fas fa-bars"></i>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
-          <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
-          <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
+          <a href="https://www.orionhomesearch.com/"> Home</a>
+          <a href="https://www.orionhomesearch.com/"> Home Search Tool</a>
+          <a href="https://www.orionhomesearch.com/blog/">Blog</a>
           <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
         </div>
       </nav>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="blog-container">
-      <div class="blog-header animate__animated animate__fadeIn">
-        <h1 class="blog-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value in 2025</h1>
-        <div class="blog-meta">
-          <span><i class="fas fa-calendar-alt"></i> June 7, 2025</span>
-          <span><i class="fas fa-clock"></i> 6 min read</span>
+  <!-- Blog Header -->
+  <section class="blog-header">
+    <div class="container">
+      <h1 class="blog-title">Orion AI Real Estate Insights</h1>
+      <p class="blog-description">Smart home buying advice, San Antonio neighborhood spotlights, and market trends powered by AI</p>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <main class="container">
+    <div class="posts-grid">
+      <!-- Featured Post (First Hidden Gems Post) -->
+      <article class="post-card featured-post">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" class="post-image">
+        <div class="featured-content">
+          <div class="post-meta">
+            <span class="post-date">June 7, 2025</span>
+            <span class="post-category">Neighborhood Insights</span>
+          </div>
+          <h2 class="post-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h2>
+          <div class="post-excerpt">
+            <p>Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
+          </div>
+          <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
-      </div>
+      </article>
       
-      <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" class="featured-image animate__animated animate__fadeIn">
+      <!-- Post 1 -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio Suburban Homes" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">June 6, 2025</span>
+            <span class="post-category">Neighborhood Guide</span>
+          </div>
+          <h2 class="post-title">Best Neighborhoods in San Antonio for First-Time Homebuyers (2025 Edition)</h2>
+          <div class="post-excerpt">
+            <p>From Alamo Ranch to Tobin Hill, explore the top 5 areas where first-time buyers are getting the most for their money—and how Orion AI helps you choose smart.</p>
+          </div>
+          <a href="https://www.orionhomesearch.com/blog/best-neighborhoods/" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
       
-      <div class="blog-content">
-        <p>While everyone talks about Alamo Heights and Stone Oak, savvy homebuyers know San Antonio has incredible hidden gem neighborhoods offering better value, unique character, and strong appreciation potential. These under-the-radar areas combine affordability with quality of life—perfect for buyers who want more house for their money.</p>
-        
-        <p>Here are 5 of San Antonio's best-kept real estate secrets in 2025, plus how Orion AI's neighborhood matching technology helps you discover areas you might have overlooked.</p>
-        
-        <div class="neighborhood-card animate-pop delay-1">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dignowity Hill neighborhood" class="neighborhood-image">
-          <h3><i class="fas fa-chess-rook"></i> Dignowity Hill</h3>
-          <p><strong>Best For:</strong> Urban pioneers, historic charm seekers</p>
-          <div class="neighborhood-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> $250k-$400k</span>
-            <span class="stat-item"><i class="fas fa-chart-line"></i> Rapid Appreciation</span>
-            <span class="stat-item"><i class="fas fa-landmark"></i> Historic</span>
+      <!-- Post 2 -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="San Antonio housing market 2025" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">June 7, 2025</span>
+            <span class="post-category">Market Forecast</span>
           </div>
-          <p>This revitalized historic district east of downtown offers Victorian and Craftsman homes at prices 30% lower than comparable areas. With new restaurants and breweries moving in, Dignowity Hill is becoming San Antonio's next hot urban neighborhood.</p>
-          <p>The area features some of the city's most architecturally significant homes, many built between 1880-1920. Recent infrastructure improvements and new developments like the Eastside Promise Zone are driving renewed interest in this historic community.</p>
-        </div>
-        
-        <div class="neighborhood-card animate-pop delay-2">
-          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Lackland Terrace neighborhood" class="neighborhood-image">
-          <h3><i class="fas fa-shield-alt"></i> Lackland Terrace</h3>
-          <p><strong>Best For:</strong> Military families, value investors</p>
-          <div class="neighborhood-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> $180k-$280k</span>
-            <span class="stat-item"><i class="fas fa-user-tie"></i> Stable Rental Market</span>
-            <span class="stat-item"><i class="fas fa-plane-departure"></i> Near Military Bases</span>
+          <h2 class="post-title">San Antonio Housing Market Forecast 2025: What Buyers Need to Know</h2>
+          <div class="post-excerpt">
+            <p>Explore expert insights into pricing trends, inventory shifts, and strategic buying tips for 2025. Orion AI helps you make smarter moves in San Antonio's evolving market.</p>
           </div>
-          <p>Adjacent to Lackland AFB, this neighborhood offers some of the best price-per-square-foot values in San Antonio. The strong military presence creates consistent rental demand, making it ideal for first-time investors.</p>
-          <p>Homes here are primarily mid-century ranch styles with large lots. The area is seeing increased commercial development along Military Drive, improving amenities while maintaining affordable housing prices.</p>
+          <a href="https://www.orionhomesearch.com/blog/San-Antonio-2025-Housing-Market-Forecast" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <div class="neighborhood-card animate-pop delay-3">
-          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Southtown Arts District neighborhood" class="neighborhood-image">
-          <h3><i class="fas fa-palette"></i> Southtown Arts District</h3>
-          <p><strong>Best For:</strong> Creatives, culture lovers</p>
-          <div class="neighborhood-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> $300k-$500k</span>
-            <span class="stat-item"><i class="fas fa-utensils"></i> Food Scene</span>
-            <span class="stat-item"><i class="fas fa-theater-masks"></i> Arts Community</span>
+      </article>
+      
+      <!-- Post 3 (Second Hidden Gems Post) -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="San Antonio hidden gem neighborhoods" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">June 7, 2025</span>
+            <span class="post-category">Neighborhood Insights</span>
           </div>
-          <p>While King William gets all the attention, the adjacent Southtown Arts District offers similar walkability and culture at 20% lower prices. Live/work lofts, bungalows, and new mixed-use developments make this area perfect for artistic souls.</p>
-          <p>The neighborhood hosts First Friday art walks and features galleries, studios, and some of the city's best independent restaurants. New residential developments are carefully designed to maintain the area's eclectic character.</p>
-        </div>
-        
-        <div class="neighborhood-card animate-pop delay-4">
-          <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Westwood Village neighborhood" class="neighborhood-image">
-          <h3><i class="fas fa-home"></i> Westwood Village</h3>
-          <p><strong>Best For:</strong> Families, value-conscious buyers</p>
-          <div class="neighborhood-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> $200k-$300k</span>
-            <span class="stat-item"><i class="fas fa-school"></i> Great Schools</span>
-            <span class="stat-item"><i class="fas fa-tree"></i> Mature Trees</span>
+          <h2 class="post-title">San Antonio's Hidden Gem Neighborhoods: 5 Underrated Areas with Great Value</h2>
+          <div class="post-excerpt">
+            <p>Discover affordable, character-rich areas most buyers overlook in 2025. Orion AI reveals five underrated San Antonio neighborhoods poised for strong appreciation and lifestyle appeal.</p>
           </div>
-          <p>This established neighborhood near SeaWorld offers excellent schools, large lots, and mature trees at prices well below comparable areas. The community feel and convenient location make it a standout for families watching their budget.</p>
-          <p>Westwood Village features primarily brick homes from the 1970s-80s with spacious floor plans. The neighborhood association actively maintains parks and common areas, preserving the area's appeal.</p>
+          <a href="https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <div class="neighborhood-card animate-pop delay-5">
-          <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Brooks neighborhood" class="neighborhood-image">
-          <h3><i class="fas fa-rocket"></i> Brooks</h3>
-          <p><strong>Best For:</strong> Future-focused buyers, long-term investors</p>
-          <div class="neighborhood-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> $220k-$350k</span>
-            <span class="stat-item"><i class="fas fa-hard-hat"></i> Master-Planned</span>
-            <span class="stat-item"><i class="fas fa-briefcase-medical"></i> Medical Hub</span>
+      </article>
+      
+      <!-- Post 4 -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury home" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">May 15, 2025</span>
+            <span class="post-category">Luxury Market</span>
           </div>
-          <p>This massive redevelopment on the former Brooks AFB is transforming into a mixed-use medical and tech hub. Early buyers are getting modern homes at pre-appreciation prices with huge upside potential.</p>
-          <p>The Brooks development includes the Texas Research Park, new hospitals, and the Texas A&M campus. The area offers new construction homes with energy-efficient designs and smart home technology at affordable price points.</p>
+          <h2 class="post-title">San Antonio Luxury Market Trends: Where the Elite Are Buying</h2>
+          <div class="post-excerpt">
+            <p>An inside look at the most exclusive neighborhoods and emerging luxury enclaves in San Antonio, with price projections through 2026.</p>
+          </div>
+          <a href="https://www.orionhomesearch.com/blog/San-Antonio-Luxury-Market-Trends" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <h2>Why These Hidden Gems Outperform</h2>
-        <p>These neighborhoods share three key advantages:</p>
-        <ul>
-          <li><strong>Price-to-value ratio:</strong> You get more house and land compared to "hot" areas</li>
-          <li><strong>Appreciation potential:</strong> As San Antonio grows, these areas will benefit from spillover demand</li>
-          <li><strong>Unique character:</strong> They offer authentic local flavor you can't find in cookie-cutter developments</li>
-        </ul>
-        
-        <div class="highlight-box">
-          <p>"The best investments aren't where everyone is looking today—they're where everyone will wish they'd looked five years from now."</p>
+      </article>
+      
+      <!-- Post 5 -->
+      <article class="post-card">
+        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Military housing" class="post-image">
+        <div class="post-content">
+          <div class="post-meta">
+            <span class="post-date">April 30, 2025</span>
+            <span class="post-category">Military</span>
+          </div>
+          <h2 class="post-title">Best Neighborhoods Near Military Bases in San Antonio</h2>
+          <div class="post-excerpt">
+            <p>For service members stationed in San Antonio, we analyze the best housing options near Lackland, Randolph, and Fort Sam Houston with commute times and VA loan insights.</p>
+          </div>
+          <a href="https://www.orionhomesearch.com/blog/Best-Neighborhoods-Near-Military-Bases" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <h2>How Orion AI Uncovers Hidden Opportunities</h2>
-        <p>Our proprietary neighborhood matching system analyzes 127 factors to find areas that match your:</p>
-        <ul>
-          <li>Budget and financing options</li>
-          <li>Lifestyle preferences (walkability, schools, amenities)</li>
-          <li>Future growth potential</li>
-          <li>Risk tolerance</li>
-        </ul>
-        
-        <p>We then connect you with local experts who specialize in these under-the-radar areas—agents who know the streets before they appear on mainstream radar.</p>
-        
-        <h2>Find Your Perfect Neighborhood Match</h2>
-        <p>Don't limit your search to the usual suspects. Let our technology and local expertise guide you to San Antonio's best hidden gem neighborhoods.</p>
-        
-        <div style="text-align: center; margin: 40px 0;">
-          <a href="#contact" class="cta-button" style="padding: 15px 30px; font-size: 1.1rem;">
-            <i class="fas fa-search-location"></i> Discover Your Neighborhood Match
-          </a>
-        </div>
-      </div>
+      </article>
     </div>
   </main>
 
@@ -949,7 +768,7 @@
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2>Get in Touch</h2>
-      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
+      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyuXIxuyvX6J4gPxql3JJreQGUbrvbykyXOfbGxb8M5rfuBpKyErZvp3w6YY2jQi-fccw/exec" method="POST">
         
         <div class="form-group">
           <label for="fullName">Full Name</label>
@@ -966,35 +785,18 @@
           <input type="tel" id="phone" name="phone" required>
         </div>
   
-          <div class="form-group">
-            <label>Preferred Locations (check all that apply)</label>
-            <div class="checkbox-group after-text">
-              <label class="checkbox-inline">
-                Downtown San Antonio
-                <input type="checkbox" name="locations" value="Downtown San Antonio">
-              </label>
-              <label class="checkbox-inline">
-                Alamo Heights
-                <input type="checkbox" name="locations" value="Alamo Heights">
-              </label>
-              <label class="checkbox-inline">
-                Stone Oak
-                <input type="checkbox" name="locations" value="Stone Oak">
-              </label>
-              <label class="checkbox-inline">
-                Northwest Side
-                <input type="checkbox" name="locations" value="Northwest Side">
-              </label>
-              <label class="checkbox-inline">
-                Medical Center
-                <input type="checkbox" name="locations" value="Medical Center">
-              </label>
-              <label class="checkbox-inline">
-                Other
-                <input type="checkbox" name="locations" value="Other">
-              </label>
-            </div>
+        <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
           </div>
+          <input type="hidden" name="locations" id="selectedLocations">
+        </div>
   
         <div class="form-group">
           <label for="timeline">Timeline to Move</label>
@@ -1007,7 +809,7 @@
           </select>
         </div>
   
-      <div class="form-group">
+        <div class="form-group">
           <label for="budget">Budget Range</label>
           <select id="budget" name="budget" required>
             <option value="">Select</option>
@@ -1023,7 +825,22 @@
           <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
         </div>
   
-        <button type="submit">Submit</button>
+        <!-- Updated Terms of Service Toggle -->
+          <div class="form-group">
+            <label style="display: block; font-weight: 600;">Consent Required</label>
+            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+              I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+            </button>
+            <input type="hidden" name="terms" id="termsAgreed" value="">
+            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+          </div>
+  
+        <!-- Added communication consent text -->
+        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+        </p>
+  
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
         </div>
@@ -1031,39 +848,25 @@
     </div>
   </div>
 
-
-  <!-- Footer with Transparent Background -->
-  <footer>
-      <div class="container">
-          <div class="footer-container">
-              <div class="footer-about">
-                  <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-                  <h3>Helping You Find Your Perfect Home</h3>
-                  <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
-              </div>
-              <div class="footer-links">
-                  <h3>Quick Links</h3>
-                  <ul>
-                      <li><a href="https://www.orionhomesearch.com/blog">Blog</a></li>
-                      <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
-                  </ul>
-              </div>
-              <div class="footer-contact">
-                  <h3>Contact</h3>
-                  <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-                  <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
-                  <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
-              </div>
-          </div>
-          <div class="copyright">
-                  <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-                  <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
-          </div>
-      </div>
-  </footer>
-
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="success-popup" id="success-popup">
+      <i class="fas fa-check-circle"></i>
+      <h3>Form Submitted Successfully!</h3>
+      <p>Thank you for your submission. We'll get back to you soon.</p>
+      <button class="close-popup" id="close-popup">Close</button>
+  </div>
   
+  <!-- Footer with Transparent Background -->
+   <div id="footer-placeholder"></div>
+
   <script>
+    fetch('https://www.orionhomesearch.com/footer/footer.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+    });
+    
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu functionality
       const mobileMenu = document.getElementById('mobile-menu');
