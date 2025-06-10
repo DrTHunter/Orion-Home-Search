@@ -4,14 +4,164 @@
     <div id="header-placeholder"></div>
 
 <script>
-    fetch('https://www.orionhomesearch.com/header/header.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
+  fetch('https://www.orionhomesearch.com/header/header.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('header-placeholder').innerHTML = html;
     });
 </script>
 -->
-  
+  <!-- Orion Modular Header (header.html) -->
+<!-- Include FontAwesome in the main site if not already loaded -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> -->
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobile-overlay"></div>
+
+<!-- Header -->
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo"><span>Orion</span> AI Real Estate Network</div>
+      <button class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+        <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
+        <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
+        <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Base Styles for Header */
+  header {
+    background-color: var(--white, #fff);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 10px 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary, #2c3e50);
+    white-space: nowrap;
+  }
+
+  .logo span {
+    color: var(--secondary, #e74c3c);
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary, #2c3e50);
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--dark, #333);
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 14px;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary, #2c3e50);
+  }
+
+  .cta-button {
+    background-color: var(--primary, #2c3e50);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-button:hover {
+    background-color: var(--primary-light, #34495e);
+    color: white;
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile-Specific Styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: var(--white, #fff);
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      gap: 15px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      transform: translateY(-150%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 100;
+    }
+
+    .nav-links.active {
+      transform: translateY(0);
+    }
+
+    .logo {
+      font-size: 16px;
+    }
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.getElementById('mobile-menu');
@@ -47,149 +197,3 @@
   });
 </script>
 
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu-overlay" id="mobile-overlay"></div>
-
-<!-- Header -->
-<header>
-  <div class="container">
-    <nav>
-      <div class="logo"><span>Orion</span> AI Real Estate Network</div>
-      <button class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
-        <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
-        <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
-        <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<style>
-  /* Base Styles for Header */
-header {
-  background-color: var(--white);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  padding: 10px 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--primary);
-  white-space: nowrap;
-}
-
-.logo span {
-  color: var(--secondary);
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--primary);
-  cursor: pointer;
-  z-index: 101;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--dark);
-  font-weight: 500;
-  transition: color 0.3s;
-  font-size: 14px;
-}
-
-.nav-links a:hover {
-  color: var(--primary);
-}
-
-.cta-button {
-  background-color: var(--primary);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-weight: 600;
-  transition: background-color 0.3s;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-}
-
-.cta-button:hover {
-  background-color: var(--primary-light);
-  color: white;
-}
-
-/* Mobile Menu Overlay */
-.mobile-menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  backdrop-filter: blur(5px);
-  z-index: 99;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-}
-
-.mobile-menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Mobile-Specific Styles */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: var(--white);
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    gap: 15px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    transform: translateY(-150%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 100;
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-  }
-
-  .logo {
-    font-size: 16px;
-  }
-}
-</style>
