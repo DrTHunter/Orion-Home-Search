@@ -68,85 +68,7 @@
     }
     
     /* Header */
-    header {
-      background-color: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: fixed;
-      width: 100%;
-      z-index: 100;
-      padding: 10px 0;
-    }
-    
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 15px;
-    }
-    
-    .logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--primary);
-      white-space: nowrap;
-    }
-    
-    .logo span {
-      color: var(--secondary);
-    }
-    
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--primary);
-      cursor: pointer;
-      z-index: 101;
-    }
-    
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-    }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      transition: color 0.3s;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-    
-    .cta-button {
-      background-color: var(--primary);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .cta-button:hover {
-      background-color: var(--primary-light);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
+   
     
     /* Mobile Menu Overlay */
     .mobile-menu-overlay {
@@ -526,144 +448,7 @@
     }
     
     /* Footer with Transparent Background */
-    footer {
-      background-color: var(--dark);
-      color: white;
-      padding: 50px 0 20px;
-      text-align: center;
-      position: relative;
-    }
-
-    footer:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-      opacity: 0.05;
-      z-index: 0;
-    }
-
-    footer .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
-      text-align: left;
-    }
-
-    .footer-about {
-      max-width: 400px;
-    }
-
-    .footer-logo {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      display: block;
-      color: var(--white);
-    }
-
-    .footer-logo span {
-      color: var(--secondary);
-    }
-
-    .footer-about h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-about p {
-      margin-bottom: 20px;
-    }
-
-    .footer-links h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-links {
-      padding-left: 100px; /* Increase this value for more right spacing */
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      color: white;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    .footer-contact h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-
-    .footer-contact p {
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-contact i {
-      color: var(--accent);
-      width: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-      justify-content: flex-start;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.2rem;
-      transition: all 0.3s;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(255,255,255,0.1);
-    }
-
-    .social-links a:hover {
-      color: var(--secondary);
-      background-color: rgba(255,255,255,0.2);
-      transform: translateY(-3px);
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
+   
     
     /* Calculator Styles */
     .calculator {
@@ -960,23 +745,7 @@
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 
   <!-- Header -->
-  <header>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo"><span>Orion</span> AI Real Estate Network</div>
-        <button class="menu-toggle" id="mobile-menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
-          <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
-          <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
-          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- Main Content -->
   <main class="main-content">
@@ -1257,36 +1026,21 @@
   </div>
   
   <!-- Footer with Transparent Background -->
-  <footer>
-      <div class="container">
-          <div class="footer-container">
-              <div class="footer-about">
-                  <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-                  <h3>Helping You Find Your Perfect Home</h3>
-                  <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
-              </div>
-              <div class="footer-links">
-                  <h3>Quick Links</h3>
-                  <ul>
-                      <li><a href="https://www.orionhomesearch.com/blog">Blog</a></li>
-                      <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
-                  </ul>
-              </div>
-              <div class="footer-contact">
-                  <h3>Contact</h3>
-                  <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-                  <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
-                  <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
-              </div>
-          </div>
-          <div class="copyright">
-                  <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-                  <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
-          </div>
-      </div>
-  </footer>
+  <div id="footer-placeholder"></div>
 
   <script>
+    fetch('https://www.orionhomesearch.com/header/header.html')
+        .then(res => res.text())
+        .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+    });
+
+    fetch('https://www.orionhomesearch.com/footer/footer.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu functionality
       const mobileMenu = document.getElementById('mobile-menu');
