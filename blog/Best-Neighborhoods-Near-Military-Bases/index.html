@@ -757,11 +757,24 @@
 
   
   <script>
-      fetch('https://www.orionhomesearch.com/header/header.html')
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById('header-placeholder').innerHTML = html;
-    });
+    fetch('https://www.orionhomesearch.com/header/header.html')
+      .then(res => res.text())
+      .then(html => {
+        const placeholder = document.getElementById('header-placeholder');
+        placeholder.innerHTML = html;
+  
+        // Force all scripts inside to execute
+        placeholder.querySelectorAll('script').forEach(oldScript => {
+          const newScript = document.createElement('script');
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+    
       fetch('https://www.orionhomesearch.com/footer/footer.html')
         .then(res => res.text())
         .then(html => {
