@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>San Antonio Luxury Market Trends 2025 | Orion AI Real Estate Network</title>
-  <meta name="description" content="Discover where San Antonio's elite are buying in 2025. Orion AI reveals luxury market trends, emerging enclaves, and appreciation forecasts for high-end properties.">
+  <title>Luxury Homes San Antonio | Orion AI Real Estate Network</title>
   
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
@@ -29,17 +28,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
-    <style>
+  <style>
     :root {
       --primary: #2a5b84;         /* Deep tech blue */
       --primary-light: #4b91c9;   /* Soft, clickable blue */
-      --secondary: #b88cf3;       /* Muted violet */
-      --accent: #5ef2c2;          /* Futuristic mint */
-      --dark: #1e1e2f;            /* Deep navy-charcoal */
-      --light: #f4f6f8;           /* Soft light background */
-      --gray: #d1d5db;            /* Light cool gray */
+      --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
+      --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
+      --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
+      --light: #f4f6f8;           /* Soft, breathable light background */
+      --gray: #d1d5db;            /* Light cool gray for body text on dark */
       --white: #ffffff;
     }
     
@@ -54,7 +52,6 @@
       color: var(--dark);
       line-height: 1.6;
       background-color: var(--white);
-      scroll-behavior: smooth;
     }
     
     h1, h2, h3, h4 {
@@ -78,12 +75,6 @@
       width: 100%;
       z-index: 100;
       padding: 10px 0;
-      transition: all 0.3s ease;
-    }
-    
-    header.scrolled {
-      padding: 5px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
     
     nav {
@@ -126,6 +117,9 @@
       font-weight: 500;
       transition: color 0.3s;
       font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
     
     .nav-links a:hover {
@@ -179,199 +173,69 @@
       padding: 120px 0 60px;
     }
     
-    /* Blog Content Styles */
-    .blog-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .page-title {
+      text-align: center;
+      margin-bottom: 40px;
     }
     
-    .blog-header {
-      margin-bottom: 40px;
+    .page-title h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+    
+    .page-description {
+      max-width: 800px;
+      margin: 0 auto 40px;
       text-align: center;
     }
     
-    .blog-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--primary);
-      line-height: 1.2;
+    .page-description p {
+      color: #73a4d6;
     }
     
-    .blog-meta {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
-    
-    .blog-meta i {
-      color: var(--primary-light);
-    }
-    
-    .blog-content {
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-    
-    .blog-content h2 {
-      font-size: 1.8rem;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      color: var(--primary);
-      position: relative;
-      padding-bottom: 10px;
-    }
-    
-    .blog-content h2:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 3px;
-    }
-    
-    .blog-content h3 {
-      font-size: 1.4rem;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      color: var(--primary-light);
-    }
-    
-    .blog-content p {
-      margin-bottom: 20px;
-    }
-    
-    .market-card {
-      background-color: var(--light);
-      border-radius: 8px;
-      padding: 25px;
-      margin-bottom: 30px;
-      border-left: 4px solid var(--primary);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .market-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .market-card h3 {
-      margin-top: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .market-card h3 i {
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .market-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .market-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 15px 0;
-    }
-    
-    .stat-item {
-      background: rgba(42, 91, 132, 0.1);
-      padding: 8px 12px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    
-    .stat-item i {
-      color: var(--primary);
-    }
-    
-    .highlight-box {
-      background-color: rgba(42, 91, 132, 0.1);
-      border-left: 4px solid var(--primary);
+    /* Search Results Container */
+    .search-results-container {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 20px;
-      margin: 30px 0;
-      border-radius: 0 8px 8px 0;
-      position: relative;
+      margin-bottom: 40px;
     }
     
-    .highlight-box:before {
-      content: '"';
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      font-size: 60px;
-      font-family: serif;
-      color: rgba(42, 91, 132, 0.2);
-      line-height: 1;
-    }
-    
-    .highlight-box p {
-      margin-bottom: 0;
-      font-style: italic;
-      position: relative;
-      padding-left: 30px;
-    }
-    
-    /* Featured Image */
-    .featured-image {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 30px 0;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    
-    /* Comparison Table */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 30px 0;
-    }
-    
-    .comparison-table th {
-      background-color: var(--primary);
+    /* Luxury Homes Hero */
+    .luxury-hero {
+      height: 500px;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
-      padding: 12px;
-      text-align: left;
+      margin-bottom: 40px;
+      position: relative;
     }
     
-    .comparison-table td {
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
+    .luxury-hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
     
-    .comparison-table tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    
-    .comparison-table tr:hover {
-      background-color: #f1f1f1;
+    .luxury-hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
     
     /* CTA Section */
-      /* CTA Section */
     .cta-section {
       padding: 80px 0;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
@@ -381,7 +245,7 @@
       overflow: hidden;
     }
     
-    .cta-section:before {
+    .cta-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -407,12 +271,6 @@
       max-width: 700px;
       margin: 0 auto 30px;
       font-size: 1.1rem;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
     }
     
     /* Updated Button Styles for CTA Section */
@@ -532,21 +390,45 @@
         box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
-    #contact-form button {
-        width: 100%;
-        margin-top: 10px;
-        padding: 12px;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
+    /* Add this to your existing CSS */
+    #contact-form button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 20px;
     }
     
-    #contact-form button:hover {
-        background-color: var(--primary-light);
+    #contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    #contact-form button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+    
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button[type="submit"] .fa-spinner {
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
     }
     
     /* Checkboxes in form */
@@ -565,6 +447,84 @@
       padding: 4px 0;
     }
 
+    /* Toggle button selections (for locations) */
+    .toggle-option {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-option.selected {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .checkbox-group label,
+    .toggle-option {
+      display: inline-block;
+      margin: 10px 15px 10px 0; /* top right bottom left */
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    /* Success Popup */
+    .success-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        z-index: 2000;
+        text-align: center;
+        max-width: 400px;
+        display: none;
+    }
+    
+    .success-popup i {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+    
+    .success-popup h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .success-popup p {
+        margin-bottom: 20px;
+    }
+    
+    .success-popup .close-popup {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .success-popup .close-popup:hover {
+        background-color: var(--primary-light);
+    }
+    
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1999;
+        display: none;
+    }
+    
     /* Footer with Transparent Background */
     footer {
       background-color: var(--dark);
@@ -705,33 +665,232 @@
       opacity: 0.8;
     }
     
-    /* Animations */
-    .animate-pop {
-      animation: popIn 0.5s ease-out;
+    /* Calculator Styles */
+    .calculator {
+        padding: 40px 0;
+        background-color: var(--white);
     }
     
-    @keyframes popIn {
-      0% { transform: scale(0.95); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .calculator-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
     }
     
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
-
-    .main-content {
-      padding-top: 100px; /* Adjust this value to match your header's height */
+    .calculator-toggle button {
+        border-radius: 0;
+        margin: 0;
+        padding: 8px 16px;
+        font-size: 1rem;
     }
-
+    
+    .calculator-toggle button:first-child {
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .calculator-toggle button:last-child {
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .calculator-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        padding: 18px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .calculator-form {
+        flex: 1;
+        min-width: 210px;
+        padding: 10px;
+    }
+    
+    .calculator-results {
+        flex: 1;
+        min-width: 210px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+        font-size: 0.98rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 7px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    
+    .result-card {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    
+    .result-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+        color: var(--primary);
+    }
+    
+    .result-amount {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+    
+    .result-breakdown {
+        background-color: var(--light);
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    .result-breakdown h4 {
+        font-size: 0.98rem;
+        margin-bottom: 7px;
+        color: var(--primary);
+    }
+    
+    .breakdown-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.97rem;
+    }
+    
+    .breakdown-item.total {
+        font-weight: 600;
+        border-bottom: none;
+        padding-top: 8px;
+    }
+    
+    /* Add or update these styles for a cleaner, more compact calculator */
+.calculator .container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.calculator-flex-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.calculator-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  padding: 12px;
+}
+.calculator-form, .calculator-results {
+  flex: 1 1 240px;
+  min-width: 180px;
+  padding: 6px;
+}
+.calculator-form {
+  max-width: 270px;
+}
+.calculator-results {
+  max-width: 320px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-size: 0.97rem;
+}
+.form-group input, .form-group select {
+  font-size: 15px;
+  padding: 6px 8px;
+}
+.result-card {
+  padding: 8px;
+  margin-bottom: 6px;
+}
+.result-card h3 {
+  font-size: 1rem;
+}
+.result-amount {
+  font-size: 1.18rem;
+}
+.result-breakdown {
+  padding: 8px;
+}
+.result-breakdown h4 {
+  font-size: 0.97rem;
+  margin-bottom: 6px;
+}
+.breakdown-item {
+  font-size: 0.96rem;
+  padding: 4px 0;
+}
+.breakdown-item.total {
+  padding-top: 6px;
+}
+@media (max-width: 900px) {
+  .calculator .container, .calculator-container {
+    max-width: 98vw;
+  }
+  .calculator-flex-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .calculator-container {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+  .calculator-form, .calculator-results {
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+  }
+}
+    
     @media (max-width: 768px) {
       .main-content {
-        padding: 300px 0 40px;
+        padding: 100px 0 40px;
       }
       
-      .blog-title {
+      .page-title h1 {
         font-size: 2rem;
+      }
+      
+      .luxury-hero {
+        height: 350px;
+      }
+      
+      .luxury-hero h2 {
+        font-size: 2rem;
+      }
+      
+      .luxury-hero p {
+        font-size: 1.1rem;
       }
       
       .menu-toggle {
@@ -762,6 +921,14 @@
         font-size: 16px;
       }
       
+      .cta-section {
+        padding: 60px 0;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+      
       .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -772,25 +939,21 @@
         width: 100%;
         max-width: 250px;
       }
-      
-      .featured-image {
-        height: 250px;
-      }
-      
-      .neighborhood-image {
-        height: 180px;
-      }
-      
-      .footer-links {
-        padding-left: 0;
-      }
-      
+
       .footer-container {
         grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-contact p {
+        justify-content: center;
       }
     }
   </style>
-
 </head>
 <body>
   <!-- Mobile Menu Overlay -->
@@ -816,186 +979,184 @@
 
   <!-- Main Content -->
   <main class="main-content">
-    <div class="blog-container">
-      <div class="blog-header animate__animated animate__fadeIn">
-        <h1 class="blog-title">San Antonio Luxury Market Trends: Where the Elite Are Buying</h1>
-        <div class="blog-meta">
-          <span><i class="fas fa-calendar-alt"></i> June 7, 2025</span>
-          <span><i class="fas fa-clock"></i> 8 min read</span>
-        </div>
+    <div class="container">
+      <div class="page-title">
+        <h1>Luxury Homes in San Antonio</h1>
       </div>
       
-      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Luxury home in San Antonio" class="featured-image animate__animated animate__fadeIn">
+      <div class="luxury-hero">
+        <h2>Premium Properties Above $800,000</h2>
+        <p>Discover San Antonio's finest homes featuring exceptional amenities, premium locations, and exquisite craftsmanship</p>
+      </div>
       
-      <div class="blog-content">
-        <p>In 2025, San Antonio is no longer just a hidden gem—it's a crown jewel in Texas luxury real estate. From historic estates tucked inside gated communities to ultra-modern mansions with panoramic Hill Country views, the city is redefining upscale living. For high-net-worth buyers seeking exclusivity, value, and lifestyle, San Antonio offers a compelling alternative to Austin or Dallas. And the trends suggest the best is yet to come.</p>
-        
-        <p>At Orion Home Search, we're not just tracking the market. We're using AI to anticipate it. Our platform matches serious buyers with curated luxury listings that fit their lifestyle, goals, and long-term vision—not just square footage and zip code.</p>
-        
-        <h2>The Current Landscape: High-End Demand, Low Inventory</h2>
-        <p>The luxury home market (defined in San Antonio as $750K and up) has remained red-hot throughout 2024 and early 2025, even as interest rates caused some softening in mid-tier segments. Why? Because wealthy buyers are less rate-sensitive and more lifestyle-driven. From Boerne to Alamo Heights, cash buyers and out-of-state transplants continue to push prices higher.</p>
-        
-        <div class="highlight-box">
-          <p>"San Antonio's luxury market is outperforming expectations because it offers what today's elite buyers want: value retention, lifestyle amenities, and relative privacy compared to Austin's oversaturated market."</p>
-        </div>
-        
-        <h3>Top-performing luxury zip codes in 2025:</h3>
-        
-        <div class="market-card animate-pop delay-1">
-          <h3><i class="fas fa-map-marker-alt"></i> 78209 (Alamo Heights)</h3>
-          <p><strong>Profile:</strong> Classic luxury with proximity to downtown and elite schools</p>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> Median Price: $1.4M</span>
-            <span class="stat-item"><i class="fas fa-chart-line"></i> 12% Appreciation (2024)</span>
-            <span class="stat-item"><i class="fas fa-graduation-cap"></i> Top-Rated Schools</span>
-          </div>
-        </div>
-        
-        <div class="market-card animate-pop delay-2">
-          <h3><i class="fas fa-map-marker-alt"></i> 78015 (Boerne)</h3>
-          <p><strong>Profile:</strong> Ranch estates with privacy, acreage, and prestige</p>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> Median Price: $1.8M</span>
-            <span class="stat-item"><i class="fas fa-chart-line"></i> 15% Appreciation (2024)</span>
-            <span class="stat-item"><i class="fas fa-tree"></i> 5+ Acre Lots</span>
-          </div>
-        </div>
-        
-        <div class="market-card animate-pop delay-3">
-          <h3><i class="fas fa-map-marker-alt"></i> 78257 (The Dominion)</h3>
-          <p><strong>Profile:</strong> Gated mega-mansions and country club lifestyle</p>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> Median Price: $2.2M</span>
-            <span class="stat-item"><i class="fas fa-chart-line"></i> 10% Appreciation (2024)</span>
-            <span class="stat-item"><i class="fas fa-golf-ball"></i> PGA Golf Course</span>
-          </div>
-        </div>
-        
-        <div class="market-card animate-pop delay-4">
-          <h3><i class="fas fa-map-marker-alt"></i> 78260 (Timberwood Park)</h3>
-          <p><strong>Profile:</strong> Custom new builds with land, views, and increasing appreciation</p>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-home"></i> Median Price: $1.1M</span>
-            <span class="stat-item"><i class="fas fa-chart-line"></i> 18% Appreciation (2024)</span>
-            <span class="stat-item"><i class="fas fa-mountain"></i> Hill Country Views</span>
-          </div>
-        </div>
-        
-        <h2>Emerging Enclaves: The Future of Elite Living</h2>
-        <p>If you're looking to buy not just a home, but an asset that appreciates like a portfolio, these up-and-coming neighborhoods are worth watching:</p>
-        
-        <div class="market-card">
-          <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Anaqua Springs Ranch" class="market-image">
-          <h3><i class="fas fa-chess-queen"></i> 1. Anaqua Springs Ranch</h3>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-lock"></i> Gated, hilltop community</span>
-            <span class="stat-item"><i class="fas fa-hard-hat"></i> Custom builds starting at $1.5M</span>
-            <span class="stat-item"><i class="fas fa-briefcase"></i> High demand from medical/tech executives</span>
-          </div>
-          <p><strong>Projected value growth:</strong> 18% by 2026</p>
-        </div>
-        
-        <div class="market-card">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="Cresta Bella" class="market-image">
-          <h3><i class="fas fa-gem"></i> 2. Cresta Bella</h3>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-mountain"></i> Overlooking La Cantera</span>
-            <span class="stat-item"><i class="fas fa-shopping-bag"></i> Proximity to luxury shopping/golf</span>
-            <span class="stat-item"><i class="fas fa-user-tie"></i> Young luxury buyer demographic</span>
-          </div>
-          <p><strong>Median sale price in 2025:</strong> $1.25M<br>
-          <strong>Projected growth:</strong> 12% by 2026</p>
-        </div>
-        
-        <div class="market-card">
-          <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cantera Hills" class="market-image">
-          <h3><i class="fas fa-archway"></i> 3. Cantera Hills</h3>
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-map-pin"></i> One of the last buildable luxury pockets inside Loop 1604</span>
-            <span class="stat-item"><i class="fas fa-building"></i> Modern architecture</span>
-            <span class="stat-item"><i class="fas fa-user-secret"></i> High exclusivity</span>
-          </div>
-          <p><strong>Projected appreciation:</strong> 15%+</p>
-        </div>
-        
-        <h2>Price Trends: What to Expect Through 2026</h2>
-        <p>According to Orion's AI-powered market models:</p>
-        
-        <table class="comparison-table">
-          <tr>
-            <th>Metric</th>
-            <th>2025 Projection</th>
-            <th>Key Insight</th>
-          </tr>
-          <tr>
-            <td>Overall luxury appreciation</td>
-            <td>10–16%</td>
-            <td>Outpaces national luxury averages</td>
-          </tr>
-          <tr>
-            <td>New construction supply</td>
-            <td>Plateauing</td>
-            <td>Limited inventory pushes values higher</td>
-          </tr>
-          <tr>
-            <td>Cash buyer percentage</td>
-            <td>40%+</td>
-            <td>Insulates market from rate shocks</td>
-          </tr>
-          <tr>
-            <td>Days on market (luxury)</td>
-            <td>32 avg</td>
-            <td>Down from 45 in 2023</td>
-          </tr>
-        </table>
-        
-        <p>This means that today's luxury buyer is tomorrow's market winner. Buying now ensures access to appreciating inventory before values climb beyond reach.</p>
-        
-        <h2>Why Buyers Are Choosing San Antonio Over Austin</h2>
-        <p>Austin's luxury market has become oversaturated, expensive, and competitive to the point of fatigue. Meanwhile, San Antonio offers:</p>
-        
-        <div class="highlight-box">
-          <p>"We're seeing a 42% increase in Austin-to-San Antonio luxury relocations compared to 2023. Buyers get 30% more home for the money while maintaining access to elite amenities."</p>
-        </div>
-        
-        <div class="market-card">
-          <h3><i class="fas fa-balance-scale"></i> The Value Proposition</h3>
-          <ul>
-            <li><strong>Better price per square foot:</strong> $412 vs. Austin's $587</li>
-            <li><strong>Lower property taxes:</strong> Select counties offer rates 0.5-1.2% below Austin</li>
-            <li><strong>Private school access:</strong> 15% shorter waitlists at top institutions</li>
-            <li><strong>Lifestyle culture:</strong> New Michelin-starred restaurants, private clubs</li>
-          </ul>
-        </div>
-        
-        <h2>How to Find the Right Luxury Home in 2025</h2>
-        <p>Old-school agents still rely on the MLS. But luxury buyers need more:</p>
-        
-        <div class="market-card">
-          <div class="market-stats">
-            <span class="stat-item"><i class="fas fa-user-secret"></i> Discreet showings and off-market access</span>
-            <span class="stat-item"><i class="fas fa-robot"></i> Lifestyle-matching tools powered by AI</span>
-            <span class="stat-item"><i class="fas fa-filter"></i> Smart filters for architecture, views, future value</span>
-          </div>
-          <p>Orion Home Search delivers all of that. Our AI learns your preferences and helps you discover listings that traditional sites might miss. Whether you want gated privacy, a modern build with sunset views, or land to build your dream estate—we match you with options tailored to your priorities.</p>
-        </div>
-        
-        <div style="text-align: center; margin: 40px 0;">
-          <a href="#contact" class="cta-button" style="padding: 15px 30px; font-size: 1.1rem;">
-            <i class="fas fa-search-location"></i> Start Your Luxury Home Search
-          </a>
+      <div class="page-description">
+        <p>Our curated selection showcases the most prestigious properties in the San Antonio area. Each home has been carefully selected for its quality, location, and investment potential.</p>
+      </div>
+      
+      <div class="search-results-container">
+        <!-- Custom price-filtered widget -->
+        <div id="MBBv3_FeaturedGallery" 
+             filter="mls_id:demo+listing_status:active+price_min:800,000+representation_type:any_listing+limit:12+order:price">
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Mortgage Calculator Section -->
+    <section class="calculator">
+        <div class="container">
+          <div class="page-title">
+            <h1>Financial Calculators</h1>
+          </div>
+          <div class="page-description">
+            <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
+          </div>
+          <div class="calculator-toggle">
+            <button id="mortgage-toggle" class="cta-button">Mortgage Calculator</button>
+            <button id="dti-toggle" class="secondary-button">Debt-to-Income Calculator</button>
+          </div>
+          <div class="calculator-flex-wrap">
+            <!-- Mortgage Calculator (initially visible) -->
+            <div class="calculator-container" id="mortgage-calculator">
+              <div class="calculator-form">
+                <div class="form-group">
+                  <label for="home-price">Home Price ($)</label>
+                  <input type="number" id="home-price" value="300000" min="50000" step="10000">
+                </div>
+                <div class="form-group">
+                  <label for="down-payment">Down Payment ($)</label>
+                  <input type="number" id="down-payment" value="100000" min="0" step="5000">
+                </div>
+                <div class="form-group">
+                  <label for="loan-term">Loan Term (years)</label>
+                  <select id="loan-term">
+                    <option value="30">30 years</option>
+                    <option value="20">20 years</option>
+                    <option value="15">15 years</option>
+                    <option value="10">10 years</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="interest-rate">Interest Rate (%)</label>
+                  <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+                </div>
+                <div class="form-group">
+                  <label for="property-tax-rate">Property Tax Rate (%)</label>
+                  <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
+                </div>
+                <div class="form-group">
+                  <label for="insurance-rate">Home Insurance Rate (%)</label>
+                  <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
+                </div>
+                <div class="form-group">
+                  <label for="hoa-fee">Monthly HOA Fee ($)</label>
+                  <input type="number" id="hoa-fee" value="100" min="0" step="25">
+                </div>
+                <button id="calculate-btn" class="cta-button" style="width:100%;">Calculate Payment</button>
+              </div>
+              <div class="calculator-results">
+                <div class="result-card">
+                  <h3>Monthly Payment</h3>
+                  <div class="result-amount" id="monthly-payment">$0</div>
+                </div>
+                <div class="result-card">
+                  <h3>Total Interest</h3>
+                  <div class="result-amount" id="total-interest">$0</div>
+                </div>
+                <div class="result-card">
+                  <h3>Total Cost</h3>
+                  <div class="result-amount" id="total-cost">$0</div>
+                </div>
+                <div class="result-breakdown">
+                  <h4>Payment Breakdown</h4>
+                  <div class="breakdown-item">
+                    <span>Principal & Interest</span>
+                    <span id="principal-interest">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Property Tax</span>
+                    <span id="property-tax">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Home Insurance</span>
+                    <span id="home-insurance">$0</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>HOA Fee</span>
+                    <span id="hoa-fee-display">$0</span>
+                  </div>
+                  <div class="breakdown-item total">
+                    <span>Total Monthly Payment</span>
+                    <span id="total-monthly">$0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Debt-to-Income Calculator (initially hidden) -->
+            <div class="calculator-container" id="dti-calculator" style="display: none;">
+              <div class="calculator-form">
+                <div class="form-group">
+                  <label for="monthly-income">Monthly Gross Income ($)</label>
+                  <input type="number" id="monthly-income" value="6000" min="1000" step="500">
+                </div>
+                <div class="form-group">
+                  <label for="monthly-debts">Monthly Debt Payments ($)</label>
+                  <input type="number" id="monthly-debts" value="1000" min="0" step="100">
+                </div>
+                <div class="form-group">
+                  <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
+                  <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
+                </div>
+                <button id="calculate-dti-btn" class="cta-button" style="width:100%;">Calculate DTI Ratio</button>
+              </div>
+              <div class="calculator-results">
+                <div class="result-card">
+                  <h3>Front-End Ratio</h3>
+                  <div class="result-amount" id="front-end-ratio">0%</div>
+                  <p style="font-size:0.9em;">(Mortgage ÷ Income)</p>
+                </div>
+                <div class="result-card">
+                  <h3>Back-End Ratio</h3>
+                  <div class="result-amount" id="back-end-ratio">0%</div>
+                  <p style="font-size:0.9em;">(Debts + Mortgage ÷ Income)</p>
+                </div>
+                <div class="result-card">
+                  <h3>Lender Preference</h3>
+                  <div class="result-amount" id="lender-preference">-</div>
+                  <p style="font-size:0.9em;">(Based on typical standards)</p>
+                </div>
+                <div class="result-breakdown">
+                  <h4>DTI Guidelines</h4>
+                  <div class="breakdown-item">
+                    <span>Ideal Front-End Ratio</span>
+                    <span>≤ 28%</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Ideal Back-End Ratio</span>
+                    <span>≤ 36%</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span>Maximum Back-End Ratio</span>
+                    <span>≤ 43% (typical)</span>
+                  </div>
+                  <div class="breakdown-item total">
+                    <span>Your Back-End Ratio</span>
+                    <span id="your-back-end">0%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
   <!-- CTA Section -->
   <section class="cta-section" id="contact">
     <div class="container">
-      <h2>Ready to Explore Hidden Gem Neighborhoods?</h2>
-      <p>Let Orion's AI matching system and local experts guide you to San Antonio's best under-the-radar areas. Get personalized neighborhood recommendations based on your unique needs and budget.</p>
-      <div class="cta-buttons">
-        <button id="call-now-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
+      <h2>Ready to Begin Your Search?</h2>
+      <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
+      <div class="hero-buttons">
+        <button id="contact-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
       </div>
     </div>
   </section>
@@ -1005,7 +1166,7 @@
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2>Get in Touch</h2>
-      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
+      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyuXIxuyvX6J4gPxql3JJreQGUbrvbykyXOfbGxb8M5rfuBpKyErZvp3w6YY2jQi-fccw/exec" method="POST">
         
         <div class="form-group">
           <label for="fullName">Full Name</label>
@@ -1022,35 +1183,18 @@
           <input type="tel" id="phone" name="phone" required>
         </div>
   
-          <div class="form-group">
-            <label>Preferred Locations (check all that apply)</label>
-            <div class="checkbox-group after-text">
-              <label class="checkbox-inline">
-                Downtown San Antonio
-                <input type="checkbox" name="locations" value="Downtown San Antonio">
-              </label>
-              <label class="checkbox-inline">
-                Alamo Heights
-                <input type="checkbox" name="locations" value="Alamo Heights">
-              </label>
-              <label class="checkbox-inline">
-                Stone Oak
-                <input type="checkbox" name="locations" value="Stone Oak">
-              </label>
-              <label class="checkbox-inline">
-                Northwest Side
-                <input type="checkbox" name="locations" value="Northwest Side">
-              </label>
-              <label class="checkbox-inline">
-                Medical Center
-                <input type="checkbox" name="locations" value="Medical Center">
-              </label>
-              <label class="checkbox-inline">
-                Other
-                <input type="checkbox" name="locations" value="Other">
-              </label>
-            </div>
+        <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
           </div>
+          <input type="hidden" name="locations" id="selectedLocations">
+        </div>
   
         <div class="form-group">
           <label for="timeline">Timeline to Move</label>
@@ -1063,7 +1207,7 @@
           </select>
         </div>
   
-      <div class="form-group">
+        <div class="form-group">
           <label for="budget">Budget Range</label>
           <select id="budget" name="budget" required>
             <option value="">Select</option>
@@ -1079,7 +1223,22 @@
           <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
         </div>
   
-        <button type="submit">Submit</button>
+        <!-- Updated Terms of Service Toggle -->
+          <div class="form-group">
+            <label style="display: block; font-weight: 600;">Consent Required</label>
+            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+              I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+            </button>
+            <input type="hidden" name="terms" id="termsAgreed" value="">
+            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+          </div>
+  
+        <!-- Added communication consent text -->
+        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+        </p>
+  
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
         </div>
@@ -1087,7 +1246,15 @@
     </div>
   </div>
 
-
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="success-popup" id="success-popup">
+      <i class="fas fa-check-circle"></i>
+      <h3>Form Submitted Successfully!</h3>
+      <p>Thank you for your submission. We'll get back to you soon.</p>
+      <button class="close-popup" id="close-popup">Close</button>
+  </div>
+  
   <!-- Footer with Transparent Background -->
   <footer>
       <div class="container">
@@ -1118,7 +1285,6 @@
       </div>
   </footer>
 
-  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu functionality
@@ -1155,7 +1321,7 @@
 
       // Contact Modal functionality
       const contactModal = document.getElementById('contact-modal');
-      const contactBtn = document.getElementById('contact-btn') || document.getElementById('call-now-btn'); // fallback
+      const contactBtn = document.getElementById('contact-btn');
       const closeModal = document.querySelector('.close-modal');
       
       // Open modal
@@ -1281,6 +1447,135 @@
         popupOverlay.style.display = 'none';
         document.body.style.overflow = 'auto';
       });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calculator toggle functionality
+        const mortgageToggle = document.getElementById('mortgage-toggle');
+        const dtiToggle = document.getElementById('dti-toggle');
+        const mortgageCalc = document.getElementById('mortgage-calculator');
+        const dtiCalc = document.getElementById('dti-calculator');
+        
+        mortgageToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'flex';
+            dtiCalc.style.display = 'none';
+            mortgageToggle.classList.add('cta-button');
+            mortgageToggle.classList.remove('secondary-button');
+            dtiToggle.classList.add('secondary-button');
+            dtiToggle.classList.remove('cta-button');
+        });
+        
+        dtiToggle.addEventListener('click', function() {
+            mortgageCalc.style.display = 'none';
+            dtiCalc.style.display = 'flex';
+            dtiToggle.classList.add('cta-button');
+            dtiToggle.classList.remove('secondary-button');
+            mortgageToggle.classList.add('secondary-button');
+            mortgageToggle.classList.remove('cta-button');
+        });
+        
+        // Mortgage Calculator functionality
+        const calculateBtn = document.getElementById('calculate-btn');
+        calculateBtn.addEventListener('click', calculateMortgage);
+        
+        // Add event listeners to all mortgage inputs to recalculate when changed
+        const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
+        mortgageInputs.forEach(input => {
+            input.addEventListener('change', calculateMortgage);
+            input.addEventListener('keyup', calculateMortgage);
+        });
+        
+        function calculateMortgage() {
+            // Get input values
+            const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const loanTerm = parseInt(document.getElementById('loan-term').value) || 30;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
+            const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
+            const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
+            
+            // Calculate loan amount
+            const loanAmount = homePrice - downPayment;
+            
+            // Calculate monthly interest rate
+            const monthlyInterestRate = interestRate / 100 / 12;
+            
+            // Calculate number of payments
+            const numberOfPayments = loanTerm * 12;
+            
+            // Calculate monthly payment (principal & interest)
+            const monthlyPayment = loanAmount * 
+                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            
+            // Calculate other monthly costs
+            const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
+            const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
+            
+            // Calculate totals
+            const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
+            const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
+            const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) + 
+                (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+            
+            // Update the UI
+            document.getElementById('monthly-payment').textContent = formatCurrency(totalMonthlyPayment);
+            document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
+            document.getElementById('total-cost').textContent = formatCurrency(totalCost);
+            document.getElementById('principal-interest').textContent = formatCurrency(monthlyPayment);
+            document.getElementById('property-tax').textContent = formatCurrency(monthlyPropertyTax);
+            document.getElementById('home-insurance').textContent = formatCurrency(monthlyInsurance);
+            document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
+            document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
+        }
+        
+        // DTI Calculator functionality
+        const calculateDtiBtn = document.getElementById('calculate-dti-btn');
+        calculateDtiBtn.addEventListener('click', calculateDTI);
+        
+        // Add event listeners to all DTI inputs to recalculate when changed
+        const dtiInputs = document.querySelectorAll('#dti-calculator input');
+        dtiInputs.forEach(input => {
+            input.addEventListener('change', calculateDTI);
+            input.addEventListener('keyup', calculateDTI);
+        });
+        
+        function calculateDTI() {
+            // Get input values
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
+            const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
+            
+            // Calculate ratios
+            const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
+            const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
+            
+            // Determine lender preference
+            let lenderPreference = 'Poor';
+            if (backEndRatio <= 36) {
+                lenderPreference = 'Excellent';
+            } else if (backEndRatio <= 43) {
+                lenderPreference = 'Good';
+            } else if (backEndRatio <= 50) {
+                lenderPreference = 'Fair';
+            }
+            
+            // Update the UI
+            document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(0) + '%';
+            document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(0) + '%';
+            document.getElementById('lender-preference').textContent = lenderPreference;
+            document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
+        }
+        
+        // Helper function to format currency
+        function formatCurrency(amount) {
+            return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+        
+        // Calculate initial values
+        calculateMortgage();
+        calculateDTI();
     });
   </script>
 
