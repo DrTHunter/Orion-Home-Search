@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Best Neighborhoods in San Antonio for First-Time Homebuyers | Orion AI Real Estate Network</title>
+    <title>Best Neighborhoods in San Antonio for First-Time Homebuyers | Orion AI Real Estate Network</title>
   <meta name="description" content="Discover the top 5 neighborhoods in San Antonio for first-time homebuyers in 2025. Get expert insights and find your perfect home with Orion AI.">
-
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
   <script>
@@ -31,15 +31,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   
-  <style>
+    <style>
     :root {
       --primary: #2a5b84;         /* Deep tech blue */
       --primary-light: #4b91c9;   /* Soft, clickable blue */
-      --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
-      --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
-      --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
-      --light: #f4f6f8;           /* Soft, breathable light background */
-      --gray: #d1d5db;            /* Light cool gray for body text on dark */
+      --secondary: #b88cf3;       /* Muted violet */
+      --accent: #5ef2c2;          /* Futuristic mint */
+      --dark: #1e1e2f;            /* Deep navy-charcoal */
+      --light: #f4f6f8;           /* Soft light background */
+      --gray: #d1d5db;            /* Light cool gray */
       --white: #ffffff;
     }
     
@@ -153,6 +153,7 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+    
     
     /* Mobile Menu Overlay */
     .mobile-menu-overlay {
@@ -352,7 +353,7 @@
       margin: 30px 0;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    
+
     /* CTA Section */
     .cta-section {
       padding: 80px 0;
@@ -450,6 +451,7 @@
       animation: fadeIn 0.3s;
     }
     
+
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -546,16 +548,16 @@
       gap: 12px;
       padding: 4px 0;
     }
-    
-    /* Footer */
+
+    /* Footer with Transparent Background */
     footer {
       background-color: var(--dark);
       color: white;
-      padding: 30px 0 20px;
+      padding: 50px 0 20px;
       text-align: center;
       position: relative;
     }
-    
+
     footer:before {
       content: '';
       position: absolute;
@@ -567,47 +569,99 @@
       opacity: 0.05;
       z-index: 0;
     }
-    
+
     footer .container {
       position: relative;
       z-index: 1;
     }
-    
-    .footer-logo {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      display: block;
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+      text-align: left;
     }
-    
+
+    .footer-about {
+      max-width: 400px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: block;
+      color: var(--white);
+    }
+
     .footer-logo span {
       color: var(--secondary);
     }
-    
-    .footer-contact {
+
+    .footer-about h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-about p {
       margin-bottom: 20px;
     }
-    
+
+    .footer-links h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      padding-left: 100px; /* Increase this value for more right spacing */
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-contact h3 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
     .footer-contact p {
       margin-bottom: 5px;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
     }
-    
+
     .footer-contact i {
       color: var(--accent);
       width: 20px;
     }
-    
+
     .social-links {
       display: flex;
       gap: 15px;
-      justify-content: center;
-      margin-bottom: 20px;
+      margin-top: 20px;
+      justify-content: flex-start;
     }
-    
+
     .social-links a {
       color: white;
       font-size: 1.2rem;
@@ -620,22 +674,44 @@
       justify-content: center;
       background-color: rgba(255,255,255,0.1);
     }
-    
+
     .social-links a:hover {
       color: var(--secondary);
       background-color: rgba(255,255,255,0.2);
       transform: translateY(-3px);
     }
-    
+
     .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
       opacity: 0.8;
     }
     
-    /* Responsive */
+    /* Animations */
+    .animate-pop {
+      animation: popIn 0.5s ease-out;
+    }
+    
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
+    .main-content {
+      padding-top: 100px; /* Adjust this value to match your header's height */
+    }
+
     @media (max-width: 768px) {
       .main-content {
-        padding: 100px 0 40px;
+        padding: 300px 0 40px;
       }
       
       .blog-title {
@@ -688,24 +764,17 @@
       .neighborhood-image {
         height: 180px;
       }
+      
+      .footer-links {
+        padding-left: 0;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
     }
-    
-    /* Animations */
-    .animate-pop {
-      animation: popIn 0.5s ease-out;
-    }
-    
-    @keyframes popIn {
-      0% { transform: scale(0.95); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
   </style>
+
 </head>
 <body>
   <!-- Mobile Menu Overlay -->
@@ -846,11 +915,10 @@
   <!-- CTA Section -->
   <section class="cta-section" id="contact">
     <div class="container">
-      <h2>Ready to Begin Your Search?</h2>
-      <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
+      <h2>Ready to Explore Hidden Gem Neighborhoods?</h2>
+      <p>Let Orion's AI matching system and local experts guide you to San Antonio's best under-the-radar areas. Get personalized neighborhood recommendations based on your unique needs and budget.</p>
       <div class="cta-buttons">
-        <button id="call-now-btn" class="cta-button"><i class="fas fa-phone"></i> Call Now</button>
-        <button id="email-me-btn" class="secondary-button"><i class="fas fa-envelope"></i> Email Me</button>
+        <button id="call-now-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
       </div>
     </div>
   </section>
@@ -918,7 +986,7 @@
           </select>
         </div>
   
-       <div class="form-group">
+      <div class="form-group">
           <label for="budget">Budget Range</label>
           <select id="budget" name="budget" required>
             <option value="">Select</option>
@@ -942,31 +1010,38 @@
     </div>
   </div>
 
-  <!-- Footer -->
+
+  <!-- Footer with Transparent Background -->
   <footer>
-    <div class="container">
-      <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-      
-      <div class="footer-contact">
-        <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-        <p><i class="fas fa-phone"></i> Text (843) 212-7235</p>
-        <p><i class="fas fa-envelope"></i> dr_hunter@yahoo.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+      <div class="container">
+          <div class="footer-container">
+              <div class="footer-about">
+                  <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+                  <h3>Helping You Find Your Perfect Home</h3>
+                  <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
+              </div>
+              <div class="footer-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                      <li><a href="https://www.orionhomesearch.com/blog">Blog</a></li>
+                      <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
+                  </ul>
+              </div>
+              <div class="footer-contact">
+                  <h3>Contact</h3>
+                  <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+                  <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
+                  <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+              </div>
+          </div>
+          <div class="copyright">
+                  <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+                  <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
+          </div>
       </div>
-      
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
-      
-      <div class="copyright">
-        <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-      </div>
-    </div>
   </footer>
 
+  
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu functionality
@@ -1003,18 +1078,11 @@
 
       // Contact Modal functionality
       const contactModal = document.getElementById('contact-modal');
-      const callNowBtn = document.getElementById('call-now-btn');
-      const emailMeBtn = document.getElementById('email-me-btn');
+      const contactBtn = document.getElementById('contact-btn') || document.getElementById('call-now-btn'); // fallback
       const closeModal = document.querySelector('.close-modal');
-      const contactForm = document.getElementById('contact-form');
       
-      // Open modal for both buttons
-      callNowBtn.addEventListener('click', function() {
-        contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-      });
-      
-      emailMeBtn.addEventListener('click', function() {
+      // Open modal
+      contactBtn.addEventListener('click', function() {
         contactModal.style.display = 'flex';
         document.body.style.overflow = 'hidden'; // Prevent scrolling
       });
@@ -1032,30 +1100,109 @@
           document.body.style.overflow = 'auto';
         }
       });
-      
-      // Form submission handler
-      document.getElementById("contact-form").addEventListener("submit", function(e) {
+
+      // Toggle button selections (for locations)
+      const buttons = document.querySelectorAll('.toggle-option');
+      const hiddenInput = document.getElementById('selectedLocations');
+      let selected = [];
+    
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const value = button.dataset.value;
+          if (selected.includes(value)) {
+            selected = selected.filter(v => v !== value);
+            button.classList.remove('selected');
+          } else {
+            selected.push(value);
+            button.classList.add('selected');
+          }
+          hiddenInput.value = selected.join(', ');
+        });
+      });
+    
+      // Terms Toggle
+      const termsToggle = document.getElementById('termsToggle');
+      const termsAgreed = document.getElementById('termsAgreed');
+    
+      termsToggle.addEventListener('click', () => {
+        const agreed = termsToggle.getAttribute('data-agreed') === 'true';
+        termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
+        termsToggle.classList.toggle('selected', !agreed);
+        termsAgreed.value = agreed ? '' : 'agreed';
+      });
+    
+      // Success Popup & Form Submission Handler
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('successMessage');
+      const successPopup = document.getElementById('success-popup');
+      const popupOverlay = document.getElementById('popup-overlay');
+    
+      contactForm.addEventListener('submit', async function (e) {
+        if (termsAgreed.value !== 'agreed') {
+          e.preventDefault();
+          alert('You must agree to the Terms of Service before submitting.');
+          return;
+        }
+
         e.preventDefault();
-        const status = document.getElementById("successMessage");
-        status.style.display = "block";
-        status.innerText = "Sending...";
-      
-        const formData = new FormData(e.target);
-        const data = new URLSearchParams();
-      
-        formData.forEach((value, key) => {
-          data.append(key, value);
-        });
-      
-        fetch("https://script.google.com/macros/s/AKfycbzXR803CTcnI65DYrw3l6KrHscarAHMmKTPGkI9ssdGs1YYYMKXf5tPs2ecj9yWJ3RzIw/exec", {
-          method: "POST",
-          body: data
-        }).then(() => {
-          e.target.reset();
-          status.innerText = "Thank you! Your form has been submitted.";
-        }).catch(() => {
-          status.innerText = "Something went wrong. Please try again later.";
-        });
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const formData = new FormData(contactForm);
+          const data = new URLSearchParams(formData);
+
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data
+          });
+
+          if (!response.ok) throw new Error('Submission failed');
+
+          // Close the contact modal immediately after submit
+          document.getElementById('contact-modal').style.display = 'none';
+
+          // Show success popup
+          successMessage.style.display = 'block';
+          successPopup.style.display = 'block';
+          popupOverlay.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+
+          setTimeout(() => {
+            contactForm.reset();
+            successMessage.style.display = 'none';
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            selected = [];
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            hiddenInput.value = '';
+            termsToggle.classList.remove('selected');
+            termsToggle.setAttribute('data-agreed', 'false');
+            termsAgreed.value = '';
+          }, 3500);
+        } catch (err) {
+          alert('There was an error submitting the form. Please try again later.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      });
+    
+      // Close popup
+      document.getElementById('close-popup')?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+    
+      popupOverlay?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
       });
     });
   </script>
