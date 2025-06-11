@@ -607,7 +607,7 @@
             margin-bottom: 20px;
           }
         
-          /* Neighborhoods */
+        /* Neighborhoods */
         .neighborhoods {
             padding: 80px 0;
             background-color: var(--white);
@@ -650,6 +650,7 @@
         .neighborhood-content h3 {
             color: var(--primary);
         }
+        
         /* Updated CTA Section with Background Image */
         .cta-section {
             padding: 80px 0;
@@ -1084,56 +1085,6 @@
           opacity: 0.8;
         }
 
-        /* Add this to your CSS (in <head>) */
-        .search-toggle-container {
-        width: 100%;
-         max-width: none;
-        }
-
-        .search-toggle-btn {
-          flex: 1;
-          padding: 12px 15px;
-          border: none;
-          background: #f0f0f0;
-          color: #333;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-          text-align: center;
-          font-size: 0.9rem;
-        }
-        .search-toggle-btn.active {
-          background: var(--primary);
-          color: white;
-        }
-        .search-toggle-btn:first-child {
-          border-radius: 5px 0 0 5px;
-        }
-        .search-toggle-btn:last-child {
-          border-radius: 0 5px 5px 0;
-        }
-        .search-container {
-          display: none;
-          margin-bottom: 30px;
-        }
-        .search-container.active {
-          display: block;
-        }
-        #map-search-container {
-          height: 100%;
-          border-radius: 8px;
-          overflow: hidden;
-        }
-        @media (max-width: 768px) {
-          .search-toggle-btn {
-            padding: 10px 8px;
-            font-size: 0.8rem;
-          }
-          #map-search-container {
-            height: 100%;
-          }
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -1290,32 +1241,28 @@
       <div class="container">
         <div class="section-title" style="margin-top: 60px; margin-bottom: 50px;">
           <h2>Property Search Tool</h2>
-          <p>Find your perfect home using Orion's smart search options</p>
+          <p>Find your perfect home using Orion’s smart search—choose Map View or Form Search to get started.</p>
         </div>
-        <!-- Three Toggle Buttons -->
-        <div class="search-toggle-container">
-          <button class="search-toggle-btn active" data-target="featured-container">Featured Listings</button>
-          <button class="search-toggle-btn" data-target="form-search-container">Form Search</button>
-          <button class="search-toggle-btn" data-target="map-search-container">Map View</button>
-        </div>
-        <!-- Featured Listings Container (default visible) -->
-        <div id="featured-container" class="search-container active">
-          <div id="MBBv3_FeaturedGallery" filter="mls_id:demo+listing_status:active+bedrooms_total_min:1+representation_type:any_listing+limit:12+order:create_dt desc"></div>
-        </div>
-        <!-- Form Search Container -->
-        <div id="form-search-container" class="search-container">
-          <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+bedrooms_total_min:1+property_type:single residential+house_type:apartment,apartments,condominium,manufactured,modular home,townhome,townhome style+representation_type:any_listing"></div>
-        </div>
-        <!-- Map Search Container -->
-        <div id="map-search-container" class="search-container">
-          <div id="MBBv3_InteractiveMap" filter="mls_id:demo+listing_status:active+bedrooms_total_min:1+property_type:residential+property_subtype:apartment,condominium,half duplex,manufactured home - post 1977,single family residence,townhouse,villa+representation_type:any_listing+limit:12+order=create_dt desc"></div>
-        </div>
-      </div>
-    </section>
+                
+            <!-- Search Toggle Buttons -->
+            <div class="calculator-toggle">
+            <button id="map-toggle" class="cta-button">Map View</button>
+            <button id="form-toggle" class="secondary-button">Form Search</button>
+            </div>
+            
+            <!-- Map Search Widget (initially visible) -->
+            <div id="map-search-container">
+              <div id="MBBv3_InteractiveMap" filter="mls_id:demo+listing_status:active+bedrooms_total_min:1+property_type:residential+property_subtype:apartment,condominium,half duplex,manufactured home - post 1977,single family residence,townhouse,villa+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+            </div>
+            
+            <!-- Form Search Widget (initially hidden) -->
+            <div id="form-search-container" style="display: none;">
+              <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+bedrooms_total_min:1+property_type:single residential+house_type:apartment,apartments,condominium,manufactured,modular home,townhome,townhome style+representation_type:any_listing"></div>
+            </div>
 
-    <!-- Moved Neighborhoods section here -->
-    <section class="neighborhoods">
-          <div class="section-title" style="margin-top: 60px;">
+          <!-- Moved Neighborhoods section here -->
+          <section class="neighborhoods">
+           <div class="neighborhood-grid">
               <h2>Explore Lifestyle Zones with Orion</h2>
               <p>Whether you're raising a family, seeking energy, or investing in the future—Orion has already mapped the path.</p>
           </div>
@@ -1647,128 +1594,88 @@
     </section>
     
     <!-- Contact Modal -->
-    <div id="contact-modal" class="contact-modal">
-    <div class="modal-content">
+    <div class="contact-modal" id="contact-modal">
+      <div class="modal-content">
         <span class="close-modal">&times;</span>
-        <h2 style="margin-bottom: 20px;">Let's Connect</h2>
-        <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
-        
-        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzS5_Ecvgxj1TNpMnZQkGZ6nlIo7Kg-pwAin-CHSu7loGO97CUOci9rW2vLJhnhBFlNow/exec">
-        <!-- Full Name -->
-        <div class="form-group">
+        <h2>Get in Touch</h2>
+        <form id="contact-form" action="https://script.google.com/macros/s/AKfycbyuXIxuyvX6J4gPxql3JJreQGUbrvbykyXOfbGxb8M5rfuBpKyErZvp3w6YY2jQi-fccw/exec" method="POST">
+          
+          <div class="form-group">
             <label for="fullName">Full Name</label>
             <input type="text" id="fullName" name="fullName" required>
-        </div>
-        
-        <!-- Email -->
-        <div class="form-group">
+          </div>
+    
+          <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
-        </div>
-        
-        <!-- Phone Number -->
-        <div class="form-group">
+          </div>
+    
+          <div class="form-group">
             <label for="phone">Phone Number</label>
             <input type="tel" id="phone" name="phone" required>
-        </div>
-        
-        <!-- Preferred Locations -->
-        <div class="form-group">
+          </div>
+    
+          <div class="form-group">
             <label>Preferred Locations</label>
             <div class="toggle-group">
-            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
-            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
-            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
-            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
-            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
-            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
+              <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+              <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+              <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+              <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+              <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+              <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
             </div>
             <input type="hidden" name="locations" id="selectedLocations">
-        </div>
-        
-        <!-- Timeline -->
-        <div class="form-group">
+          </div>
+    
+          <div class="form-group">
             <label for="timeline">Timeline to Move</label>
             <select id="timeline" name="timeline" required>
-            <option value="">Select</option>
-            <option value="ASAP">ASAP</option>
-            <option value="1-3 Months">0-3 Months</option>
-            <option value="3-6 Months">3-6 Months</option>
-            <option value="6-12 Months">6-12 Months</option>
-            <option value="More than 12 Months">More than 12 Months</option>
+              <option value="">Select</option>
+              <option value="ASAP">ASAP</option>
+              <option value="1-3 Months">1-3 Months</option>
+              <option value="3-6 Months">3-6 Months</option>
+              <option value="6+ Months">6+ Months</option>
             </select>
-        </div>
-        
-        <!-- Budget -->
-        <div class="form-group">
+          </div>
+    
+          <div class="form-group">
             <label for="budget">Budget Range</label>
             <select id="budget" name="budget" required>
-            <option value="">Select</option>
-            <option value="Under $200k">Under $200k</option>
-            <option value="$200k - $300k">$200k - $350k</option>
-            <option value="$300k - $400k">$350k - $500k</option>
-            <option value="$500k+">$500k+</option> 
+              <option value="">Select</option>
+              <option value="$100k - $200k">$100k - $200k</option>
+              <option value="$200k - $300k">$200k - $300k</option>
+              <option value="$300k - $400k">$300k - $400k</option>
+              <option value="$400k+">$400k+</option>
             </select>
-        </div>
-        
-        <!-- Pre-Approval -->
-        <div class="form-group">
-            <label for="preapproval">Have you been pre-approved by a lender?</label>
-            <select id="preapproval" name="preapproval" required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Not yet, but planning to">Not yet, but planning to</option>
-            <option value="No">No</option>
-            </select>
-        </div>
-        
-        <!-- Buyer Type -->
-        <div class="form-group">
-            <label for="buyerType">What best describes you?</label>
-            <select id="buyerType" name="buyerType" required>
-            <option value="">Select</option>
-            <option value="First-time homebuyer">First-time homebuyer</option>
-            <option value="Investor">Investor</option>
-            <option value="Relocating from out of state">Relocating from out of state</option>
-            <option value="Looking to upgrade">Looking to upgrade</option>
-            <option value="Military or Veteran">Military or Veteran</option>
-            </select>
-        </div>
-        
-        <!-- Financing Plan -->
-        <div class="form-group">
-            <label for="financingPlan">How do you plan to finance your home?</label>
-            <select id="financingPlan" name="financingPlan" required>
-            <option value="">Select</option>
-            <option value="Conventional loan">Conventional loan</option>
-            <option value="VA loan">VA loan</option>
-            <option value="FHA loan">FHA loan</option>
-            <option value="Cash">Cash</option>
-            <option value="Not sure yet">Not sure yet</option>
-            </select>
-        </div>
-
-        <!-- Updated Terms of Service Toggle -->
-        <div class="form-group">
-            <label style="display: block; font-weight: 600;">Consent Required</label>
-            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
-            I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
-            </button>
-            <input type="hidden" name="terms" id="termsAgreed" value="">
-            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
-        </div>
-
-        <!-- Added communication consent text -->
-        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          </div>
+    
+          <div class="form-group">
+            <label for="message">Other Info or Preferences?</label>
+            <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
+          </div>
+    
+          <!-- Updated Terms of Service Toggle -->
+            <div class="form-group">
+              <label style="display: block; font-weight: 600;">Consent Required</label>
+              <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+                I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+              </button>
+              <input type="hidden" name="terms" id="termsAgreed" value="">
+              <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+            </div>
+    
+          <!-- Added communication consent text -->
+          <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
             By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
-        </p>
-        
-        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
-        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+          </p>
+    
+          <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
             Thank you! Your form has been submitted.
-        </div>
+          </div>
         </form>
-    </div>
+      </div>
     </div>
   
     <!-- Success Popup -->
@@ -1781,37 +1688,34 @@
     </div>
     
     <!-- Footer with Transparent Background -->
-      <div class="container">
-        <div class="footer-container">
-          <div class="footer-about">
-            <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-            <h3>Helping You Find Your Perfect Home</h3>
-            <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
-          </div>
-    
-          <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="/blog"><i class="fas fa-blog"></i> Blog</a>
-              <li><a href="First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer-contact">
-            <h3>Contact</h3>
-            <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-            <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
-          </div>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+                    <h3>Helping You Find Your Perfect Home</h3>
+                    <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Orion</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+                    <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+                </div>
+            </div>
+            <div class="copyright">
+                    <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+                    <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
+            </div>
         </div>
-    
-        <div class="copyright">
-          <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-          <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
-            This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.
-          </p>
-        </div>
-      </div>
     </footer>
 
     <script>
@@ -1844,163 +1748,157 @@
           });
         });
 
-        // Three-button toggle functionality for property search
+        // Search Widget Toggle
         document.addEventListener('DOMContentLoaded', function () {
-          const toggleButtons = document.querySelectorAll('.search-toggle-btn');
-          const searchContainers = document.querySelectorAll('.search-container');
-
-          toggleButtons.forEach(button => {
-            button.addEventListener('click', function () {
-              // Remove active class from all buttons and containers
-              toggleButtons.forEach(btn => btn.classList.remove('active'));
-              searchContainers.forEach(container => container.classList.remove('active'));
-
-              // Add active class to clicked button
-              this.classList.add('active');
-
-              // Show corresponding container
-              const targetId = this.getAttribute('data-target');
-              document.getElementById(targetId).classList.add('active');
-            });
+          const mapToggle = document.getElementById('map-toggle');
+          const formToggle = document.getElementById('form-toggle');
+          const mapSearch = document.getElementById('map-search-container');
+          const formSearch = document.getElementById('form-search-container');
+      
+          mapToggle.addEventListener('click', function () {
+            mapSearch.style.display = 'block';
+            formSearch.style.display = 'none';
+            mapToggle.className = 'cta-button';
+            formToggle.className = 'secondary-button';
+          });
+      
+          formToggle.addEventListener('click', function () {
+            mapSearch.style.display = 'none';
+            formSearch.style.display = 'block';
+            mapToggle.className = 'secondary-button';
+            formToggle.className = 'cta-button';
           });
         });
         
-        // Contact Modal Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-    // Modal elements
-    const contactBtn = document.getElementById('contact-btn');
-    const modal = document.getElementById('contact-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    const successPopup = document.getElementById('success-popup');
-    const popupOverlay = document.getElementById('popup-overlay');
-
-    // Open modal
-    contactBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close when clicking outside modal
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        // Contact Modal
+        document.addEventListener('DOMContentLoaded', function () {
+          const contactModal = document.getElementById('contact-modal');
+          const contactBtn = document.getElementById('contact-btn');
+          const closeModal = document.querySelector('.close-modal');
+      
+          contactBtn.addEventListener('click', () => {
+            contactModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
+      
+          closeModal.addEventListener('click', () => {
+            contactModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Location toggle buttons
-    const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
-    const selectedLocations = document.getElementById('selectedLocations');
-
-    locationButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            this.classList.toggle('selected');
-            updateSelectedLocations();
-        });
-    });
-
-    function updateSelectedLocations() {
-        const selected = Array.from(locationButtons)
-            .filter(btn => btn.classList.contains('selected'))
-            .map(btn => btn.dataset.value);
-        selectedLocations.value = selected.join(', ');
-    }
-
-    // Terms toggle
-    const termsToggle = document.getElementById('termsToggle');
-    const termsAgreed = document.getElementById('termsAgreed');
-
-    termsToggle.addEventListener('click', function() {
-        const agreed = this.getAttribute('data-agreed') === 'true';
-        this.setAttribute('data-agreed', !agreed);
-        this.classList.toggle('selected');
-        termsAgreed.value = !agreed ? 'agreed' : '';
-    });
-
-    // Form submission with success popup
-    const contactForm = document.getElementById('contact-form');
-
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Validate terms agreement
-        if (termsAgreed.value !== 'agreed') {
-            alert('Please agree to the Terms of Service before submitting.');
-            return;
-        }
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        // Prepare form data
-        const formData = new FormData(contactForm);
-
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: new URLSearchParams(formData),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+          });
+      
+          window.addEventListener('click', function (e) {
+            if (e.target === contactModal) {
+              contactModal.style.display = 'none';
+              document.body.style.overflow = 'auto';
             }
-        })
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.text();
-        })
-        .then(() => {
+          });
+        });
+      
+        // Toggle button selections (for locations)
+        const buttons = document.querySelectorAll('.toggle-option');
+        const hiddenInput = document.getElementById('selectedLocations');
+        let selected = [];
+      
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const value = button.dataset.value;
+            if (selected.includes(value)) {
+              selected = selected.filter(v => v !== value);
+              button.classList.remove('selected');
+            } else {
+              selected.push(value);
+              button.classList.add('selected');
+            }
+            hiddenInput.value = selected.join(', ');
+          });
+        });
+      
+        // Terms Toggle
+        const termsToggle = document.getElementById('termsToggle');
+        const termsAgreed = document.getElementById('termsAgreed');
+      
+        termsToggle.addEventListener('click', () => {
+          const agreed = termsToggle.getAttribute('data-agreed') === 'true';
+          termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
+          termsToggle.classList.toggle('selected', !agreed);
+          termsAgreed.value = agreed ? '' : 'agreed';
+        });
+      
+        // Success Popup & Form Submission Handler
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('successMessage');
+        const successPopup = document.getElementById('success-popup');
+        const popupOverlay = document.getElementById('popup-overlay');
+      
+        contactForm.addEventListener('submit', async function (e) {
+          if (termsAgreed.value !== 'agreed') {
+            e.preventDefault();
+            alert('You must agree to the Terms of Service before submitting.');
+            return;
+          }
+      
+          e.preventDefault();
+      
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      
+          try {
+            const formData = new FormData(contactForm);
+            const data = new URLSearchParams(formData);
+      
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: data
+            });
+      
+            if (!response.ok) throw new Error('Submission failed');
+      
+            // Close the contact modal immediately after submit
+            document.getElementById('contact-modal').style.display = 'none';
+      
             // Show success popup
+            successMessage.style.display = 'block';
             successPopup.style.display = 'block';
             popupOverlay.style.display = 'block';
             document.body.style.overflow = 'hidden';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset location selections
-            locationButtons.forEach(btn => btn.classList.remove('selected'));
-            selectedLocations.value = '';
-
-            // Reset terms agreement
-            termsToggle.classList.remove('selected');
-            termsToggle.setAttribute('data-agreed', 'false');
-            termsAgreed.value = '';
-
-            // Close the modal
-            modal.style.display = 'none';
-        })
-        .catch(error => {
+      
+            setTimeout(() => {
+              contactForm.reset();
+              successMessage.style.display = 'none';
+              successPopup.style.display = 'none';
+              popupOverlay.style.display = 'none';
+              document.body.style.overflow = 'auto';
+              selected = [];
+              buttons.forEach(btn => btn.classList.remove('selected'));
+              hiddenInput.value = '';
+              termsToggle.classList.remove('selected');
+              termsToggle.setAttribute('data-agreed', 'false');
+              termsAgreed.value = '';
+            }, 3500);
+          } catch (err) {
             alert('There was an error submitting the form. Please try again later.');
-            console.error('Error:', error);
-        })
-        .finally(() => {
+          } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalText;
+          }
         });
-    });
-
-    // Close popup handlers
-    document.getElementById('close-popup')?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    popupOverlay?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-});
       
-          // Calculator Toggle Functionality
+        // Close popup
+        document.getElementById('close-popup')?.addEventListener('click', () => {
+          successPopup.style.display = 'none';
+          popupOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      
+        popupOverlay?.addEventListener('click', () => {
+          successPopup.style.display = 'none';
+          popupOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        });
+      
+        // Calculator Toggle Functionality
         document.addEventListener('DOMContentLoaded', function () {
           const mortgageToggle = document.getElementById('mortgage-toggle');
           const dtiToggle = document.getElementById('dti-toggle');
@@ -2089,7 +1987,7 @@
 
           // Prevent form submission if user presses Enter
           dtiForm.addEventListener('submit', function(e) {
-                       e.preventDefault();
+            e.preventDefault();
             calculateDTI();
           });
 
@@ -2111,6 +2009,7 @@
           document.getElementById('hoa-fee')
         ];
 
+        // Calculate on pressing Enter in any input
         mortgageInputs.forEach(input => {
           input.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
@@ -2119,6 +2018,11 @@
             }
           });
         });
+
+        // Optionally, calculate on input change for instant feedback (remove if not desired)
+        // mortgageInputs.forEach(input => {
+        //   input.addEventListener('input', calculateMortgage);
+        // });
 
         function calculateMortgage() {
             // Get input values
