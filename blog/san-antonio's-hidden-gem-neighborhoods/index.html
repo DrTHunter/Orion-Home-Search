@@ -1,11 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Best Neighborhoods in San Antonio for First-Time Homebuyers | Orion AI Real Estate Network</title>
-  <meta name="description" content="Discover the top 5 neighborhoods in San Antonio for first-time homebuyers in 2025. Get expert insights and find your perfect home with Orion AI.">
-  
+
+  <!-- Primary Meta Tags -->
+  <title>San Antonio's Hidden Gem Neighborhoods | Best Underrated Areas to Buy in 2025</title>
+  <meta name="title" content="San Antonio's Hidden Gem Neighborhoods | Best Underrated Areas to Buy in 2025">
+  <meta name="description" content="Explore 5 hidden gem neighborhoods in San Antonio offering high value, appreciation potential, and local character. Perfect for smart homebuyers in 2025.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.orionhomesearch.com/blog/hidden-gem-neighborhoods-san-antonio-2025">
+  <meta property="og:title" content="San Antonio's Hidden Gem Neighborhoods | Where Smart Buyers Are Looking in 2025">
+  <meta property="og:description" content="Tired of overpriced neighborhoods? Discover 5 underrated San Antonio areas with great homes, low prices, and strong future growth.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.orionhomesearch.com/blog/hidden-gem-neighborhoods-san-antonio-2025">
+  <meta name="twitter:title" content="San Antonio’s Hidden Gem Neighborhoods | 2025 Underrated Picks">
+  <meta name="twitter:description" content="See which overlooked San Antonio neighborhoods are becoming 2025's best investments. Unique charm, strong value, and future upside.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://www.orionhomesearch.com/blog/hidden-gem-neighborhoods-san-antonio-2025">
+</head>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
   <script>
@@ -175,7 +194,6 @@
       visibility: visible;
     }
     
-    /* Main Content */
     /* Main Content */
     .main-content {
       padding: 120px 0 60px;
@@ -452,7 +470,6 @@
       animation: fadeIn 0.3s;
     }
     
-
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -517,21 +534,45 @@
         box-shadow: 0 0 0 2px rgba(42, 91, 132, 0.2);
     }
     
-    #contact-form button {
-        width: 100%;
-        margin-top: 10px;
-        padding: 12px;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
+    /* Add this to your existing CSS */
+    #contact-form button[type="submit"] {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin-top: 20px;
     }
     
-    #contact-form button:hover {
-        background-color: var(--primary-light);
+    #contact-form button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    #contact-form button[type="submit"]:active {
+      transform: translateY(1px);
+    }
+    
+    /* Loading spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    #contact-form button[type="submit"] .fa-spinner {
+      animation: spin 1s linear infinite;
+      margin-right: 8px;
     }
     
     /* Checkboxes in form */
@@ -548,6 +589,84 @@
       font-size: 0.95rem;
       gap: 12px;
       padding: 4px 0;
+    }
+
+    /* Toggle button selections (for locations) */
+    .toggle-option {
+      padding: 10px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-option.selected {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .checkbox-group label,
+    .toggle-option {
+      display: inline-block;
+      margin: 10px 15px 10px 0; /* top right bottom left */
+    }
+
+    .checkbox-group {
+      margin-bottom: 20px;
+    }
+
+    /* Success Popup */
+    .success-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        z-index: 2000;
+        text-align: center;
+        max-width: 400px;
+        display: none;
+    }
+    
+    .success-popup i {
+        font-size: 3rem;
+        color: #4CAF50;
+        margin-bottom: 20px;
+    }
+    
+    .success-popup h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+    }
+    
+    .success-popup p {
+        margin-bottom: 20px;
+    }
+    
+    .success-popup .close-popup {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .success-popup .close-popup:hover {
+        background-color: var(--primary-light);
+    }
+    
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1999;
+        display: none;
     }
 
     /* Footer with Transparent Background */
@@ -939,129 +1058,180 @@
       <h2>Ready to Explore Hidden Gem Neighborhoods?</h2>
       <p>Let Orion's AI matching system and local experts guide you to San Antonio's best under-the-radar areas. Get personalized neighborhood recommendations based on your unique needs and budget.</p>
       <div class="cta-buttons">
-        <button id="call-now-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
+        <button id="contact-btn" class="cta-button">👋 Talk to a Real Estate Agent Now</button>
       </div>
     </div>
   </section>
 
   <!-- Contact Modal -->
-  <div class="contact-modal" id="contact-modal">
-    <div class="modal-content">
+  <div id="contact-modal" class="contact-modal">
+  <div class="modal-content">
       <span class="close-modal">&times;</span>
-      <h2>Get in Touch</h2>
-      <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxIu_fFl2GdP8_oeZB1Rqfd4_-YC2jpQdTo-T063WaL12dUDE8TkNRX3UratsgwUAsqMA/exec" method="POST">
-        
-        <div class="form-group">
+      <h2 style="margin-bottom: 20px;">Let's Connect</h2>
+      <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
+      
+      <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzS5_Ecvgxj1TNpMnZQkGZ6nlIo7Kg-pwAin-CHSu7loGO97CUOci9rW2vLJhnhBFlNow/exec">
+      <!-- Full Name -->
+      <div class="form-group">
           <label for="fullName">Full Name</label>
           <input type="text" id="fullName" name="fullName" required>
-        </div>
-  
-        <div class="form-group">
+      </div>
+      
+      <!-- Email -->
+      <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
-        </div>
-  
-        <div class="form-group">
+      </div>
+      
+      <!-- Phone Number -->
+      <div class="form-group">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" required>
-        </div>
-  
-          <div class="form-group">
-            <label>Preferred Locations (check all that apply)</label>
-            <div class="checkbox-group after-text">
-              <label class="checkbox-inline">
-                Downtown San Antonio
-                <input type="checkbox" name="locations" value="Downtown San Antonio">
-              </label>
-              <label class="checkbox-inline">
-                Alamo Heights
-                <input type="checkbox" name="locations" value="Alamo Heights">
-              </label>
-              <label class="checkbox-inline">
-                Stone Oak
-                <input type="checkbox" name="locations" value="Stone Oak">
-              </label>
-              <label class="checkbox-inline">
-                Northwest Side
-                <input type="checkbox" name="locations" value="Northwest Side">
-              </label>
-              <label class="checkbox-inline">
-                Medical Center
-                <input type="checkbox" name="locations" value="Medical Center">
-              </label>
-              <label class="checkbox-inline">
-                Other
-                <input type="checkbox" name="locations" value="Other">
-              </label>
-            </div>
+      </div>
+      
+      <!-- Preferred Locations -->
+      <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+          <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+          <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+          <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+          <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+          <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+          <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
           </div>
-  
-        <div class="form-group">
+          <input type="hidden" name="locations" id="selectedLocations">
+      </div>
+      
+      <!-- Timeline -->
+      <div class="form-group">
           <label for="timeline">Timeline to Move</label>
           <select id="timeline" name="timeline" required>
-            <option value="">Select</option>
-            <option value="ASAP">ASAP</option>
-            <option value="1-3 Months">1-3 Months</option>
-            <option value="3-6 Months">3-6 Months</option>
-            <option value="6+ Months">6+ Months</option>
+          <option value="">Select</option>
+          <option value="ASAP">ASAP</option>
+          <option value="1-3 Months">0-3 Months</option>
+          <option value="3-6 Months">3-6 Months</option>
+          <option value="6-12 Months">6-12 Months</option>
+          <option value="More than 12 Months">More than 12 Months</option>
           </select>
-        </div>
-  
+      </div>
+      
+      <!-- Budget -->
       <div class="form-group">
           <label for="budget">Budget Range</label>
           <select id="budget" name="budget" required>
-            <option value="">Select</option>
-            <option value="$100k - $200k">$100k - $200k</option>
-            <option value="$200k - $300k">$200k - $300k</option>
-            <option value="$300k - $400k">$300k - $400k</option>
-            <option value="$400k+">$400k+</option>
+          <option value="">Select</option>
+          <option value="Under $200k">Under $200k</option>
+          <option value="$200k - $300k">$200k - $350k</option>
+          <option value="$300k - $400k">$350k - $500k</option>
+          <option value="$500k+">$500k+</option> 
           </select>
-        </div>
-  
-        <div class="form-group">
-          <label for="message">Other Info or Preferences?</label>
-          <textarea id="message" name="additional" rows="4" style="width: 100%;"></textarea>
-        </div>
-  
-        <button type="submit">Submit</button>
-        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+      </div>
+      
+      <!-- Pre-Approval -->
+      <div class="form-group">
+          <label for="preapproval">Have you been pre-approved by a lender?</label>
+          <select id="preapproval" name="preapproval" required>
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="Not yet, but planning to">Not yet, but planning to</option>
+          <option value="No">No</option>
+          </select>
+      </div>
+      
+      <!-- Buyer Type -->
+      <div class="form-group">
+          <label for="buyerType">What best describes you?</label>
+          <select id="buyerType" name="buyerType" required>
+          <option value="">Select</option>
+          <option value="First-time homebuyer">First-time homebuyer</option>
+          <option value="Investor">Investor</option>
+          <option value="Relocating from out of state">Relocating from out of state</option>
+          <option value="Looking to upgrade">Looking to upgrade</option>
+          <option value="Military or Veteran">Military or Veteran</option>
+          </select>
+      </div>
+      
+      <!-- Financing Plan -->
+      <div class="form-group">
+          <label for="financingPlan">How do you plan to finance your home?</label>
+          <select id="financingPlan" name="financingPlan" required>
+          <option value="">Select</option>
+          <option value="Conventional loan">Conventional loan</option>
+          <option value="VA loan">VA loan</option>
+          <option value="FHA loan">FHA loan</option>
+          <option value="Cash">Cash</option>
+          <option value="Not sure yet">Not sure yet</option>
+          </select>
+      </div>
+
+      <!-- Updated Terms of Service Toggle -->
+      <div class="form-group">
+          <label style="display: block; font-weight: 600;">Consent Required</label>
+          <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+          I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+          </button>
+          <input type="hidden" name="terms" id="termsAgreed" value="">
+          <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+      </div>
+
+      <!-- Added communication consent text -->
+      <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+      </p>
+      
+      <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+      <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
-        </div>
+      </div>
       </form>
-    </div>
+  </div>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="success-popup" id="success-popup">
+      <i class="fas fa-check-circle"></i>
+      <h3>Form Submitted Successfully!</h3>
+      <p>Thank you for your submission. We'll get back to you soon.</p>
+      <button class="close-popup" id="close-popup">Close</button>
   </div>
 
 
   <!-- Footer with Transparent Background -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
-                    <h3>Helping You Find Your Perfect Home</h3>
-                    <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About Orion</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="First Time Homebuyers Guide.docx" download>Buyer's Intel</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
-                    <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
-                </div>
-            </div>
-            <div class="copyright">
-                    <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
-                    <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.</p>
-            </div>
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+          <h3>Helping You Find Your Perfect Home</h3>
+          <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
         </div>
-    </footer>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/blog"><i class="fas fa-blog"></i> Blog</a>
+            <li><a href="First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+          <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2025 Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+        <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
+          This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.
+        </p>
+      </div>
+    </div>
+  </footer>
 
   
   <script>
@@ -1098,129 +1268,132 @@
         });
       });
 
-      // Contact Modal functionality
-      const contactModal = document.getElementById('contact-modal');
-      const contactBtn = document.getElementById('contact-btn') || document.getElementById('call-now-btn'); // fallback
-      const closeModal = document.querySelector('.close-modal');
-      
+      // Contact Modal Functionality
+      const contactBtn = document.getElementById('contact-btn');
+      const modal = document.getElementById('contact-modal');
+      const closeBtn = document.querySelector('.close-modal');
+      const successPopup = document.getElementById('success-popup');
+      const popupOverlay = document.getElementById('popup-overlay');
+
       // Open modal
-      contactBtn.addEventListener('click', function() {
-        contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      contactBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
       });
-      
+
       // Close modal
-      closeModal.addEventListener('click', function() {
-        contactModal.style.display = 'none';
+      closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
         document.body.style.overflow = 'auto';
       });
-      
+
       // Close when clicking outside modal
-      window.addEventListener('click', function(event) {
-        if (event.target === contactModal) {
-          contactModal.style.display = 'none';
+      window.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          modal.style.display = 'none';
           document.body.style.overflow = 'auto';
         }
       });
 
-      // Toggle button selections (for locations)
-      const buttons = document.querySelectorAll('.toggle-option');
-      const hiddenInput = document.getElementById('selectedLocations');
-      let selected = [];
-    
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          const value = button.dataset.value;
-          if (selected.includes(value)) {
-            selected = selected.filter(v => v !== value);
-            button.classList.remove('selected');
-          } else {
-            selected.push(value);
-            button.classList.add('selected');
-          }
-          hiddenInput.value = selected.join(', ');
+      // Location toggle buttons
+      const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
+      const selectedLocations = document.getElementById('selectedLocations');
+
+      locationButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          this.classList.toggle('selected');
+          updateSelectedLocations();
         });
       });
-    
-      // Terms Toggle
+
+      function updateSelectedLocations() {
+        const selected = Array.from(locationButtons)
+          .filter(btn => btn.classList.contains('selected'))
+          .map(btn => btn.dataset.value);
+        selectedLocations.value = selected.join(', ');
+      }
+
+      // Terms toggle
       const termsToggle = document.getElementById('termsToggle');
       const termsAgreed = document.getElementById('termsAgreed');
-    
-      termsToggle.addEventListener('click', () => {
-        const agreed = termsToggle.getAttribute('data-agreed') === 'true';
-        termsToggle.setAttribute('data-agreed', agreed ? 'false' : 'true');
-        termsToggle.classList.toggle('selected', !agreed);
-        termsAgreed.value = agreed ? '' : 'agreed';
+
+      termsToggle.addEventListener('click', function () {
+        const agreed = this.getAttribute('data-agreed') === 'true';
+        this.setAttribute('data-agreed', !agreed);
+        this.classList.toggle('selected');
+        termsAgreed.value = !agreed ? 'agreed' : '';
       });
-    
-      // Success Popup & Form Submission Handler
+
+      // Form submission with success popup
       const contactForm = document.getElementById('contact-form');
-      const successMessage = document.getElementById('successMessage');
-      const successPopup = document.getElementById('success-popup');
-      const popupOverlay = document.getElementById('popup-overlay');
-    
-      contactForm.addEventListener('submit', async function (e) {
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validate terms agreement
         if (termsAgreed.value !== 'agreed') {
-          e.preventDefault();
-          alert('You must agree to the Terms of Service before submitting.');
+          alert('Please agree to the Terms of Service before submitting.');
           return;
         }
 
-        e.preventDefault();
-
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
+
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-        try {
-          const formData = new FormData(contactForm);
-          const data = new URLSearchParams(formData);
+        // Prepare form data
+        const formData = new FormData(contactForm);
 
-          const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: data
-          });
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: new URLSearchParams(formData),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.text();
+          })
+          .then(() => {
+            // Show success popup
+            successPopup.style.display = 'block';
+            popupOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
 
-          if (!response.ok) throw new Error('Submission failed');
-
-          // Close the contact modal immediately after submit
-          document.getElementById('contact-modal').style.display = 'none';
-
-          // Show success popup
-          successMessage.style.display = 'block';
-          successPopup.style.display = 'block';
-          popupOverlay.style.display = 'block';
-          document.body.style.overflow = 'hidden';
-
-          setTimeout(() => {
+            // Reset form
             contactForm.reset();
-            successMessage.style.display = 'none';
-            successPopup.style.display = 'none';
-            popupOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            selected = [];
-            buttons.forEach(btn => btn.classList.remove('selected'));
-            hiddenInput.value = '';
+
+            // Reset location selections
+            locationButtons.forEach(btn => btn.classList.remove('selected'));
+            selectedLocations.value = '';
+
+            // Reset terms agreement
             termsToggle.classList.remove('selected');
             termsToggle.setAttribute('data-agreed', 'false');
             termsAgreed.value = '';
-          }, 3500);
-        } catch (err) {
-          alert('There was an error submitting the form. Please try again later.');
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-        }
+
+            // Close the modal
+            modal.style.display = 'none';
+          })
+          .catch(error => {
+            alert('There was an error submitting the form. Please try again later.');
+            console.error('Error:', error);
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          });
       });
-    
-      // Close popup
+
+      // Close popup handlers
       document.getElementById('close-popup')?.addEventListener('click', () => {
         successPopup.style.display = 'none';
         popupOverlay.style.display = 'none';
         document.body.style.overflow = 'auto';
       });
-    
+
       popupOverlay?.addEventListener('click', () => {
         successPopup.style.display = 'none';
         popupOverlay.style.display = 'none';
