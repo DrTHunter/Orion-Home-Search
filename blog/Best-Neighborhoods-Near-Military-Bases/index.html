@@ -814,6 +814,44 @@
         grid-template-columns: 1fr;
       }
     }
+  
+  @media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center; /* This centers all text */
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center; /* This centers text in each section */
+  }
+
+  .footer-links {
+    padding-left: 0; /* Removes the left padding that was pushing content right */
+  }
+
+  .footer-links ul {
+    display: inline-block;
+    text-align: center; /* Centers the list items */
+    padding: 0;
+  }
+
+  .footer-links li {
+    text-align: center; /* Centers each list item */
+  }
+
+  .social-links {
+    justify-content: center; /* Centers the social icons */
+  }
+
+  .footer-contact p {
+    justify-content: center; /* Centers contact info */
+  }
+    }
   </style>
 </head>
 <body>
