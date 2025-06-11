@@ -815,32 +815,6 @@
         max-width: 250px;
       }
 
-       @media (max-width: 768px) {
-       /* Add these new styles for the footer links */
-      .footer-links {
-        text-align: center;
-        padding-left: 0;
-      }
-    
-      .footer-links ul {
-        display: inline-block;
-        text-align: left;
-        margin: 0 auto;
-      }
-    
-      .footer-container {
-        text-align: center;
-      }
-    
-      .footer-about,
-      .footer-contact {
-        text-align: center;
-      }
-    
-      .social-links {
-        justify-content: center;
-      }
-    }
     /* Add or update these styles for a cleaner, more compact calculator */
   .calculator .container {
     max-width: 820px;
@@ -927,6 +901,35 @@
     max-width: 100%;
     min-width: 0;
     padding: 0;
+  }
+}
+  @media (max-width: 768px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer-links {
+    padding-left: 0;
+  }
+
+  .footer-links ul {
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }
   </style>
