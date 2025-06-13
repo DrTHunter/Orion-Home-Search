@@ -885,30 +885,47 @@
         height: 180px;
       }
       
-     .footer-links {
-      text-align: center;
-      padding-left: 0;
+ /* Improved footer centering for mobile */
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
       }
-  
-    .footer-links ul {
-      display: inline-block;
-      text-align: left;
-      margin: 0 auto;
+    
+      .footer-about,
+      .footer-links,
+      .footer-contact {
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    
+      .footer-links {
+        padding-left: 0;
+      }
+    
+      .footer-links ul {
+        display: inline-block;
+        text-align: center;
+        padding: 0;
+      }
+    
+      .footer-links li {
+        text-align: center;
+      }
+    
+      .social-links {
+        justify-content: center;
+      }
+    
+      .footer-contact p {
+        justify-content: center;
+      }
+    
+      .copyright {
+        text-align: center;
+      }
     }
-  
-    .footer-container {
-      text-align: center;
-    }
-  
-    .footer-about,
-    .footer-contact {
-      text-align: center;
-    }
-  
-    .social-links {
-      justify-content: center;
-    }
-  }
     </style>
   
   </head>
