@@ -1,3 +1,313 @@
+<body>
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="contact-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 style="margin-bottom: 20px;">Let's Connect</h2>
+        <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
+        
+        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzS5_Ecvgxj1TNpMnZQkGZ6nlIo7Kg-pwAin-CHSu7loGO97CUOci9rW2vLJhnhBFlNow/exec">
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <!-- Preferred Locations -->
+        <div class="form-group">
+          <label>Preferred Locations</label>
+          <div class="toggle-group">
+            <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
+            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
+            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
+            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
+            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
+            <button type="button" class="toggle-option" data-value="Schertz / Cibolo">Schertz / Cibolo</button>
+            <button type="button" class="toggle-option" data-value="Alamo Ranch / West San Antonio">Alamo Ranch</button>
+            <button type="button" class="toggle-option" data-value="New Braunfels">New Braunfels</button>
+            <button type="button" class="toggle-option" data-value="Other">Other</button>
+          </div>
+          <input type="hidden" name="locations" id="selectedLocations">
+        </div>
+
+        
+        <!-- Timeline -->
+        <div class="form-group">
+            <label for="timeline">Timeline to Move</label>
+            <select id="timeline" name="timeline" required>
+            <option value="">Select</option>
+            <option value="ASAP">ASAP</option>
+            <option value="1-3 Months">0-3 Months</option>
+            <option value="3-6 Months">3-6 Months</option>
+            <option value="6-12 Months">6-12 Months</option>
+            <option value="More than 12 Months">More than 12 Months</option>
+            </select>
+        </div>
+        
+        <!-- Budget -->
+        <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget" required>
+            <option value="">Select</option>
+            <option value="Under $200k">Under $200k</option>
+            <option value="$200k - $300k">$200k - $350k</option>
+            <option value="$300k - $400k">$350k - $500k</option>
+            <option value="$500k+">$500k+</option> 
+            </select>
+        </div>
+        
+        <!-- Pre-Approval -->
+        <div class="form-group">
+            <label for="preapproval">Have you been pre-approved by a lender?</label>
+            <select id="preapproval" name="preapproval" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="Not yet, but planning to">Not yet, but planning to</option>
+            <option value="No">No</option>
+            </select>
+        </div>
+        
+        <!-- Buyer Type -->
+        <div class="form-group">
+            <label for="buyerType">What best describes you?</label>
+            <select id="buyerType" name="buyerType" required>
+            <option value="">Select</option>
+            <option value="First-time homebuyer">First-time homebuyer</option>
+            <option value="Investor">Investor</option>
+            <option value="Relocating from out of state">Relocating from out of state</option>
+            <option value="Looking to upgrade">Looking to upgrade</option>
+            <option value="Military or Veteran">Military or Veteran</option>
+            </select>
+        </div>
+        
+        <!-- Financing Plan -->
+        <div class="form-group">
+            <label for="financingPlan">How do you plan to finance your home?</label>
+            <select id="financingPlan" name="financingPlan" required>
+            <option value="">Select</option>
+            <option value="Conventional loan">Conventional loan</option>
+            <option value="VA loan">VA loan</option>
+            <option value="FHA loan">FHA loan</option>
+            <option value="Cash">Cash</option>
+            <option value="Not sure yet">Not sure yet</option>
+            </select>
+        </div>
+
+        <!-- Updated Terms of Service Toggle -->
+        <div class="form-group">
+            <label style="display: block; font-weight: 600;">Consent Required</label>
+            <button type="button" id="termsToggle" class="toggle-option" data-agreed="false">
+            I agree to the <a href="https://www.orionhomesearch.com/Terms%20of%20Service.txt" target="_blank" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+            </button>
+            <input type="hidden" name="terms" id="termsAgreed" value="">
+            <p style="font-size: 0.8rem; margin-top: 5px;">You must agree before submitting.</p>
+        </div>
+
+        <!-- Added communication consent text -->
+        <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
+            By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+        </p>
+        
+        <button type="submit">Send Message <i class="fas fa-paper-plane"></i></button>
+        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+            Thank you! Your form has been submitted.
+        </div>
+        </form>
+    </div>
+    </div>
+  
+    <!-- Success Popup -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="success-popup" id="success-popup">
+        <i class="fas fa-check-circle"></i>
+        <h3>Form Submitted Successfully!</h3>
+        <p>Thank you for your submission. We'll get back to you soon.</p>
+        <button class="close-popup" id="close-popup">Close</button>
+    </div>
+</body>
+  
+<style>
+/* Contact Modal Styles */
+.contact-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.close-modal {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+#contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+#contact-form input,
+#contact-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Contact form submit button */
+#contact-form button[type="submit"] {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(42, 91, 132, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#contact-form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(42, 91, 132, 0.4);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+#contact-form button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#contact-form button[type="submit"] .fa-spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+/* Success Popup */
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  z-index: 2000;
+  text-align: center;
+  max-width: 400px;
+  display: none;
+}
+
+.success-popup i {
+  font-size: 3rem;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+.success-popup h3 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.success-popup p {
+  margin-bottom: 20px;
+}
+
+.success-popup .close-popup {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.success-popup .close-popup:hover {
+  background-color: var(--primary-light);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1999;
+  display: none;
+}
+
+/* Toggle buttons in contact form */
+.toggle-option {
+  padding: 10px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.toggle-option.selected {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+</style>
+
+<script>
 // Contact Modal Functionality
 document.addEventListener('DOMContentLoaded', function() {
   // Modal elements
@@ -6,7 +316,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
-  const contactForm = document.getElementById('contact-form');
 
   // Open modal
   contactBtn.addEventListener('click', function() {
@@ -57,24 +366,39 @@ document.addEventListener('DOMContentLoaded', function() {
     termsAgreed.value = !agreed ? 'agreed' : '';
   });
 
-  // Form submission
+  // Form submission with success popup
+  const contactForm = document.getElementById('contact-form');
+
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     // Validate terms agreement
     if (termsAgreed.value !== 'agreed') {
-      alert('Please agree to the Terms of Service');
+      alert('Please agree to the Terms of Service before submitting.');
       return;
     }
 
-    const submitBtn = contactForm.querySelector('.submit-btn');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
 
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
+    // Prepare form data
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: new URLSearchParams(formData),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.text();
+    })
+    .then(() => {
       // Show success popup
       successPopup.style.display = 'block';
       popupOverlay.style.display = 'block';
@@ -82,19 +406,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Reset form
       contactForm.reset();
+
+      // Reset location selections
       locationButtons.forEach(btn => btn.classList.remove('selected'));
       selectedLocations.value = '';
+
+      // Reset terms agreement
       termsToggle.classList.remove('selected');
       termsToggle.setAttribute('data-agreed', 'false');
       termsAgreed.value = '';
 
       // Close the modal
       modal.style.display = 'none';
-
-      // Reset button
+    })
+    .catch(error => {
+      alert('There was an error submitting the form. Please try again later.');
+      console.error('Error:', error);
+    })
+    .finally(() => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalText;
-    }, 1500);
+    });
   });
 
   // Close popup handlers
@@ -110,3 +442,4 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'auto';
   });
 });
+</script>
