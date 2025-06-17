@@ -71,14 +71,14 @@
         // Load components after DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
             // Load header
-            fetch('dynamic-search-page/shared/header.html')
+            fetch('/dynamic-search-page/shared/header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-container').innerHTML = data;
                 });
 
             // Load calculator
-            fetch('dynamic-search-page/shared/calculator.html')
+            fetch('/dynamic-search-page/shared/calculator.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('calculator-container').innerHTML = data;
@@ -87,7 +87,7 @@
                 });
 
             // Load CTA form
-            fetch('dynamic-search-page/shared/cta-form.html')
+            fetch('/dynamic-search-page/shared/cta-form.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cta-form-container').innerHTML = data;
