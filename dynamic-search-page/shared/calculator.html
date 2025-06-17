@@ -1,0 +1,154 @@
+<!-- Calculator Component -->
+<section class="calculator-section">
+  <div class="container">
+    <h2>Financial Tools</h2>
+    
+    <div class="calculator-toggle">
+      <button class="calc-tab active" data-calc="mortgage">Mortgage Calculator</button>
+      <button class="calc-tab" data-calc="dti">Debt-to-Income</button>
+      <button class="calc-tab" data-calc="rental">Rental ROI</button>
+    </div>
+
+    <!-- Mortgage Calculator -->
+    <div id="mortgage-calculator" class="calculator active">
+      <div class="calculator-grid">
+        <div class="input-group">
+          <label for="home-price">Home Price ($)</label>
+          <input type="number" id="home-price" value="500000" min="10000" step="10000">
+        </div>
+        
+        <div class="input-group">
+          <label for="down-payment">Down Payment ($)</label>
+          <input type="number" id="down-payment" value="100000" min="0" step="5000">
+        </div>
+        
+        <div class="input-group">
+          <label for="loan-term">Loan Term (years)</label>
+          <select id="loan-term">
+            <option value="30">30</option>
+            <option value="15">15</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="interest-rate">Interest Rate (%)</label>
+          <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+        </div>
+      </div>
+      
+      <div class="results">
+        <div class="result-card">
+          <h3>Monthly Payment</h3>
+          <div class="result-amount" id="monthly-payment">$2,281</div>
+        </div>
+        <div class="result-card">
+          <h3>Total Interest</h3>
+          <div class="result-amount" id="total-interest">$320,626</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DTI Calculator -->
+    <div id="dti-calculator" class="calculator">
+      <!-- Similar structure for DTI calculator -->
+    </div>
+
+    <!-- Rental ROI Calculator -->
+    <div id="rental-calculator" class="calculator">
+      <!-- Similar structure for rental calculator -->
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Calculator Styles */
+  .calculator-section {
+    padding: 40px 0;
+    background: var(--light);
+  }
+  
+  .calculator-toggle {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .calc-tab {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .calc-tab.active {
+    border-bottom-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .calculator {
+    display: none;
+  }
+  
+  .calculator.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+  
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .input-group input, 
+  .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .result-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  
+  .result-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .calculator.active {
+      grid-template-columns: 1fr;
+    }
+    
+    .calculator-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
