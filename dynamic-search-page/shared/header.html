@@ -1,184 +1,404 @@
-<!-- shared/header.html -->
-<header>
-  <div class="container">
-    <nav>
-      <a href="/" class="logo">
-        <span>Orion</span> AI Real Estate Network
-      </a>
-      <button class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="/"><i class="fas fa-home"></i> Home</a>
-        <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> Home Search</a>
-        <a href="/blog"><i class="fas fa-blog"></i> Market Insights</a>
-        <a href="#contact" class="cta-button">
-          <i class="fas fa-phone"></i> Contact Agent
-        </a>
-      </div>
+<!-- Header Component - Complete -->
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logo/Brand -->
+    <a href="/" class="brand">
+      <span class="logo-icon"><i class="fas fa-home"></i></span>
+      <span class="logo-text">Orion</span>
+      <span class="logo-suffix">Realty</span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/properties" class="nav-link"><i class="fas fa-search"></i> Properties</a></li>
+        <li><a href="/agents" class="nav-link"><i class="fas fa-users"></i> Agents</a></li>
+        <li><a href="/services" class="nav-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="/blog" class="nav-link"><i class="fas fa-newspaper"></i> Blog</a></li>
+      </ul>
     </nav>
+
+    <!-- Header CTAs -->
+    <div class="header-cta">
+      <a href="tel:+12105551234" class="phone-link">
+        <i class="fas fa-phone-alt"></i>
+        <span class="phone-text">(210) 555-1234</span>
+      </a>
+      <a href="/contact" class="cta-button">
+        <i class="fas fa-envelope"></i> Contact Us
+      </a>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-container">
+      <ul class="mobile-menu">
+        <li><a href="/" class="mobile-link active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/properties" class="mobile-link"><i class="fas fa-search"></i> Properties</a></li>
+        <li><a href="/agents" class="mobile-link"><i class="fas fa-users"></i> Agents</a></li>
+        <li><a href="/services" class="mobile-link"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="/blog" class="mobile-link"><i class="fas fa-newspaper"></i> Blog</a></li>
+        <li><a href="/contact" class="mobile-cta">Get in Touch</a></li>
+      </ul>
+      
+      <div class="mobile-contact">
+        <a href="tel:+12105551234" class="mobile-phone">
+          <i class="fas fa-phone-alt"></i> (210) 555-1234
+        </a>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- Mobile Menu Overlay -->
-<div class="mobile-menu-overlay" id="mobile-overlay"></div>
-
 <style>
-  /* Header CSS - Should match your existing variables */
-  header {
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    padding: 10px 0;
+  /* Header Base Styles */
+  .site-header {
+    background-color: var(--header-bg, #ffffff);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
   }
 
-  nav {
+  .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
   }
 
-  .logo {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary);
+  /* Brand/Logo Styles */
+  .brand {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--header-text, #333333);
   }
 
-  .logo span {
-    color: var(--secondary);
+  .logo-icon {
+    color: var(--header-accent, #5ef2c2);
+    margin-right: 0.5rem;
+    font-size: 1.2em;
   }
 
-  .menu-toggle {
+  .logo-text {
+    color: var(--header-logo, #2a5b84);
+  }
+
+  .logo-suffix {
+    color: var(--header-text, #333333);
+    font-weight: 400;
+  }
+
+  /* Desktop Navigation */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0 0.75rem;
+  }
+
+  .nav-link {
+    color: var(--header-link, #555555);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--header-link-active, #2a5b84);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--header-accent, #5ef2c2);
+  }
+
+  /* Header CTAs */
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phone-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--header-text, #333333);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .phone-link:hover {
+    color: var(--header-accent, #5ef2c2);
+  }
+
+  .cta-button {
+    background: var(--header-cta-bg, #2a5b84);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+  }
+
+  .cta-button:hover {
+    background: var(--header-cta-hover, #1a3a5a);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mobile Menu Toggle */
+  .mobile-menu-toggle {
     display: none;
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--primary);
+    color: var(--header-text, #333333);
     cursor: pointer;
+    padding: 0.5rem;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: color 0.3s;
-    font-size: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .nav-links a:hover {
-    color: var(--primary);
-  }
-
-  .cta-button {
-    background-color: var(--primary);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: all 0.3s;
-    font-size: 14px;
-  }
-
-  .cta-button:hover {
-    background-color: var(--primary-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  /* Mobile Menu Styles */
-  .mobile-menu-overlay {
+  /* Mobile Navigation */
+  .mobile-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
-    z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: none;
   }
 
-  .mobile-menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
+  .mobile-nav.active {
+    transform: translateX(0);
   }
 
-  @media (max-width: 768px) {
-    .menu-toggle {
+  .mobile-nav-container {
+    background: var(--header-bg, #ffffff);
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    margin-left: auto;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 1rem 0;
+    color: var(--header-text, #333333);
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-link.active {
+    color: var(--header-link-active, #2a5b84);
+  }
+
+  .mobile-cta {
+    display: block;
+    background: var(--header-cta-bg, #2a5b84);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .mobile-contact {
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-phone {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--header-text, #333333);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    color: var(--header-text, #333333);
+    font-size: 1.25rem;
+  }
+
+  /* Sticky Header Effect */
+  .site-header.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
       display: block;
     }
 
-    .nav-links {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: var(--white);
-      flex-direction: column;
-      align-items: center;
-      padding: 20px 0;
-      gap: 15px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      transform: translateY(-150%);
-      transition: transform 0.3s ease-in-out;
+    .mobile-nav {
+      display: block;
     }
 
-    .nav-links.active {
-      transform: translateY(0);
+    .phone-text {
+      display: none;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .header-container {
+      padding: 1rem;
     }
 
-    .logo {
-      font-size: 16px;
+    .cta-button span {
+      display: none;
+    }
+
+    .cta-button i {
+      margin-right: 0;
     }
   }
 </style>
 
 <script>
-  // Mobile menu functionality (can be moved to shared/scripts.js)
-  document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
-    const mobileOverlay = document.getElementById('mobile-overlay');
+  // Header JavaScript
+  (function() {
+    // Mobile Menu Toggle
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector('.site-header');
 
-    if (mobileMenu && navLinks && mobileOverlay) {
-      mobileMenu.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        this.innerHTML = navLinks.classList.contains('active') 
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+        this.innerHTML = mobileNav.classList.contains('active') 
           ? '<i class="fas fa-times"></i>' 
           : '<i class="fas fa-bars"></i>';
       });
-
-      mobileOverlay.addEventListener('click', function() {
-        navLinks.classList.remove('active');
-        mobileOverlay.classList.remove('active');
-        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-
-      // Close menu when clicking nav links
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-          navLinks.classList.remove('active');
-          mobileOverlay.classList.remove('active');
-          mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-      });
     }
-  });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (mobileNav.classList.contains('active') && 
+          !e.target.closest('.mobile-nav-container') && 
+          !e.target.closest('.mobile-menu-toggle')) {
+        mobileNav.classList.remove('active');
+        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+
+    // Sticky Header Effect
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Active Link Highlighting
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+    
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+              mobileNav.classList.remove('active');
+              mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            target.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  })();
 </script>
