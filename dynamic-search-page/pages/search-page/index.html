@@ -1,18 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <!-- Dynamic head content will be loaded here -->
-    <meta charset="UTF-8">
-    <title>Orion AI Real Estate Network</title>
-    <script>
-        // Load shared head content
-        fetch('dynamic-search-page/shared/head.html')
-            .then(response => response.text())
-            .then(data => {
-                document.head.innerHTML += data;
-            });
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Permissions-Policy" content="autoplay=()" />
+
+  <!-- Primary Meta Tags -->
+  <title>San Antonio Real Estate | Orion AI Home Search & Mortgage Tools</title>
+  <meta name="title" content="San Antonio Real Estate | Orion AI Home Search & Mortgage Tools" />
+  <meta name="description" content="Orion AI Real Estate Network helps you find homes in San Antonio faster with smart search, real-time listings, and built-in mortgage tools. Discover neighborhoods, get matched with trusted agents, and download your free homebuyer's guide." />
+  <link rel="canonical" href="https://www.orionhomesearch.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.orionhomesearch.com/" />
+  <meta property="og:title" content="San Antonio Real Estate | Orion AI Home Search & Mortgage Tools" />
+  <meta property="og:description" content="Discover your perfect San Antonio home with AI-powered property matching, live listings, and buyer tools. Backed by real agents. Built for speed, clarity, and results." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.orionhomesearch.com/" />
+  <meta name="twitter:title" content="San Antonio Real Estate | Orion AI Home Search & Mortgage Tools" />
+  <meta name="twitter:description" content="Browse smarter with Orion AI. Search listings, calculate payments, and connect with real agents in San Antonio—all in one place." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-ZF6721FNMD');
+  </script>
+
+  <!-- Buying Buddy Plugin -->
+  <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
+  <script>
+    var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
+    function mbbMapLoaded() { MBB.googleMaps = true; }
+  </script>
+  <script defer src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
+  <script defer src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
 </head>
+
 <body>
     <!-- Header will be loaded here -->
     <header id="header-container"></header>
