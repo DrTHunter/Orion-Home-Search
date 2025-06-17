@@ -1,0 +1,145 @@
+<!-- shared/footer.html -->
+<footer>
+  <div class="container">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo"><span>Orion</span> AI Real Estate Network</div>
+        <h3>Helping You Find Your Perfect Home</h3>
+        <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p><i class="fas fa-user-astronaut"></i> Trent Hunter — AI Architect & Creator of Orion</p>
+        <p><i class="fas fa-envelope"></i> trent@orionhomesearch.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> San Antonio, TX</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Orion AI Real Estate Network. A legacy guided by intelligence.</p>
+      <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
+        This website uses cookies and third-party tools (e.g. Google Analytics) to improve your experience.
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<style>
+  /* Footer CSS - Include this in your main CSS file or shared/head.html */
+  footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 50px 0 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+    opacity: 0.05;
+    z-index: 0;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .footer-about {
+    max-width: 400px;
+  }
+
+  .footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: block;
+    color: var(--white);
+  }
+
+  .footer-logo span {
+    color: var(--secondary);
+  }
+
+  .footer-links {
+    padding-left: 100px;
+  }
+
+  .footer-links h3, 
+  .footer-contact h3 {
+    color: var(--secondary);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+
+  .footer-links ul {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .footer-contact p {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .copyright {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-links {
+      padding-left: 0;
+    }
+    
+    .footer-links ul {
+      align-items: center;
+    }
+  }
+</style>
