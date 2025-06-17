@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Dynamic head content will be loaded here -->
+    <meta charset="UTF-8">
+    <title>Orion AI Real Estate Network</title>
+    <script>
+        // Load shared head content
+        fetch('dynamic-search-page/shared/head.html')
+            .then(response => response.text())
+            .then(data => {
+                document.head.innerHTML += data;
+            });
+    </script>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <header id="header-container"></header>
+
+    <!-- Main content -->
+    <main class="container">
+        <section class="hero">
+            <h1>Find Your Perfect Home</h1>
+            <p>Discover properties tailored to your needs with our AI-powered search</p>
+        </section>
+
+        <!-- Calculator section will be loaded here -->
+        <section id="calculator-container" class="section"></section>
+
+        <!-- CTA Form section will be loaded here -->
+        <section id="cta-form-container" class="section"></section>
+    </main>
+
+    <script>
+        // Load components after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header
+            fetch('dynamic-search-page/shared/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                });
+
+            // Load calculator
+            fetch('dynamic-search-page/shared/calculator.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('calculator-container').innerHTML = data;
+                    // Initialize calculator functionality after loading
+                    initCalculator();
+                });
+
+            // Load CTA form
+            fetch('dynamic-search-page/shared/cta-form.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cta-form-container').innerHTML = data;
+                    // Initialize form functionality after loading
+                    initContactForm();
+                });
+        });
+
+        // Calculator initialization function
+        function initCalculator() {
+            // Your calculator initialization code here
+            console.log('Calculator initialized');
+        }
+
+        // Contact form initialization function
+        function initContactForm() {
+            // Your contact form initialization code here
+            console.log('Contact form initialized');
+        }
+    </script>
+</body>
+</html>
