@@ -1,0 +1,270 @@
+<!-- CTA Section with Form -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to Begin Your Search?</h2>
+    <p>The best homes don't wait—and neither should you. Let us accelerate your journey with expert guidance.</p>
+    
+    <button id="cta-button" class="cta-button">
+      <i class="fas fa-user-astronaut"></i> Connect With an Agent
+    </button>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="contact-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Let's Connect</h2>
+      <p>Complete this form and we'll match you with a local expert within 24 hours.</p>
+      
+      <form id="contact-form" class="ajax-form">
+        <div class="form-group">
+          <label for="name">Full Name*</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email*</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone*</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Target Neighborhoods</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="neighborhoods[]" value="Anaqua Springs Ranch"> Anaqua Springs Ranch</label>
+            <label><input type="checkbox" name="neighborhoods[]" value="The Dominion"> The Dominion</label>
+            <label><input type="checkbox" name="neighborhoods[]" value="Stone Oak"> Stone Oak</label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="timeline">Purchase Timeline*</label>
+          <select id="timeline" name="timeline" required>
+            <option value="">Select</option>
+            <option value="0-3 months">0-3 months</option>
+            <option value="3-6 months">3-6 months</option>
+            <option value="6-12 months">6-12 months</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="terms" required>
+            I agree to the <a href="/privacy" target="_blank">Terms & Privacy Policy</a>
+          </label>
+        </div>
+        
+        <button type="submit" class="submit-button">
+          <span class="button-text">Submit Request</span>
+          <span class="spinner"><i class="fas fa-spinner fa-spin"></i></span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div id="success-message" class="success-message">
+    <div class="success-content">
+      <i class="fas fa-check-circle"></i>
+      <h3>Thank You!</h3>
+      <p>Your submission has been received. We'll contact you within 24 hours.</p>
+      <button id="close-success" class="cta-button">Close</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .cta-section p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+  }
+  
+  /* Modal Styles */
+  .contact-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    color: var(--dark);
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  
+  .checkbox-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+  }
+  
+  .submit-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .spinner {
+    display: none;
+  }
+  
+  /* Success Message */
+  .success-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .success-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--dark);
+    max-width: 400px;
+  }
+  
+  .success-content i {
+    color: #4CAF50;
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+</style>
+
+<script>
+  // Form Handling (can be moved to shared/scripts.js)
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctaButton = document.getElementById('cta-button');
+    const modal = document.getElementById('contact-modal');
+    const closeModal = document.querySelector('.close-modal');
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    const closeSuccess = document.getElementById('close-success');
+    
+    // Toggle Modal
+    ctaButton.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+    
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Close when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+    
+    // Form Submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = form.querySelector('button[type="submit"]');
+      const buttonText = submitButton.querySelector('.button-text');
+      const spinner = submitButton.querySelector('.spinner');
+      
+      // Show loading state
+      buttonText.textContent = 'Processing...';
+      spinner.style.display = 'inline-block';
+      
+      // Simulate form submission (replace with actual AJAX call)
+      setTimeout(() => {
+        // Hide modal and show success
+        modal.style.display = 'none';
+        successMessage.style.display = 'flex';
+        
+        // Reset form
+        form.reset();
+        buttonText.textContent = 'Submit Request';
+        spinner.style.display = 'none';
+      }, 1500);
+    });
+    
+    // Close success message
+    closeSuccess.addEventListener('click', () => {
+      successMessage.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  });
+</script>
