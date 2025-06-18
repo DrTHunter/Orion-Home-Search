@@ -178,7 +178,30 @@
             opacity: 1;
             visibility: visible;
         }
-        
+        /* Logo link styling */
+        .logo-link {
+          padding: 0 !important;
+          margin-left: 20px;
+        }
+
+        .logo-link img {
+          height: 40px;
+          transition: transform 0.3s;
+        }
+
+        .logo-link:hover img {
+          transform: scale(1.05);
+        }
+
+        /* Adjust header container for logo */
+        nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 15px;
+          position: relative;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
@@ -1153,6 +1176,14 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .logo-link {
+              display: none; /* Hide logo on mobile for cleaner appearance */
+            }
+            
+            .nav-links {
+              top: 70px; /* Adjust for header height */
+            }
+      
             .hero {
                 padding: 150px 0 80px;
             }
@@ -1273,22 +1304,25 @@
     <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 
     <!-- Header -->
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo"><span>Orion</span> AI Real Estate Network</div>
-        <button class="menu-toggle" id="mobile-menu">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links" id="nav-links">
-          <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
-          <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
-          <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
-          <a href="#contact" class="cta-button"><i class="fas fa-phone"></i> Connect with a Real Estate Agent</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo"><span>Orion</span> AI Real Estate Network</div>
+          <button class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="nav-links" id="nav-links">
+            <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
+            <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
+            <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
+            <a href="#contact" class="cta-button"><i class="fas fa-user-astronaut"></i> Match Me With a Trusted Agent</a>
+            <a href="images/exp-realty.jpg" class="logo-link" style="margin-left: 20px;">
+              <img src="images/exp-realty.jpg" alt="eXp Realty Logo" style="height: 40px;">
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
