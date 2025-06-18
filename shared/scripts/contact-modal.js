@@ -1,4 +1,4 @@
-<script>
+
 // Contact Modal Functionality
 const contactBtn = document.getElementById('contact-btn');
 const modal = document.getElementById('contact-modal');
@@ -110,4 +110,4 @@ popupOverlay?.addEventListener('click', () => {
   popupOverlay.style.display = 'none';
   document.body.style.overflow = 'auto';
 });
-</script>
+
