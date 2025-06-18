@@ -1,0 +1,37 @@
+      :root {
+        --primary: #2a5b84;         /* Deep tech blue */
+        --primary-light: #4b91c9;   /* Soft, clickable blue */
+        --secondary: #b88cf3;       /* Muted violet, more AI elegance than neon */
+        --accent: #5ef2c2;          /* Futuristic mint for hover effects or highlights */
+        --dark: #1e1e2f;            /* Deep navy-charcoal for main background */
+        --light: #f4f6f8;           /* Soft, breathable light background */
+        --gray: #d1d5db;            /* Light cool gray for body text on dark */
+        --white: #ffffff;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        background-color: var(--white);
+      }
+      
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
