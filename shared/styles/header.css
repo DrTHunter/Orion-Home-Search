@@ -99,27 +99,4 @@
         visibility: visible;
       }
       
-      /* Main Content */
-      .main-content {
-        padding: 120px 0 60px;
-      }
-      
-      .page-title {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      
-      .page-title h1 {
-        font-size: 2.5rem;
-        color: var(--primary);
-      }
-      
-      .page-description {
-        max-width: 800px;
-        margin: 0 auto 40px;
-        text-align: center;
-      }
-      
-      .page-description p {
-        color: #73a4d6;
-      }
+
