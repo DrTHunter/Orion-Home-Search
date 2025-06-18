@@ -1,4 +1,4 @@
-
+    <style>
         /* Header */
         header {
             background-color: var(--white);
@@ -71,3 +71,4 @@
             background-color: var(--primary-light);
             color: white;
         }
+    </style>
