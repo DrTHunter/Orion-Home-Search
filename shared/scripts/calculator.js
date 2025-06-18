@@ -1,4 +1,4 @@
-    <script>
+
     // Calculator toggle functionality
     const mortgageToggle = document.getElementById('mortgage-toggle');
     const dtiToggle = document.getElementById('dti-toggle');
@@ -105,4 +105,4 @@
     calculateMortgage();
     calculateDTI();
   });
-    </script>
+
