@@ -51,63 +51,88 @@ if (termsToggle && termsAgreed) {
   });
 }
 
-// Form submission with success popup
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (termsAgreed.value !== 'agreed') {
-      alert('Please agree to the Terms of Service before submitting.');
-      return;
-    }
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    const formData = new FormData(contactForm);
-    fetch(contactForm.action, {
-      method: 'POST',
-      body: new URLSearchParams(formData),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.text();
-      })
-      .then(() => {
-        successPopup.style.display = 'block';
-        popupOverlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        contactForm.reset();
-        locationButtons.forEach(btn => btn.classList.remove('selected'));
-        selectedLocations.value = '';
-        termsToggle.classList.remove('selected');
-        termsToggle.setAttribute('data-agreed', 'false');
-        termsAgreed.value = '';
-        modal.style.display = 'none';
-      })
-      .catch(error => {
-        alert('There was an error submitting the form. Please try again later.');
-        console.error('Error:', error);
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      });
-  });
-}
+ // Form submission with success popup
+    const contactForm = document.getElementById('contact-form');
 
-// Close popup handlers
-document.getElementById('close-popup')?.addEventListener('click', () => {
-  successPopup.style.display = 'none';
-  popupOverlay.style.display = 'none';
-  document.body.style.overflow = 'auto';
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Validate terms agreement
+        if (termsAgreed.value !== 'agreed') {
+            alert('Please agree to the Terms of Service before submitting.');
+            return;
+        }
+
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        // Prepare form data
+        const formData = new FormData(contactForm);
+        
+        // Add security token to the form data
+        formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
+
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: new URLSearchParams(formData),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            if (data.result === "error") {
+                throw new Error(data.message);
+            }
+            
+            // Show success popup
+            successPopup.style.display = 'block';
+            popupOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+
+            // Reset form
+            contactForm.reset();
+
+            // Reset location selections
+            locationButtons.forEach(btn => btn.classList.remove('selected'));
+            selectedLocations.value = '';
+
+            // Reset terms agreement
+            termsToggle.classList.remove('selected');
+            termsToggle.setAttribute('data-agreed', 'false');
+            termsAgreed.value = '';
+
+            // Close the modal
+            modal.style.display = 'none';
+        })
+        .catch(error => {
+            alert('There was an error submitting the form: ' + error.message);
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
+    });
+
+    // Close popup handlers
+    document.getElementById('close-popup')?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    popupOverlay?.addEventListener('click', () => {
+        successPopup.style.display = 'none';
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
 });
-popupOverlay?.addEventListener('click', () => {
-  successPopup.style.display = 'none';
-  popupOverlay.style.display = 'none';
-  document.body.style.overflow = 'auto';
-});
+
 
