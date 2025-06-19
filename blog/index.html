@@ -1037,7 +1037,7 @@
       <h2 style="margin-bottom: 20px;">Let's Connect</h2>
       <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
       
-      <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbzS5_Ecvgxj1TNpMnZQkGZ6nlIo7Kg-pwAin-CHSu7loGO97CUOci9rW2vLJhnhBFlNow/exec">
+      <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbyzwYQ6Yg6-nzqgF6VtkXlUl-XbxNjovWNuuXfNhva0ehPYjz4YsZSnV5t2B-koSGPhrQ/exec">
       <!-- Full Name -->
       <div class="form-group">
           <label for="fullName">Full Name</label>
@@ -1289,82 +1289,90 @@
         termsAgreed.value = !agreed ? 'agreed' : '';
       });
 
-      // Form submission with success popup
-      const contactForm = document.getElementById('contact-form');
-
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Validate terms agreement
-        if (termsAgreed.value !== 'agreed') {
-          alert('Please agree to the Terms of Service before submitting.');
-          return;
-        }
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        // Prepare form data
-        const formData = new FormData(contactForm);
-
-        fetch(contactForm.action, {
-          method: 'POST',
-          body: new URLSearchParams(formData),
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        })
-          .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.text();
-          })
-          .then(() => {
-            // Show success popup
-            successPopup.style.display = 'block';
-            popupOverlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset location selections
-            locationButtons.forEach(btn => btn.classList.remove('selected'));
-            selectedLocations.value = '';
-
-            // Reset terms agreement
-            termsToggle.classList.remove('selected');
-            termsToggle.setAttribute('data-agreed', 'false');
-            termsAgreed.value = '';
-
-            // Close the modal
-            modal.style.display = 'none';
-          })
-          .catch(error => {
-            alert('There was an error submitting the form. Please try again later.');
-            console.error('Error:', error);
-          })
-          .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-          });
-      });
-
-      // Close popup handlers
-      document.getElementById('close-popup')?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
-
-      popupOverlay?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      });
+     // Form submission with success popup
+        const contactForm = document.getElementById('contact-form');
+    
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // Validate terms agreement
+            if (termsAgreed.value !== 'agreed') {
+                alert('Please agree to the Terms of Service before submitting.');
+                return;
+            }
+    
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+    
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+            // Prepare form data
+            const formData = new FormData(contactForm);
+            
+            // Add security token to the form data
+            formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
+    
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data.result === "error") {
+                    throw new Error(data.message);
+                }
+                
+                // Show success popup
+                successPopup.style.display = 'block';
+                popupOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+    
+                // Reset form
+                contactForm.reset();
+    
+                // Reset location selections
+                locationButtons.forEach(btn => btn.classList.remove('selected'));
+                selectedLocations.value = '';
+    
+                // Reset terms agreement
+                termsToggle.classList.remove('selected');
+                termsToggle.setAttribute('data-agreed', 'false');
+                termsAgreed.value = '';
+    
+                // Close the modal
+                modal.style.display = 'none';
+            })
+            .catch(error => {
+                alert('There was an error submitting the form: ' + error.message);
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+        });
+    
+        // Close popup handlers
+        document.getElementById('close-popup')?.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    
+        popupOverlay?.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
     });
+
   </script>
 
   <script>
