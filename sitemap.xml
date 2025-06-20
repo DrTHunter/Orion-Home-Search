@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://orionhomesearch.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/luxury-search/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/downtown/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/new-builds/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/listing-results/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/listing-details/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Blog Root -->
+  <url>
+    <loc>https://orionhomesearch.com/blog/</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://orionhomesearch.com/blog/best-neighborhoods/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio-2025-housing-market-forecast/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/every-thing-you-need-to-know-to-buy-a-home/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio-luxury-market-trends/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Sub-location Tools -->
+  <url>
+    <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/lackland-af-base-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/fort-sam-houston-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/randolph-afb-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio-luxury-market-trends/anaqua-springs-ranch-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio-luxury-market-trends/cresta-bella-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://orionhomesearch.com/blog/san-antonio-luxury-market-trends/cantera-hills-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+</urlset>
