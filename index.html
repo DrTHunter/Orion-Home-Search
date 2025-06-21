@@ -158,53 +158,8 @@
             background-color: var(--primary-light);
             color: white;
         }
+
         
-        /* eXp Realty Logo Styling */
-        .exp-logo-container {
-            display: flex;
-            align-items: center;
-            margin: 0 15px;
-        }
-
-        .exp-logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--dark);
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-
-        .exp-logo-link:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-1px);
-        }
-
-        .exp-logo-text {
-            font-size: 12px;
-            margin-right: 8px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .exp-logo-img {
-            height: 20px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .exp-logo-link:hover .exp-logo-img {
-            transform: scale(1.05);
-        }
-
-        /* Adjust the nav-links to properly space the logo */
-        .nav-links {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
         /* Mobile Menu Overlay */
         .mobile-menu-overlay {
             position: fixed;
@@ -1341,21 +1296,7 @@
             .copyright {
               text-align: center;
             }
-            
-            .exp-logo-container {
-                margin: 10px 0;
-                justify-content: center;
-                width: 100%;
-            }
-            
-            .exp-logo-text {
-                font-size: 14px;
-            }
-            
-            .exp-logo-img {
-                height: 24px;
-            }
-        }
+          }
         
     </style>
 
@@ -1368,24 +1309,21 @@
       <div class="container">
         <nav>
           <div class="logo">
-            <span>Orion</span> — AI Powered Search
+            <span>Orion</span> — AI Powered Search.
+          </div>
           <button class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
           </button>
-         <div class="nav-links" id="nav-links">
+          <div class="nav-links" id="nav-links">
             <a href="https://www.orionhomesearch.com/"><i class="fas fa-home"></i> Home</a>
             <a href="https://www.orionhomesearch.com/"><i class="fa-solid fa-list"></i> Home Search Tool</a>
             <a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a>
             <a href="#contact" class="cta-button"><i class="fas fa-user-astronaut"></i> Match Me With a Trusted Agent</a>
-            
-            <!-- Centered eXp Logo with Text -->
-            <div class="exp-logo-container">
-                <a href="https://www.exprealty.com/" class="exp-logo-link" title="Brokered by eXp Realty" target="_blank">
-                    <span class="exp-logo-text">Brokered by</span>
-                    <img src="images/exp-realty.png" alt="eXp Realty" class="exp-logo-img">
-                </a>
+            <a href="#footer" class="exp-logo-button" title="Brokered by eXp Realty"> Brokered by
+            <img src="images/exp-realty.png" alt="eXp Realty" style="height: 20px;">    
+            </a>
             </div>
-        </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -1905,7 +1843,7 @@
     </div>
     
     <!-- Footer with Transparent Background -->
-    <footer>
+    <footer id="footer">
       <div class="container">
         <div class="footer-container">
           <div class="footer-about">
