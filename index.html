@@ -128,6 +128,7 @@
             display: flex;
             gap: 15px;
             align-items: center;
+            justify-content: center; /* This centers all nav items including the logo */
         }
         
         .nav-links a {
@@ -159,6 +160,13 @@
             color: white;
         }
 
+        /* Add this to your CSS */
+        .exp-logo-button {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px; /* Creates single space between text and logo */
+          margin-left: 10px; /* Small left margin for balance */
+        }
         
         /* Mobile Menu Overlay */
         .mobile-menu-overlay {
