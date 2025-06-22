@@ -125,10 +125,13 @@
         }
         
         .nav-links {
-            display: flex;
-            gap: 15px;
-            align-items: center;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 0 15px;
         }
+      
         
         .nav-links a {
             text-decoration: none;
@@ -141,7 +144,8 @@
         .nav-links a:hover {
             color: var(--primary);
         }
-        
+
+      
         .cta-button {
             background-color: var(--primary);
             color: white;
@@ -193,6 +197,29 @@
         .logo-link:hover img {
           transform: scale(1.05);
         }
+
+        /* Center the EXP logo within nav-links */
+
+      /* Style the exp logo link */
+      .exp-logo-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--dark);
+        font-size: 14px;
+        white-space: nowrap;
+        margin-left: auto; /* Pushes it to the right */
+        padding-left: 20px; /* Adds some spacing */
+      }
+      
+      .exp-logo-button img {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+      
+      .exp-logo-button:hover img {
+        transform: scale(1.05);
+      }
 
         /* Adjust header container for logo */
         nav {
@@ -1177,7 +1204,11 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .logo-link {
+            .exp-logo-button {
+            display: none;
+            }
+  
+          .logo-link {
               display: none; /* Hide logo on mobile for cleaner appearance */
             }
             
