@@ -810,7 +810,14 @@
     }
     
     @media (max-width: 768px) {
-    .footer-container {
+          .logo-link {
+        display: none; /* Hide logo on mobile for cleaner appearance */
+      }
+      
+      .nav-links {
+        top: 70px; /* Adjust for header height */
+      }
+      .footer-container {
       display: flex;
       flex-direction: column;
       align-items: center;
