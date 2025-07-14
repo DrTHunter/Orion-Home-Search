@@ -103,5 +103,15 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.orionhomesearch.com/blog/san-antonio-2025-housing-market-forecast/alamo-ranch-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.orionhomesearch.com/blog/san-antonio-2025-housing-market-forecast/stone-oak-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 
 </urlset>
