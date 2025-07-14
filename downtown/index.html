@@ -247,39 +247,7 @@
       padding: 20px;
       margin-bottom: 40px;
     }
-
-    .luxury-hero {
-    height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('https://www.orionhomesearch.com/images/down_town.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    margin-bottom: 40px;
-    position: relative;
-  }
-  
-  .luxury-hero h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .luxury-hero p {
-    font-size: 1.3rem;
-    max-width: 600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  
+    
     /* Map Preview */
     .map-preview {
       height: 350px;
@@ -842,8 +810,8 @@
     }
     
     @media (max-width: 768px) {
-      .logo-link {
-      display: none; /* Hide logo on mobile for cleaner appearance */
+          .logo-link {
+        display: none; /* Hide logo on mobile for cleaner appearance */
       }
       
       .nav-links {
@@ -895,17 +863,6 @@
       
       .menu-toggle {
         display: block;
-      }
-      .luxury-hero {
-        height: 350px;
-      }
-      
-      .luxury-hero h2 {
-        font-size: 2rem;
-      }
-      
-      .luxury-hero p {
-        font-size: 1.1rem;
       }
       
       .nav-links {
@@ -1107,14 +1064,24 @@
   </header>
 
   <!-- Main Content -->
-<div class="luxury-hero">
-  <h2>Downtown San Antonio Properties</h2>
-      <p>Discover urban living in the heart of San Antonio with luxury condos, historic homes, and modern apartments</p>
-  </div>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title">
+        <h1>San Antonio Downtown Search</h1>
+      </div>
+      
+      <div class="page-description">
+        <p>Explore properties Downtown in San Antonio. This search focuses on active listings Downtown, sorted by price.</p>
+      </div>
+      
+      <div class="map-preview"></div>
       
       <div class="search-results-container">
         <!-- Custom polygon search widget -->
-        <div id="MBBv3_FeaturedGallery" filter="shapesearch:29.395308721503078 -98.47846666054546,29.40173962661638 -98.48138490395367,29.407871041079773 -98.480183274315,29.41026368787164 -98.48001161293804,29.42177751276941 -98.48069825844586,29.426711609761618 -98.48207154946148,29.430299893401692 -98.48104158119976,29.43269201206342 -98.47898164467632,29.437625578839626 -98.47657838539898,29.440466008541584 -98.48533311562359,29.4332900329245 -98.49906602577984,29.429402834376745 -98.50112596230328,29.421927034381174 -98.50181260781109,29.416693647037114 -98.5024992533189,29.412805813375794 -98.50661912636578,29.408319666643266 -98.50936570839703,29.401000151334696 -98.51149166635483,29.396391242994337 -98.51132611008033,29.396391242994337 -98.49553326340065,29.393848707026343 -98.48248699875221,29.395308721503078 -98.47846666054546+mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+        <div id="MBBv3_FeaturedGallery" 
+             filter="mls_id:demo+listing_status:active+shapesearch:29.438440970486027 -98.47759324564198,29.439935931386533 -98.48583299173573,29.43305892897451 -98.49887925638417,29.41601391570481 -98.5028274680541,29.406892163929836 -98.51038056864003,29.396872247349016 -98.51192552103261,29.39388103611215 -98.4786232139037,29.402854405882685 -98.48136979593495,29.407938963911718 -98.47999650491933,29.42139686045126 -98.47999650491933,29.42767660219584 -98.48171311868886,29.438440970486027 -98.47759324564198+representation_type:any_listing+limit:12+order:price">
+        </div>
+      </div>
     </div>
   </main>
 
