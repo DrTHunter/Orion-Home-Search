@@ -1075,20 +1075,26 @@
     </header>
 
   <!-- Main Content -->
-      <main class="main-content">
-        <div class="container">
-          <div class="page-title">
-            <h1>Luxury Homes in San Antonio</h1>
-          </div>
-          
-          <div class="luxury-hero">
-            <h2>Premium Properties Above $800,000</h2>
-            <p>Discover San Antonio's finest homes featuring exceptional amenities, premium locations, and exquisite craftsmanship</p>
-          </div>
-          
-          <div class="page-description">
-            <p>Our curated selection showcases the most prestigious properties in the San Antonio area. Each home has been carefully selected for its quality, location, and investment potential.</p>
-          </div>
+  <main class="main-content">
+    <div class="container">
+      <div class="page-title">
+        <h1>Luxury Homes in San Antonio</h1>
+      </div>
+      
+      <div class="luxury-hero">
+        <h2>Premium Properties Above $800,000</h2>
+        <p>Discover San Antonio's finest homes featuring exceptional amenities, premium locations, and exquisite craftsmanship</p>
+      </div>
+      
+      <div class="page-description">
+        <p>Our curated selection showcases the most prestigious properties in the San Antonio area. Each home has been carefully selected for its quality, location, and investment potential.</p>
+      </div>
+      
+      <div class="search-results-container">
+        <!-- Custom price-filtered widget -->
+        <div id="MBBv3_FeaturedGallery" 
+             filter="mls_id:demo+listing_status:active+price_min:800,000+representation_type:any_listing+limit:12+order:price">
+        </div>
       </div>
     </div>
   </main>
@@ -1747,5 +1753,6 @@
   <script>
   (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="RfCRY6zG0cFaXP1SpqUgu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
   </script>
+  
 </body>
 </html>
