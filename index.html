@@ -39,14 +39,17 @@
     gtag('config', 'G-ZF6721FNMD');
   </script>
 
-  <!-- Buying Buddy Plugin -->
+  <!-- Buying Buddy plugin v5.02 for General HTML; Authorized Domain: orionhomesearch.com -->
+  <!-- ** DO NOT DEFER ** This must load at the top of the page, e.g. in the page head. -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
-    var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
-    function mbbMapLoaded() { MBB.googleMaps = true; }
+  var MBB = {seo : "false",data:{ acid : "iUGUuSwb" } };
+  function mbbMapLoaded(){ MBB.googleMaps = true; };
   </script>
-  <script defer src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
-  <script defer src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
+  <!-- NOTE: Google MAP API must load AFTER the declaration of mbbMapLoaded(), and BEFORE my-buying-buddy.5.0.js.gz -->
+  <script src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
+  <script src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
+  <!-- End Buying Buddy Plugin. Copyright 2003-2025 -->
 </head>
     
     <style>
