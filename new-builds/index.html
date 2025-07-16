@@ -221,6 +221,55 @@
       position: relative;
     }
 
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 180px 0 100px;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .hero-buttons .cta-button {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+    
+    .secondary-button {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .secondary-button:hover {
+        background-color: white;
+        color: var(--primary);
+    }
+    
     /* Main Content */
     .main-content {
       padding: 120px 0 60px;
@@ -817,6 +866,24 @@
     }
     
     @media (max-width: 768px) {
+        .hero {
+            padding: 150px 0 80px;
+        }
+        
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            padding: 0 15px;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+      
       .main-content {
         padding: 100px 0 40px;
       }
@@ -1053,6 +1120,18 @@
     </div>
   </header>
 
+  <!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Discover Your Future with Orion</h1>
+        <p>Your gateway to the perfect home—powered by AI precision and purpose. Looking in San Antonio? Orion filters the noise and finds the homes that truly fit <strong>you</strong>—faster, smarter, and stress-free.</p>
+        <div class="hero-buttons">
+            <a href="#listings" class="cta-button">Start Your Search</a>
+            <a href="First Time Homebuyers Guide.docx" class="secondary-button" download>First-Time Buyer Guide</a>
+        </div>
+    </div>
+</section>
+  
 <!-- Main Content -->
 <main class="main-content">
   <div class="container">
