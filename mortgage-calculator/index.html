@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://orionhomesearch.com/mortgage-calculator/" />
   <meta name="twitter:title" content="AI-Powered Mortgage Calculator | Orion Home Search" />
-  <meta name="twitter:description" content="Estimate your mortgage in seconds. Budget smarter with Orion AI’s free home loan calculator." />
+  <meta name="twitter:description" content="Estimate your mortgage in seconds. Budget smarter with Orion AI's free home loan calculator." />
   <meta name="twitter:image" content="https://orionhomesearch.com/assets/mortgage-calculator-preview.jpg" />
 
   <!-- Favicon -->
@@ -32,8 +34,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <!-- Stylesheets and Theme Variables are inlined in your code body below -->
 
   <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
@@ -52,7 +52,6 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
   <script src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
-</head>
 
   <style>
     :root {
@@ -290,14 +289,15 @@
       z-index: 1;
     }
     
-    /* CTA Section */
+    /* CTA Section - Updated for full width */
     .cta-section {
-      padding: 80px 0;
+      padding: 80px 20px;
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: white;
       text-align: center;
       position: relative;
       overflow: hidden;
+      width: 100%;
     }
     
     .cta-section::before {
@@ -312,7 +312,9 @@
       z-index: 0;
     }
     
-    .cta-section .container {
+    .cta-content {
+      max-width: 1200px;
+      margin: 0 auto;
       position: relative;
       z-index: 1;
     }
@@ -580,13 +582,14 @@
         display: none;
     }
     
-    /* Footer with Transparent Background */
+    /* Footer with Transparent Background - Updated for full width */
     footer {
       background-color: var(--dark);
       color: white;
-      padding: 50px 0 20px;
+      padding: 50px 20px 20px;
       text-align: center;
       position: relative;
+      width: 100%;
     }
 
     footer:before {
@@ -601,17 +604,15 @@
       z-index: 0;
     }
 
-    footer .container {
-      position: relative;
-      z-index: 1;
-    }
-
     .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
       margin-bottom: 40px;
       text-align: left;
+      padding: 0 20px;
     }
 
     .footer-about {
@@ -647,7 +648,7 @@
     }
 
     .footer-links {
-      padding-left: 100px; /* Increase this value for more right spacing */
+      padding-left: 100px;
     }
 
     .footer-links ul {
@@ -718,6 +719,8 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
       opacity: 0.8;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     /* ====== Calculator Styles ====== */
@@ -984,7 +987,7 @@
       }
       
       .cta-section {
-        padding: 60px 0;
+        padding: 60px 20px;
       }
       
       .cta-section h2 {
@@ -1083,7 +1086,7 @@
   
       <div class="luxury-hero" style="margin-top: 20px;">
         <h2>Estimate Your Monthly Home Payment</h2>
-        <p>Use Orion’s intelligent mortgage calculator to forecast your payment, understand your affordability, and plan your purchase with confidence.</p>
+        <p>Use Orion's intelligent mortgage calculator to forecast your payment, understand your affordability, and plan your purchase with confidence.</p>
       </div>
       
   <!-- Mortgage Calculator Section -->
@@ -1227,10 +1230,12 @@
           </div>
         </div>
     </section>
+    </div>
+  </main>
 
-  <!-- CTA Section -->
+  <!-- CTA Section - Updated for full width -->
   <section class="cta-section" id="contact">
-    <div class="container">
+    <div class="cta-content">
       <h2>Ready to Begin Your Search?</h2>
       <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
       <div class="hero-buttons">
@@ -1377,49 +1382,47 @@
       <button class="close-popup" id="close-popup">Close</button>
   </div>
   
-  <!-- Footer with Transparent Background -->
+  <!-- Footer with Transparent Background - Updated for full width -->
   <footer id="footer">
-    <div class="container">
-      <div class="footer-container">
-        <div class="footer-about">
-          <div class="footer-logo"><span>Orion</span> Where AI Meets Home.</div>
-          <h3>Helping You Find Your Perfect Home</h3>
-          <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
-        </div>
-  
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="../blog"><i class="fas fa-blog"></i> Blog</a></li>
-            <li><a href="../First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
-            <li><a href="../docs/CPN.pdf" target="_blank"><i class="fas fa-shield-alt"></i> TREC Consumer Protection Notice</a></li>
-            <li><a href="../docs/IABS.pdf" target="_blank"><i class="fas fa-id-card-alt"></i> TREC Information About Brokerage Services</a></li>
-            <li><a href="../docs/privacy-policy.txt" target="_blank><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-            <li><a href="../docs/disclaimer.txt" target="_blank><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
-          </ul>
-        </div>
-  
-        <div class="footer-contact">
-          <h3>Contact Information</h3>
-  
-          <p style="margin-top: 20px;"><i class="fas fa-user"></i> Sanhenry Garcia</p>
-          <p><i class="fas fa-phone"></i> 210-608-3275</p>
-          <p><i class="fas fa-envelope"></i> sanhenry.garcia@exprealty.com</p>
-  	
-          <p style="margin-top: 40px;"><i class="fas fa-building"></i> eXp Realty in San Antonio</p>
-          <p><i class="fas fa-map-pin"></i> 17806 IH 10, Ste. 300</p>
-          <p><i class="fas fa-map-pin"></i> San Antonio, TX 78257</p>
-          <p><i class="fas fa-phone"></i> 888-519-7431</p>
-        </div>
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="footer-logo"><span>Orion</span> Where AI Meets Home.</div>
+        <h3>Helping You Find Your Perfect Home</h3>
+        <p>Powered by AI precision and human insight, we help you navigate San Antonio's real estate market with confidence.</p>
       </div>
 
-      <div class="copyright">
-        <p>&copy; 2025 Orion AI. A legacy guided by intelligence.</p>
-        <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
-          This website uses cookies and third-party tools (e.g., Google Analytics) to improve your experience.
-        </p>
-      <div id="MBBv3_Disclaimer" style="--bbw-disclaimer-bg-color-rgba:29,29,45,0;--bbw-body-text-color:#ffffffff;--bbw-disclaimer-bg-border-radius:0"></div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../blog"><i class="fas fa-blog"></i> Blog</a></li>
+          <li><a href="../First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
+          <li><a href="../docs/CPN.pdf" target="_blank"><i class="fas fa-shield-alt"></i> TREC Consumer Protection Notice</a></li>
+          <li><a href="../docs/IABS.pdf" target="_blank"><i class="fas fa-id-card-alt"></i> TREC Information About Brokerage Services</a></li>
+          <li><a href="../docs/privacy-policy.txt" target="_blank><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+          <li><a href="../docs/disclaimer.txt" target="_blank><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
+        </ul>
       </div>
+
+      <div class="footer-contact">
+        <h3>Contact Information</h3>
+
+        <p style="margin-top: 20px;"><i class="fas fa-user"></i> Sanhenry Garcia</p>
+        <p><i class="fas fa-phone"></i> 210-608-3275</p>
+        <p><i class="fas fa-envelope"></i> sanhenry.garcia@exprealty.com</p>
+  
+        <p style="margin-top: 40px;"><i class="fas fa-building"></i> eXp Realty in San Antonio</p>
+        <p><i class="fas fa-map-pin"></i> 17806 IH 10, Ste. 300</p>
+        <p><i class="fas fa-map-pin"></i> San Antonio, TX 78257</p>
+        <p><i class="fas fa-phone"></i> 888-519-7431</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2025 Orion AI. A legacy guided by intelligence.</p>
+      <p style="margin-top: 10px; font-size: 0.8em; opacity: 0.7;">
+        This website uses cookies and third-party tools (e.g., Google Analytics) to improve your experience.
+      </p>
+    <div id="MBBv3_Disclaimer" style="--bbw-disclaimer-bg-color-rgba:29,29,45,0;--bbw-body-text-color:#ffffffff;--bbw-disclaimer-bg-border-radius:0"></div>
     </div>
   </footer>
 
