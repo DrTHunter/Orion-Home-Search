@@ -36,15 +36,16 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ZF6721FNMD');
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17362645351"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17362645351');
-</script>
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17362645351"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'AW-17362645351');
+  </script>
   <!-- Buying Buddy IDX Plugin -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
@@ -267,6 +268,56 @@
     .page-description p {
       color: #73a4d6;
     }
+    
+    /* ====== ADDED: Search Tools Container Styles ====== */
+    .search-toggle-container {
+        width: 100%;
+        max-width: none;
+        display: flex;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .search-toggle-btn {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        background: #f0f0f0;
+        color: #333;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+        font-size: 0.9rem;
+        border-right: 1px solid #ddd;
+    }
+    .search-toggle-btn:last-child {
+        border-right: none;
+    }
+    .search-toggle-btn.active {
+        background: var(--primary);
+        color: white;
+    }
+    .search-toggle-btn:hover {
+        background: #e0e0e0;
+    }
+    .search-toggle-btn.active:hover {
+        background: var(--primary-light);
+    }
+    .search-container {
+        display: none;
+        margin-bottom: 30px;
+    }
+    .search-container.active {
+        display: block;
+    }
+    #map-search-container {
+        height: 500px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
     /* Search Results Container */
     .search-results-container {
       background-color: var(--white);
@@ -377,8 +428,7 @@
       padding: 12px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      font-size: 16px;
-      transition: border-color 0.3s;
+      font-size: 16px      transition: border-color 0.3s;
     }
     #contact-form input:focus,
     #contact-form select:focus,
@@ -674,7 +724,7 @@
       flex-wrap: wrap;
       gap: 16px;
       background-color: var(--white);
-     -radius: 10px;
+      border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.06);
       padding: 12px;
     }
@@ -835,6 +885,20 @@
       .social-links {
         justify-content: center;
       }
+      /* Search toggle buttons on mobile */
+      .search-toggle-container {
+        flex-direction: column;
+      }
+      .search-toggle-btn {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .search-toggle-btn:last-child {
+        border-bottom: none;
+      }
+      #map-search-container {
+        height: 350px;
+      }
     }
   </style>
 </head>
@@ -889,159 +953,187 @@
           Explore Orion's handpicked selection of cutting-edge new builds—smart, stylish, and ready for your next chapter.
         </p>
       </div>
-      <!-- Search Results -->
-      <div class="search-results-container animate-pop delay-1">
-        <div id="MBBv3_FeaturedGallery" filter="shapesearch:29.395308721503078 -98.47846666054546,29.40173962661638 -98.48138490395367,29.407871041079773 -98.480183274315,29.41026368787164 -98.48001161293804,29.42177751276941 -98.48069825844586,29.426711609761618 -98.48207154946148,29.430299893401692 -98.48104158119976,29.43269201206342 -98.47898164467632,29.437625578839626 -98.47657838539898,29.440466008541584 -98.48533311562359,29.4332900329245 -98.49906602577984,29.429402834376745 -98.50112596230328,29.421927034381174 -98.50181260781109,29.416693647037114 -98.5024992533189,29.412805813375794 -98.50661912636578,29.408319666643266 -98.50936570839703,29.401000151334696 -98.51149166635483,29.396391242994337 -98.51132611008033,29.396391242994337 -98.49553326340065,29.393848707026343 -98.48248699875221,29.395308721503078 -98.47846666054546,29.395308721503078 -98.47846666054546+mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
-      </div>
+      
+      <!-- ====== ADDED: Search Tools Section ====== -->
+      <section id="search-tools">
+        <!-- Three Toggle Buttons -->
+        <div class="search-toggle-container">
+            <button class="search-toggle-btn active" data-target="featured-container">Featured Listings</button>
+            <button class="search-toggle-btn" data-target="form-search-container">Form Search</button>
+            <button class="search-toggle-btn" data-target="map-search-container">Map View</button>
+        </div>
+        
+        <!-- Featured Listings Container (default visible) -->
+        <div id="featured-container" class="search-container active">
+          <div class="search-results-container">
+            <div id="MBBv3_FeaturedGallery" filter="shapesearch:29.395308721503078 -98.47846666054546,29.40173962661638 -98.48138490395367,29.407871041079773 -98.480183274315,29.41026368787164 -98.48001161293804,29.42177751276941 -98.48069825844586,29.426711609761618 -98.48207154946148,29.430299893401692 -98.48104158119976,29.43269201206342 -98.47898164467632,29.437625578839626 -98.47657838539898,29.440466008541584 -98.48533311562359,29.4332900329245 -98.49906602577984,29.429402834376745 -98.50112596230328,29.421927034381174 -98.50181260781109,29.416693647037114 -98.5024992533189,29.412805813375794 -98.50661912636578,29.408319666643266 -98.50936570839703,29.401000151334696 -98.51149166635483,29.396391242994337 -98.51132611008033,29.396391242994337 -98.49553326340065,29.393848707026343 -98.48248699875221,29.395308721503078 -98.47846666054546,29.395308721503078 -98.47846666054546+mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+          </div>
+        </div>
+        
+        <!-- Form Search Container -->
+        <div id="form-search-container" class="search-container">
+          <div class="search-results-container">
+            <div id="MBBv3_SearchForm" filter="mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing"></div>
+          </div>
+        </div>
+        
+        <!-- Map Search Container -->
+        <div id="map-search-container" class="search-container">
+          <div class="search-results-container">
+            <div id="MBBv3_InteractiveMap" filter="shapesearch:29.395308721503078 -98.47846666054546,29.40173962661638 -98.48138490395367,29.407871041079773 -98.480183274315,29.41026368787164 -98.48001161293804,29.42177751276941 -98.48069825844586,29.426711609761618 -98.48207154946148,29.430299893401692 -98.48104158119976,29.43269201206342 -98.47898164467632,29.437625578839626 -98.47657838539898,29.440466008541584 -98.48533311562359,29.4332900329245 -98.49906602577984,29.429402834376745 -98.50112596230328,29.421927034381174 -98.50181260781109,29.416693647037114 -98.5024992533189,29.412805813375794 -98.50661912636578,29.408319666643266 -98.50936570839703,29.401000151334696 -98.51149166635483,29.396391242994337 -98.51132611008033,29.396391242994337 -98.49553326340065,29.393848707026343 -98.48248699875221,29.395308721503078 -98.47846666054546,29.395308721503078 -98.47846666054546+mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Mortgage Calculator Section -->
+      <section class="calculator">
+          <div class="container">
+            <div class="page-title">
+              <h1>Financial Calculators</h1>
+            </div>
+            <div class="page-description">
+              <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
+            </div>
+            <div class="calculator-toggle">
+              <button id="mortgage-toggle" class="btn btn-primary">Mortgage Calculator</button>
+              <button id="dti-toggle" class="btn btn-secondary">Debt-to-Income Calculator</button>
+            </div>
+            <div class="calculator-flex-wrap">
+              <!-- Mortgage Calculator (initially visible) -->
+              <div class="calculator-container" id="mortgage-calculator">
+                <div class="calculator-form">
+                  <div class="form-group">
+                    <label for="home-price">Home Price ($)</label>
+                    <input type="number" id="home-price" value="300000" min="50000" step="10000">
+                  </div>
+                  <div class="form-group">
+                    <label for="down-payment">Down Payment ($)</label>
+                    <input type="number" id="down-payment" value="100000" min="0" step="5000">
+                  </div>
+                  <div class="form-group">
+                    <label for="loan-term">Loan Term (years)</label>
+                    <select id="loan-term">
+                      <option value="30">30 years</option>
+                      <option value="20">20 years</option>
+                      <option value="15">15 years</option>
+                      <option value="10">10 years</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="interest-rate">Interest Rate (%)</label>
+                    <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
+                  </div>
+                  <div class="form-group">
+                    <label for="property-tax-rate">Property Tax Rate (%)</label>
+                    <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
+                  </div>
+                  <div class="form-group">
+                    <label for="insurance-rate">Home Insurance Rate (%)</label>
+                    <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
+                  </div>
+                  <div class="form-group">
+                    <label for="hoa-fee">Monthly HOA Fee ($)</label>
+                    <input type="number" id="hoa-fee" value="100" min="0" step="25">
+                  </div>
+                  <button id="calculate-btn" class="btn btn-primary" style="width:100%;">Calculate Payment</button>
+                </div>
+                <div class="calculator-results">
+                  <div class="result-card">
+                    <h3>Monthly Payment</h3>
+                    <div class="result-amount" id="monthly-payment">$0</div>
+                  </div>
+                  <div class="result-card">
+                    <h3>Total Interest</h3>
+                    <div class="result-amount" id="total-interest">$0</div>
+                  </div>
+                  <div class="result-card">
+                    <h3>Total Cost</h3>
+                    <div class="result-amount" id="total-cost">$0</div>
+                  </div>
+                  <div class="result-breakdown">
+                    <h4>Payment Breakdown</h4>
+                    <div class="breakdown-item">
+                      <span>Principal & Interest</span>
+                      <span id="principal-interest">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                      <span>Property Tax</span>
+                      <span id="property-tax">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                      <span>Home Insurance</span>
+                      <span id="home-insurance">$0</span>
+                    </div>
+                    <div class="breakdown-item">
+                      <span>HOA Fee</span>
+                      <span id="hoa-fee-display">$0</span>
+                    </div>
+                    <div class="breakdown-item total">
+                      <span>Total Monthly Payment</span>
+                      <span id="total-monthly">$0</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Debt-to-Income Calculator (initially hidden) -->
+              <div class="calculator-container" id="dti-calculator" style="display: none;">
+                <div class="calculator-form">
+                  <div class="form-group">
+                    <label for="monthly-income">Monthly Gross Income ($)</label>
+                    <input type="number" id="monthly-income" value="6000" min="1000" step="500">
+                  </div>
+                  <div class="form-group">
+                    <label for="monthly-debts">Monthly Debt Payments ($)</label>
+                    <input type="number" id="monthly-debts" value="1000" min="0" step="100">
+                  </div>
+                  <div class="form-group">
+                    <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
+                    <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
+                  </div>
+                  <button id="calculate-dti-btn" class="btn btn-primary" style="width:100%;">Calculate DTI Ratio</button>
+                </div>
+                <div class="calculator-results">
+                  <div class="result-card">
+                    <h3>Front-End Ratio</h3>
+                    <div class="result-amount" id="front-end-ratio">0%</div>
+                    <p style="font-size:0.9em;">(Mortgage ÷ Income)</p>
+                  </div>
+                  <div class="result-card">
+                    <h3>Back-End Ratio</h3>
+                    <div class="result-amount" id="back-end-ratio">0%</div>
+                    <p style="font-size:0.9em;">(Debts + Mortgage ÷ Income)</p>
+                  </div>
+                  <div class="result-card">
+                    <h3>Lender Preference</h3>
+                    <div class="result-amount" id="lender-preference">-</div>
+                    <p style="font-size:0.9em;">(Based on typical standards)</p>
+                  </div>
+                  <div class="result-breakdown">
+                    <h4>DTI Guidelines</h4>
+                    <div class="breakdown-item">
+                      <span>Ideal Front-End Ratio</span>
+                      <span>≤ 28%</span>
+                    </div>
+                    <div class="breakdown-item">
+                      <span>Ideal Back-End Ratio</span>
+                      <span>≤ 36%</span>
+                    </div>
+                    <div class="breakdown-item">
+                      <span>Maximum Back-End Ratio</span>
+                      <span>≤ 43% (typical)</span>
+                    </div>
+                    <div class="breakdown-item total">
+                      <span>Your Back-End Ratio</span>
+                      <span id="your-back-end">0%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
     </div>
   </main>
-  <!-- Mortgage Calculator Section (Updated from second page) -->
-  <section class="calculator">
-    <div class="container">
-      <div class="page-title">
-        <h1>Financial Calculators</h1>
-      </div>
-      <div class="page-description">
-        <p>Estimate your monthly payments or calculate your debt-to-income ratio.</p>
-      </div>
-      <div class="calculator-toggle">
-        <button id="mortgage-toggle" class="btn btn-primary">Mortgage Calculator</button>
-        <button id="dti-toggle" class="btn btn-secondary">Debt-to-Income Calculator</button>
-      </div>
-      <div class="calculator-flex-wrap">
-        <!-- Mortgage Calculator (initially visible) -->
-        <div class="calculator-container" id="mortgage-calculator">
-          <div class="calculator-form">
-            <div class="form-group">
-              <label for="home-price">Home Price ($)</label>
-              <input type="number" id="home-price" value="300000" min="50000" step="10000">
-            </div>
-            <div class="form-group">
-              <label for="down-payment">Down Payment ($)</label>
-              <input type="number" id="down-payment" value="100000" min="0" step="5000">
-            </div>
-            <div class="form-group">
-              <label for="loan-term">Loan Term (years)</label>
-              <select id="loan-term">
-                <option value="30">30 years</option>
-                <option value="20">20 years</option>
-                <option value="15">15 years</option>
-                <option value="10">10 years</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="interest-rate">Interest Rate (%)</label>
-              <input type="number" id="interest-rate" value="5.5" min="1" max="20" step="0.125">
-            </div>
-            <div class="form-group">
-              <label for="property-tax-rate">Property Tax Rate (%)</label>
-              <input type="number" id="property-tax-rate" value="1.8" min="0.5" max="5" step="0.1">
-            </div>
-            <div class="form-group">
-              <label for="insurance-rate">Home Insurance Rate (%)</label>
-              <input type="number" id="insurance-rate" value="0.5" min="0.1" max="2" step="0.1">
-            </div>
-            <div class="form-group">
-              <label for="hoa-fee">Monthly HOA Fee ($)</label>
-              <input type="number" id="hoa-fee" value="100" min="0" step="25">
-            </div>
-            <button id="calculate-btn" class="btn btn-primary" style="width:100%;">Calculate Payment</button>
-          </div>
-          <div class="calculator-results">
-            <div class="result-card">
-              <h3>Monthly Payment</h3>
-              <div class="result-amount" id="monthly-payment">$0</div>
-            </div>
-            <div class="result-card">
-              <h3>Total Interest</h3>
-              <div class="result-amount" id="total-interest">$0</div>
-            </div>
-            <div class="result-card">
-              <h3>Total Cost</h3>
-              <div class="result-amount" id="total-cost">$0</div>
-            </div>
-            <div class="result-breakdown">
-              <h4>Payment Breakdown</h4>
-              <div class="breakdown-item">
-                <span>Principal & Interest</span>
-                <span id="principal-interest">$0</span>
-              </div>
-              <div class="breakdown-item">
-                <span>Property Tax</span>
-                <span id="property-tax">$0</span>
-              </div>
-              <div class="breakdown-item">
-                <span>Home Insurance</span>
-                <span id="home-insurance">$0</span>
-              </div>
-              <div class="breakdown-item">
-                <span>HOA Fee</span>
-                <span id="hoa-fee-display">$0</span>
-              </div>
-              <div class="breakdown-item total">
-                <span>Total Monthly Payment</span>
-                <span id="total-monthly">$0</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Debt-to-Income Calculator (initially hidden) -->
-        <div class="calculator-container" id="dti-calculator" style="display: none;">
-          <div class="calculator-form">
-            <div class="form-group">
-              <label for="monthly-income">Monthly Gross Income ($)</label>
-              <input type="number" id="monthly-income" value="6000" min="1000" step="500">
-            </div>
-            <div class="form-group">
-              <label for="monthly-debts">Monthly Debt Payments ($)</label>
-              <input type="number" id="monthly-debts" value="1000" min="0" step="100">
-            </div>
-            <div class="form-group">
-              <label for="proposed-mortgage">Proposed Mortgage Payment ($)</label>
-              <input type="number" id="proposed-mortgage" value="1500" min="0" step="100">
-            </div>
-            <button id="calculate-dti-btn" class="btn btn-primary" style="width:100%;">Calculate DTI Ratio</button>
-          </div>
-          <div class="calculator-results">
-            <div class="result-card">
-              <h3>Front-End Ratio</h3>
-              <div class="result-amount" id="front-end-ratio">0%</div>
-              <p style="font-size:0.9em;">(Mortgage ÷ Income)</p>
-            </div>
-            <div class="result-card">
-              <h3>Back-End Ratio</h3>
-              <div class="result-amount" id="back-end-ratio">0%</div>
-              <p style="font-size:0.9em;">(Debts + Mortgage ÷ Income)</p>
-            </div>
-            <div class="result-card">
-              <h3>Lender Preference</h3>
-              <div class="result-amount" id="lender-preference">-</div>
-              <p style="font-size:0.9em;">(Based on typical standards)</p>
-            </div>
-            <div class="result-breakdown">
-              <h4>DTI Guidelines</h4>
-              <div class="breakdown-item">
-                <span>Ideal Front-End Ratio</span>
-                <span>≤ 28%</span>
-              </div>
-              <div class="breakdown-item">
-                <span>Ideal Back-End Ratio</span>
-                <span>≤ 36%</span>
-              </div>
-              <div class="breakdown-item">
-                <span>Maximum Back-End Ratio</span>
-                <span>≤ 43% (typical)</span>
-              </div>
-              <div class="breakdown-item total">
-                <span>Your Back-End Ratio</span>
-                <span id="your-back-end">0%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- CTA Section -->
   <section class="cta-section" id="contact">
     <div class="container">
@@ -1054,7 +1146,7 @@
   </section>
   <!-- Contact Modal -->
   <div id="contact-modal" class="contact-modal">
-    <div class="modal-content">
+    < class="modal-content">
       <span class="close-modal">&times;</span>
       <h2 style="margin-bottom: 20px;">Let's Connect</h2>
       <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
@@ -1243,6 +1335,31 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
   });
+  
+  // ====== ADDED: Search Tools Toggle Functionality ======
+  const toggleButtons = document.querySelectorAll('.search-toggle-btn');
+  const searchContainers = document.querySelectorAll('.search-container');
+  
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      toggleButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      this.classList.add('active');
+      // Get target container ID
+      const targetId = this.getAttribute('data-target');
+      // Hide all containers
+      searchContainers.forEach(container => {
+        container.classList.remove('active');
+      });
+      // Show target container
+      const targetContainer = document.getElementById(targetId);
+      if (targetContainer) {
+        targetContainer.classList.add('active');
+      }
+    });
+  });
+  
   // Contact Modal Functionality for both buttons
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
@@ -1303,15 +1420,12 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     const formData = new FormData(contactForm);
     formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
-    
     // Get additional data for conversion tracking
     const budget = document.getElementById('budget')?.value || '';
     let conversionValue = 1.0;
-    
     // Adjust conversion value based on budget
     if (budget.includes('500k+')) conversionValue = 2.0;
     else if (budget.includes('350k')) conversionValue = 1.5;
-
     fetch(contactForm.action, {
       method: 'POST',
       body: new URLSearchParams(formData),
@@ -1327,14 +1441,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (data.result === "error") {
         throw new Error(data.message);
       }
-      
       // TRACK CONVERSION ONLY ON SUCCESSFUL SUBMISSION
       gtagSendEvent('contact_form_submit', {
         'value': conversionValue,
         'transaction_id': 'lead_' + Date.now(),
         'budget_range': budget
       });
-      
       successPopup.style.display = 'block';
       popupOverlay.style.display = 'block';
       document.body.style.overflow = 'hidden';
