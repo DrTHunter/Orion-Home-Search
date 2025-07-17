@@ -906,7 +906,49 @@
         justify-content: center;
         padding: 12px;
       }
+      
+      /* Improved footer centering for mobile */
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+      }
+    
+      .footer-about,
+      .footer-links,
+      .footer-contact {
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    
+      .footer-links {
+        padding-left: 0;
+      }
+    
+      .footer-links ul {
+        display: inline-block;
+        text-align: center;
+        padding: 0;
+      }
+    
+      .footer-links li {
+        text-align: center;
+      }
+    
+      .social-links {
+        justify-content: center;
+      }
+    
+      .footer-contact p {
+        justify-content: center;
+      }
+    
+      .copyright {
+        text-align: center;
+      }
     }
+    
   </style>
 </head>
 <body>
@@ -1261,7 +1303,7 @@
         </div>
         <!-- Added communication consent text -->
         <p style="font-size: 0.8rem; margin-top: -10px; margin-bottom: 10px;">
-          By submitting this form, you agree to receive communications by email, phone, or text from Orion AI Real Estate. You may opt out at any time.
+          By submitting this form, you agree to receive communications by email, phone, or text from a real estate agent. You may opt out at any time.
         </p>
         <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
         <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
