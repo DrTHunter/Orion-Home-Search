@@ -38,24 +38,27 @@
     gtag('config', 'G-ZF6721FNMD');
   </script>
   <!-- Google tag (gtag.js) event - delayed navigation helper -->
-<script>
-  // Helper function to delay opening a URL until a gtag event is sent.
-  // Call it in response to an action that should navigate to a URL.
-  function gtagSendEvent(url) {
-    var callback = function () {
-      if (typeof url === 'string') {
-        window.location = url;
-      }
-    };
-    gtag('event', 'conversion_event_submit_lead_form_3', {
-      'event_callback': callback,
-      'event_timeout': 2000,
-      // <event_parameters>
-    });
-    return false;
-  }
-</script>
-<!-- Buying Buddy IDX Plugin -->
+  <script>
+    // Modified to handle form submissions without navigation
+    function gtagSendEvent(eventName, eventParams = {}) {
+      // Default conversion parameters
+      const defaultParams = {
+        'event_category': 'Lead',
+        'value': 1.0,
+        'currency': 'USD'
+      };
+      // Merge with custom parameters
+      const finalParams = {...defaultParams, ...eventParams};
+      // Send both conversion and custom event
+      gtag('event', 'conversion', {
+        'send_to': 'G-ZF6721FNMD/' + eventName,
+        ...finalParams
+      });
+      gtag('event', eventName, finalParams);
+      return false;
+    }
+  </script>
+  <!-- Buying Buddy IDX Plugin -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
     var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
@@ -684,7 +687,7 @@
       flex-wrap: wrap;
       gap: 16px;
       background-color: var(--white);
-      border-radius: 10px;
+     -radius: 10px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.06);
       padding: 12px;
     }
@@ -1145,7 +1148,8 @@
             <option value="Looking to upgrade">Looking to upgrade</option>
             <option value="Military or Veteran">Military or Veteran</option>
           </select>
-        </div        <!-- Financing Plan -->
+        </div>
+        <!-- Financing Plan -->
         <div class="form-group">
           <label for="financingPlan">How do you plan to finance your home?</label>
           <select id="financingPlan" name="financingPlan" required>
@@ -1231,7 +1235,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
   const mobileOverlay = document.getElementById('mobile-overlay');
-  
   mobileMenu.addEventListener('click', function() {
     navLinks.classList.toggle('active');
     mobileOverlay.classList.toggle('active');
@@ -1241,13 +1244,11 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     }
   });
-  
   mobileOverlay.addEventListener('click', function() {
     navLinks.classList.remove('active');
     mobileOverlay.classList.remove('active');
     mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
   });
-  
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function() {
       navLinks.classList.remove('active');
@@ -1255,81 +1256,74 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
   });
-
   // Contact Modal Functionality for both buttons
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
-
   contactBtns.forEach(btn => {
     btn.addEventListener('click', function() {
       modal.style.display = 'block';
       document.body.style.overflow = 'hidden';
     });
   });
-
   closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
   });
-
   window.addEventListener('click', function(e) {
     if (e.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = 'auto';
     }
   });
-
   // Location toggle buttons
   const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
-  const selectedLocations = document.getElementById('selectedLocations');
-
+  const selectedations = document.getElementById('selectedLocations');
   locationButtons.forEach(button => {
     button.addEventListener('click', function() {
       this.classList.toggle('selected');
       updateSelectedLocations();
     });
   });
-
   function updateSelectedLocations() {
     const selected = Array.from(locationButtons)
       .filter(btn => btn.classList.contains('selected'))
       .map(btn => btn.dataset.value);
     selectedLocations.value = selected.join(', ');
   }
-
   // Terms toggle
   const termsToggle = document.getElementById('termsToggle');
   const termsAgreed = document.getElementById('termsAgreed');
-
   termsToggle.addEventListener('click', function() {
     const agreed = this.getAttribute('data-agreed') === 'true';
     this.setAttribute('data-agreed', !agreed);
     this.classList.toggle('selected');
     termsAgreed.value = !agreed ? 'agreed' : '';
   });
-
-  // Form submission
+  // Form submission with GA tracking
   const contactForm = document.getElementById('contact-form');
-  
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-
     if (termsAgreed.value !== 'agreed') {
       alert('Please agree to the Terms of Service before submitting.');
       return;
     }
-
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
-
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
     const formData = new FormData(contactForm);
     formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
+    
+    // Get additional data for conversion tracking
+    const budget = document.getElementById('budget')?.value || '';
+    let conversionValue = 1.0;
+    
+    // Adjust conversion value based on budget
+    if (budget.includes('500k+')) conversionValue = 2.0;
+    else if (budget.includes('350k')) conversionValue = 1.5;
 
     fetch(contactForm.action, {
       method: 'POST',
@@ -1347,10 +1341,16 @@ document.addEventListener('DOMContentLoaded', function() {
         throw new Error(data.message);
       }
       
+      // TRACK CONVERSION ONLY ON SUCCESSFUL SUBMISSION
+      gtagSendEvent('contact_form_submit', {
+        'value': conversionValue,
+        'transaction_id': 'lead_' + Date.now(),
+        'budget_range': budget
+      });
+      
       successPopup.style.display = 'block';
       popupOverlay.style.display = 'block';
       document.body.style.overflow = 'hidden';
-
       contactForm.reset();
       locationButtons.forEach(btn => btn.classList.remove('selected'));
       selectedLocations.value = '';
@@ -1368,26 +1368,22 @@ document.addEventListener('DOMContentLoaded', function() {
       submitBtn.innerHTML = originalText;
     });
   });
-
   // Close popup handlers
   document.getElementById('close-popup').addEventListener('click', function() {
     successPopup.style.display = 'none';
     popupOverlay.style.display = 'none';
     document.body.style.overflow = 'auto';
   });
-
   popupOverlay.addEventListener('click', function() {
     successPopup.style.display = 'none';
     popupOverlay.style.display = 'none';
     document.body.style.overflow = 'auto';
   });
-
   // Calculator toggle functionality
   const mortgageToggle = document.getElementById('mortgage-toggle');
   const dtiToggle = document.getElementById('dti-toggle');
   const mortgageCalc = document.getElementById('mortgage-calculator');
   const dtiCalc = document.getElementById('dti-calculator');
-  
   mortgageToggle.addEventListener('click', function() {
     mortgageCalc.style.display = 'flex';
     dtiCalc.style.display = 'none';
@@ -1396,7 +1392,6 @@ document.addEventListener('DOMContentLoaded', function() {
     dtiToggle.classList.add('btn-secondary');
     dtiToggle.classList.remove('btn-primary');
   });
-  
   dtiToggle.addEventListener('click', function() {
     mortgageCalc.style.display = 'none';
     dtiCalc.style.display = 'flex';
@@ -1405,17 +1400,14 @@ document.addEventListener('DOMContentLoaded', function() {
     mortgageToggle.classList.add('btn-secondary');
     mortgageToggle.classList.remove('btn-primary');
   });
-  
   // Mortgage Calculator functionality
   const calculateBtn = document.getElementById('calculate-btn');
   calculateBtn.addEventListener('click', calculateMortgage);
-  
   const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
   mortgageInputs.forEach(input => {
     input.addEventListener('change', calculateMortgage);
     input.addEventListener('keyup', calculateMortgage);
   });
-  
   function calculateMortgage() {
     const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
     const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
@@ -1424,21 +1416,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
     const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
     const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
-    
     const loanAmount = homePrice - downPayment;
     const monthlyInterestRate = interestRate / 100 / 12;
     const numberOfPayments = loanTerm * 12;
-    const monthlyPayment = loanAmount * 
-      (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+    const monthlyPayment = loanAmount *
+      (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
       (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-    
     const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
     const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
     const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
     const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
-    const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) + 
+    const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) +
       (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
-    
     document.getElementById('monthly-payment').textContent = formatCurrency(totalMonthlyPayment);
     document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
     document.getElementById('total-cost').textContent = formatCurrency(totalCost);
@@ -1448,25 +1437,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
     document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
   }
-  
   // DTI Calculator functionality
   const calculateDtiBtn = document.getElementById('calculate-dti-btn');
   calculateDtiBtn.addEventListener('click', calculateDTI);
-  
   const dtiInputs = document.querySelectorAll('#dti-calculator input');
   dtiInputs.forEach(input => {
     input.addEventListener('change', calculateDTI);
     input.addEventListener('keyup', calculateDTI);
   });
-  
   function calculateDTI() {
     const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
     const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
     const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
-    
     const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
     const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
-    
     let lenderPreference = 'Poor';
     if (backEndRatio <= 36) {
       lenderPreference = 'Excellent';
@@ -1475,17 +1459,14 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (backEndRatio <= 50) {
       lenderPreference = 'Fair';
     }
-    
     document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(0) + '%';
     document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(0) + '%';
     document.getElementById('lender-preference').textContent = lenderPreference;
     document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
   }
-  
   function formatCurrency(amount) {
     return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
-  
   // Calculate initial values
   calculateMortgage();
   calculateDTI();
