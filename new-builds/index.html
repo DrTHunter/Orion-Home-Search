@@ -1303,14 +1303,6 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     const formData = new FormData(contactForm);
     formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
-    
-    // Get additional data for conversion tracking
-    const budget = document.getElementById('budget')?.value || '';
-    let conversionValue = 1.0;
-    
-    // Adjust conversion value based on budget
-    if (budget.includes('500k+')) conversionValue = 2.0;
-    else if (budget.includes('350k')) conversionValue = 1.5;
 
     fetch(contactForm.action, {
       method: 'POST',
@@ -1327,14 +1319,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (data.result === "error") {
         throw new Error(data.message);
       }
-      
-      // TRACK CONVERSION ONLY ON SUCCESSFUL SUBMISSION
-      gtagSendEvent('contact_form_submit', {
-        'value': conversionValue,
-        'transaction_id': 'lead_' + Date.now(),
-        'budget_range': budget
-      });
-      
+
       successPopup.style.display = 'block';
       popupOverlay.style.display = 'block';
       document.body.style.overflow = 'hidden';
