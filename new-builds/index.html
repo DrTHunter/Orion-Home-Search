@@ -1324,80 +1324,58 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
   const mobileOverlay = document.getElementById('mobile-overlay');
-  mobileMenu.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-    mobileOverlay.classList.toggle('active');
-    if (navLinks.classList.contains('active')) {
-      mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
-    } else {
-      mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-    }
-  });
-  mobileOverlay.addEventListener('click', function() {
-    navLinks.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-  });
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
+  
+  if (mobileMenu && navLinks && mobileOverlay) {
+    mobileMenu.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+    
+    mobileOverlay.addEventListener('click', function() {
       navLinks.classList.remove('active');
       mobileOverlay.classList.remove('active');
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
-  });
-  
-  // View toggle functionality
-  const toggleButtons = document.querySelectorAll('.toggle-btn');
-  toggleButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      toggleButtons.forEach(btn => btn.classList.remove('active'));
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Get the view to show
-      const viewToShow = this.getAttribute('data-view');
-      
-      // Hide all view sections
-      document.querySelectorAll('.view-section').forEach(section => {
-        section.classList.remove('active');
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
       });
-      
-      // Show the selected view section
-      document.getElementById(`${viewToShow}-view`).classList.add('active');
-      
-      // If switching to map view, trigger resize for proper rendering
-      if (viewToShow === 'map-view') {
-        setTimeout(() => {
-          if (window.google && window.google.maps) {
-            window.dispatchEvent(new Event('resize'));
-          }
-        }, 300);
-      }
     });
-  });
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Modal elements
-  const contactBtns = document.querySelectorAll('.contact-btn'); // Changed to select all contact buttons
+  // Modal functionality
+  const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
   
-  // Open modal for all contact buttons
-  contactBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      modal.style.display = 'block';
-      document.body.style.overflow = 'hidden';
+  if (contactBtns && modal) {
+    // Open modal for all contact buttons
+    contactBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
     });
-  });
+  }
   
-  // Close modal
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
+  if (closeBtn && modal) {
+    // Close modal
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  }
   
   // Close when clicking outside modal
   window.addEventListener('click', function(e) {
@@ -1410,148 +1388,213 @@ document.addEventListener('DOMContentLoaded', function() {
   // Location toggle buttons
   const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
   const selectedLocations = document.getElementById('selectedLocations');
-  locationButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      this.classList.toggle('selected');
-      updateSelectedLocations();
+  if (locationButtons && selectedLocations) {
+    locationButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        this.classList.toggle('selected');
+        updateSelectedLocations();
+      });
     });
-  });
-  
-  function updateSelectedLocations() {
-    const selected = Array.from(locationButtons)
-      .filter(btn => btn.classList.contains('selected'))
-      .map(btn => btn.dataset.value);
-    selectedLocations.value = selected.join(', ');
+    
+    function updateSelectedLocations() {
+      const selected = Array.from(locationButtons)
+        .filter(btn => btn.classList.contains('selected'))
+        .map(btn => btn.dataset.value);
+      selectedLocations.value = selected.join(', ');
+    }
   }
   
   // Terms toggle
   const termsToggle = document.getElementById('termsToggle');
   const termsAgreed = document.getElementById('termsAgreed');
-  termsToggle.addEventListener('click', function() {
-    const agreed = this.getAttribute('data-agreed') === 'true';
-    this.setAttribute('data-agreed', !agreed);
-    this.classList.toggle('selected');
-    termsAgreed.value = !agreed ? 'agreed' : '';
-  });
+  if (termsToggle && termsAgreed) {
+    termsToggle.addEventListener('click', function() {
+      const agreed = this.getAttribute('data-agreed') === 'true';
+      this.setAttribute('data-agreed', !agreed);
+      this.classList.toggle('selected');
+      termsAgreed.value = !agreed ? 'agreed' : '';
+    });
+  }
   
   // Form submission with success popup
   const contactForm = document.getElementById('contact-form');
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Validate terms agreement
-    if (termsAgreed.value !== 'agreed') {
-      alert('Please agree to the Terms of Service before submitting.');
-      return;
-    }
-    
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    
-    // Prepare form data
-    const formData = new FormData(contactForm);
-    
-    // Add security token to the form data
-    formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
-    
-    fetch(contactForm.action, {
-      method: 'POST',
-      body: new URLSearchParams(formData),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      if (data.result === "error") {
-        throw new Error(data.message);
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate terms agreement
+      if (termsAgreed.value !== 'agreed') {
+        alert('Please agree to the Terms of Service before submitting.');
+        return;
       }
       
-      // Show success popup
-      successPopup.style.display = 'block';
-      popupOverlay.style.display = 'block';
-      document.body.style.overflow = 'hidden';
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
       
-      // Reset form
-      contactForm.reset();
+      // Prepare form data
+      const formData = new FormData(contactForm);
       
-      // Reset location selections
-      locationButtons.forEach(btn => btn.classList.remove('selected'));
-      selectedLocations.value = '';
+      // Add security token to the form data
+      formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
       
-      // Reset terms agreement
-      termsToggle.classList.remove('selected');
-      termsToggle.setAttribute('data-agreed', 'false');
-      termsAgreed.value = '';
-      
-      // Close the modal
-      modal.style.display = 'none';
-      
-      // TRACK GOOGLE ADS CONVERSION
-      try {
-        gtag_report_conversion();
-        console.log('Google Ads conversion tracked');
-      } catch (e) {
-        console.error('Google Ads conversion tracking error:', e);
-      }
-    })
-    .catch(error => {
-      alert('There was an error submitting the form: ' + error.message);
-      console.error('Error:', error);
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new URLSearchParams(formData),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        if (data.result === "error") {
+          throw new Error(data.message);
+        }
+        
+        // Show success popup
+        if (successPopup && popupOverlay) {
+          successPopup.style.display = 'block';
+          popupOverlay.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Reset location selections
+        if (locationButtons) {
+          locationButtons.forEach(btn => btn.classList.remove('selected'));
+        }
+        if (selectedLocations) {
+          selectedLocations.value = '';
+        }
+        
+        // Reset terms agreement
+        if (termsToggle && termsAgreed) {
+          termsToggle.classList.remove('selected');
+          termsToggle.setAttribute('data-agreed', 'false');
+          termsAgreed.value = '';
+        }
+        
+        // Close the modal
+        if (modal) {
+          modal.style.display = 'none';
+        }
+        
+        // TRACK GOOGLE ADS CONVERSION
+        try {
+          if (typeof gtag_report_conversion === 'function') {
+            gtag_report_conversion();
+            console.log('Google Ads conversion tracked');
+          }
+        } catch (e) {
+          console.error('Google Ads conversion tracking error:', e);
+        }
+      })
+      .catch(error => {
+        alert('There was an error submitting the form: ' + error.message);
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      });
     });
-  });
+  }
   
   // Close popup handlers
-  document.getElementById('close-popup')?.addEventListener('click', () => {
-    successPopup.style.display = 'none';
-    popupOverlay.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
-  
-  popupOverlay?.addEventListener('click', () => {
-    successPopup.style.display = 'none';
-    popupOverlay.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
-});
+  const closePopupBtn = document.getElementById('close-popup');
+  if (closePopupBtn && popupOverlay && successPopup) {
+    closePopupBtn.addEventListener('click', () => {
+      successPopup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    popupOverlay.addEventListener('click', () => {
+      successPopup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  }
+
+  // View toggle functionality
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  if (toggleButtons) {
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove active class from all buttons
+        toggleButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        // Get the view to show
+        const viewToShow = this.getAttribute('data-view');
+        
+        // Hide all view sections
+        document.querySelectorAll('.view-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        
+        // Show the selected view section
+        const viewSection = document.getElementById(`${viewToShow}-view`);
+        if (viewSection) {
+          viewSection.classList.add('active');
+        }
+        
+        // If switching to map view, trigger resize for proper rendering
+        if (viewToShow === 'map-view') {
+          setTimeout(() => {
+            if (window.google && window.google.maps) {
+              window.dispatchEvent(new Event('resize'));
+            }
+          }, 300);
+        }
+      });
+    });
+  }
+
   // Calculator toggle functionality
   const mortgageToggle = document.getElementById('mortgage-toggle');
   const dtiToggle = document.getElementById('dti-toggle');
   const mortgageCalc = document.getElementById('mortgage-calculator');
   const dtiCalc = document.getElementById('dti-calculator');
-  mortgageToggle.addEventListener('click', function() {
-    mortgageCalc.style.display = 'flex';
-    dtiCalc.style.display = 'none';
-    mortgageToggle.classList.add('btn-primary');
-    mortgageToggle.classList.remove('btn-secondary');
-    dtiToggle.classList.add('btn-secondary');
-    dtiToggle.classList.remove('btn-primary');
-  });
-  dtiToggle.addEventListener('click', function() {
-    mortgageCalc.style.display = 'none';
-    dtiCalc.style.display = 'flex';
-    dtiToggle.classList.add('btn-primary');
-    dtiToggle.classList.remove('btn-secondary');
-    mortgageToggle.classList.add('btn-secondary');
-    mortgageToggle.classList.remove('btn-primary');
-  });
+  
+  if (mortgageToggle && dtiToggle && mortgageCalc && dtiCalc) {
+    mortgageToggle.addEventListener('click', function() {
+      mortgageCalc.style.display = 'flex';
+      dtiCalc.style.display = 'none';
+      mortgageToggle.classList.add('btn-primary');
+      mortgageToggle.classList.remove('btn-secondary');
+      dtiToggle.classList.add('btn-secondary');
+      dtiToggle.classList.remove('btn-primary');
+    });
+    
+    dtiToggle.addEventListener('click', function() {
+      mortgageCalc.style.display = 'none';
+      dtiCalc.style.display = 'flex';
+      dtiToggle.classList.add('btn-primary');
+      dtiToggle.classList.remove('btn-secondary');
+      mortgageToggle.classList.add('btn-secondary');
+      mortgageToggle.classList.remove('btn-primary');
+    });
+  }
+
   // Mortgage Calculator functionality
   const calculateBtn = document.getElementById('calculate-btn');
-  calculateBtn.addEventListener('click', calculateMortgage);
-  const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
-  mortgageInputs.forEach(input => {
-    input.addEventListener('change', calculateMortgage);
-    input.addEventListener('keyup', calculateMortgage);
-  });
+  if (calculateBtn) {
+    calculateBtn.addEventListener('click', calculateMortgage);
+    const mortgageInputs = document.querySelectorAll('#mortgage-calculator input, #mortgage-calculator select');
+    mortgageInputs.forEach(input => {
+      input.addEventListener('change', calculateMortgage);
+      input.addEventListener('keyup', calculateMortgage);
+    });
+  }
+
   function calculateMortgage() {
     const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
     const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
@@ -1581,14 +1624,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
     document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
   }
+
   // DTI Calculator functionality
   const calculateDtiBtn = document.getElementById('calculate-dti-btn');
-  calculateDtiBtn.addEventListener('click', calculateDTI);
-  const dtiInputs = document.querySelectorAll('#dti-calculator input');
-  dtiInputs.forEach(input => {
-    input.addEventListener('change', calculateDTI);
-    input.addEventListener('keyup', calculateDTI);
-  });
+  if (calculateDtiBtn) {
+    calculateDtiBtn.addEventListener('click', calculateDTI);
+    const dtiInputs = document.querySelectorAll('#dti-calculator input');
+    dtiInputs.forEach(input => {
+      input.addEventListener('change', calculateDTI);
+      input.addEventListener('keyup', calculateDTI);
+    });
+  }
+
   function calculateDTI() {
     const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
     const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
@@ -1608,9 +1655,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('lender-preference').textContent = lenderPreference;
     document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
   }
+
   function formatCurrency(amount) {
     return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
+  
   // Calculate initial values
   calculateMortgage();
   calculateDTI();
