@@ -42,7 +42,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'AW-17362645351');
   </script>
   <!-- Buying Buddy IDX Plugin -->
@@ -136,6 +135,64 @@
       font-size: 14px;
       border-radius: 5px;
     }
+    
+    /* View Toggle Styles */
+    .view-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .toggle-btn {
+      padding: 12px 25px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .toggle-btn:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-2px);
+    }
+    
+    .toggle-btn.active {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 8px rgba(42,91,132,0.2);
+    }
+    
+    .toggle-btn i {
+      font-size: 1.2rem;
+    }
+    
+    .view-section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .view-section.active {
+      display: block;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
     /* ====== Header Styles ====== */
     header {
       background-color: var(--white);
@@ -741,7 +798,7 @@
         justify-content: space-between;
         padding: 4px 0;
         border-bottom: 1px solid #eee;
-        font-size: 0.96rem;
+        font-size 0.96rem;
     }
     .breakdown-item.total {
         font-weight: 600;
@@ -835,6 +892,19 @@
       .social-links {
         justify-content: center;
       }
+      
+      /* Mobile toggle adjustments */
+      .view-toggle {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+      }
+      
+      .toggle-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -889,13 +959,44 @@
           Explore Orion's handpicked selection of cutting-edge new builds—smart, stylish, and ready for your next chapter.
         </p>
       </div>
-      <!-- Search Results -->
-      <div class="search-results-container animate-pop delay-1">
-        <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+      
+      <!-- Toggle Buttons -->
+      <div class="view-toggle">
+        <button class="toggle-btn active" data-view="property-list">
+          <i class="fas fa-list"></i> Property List
+        </button>
+        <button class="toggle-btn" data-view="search-tool">
+          <i class="fas fa-search"></i> Search Tool
+        </button>
+        <button class="toggle-btn" data-view="map-view">
+          <i class="fas fa-map-marked-alt"></i> Map View
+        </button>
+      </div>
+      
+      <!-- Property List View (Default) -->
+      <div id="property-list-view" class="view-section active">
+        <div class="search-results-container animate-pop delay-1">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+        </div>
+      </div>
+      
+      <!-- Search Tool View -->
+      <div id="search-tool-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+representation_type:any_listing"></div>
+        </div>
+      </div>
+      
+      <!-- Map View -->
+      <div id="map-view-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_InteractiveMap" filter="mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+        </div>
       </div>
     </div>
   </main>
-  <!-- Mortgage Calculator Section (Updated from second page) -->
+  
+  <!-- Mortgage Calculator Section -->
   <section class="calculator">
     <div class="container">
       <div class="page-title">
@@ -1243,6 +1344,38 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
   });
+  
+  // View toggle functionality
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      toggleButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Get the view to show
+      const viewToShow = this.getAttribute('data-view');
+      
+      // Hide all view sections
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the selected view section
+      document.getElementById(`${viewToShow}-view`).classList.add('active');
+      
+      // If switching to map view, trigger resize for proper rendering
+      if (viewToShow === 'map-view') {
+        setTimeout(() => {
+          if (window.google && window.google.maps) {
+            window.dispatchEvent(new Event('resize'));
+          }
+        }, 300);
+      }
+    });
+  });
+
   // Contact Modal Functionality for both buttons
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
@@ -1290,7 +1423,7 @@ document.addEventListener('DOMContentLoaded', function() {
     termsAgreed.value = !agreed ? 'agreed' : '';
   });
   // Form submission with GA tracking
-  const contactForm = document.getElementById('contact-form');
+  contactForm = document.getElementById('contact-form');
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     if (termsAgreed.value !== 'agreed') {
@@ -1303,7 +1436,6 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     const formData = new FormData(contactForm);
     formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
-
     fetch(contactForm.action, {
       method: 'POST',
       body: new URLSearchParams(formData),
@@ -1319,7 +1451,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (data.result === "error") {
         throw new Error(data.message);
       }
-
       successPopup.style.display = 'block';
       popupOverlay.style.display = 'block';
       document.body.style.overflow = 'hidden';
