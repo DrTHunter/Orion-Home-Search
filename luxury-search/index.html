@@ -551,7 +551,7 @@
     }
     /* Toggle button selections (for locations) */
     .toggle-option {
-padding: 10px;
+      padding: 10px;
       background: #f0f0f0;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -618,7 +618,7 @@ padding: 10px;
       height: 100%;
       background-color: rgba(0,0,0,0.7);
       z-index: 1999;
-      display: none;
+ display: none;
     }
     /* ====== Footer ====== */
     footer {
@@ -775,7 +775,7 @@ padding: 10px;
     }
     .calculator .container {
       max-width: 820px;
- margin: 0 auto;
+      margin: 0 auto;
       padding: 0 10px;
     }
     .calculator-flex-wrap {
@@ -1040,10 +1040,10 @@ padding: 10px;
   <main class="main-content">
     <div class="container">
       <!-- Page Title -->
-      <div class="page-title animate__animated animate__fadeIn text-center mb-10">
-        <h1 class="text-3xl font-bold text-primary">Discover Exceptional Homes, Curated by AI</h1>
-        <p class="text-lg text-blue-500 mt-2">
-          Discover refined estates in San Antonio’s most exclusive enclaves, seamlessly paired with a concierge-level real estate experience.
+      <div class="page-title">
+        <h1>Discover Exceptional Homes, Curated by AI</h1>
+        <p class="page-description">
+          Discover refined estates in San Antonio's most exclusive enclaves, seamlessly paired with a concierge-level real estate experience.
         </p>
       </div>
       <!-- Toggle Buttons -->
@@ -1063,10 +1063,29 @@ padding: 10px;
         <button class="toggle-btn" data-view="olmos-park">
           <i class="fas fa-tree"></i> Olmos Park
         </button>
-        <!-- NEW SHAVANO PARK BUTTON -->
         <button class="toggle-btn" data-view="shavano-park">
           <i class="fas fa-home"></i> Shavano Park
         </button>
+        <!-- NEW NEIGHBORHOOD TABS -->
+        <button class="toggle-btn" data-view="downtown-condos">
+          <i class="fas fa-building"></i> Downtown Condos
+        </button>
+        <button class="toggle-btn" data-view="boerne">
+          <i class="fas fa-mountain"></i> Boerne
+        </button>
+        <button class="toggle-btn" data-view="timberwood-park">
+          <i class="fas fa-tree"></i> Timberwood Park
+        </button>
+        <button class="toggle-btn" data-view="anaqua-springs">
+          <i class="fas fa-water"></i> Anaqua Springs
+        </button>
+        <button class="toggle-btn" data-view="cresta-bella">
+          <i class="fas fa-home"></i> Cresta Bella
+        </button>
+        <button class="toggle-btn" data-view="cantera-hills">
+          <i class="fas fa-hill"></i> Cantera Hills
+        </button>
+        <!-- Existing tabs -->
         <button class="toggle-btn" data-view="search-tool">
           <i class="fas fa-search"></i> Search Tool
         </button>
@@ -1076,38 +1095,75 @@ padding: 10px;
       </div>
       <!-- Property List View (Default) -->
       <div id="property-list-view" class="view-section active">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
       <!-- Alamo Heights View -->
       <div id="alamo-heights-view" class="view-section">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:alamo heights+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
       <!-- Terrell Hills View -->
       <div id="terrell-hills-view" class="view-section">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:terrell hills+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
       <!-- The Dominion View -->
       <div id="the-dominion-view" class="view-section">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:the dominion+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
       <!-- Olmos Park View -->
       <div id="olmos-park-view" class="view-section">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:olmos park+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
-      <!-- NEW SHAVANO PARK VIEW SECTION -->
+      <!-- Shavano Park View -->
       <div id="shavano-park-view" class="view-section">
-        <div class="search-results-container animate-pop delay-1">
+        <div class="search-results-container">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:shavano park+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- NEW NEIGHBORHOOD VIEWS -->
+      <!-- Downtown Luxury Condos View -->
+      <div id="downtown-condos-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:downtown+property_type:condo+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- Boerne View -->
+      <div id="boerne-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:boerne+prop_img:true+price_min:750000+bedrooms_total_min:1+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- Timberwood Park View -->
+      <div id="timberwood-park-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:timberwood park+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- Anaqua Springs Ranch View -->
+      <div id="anaqua-springs-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:anaqua springs ranch+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- Cresta Bella View -->
+      <div id="cresta-bella-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:cresta bella+representation_type:any_listing+limit:12+order:price"></div>
+        </div>
+      </div>
+      <!-- Cantera Hills View -->
+      <div id="cantera-hills-view" class="view-section">
+        <div class="search-results-container">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:cantera hills+representation_type:any_listing+limit:12+order:price"></div>
         </div>
       </div>
       <!-- Search Tool View -->
@@ -1277,8 +1333,7 @@ padding: 10px;
       <article class="post-card">
         <img src="https://www.orionhomesearch.com/images/luxury-home.avif" alt="Luxury home" class="post-image">
         <div class="post-content">
-          <div class="post-meta">
-            <span class="post-date">May 15, 2025</span>
+          <div class="post-meta            <span class="post-date">May 15, 2025</span>
             <span class="post-category">Luxury Market</span>
           </div>
           <h2 class="post-title">San Antonio Luxury Market Trends: Where the Elite Are Buying</h2>
@@ -1332,6 +1387,13 @@ padding: 10px;
             <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
             <button type="button" class="toggle-option" data-value="Olmos Park">Olmos Park</button>
             <button type="button" class="toggle-option" data-value="Shavano Park">Shavano Park</button>
+            <!-- New location options -->
+            <button type="button" class="toggle-option" data-value="Downtown Luxury Condos">Downtown Condos</button>
+            <button type="button" class="toggle-option" data-value="Boerne">Boerne</button>
+            <button type="button" class="toggle-option" data-value="Timberwood Park">Timberwood Park</button>
+            <button type="button" class="toggle-option" data-value="Anaqua Springs Ranch">Anaqua Springs</button>
+            <button type="button" class="toggle-option" data-value="Cresta Bella">Cresta Bella</button>
+            <button type="button" class="toggle-option" data-value="Cantera Hills">Cantera Hills</button>
             <button type="button" class="toggle-option" data-value="Other">Other</button>
           </div>
           <input type="hidden" name="locations" id="selectedLocations">
@@ -1407,7 +1469,7 @@ padding: 10px;
           By submitting this form, you agree to receive communications by email, phone, or text from a real estate agent. You may opt out at any time.
         </p>
         <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-        <div="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+        <div class="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
         </div>
       </form>
