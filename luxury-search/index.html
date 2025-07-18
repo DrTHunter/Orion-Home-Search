@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="Permissions-Policy" content="autoplay=()" />
-   <!-- SEO Primary Meta Tags -->
+  <!-- SEO Primary Meta Tags -->
   <title>Luxury Listings in San Antonio | Orion AI Powered Home Search</title>
   <meta name="title" content="Luxury Listings in San Antonio | Orion AI Real Estate Network" />
   <meta name="description" content="Explore luxury real estate in San Antonio with AI-powered filters and real-time updates. Discover premium listings with mortgage tools built in." />
@@ -148,6 +148,7 @@
       border-radius: 10px;
       padding: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
     }
     .toggle-btn {
       padding: 12px 25px;
@@ -163,6 +164,7 @@
       gap: 8px;
       font-size: 0.95rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin: 4px;
     }
     .toggle-btn:hover {
       background-color: #e0e0e0;
@@ -549,7 +551,7 @@
     }
     /* Toggle button selections (for locations) */
     .toggle-option {
- padding: 10px;
+padding: 10px;
       background: #f0f0f0;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -773,7 +775,7 @@
     }
     .calculator .container {
       max-width: 820px;
-      margin: 0 auto;
+ margin: 0 auto;
       padding: 0 10px;
     }
     .calculator-flex-wrap {
@@ -1061,6 +1063,10 @@
         <button class="toggle-btn" data-view="olmos-park">
           <i class="fas fa-tree"></i> Olmos Park
         </button>
+        <!-- NEW SHAVANO PARK BUTTON -->
+        <button class="toggle-btn" data-view="shavano-park">
+          <i class="fas fa-home"></i> Shavano Park
+        </button>
         <button class="toggle-btn" data-view="search-tool">
           <i class="fas fa-search"></i> Search Tool
         </button>
@@ -1096,6 +1102,12 @@
       <div id="olmos-park-view" class="view-section">
         <div class="search-results-container animate-pop delay-1">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:olmos park+representation_type:any_listing+limit:12+order:create_dt desc"></div>
+        </div>
+      </div>
+      <!-- NEW SHAVANO PARK VIEW SECTION -->
+      <div id="shavano-park-view" class="view-section">
+        <div class="search-results-container animate-pop delay-1">
+          <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+price_min:750000+bedrooms_total_min:1+sub_area:shavano park+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
       <!-- Search Tool View -->
@@ -1306,7 +1318,7 @@
           <input type="email" id="email" name="email" required>
         </div>
         <!-- Phone Number -->
-       div class="form-group">
+        <div class="form-group">
           <label for="phone">Phone Number</label>
           <input type="tel" id="phone" name="phone" required>
         </div>
@@ -1316,13 +1328,10 @@
           <div class="toggle-group">
             <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
             <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
-            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
+            <button type="button" class="toggle-option" data-value="Terrell Hills">Terrell Hills</button>
             <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
-            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
-            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
-            <button type="button" class="toggle-option" data-value="Schertz / Cibolo">Schertz / Cibolo</button>
-            <button type="button" class="toggle-option" data-value="Alamo Ranch / West San Antonio">Alamo Ranch</button>
-            <button type="button" class="toggle-option" data-value="New Braunfels">New Braunfels</button>
+            <button type="button" class="toggle-option" data-value="Olmos Park">Olmos Park</button>
+            <button type="button" class="toggle-option" data-value="Shavano Park">Shavano Park</button>
             <button type="button" class="toggle-option" data-value="Other">Other</button>
           </div>
           <input type="hidden" name="locations" id="selectedLocations">
@@ -1398,7 +1407,7 @@
           By submitting this form, you agree to receive communications by email, phone, or text from a real estate agent. You may opt out at any time.
         </p>
         <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
-        <div id="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
+        <div="successMessage" style="display:none; margin-top: 1em; color: green; font-weight: bold;">
           Thank you! Your form has been submitted.
         </div>
       </form>
