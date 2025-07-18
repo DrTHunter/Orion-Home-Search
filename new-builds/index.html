@@ -36,13 +36,13 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ZF6721FNMD');
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17362645351"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'AW-17362645351');
   </script>
   <!-- Buying Buddy IDX Plugin -->
@@ -136,7 +136,6 @@
       font-size: 14px;
       border-radius: 5px;
     }
-    
     /* View Toggle Styles */
     .view-toggle {
       display: flex;
@@ -148,7 +147,6 @@
       padding: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    
     .toggle-btn {
       padding: 12px 25px;
       background-color: #f0f0f0;
@@ -164,36 +162,29 @@
       font-size: 0.95rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    
     .toggle-btn:hover {
       background-color: #e0e0e0;
       transform: translateY(-2px);
     }
-    
     .toggle-btn.active {
       background-color: var(--primary);
       color: white;
       box-shadow: 0 4px 8px rgba(42,91,132,0.2);
     }
-    
     .toggle-btn i {
       font-size: 1.2rem;
     }
-    
     .view-section {
       display: none;
       animation: fadeIn 0.5s ease;
     }
-    
     .view-section.active {
       display: block;
     }
-    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
     /* ====== Header Styles ====== */
     header {
       background-color: var(--white);
@@ -748,7 +739,7 @@
       max-width: 320px;
       gap: 8px;
       display: flex;
-      flex-direction: column;
+ flex-direction: column;
     }
     .form-group {
         margin-bottom: 10px;
@@ -893,27 +884,23 @@
       .social-links {
         justify-content: center;
       }
-      
       /* Mobile toggle adjustments */
       .view-toggle {
         flex-direction: column;
         gap: 5px;
         padding: 10px;
       }
-      
       .toggle-btn {
         width: 100%;
         justify-content: center;
         padding: 12px;
       }
-      
       /* Improved footer centering for mobile */
       .footer-container {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
       }
-    
       .footer-about,
       .footer-links,
       .footer-contact {
@@ -921,34 +908,27 @@
         margin: 0 auto;
         text-align: center;
       }
-    
       .footer-links {
         padding-left: 0;
       }
-    
       .footer-links ul {
         display: inline-block;
         text-align: center;
         padding: 0;
       }
-    
       .footer-links li {
         text-align: center;
       }
-    
       .social-links {
         justify-content: center;
       }
-    
       .footer-contact p {
         justify-content: center;
       }
-    
       .copyright {
         text-align: center;
       }
     }
-    
   </style>
 </head>
 <body>
@@ -1002,7 +982,6 @@
           Explore Orion's handpicked selection of cutting-edge new builds—smart, stylish, and ready for your next chapter.
         </p>
       </div>
-      
       <!-- Toggle Buttons -->
       <div class="view-toggle">
         <button class="toggle-btn active" data-view="property-list">
@@ -1015,21 +994,18 @@
           <i class="fas fa-map-marked-alt"></i> Map View
         </button>
       </div>
-      
       <!-- Property List View (Default) -->
       <div id="property-list-view" class="view-section active">
         <div class="search-results-container animate-pop delay-1">
           <div id="MBBv3_FeaturedGallery" filter="mls_id:tx521+listing_status:active+city:san antonio+prop_img:true+bedrooms_total_min:1+construction:new+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
-      
       <!-- Search Tool View -->
       <div id="search-tool-view" class="view-section">
         <div class="search-results-container">
           <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+representation_type:any_listing"></div>
         </div>
       </div>
-      
       <!-- Map View -->
       <div id="map-view-view" class="view-section">
         <div class="search-results-container">
@@ -1038,7 +1014,6 @@
       </div>
     </div>
   </main>
-  
   <!-- Mortgage Calculator Section -->
   <section class="calculator">
     <div class="container">
@@ -1366,7 +1341,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
   const mobileOverlay = document.getElementById('mobile-overlay');
-  
   if (mobileMenu && navLinks && mobileOverlay) {
     mobileMenu.addEventListener('click', function() {
       navLinks.classList.toggle('active');
@@ -1377,13 +1351,11 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
-    
     mobileOverlay.addEventListener('click', function() {
       navLinks.classList.remove('active');
       mobileOverlay.classList.remove('active');
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
-    
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', function() {
         navLinks.classList.remove('active');
@@ -1392,15 +1364,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
   // Modal functionality
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
-  
-  if (contactBtns && modal) {
+  ifcontactBtns && modal) {
     // Open modal for all contact buttons
     contactBtns.forEach(btn => {
       btn.addEventListener('click', function(e) {
@@ -1410,7 +1380,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
   if (closeBtn && modal) {
     // Close modal
     closeBtn.addEventListener('click', function() {
@@ -1418,7 +1387,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     });
   }
-  
   // Close when clicking outside modal
   window.addEventListener('click', function(e) {
     if (e.target === modal) {
@@ -1426,7 +1394,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     }
   });
-  
   // Location toggle buttons
   const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
   const selectedLocations = document.getElementById('selectedLocations');
@@ -1437,7 +1404,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSelectedLocations();
       });
     });
-    
     function updateSelectedLocations() {
       const selected = Array.from(locationButtons)
         .filter(btn => btn.classList.contains('selected'))
@@ -1445,7 +1411,6 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedLocations.value = selected.join(', ');
     }
   }
-  
   // Terms toggle
   const termsToggle = document.getElementById('termsToggle');
   const termsAgreed = document.getElementById('termsAgreed');
@@ -1457,30 +1422,24 @@ document.addEventListener('DOMContentLoaded', function() {
       termsAgreed.value = !agreed ? 'agreed' : '';
     });
   }
-  
   // Form submission with success popup
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
       // Validate terms agreement
       if (termsAgreed.value !== 'agreed') {
         alert('Please agree to the Terms of Service before submitting.');
         return;
       }
-      
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      
       // Prepare form data
       const formData = new FormData(contactForm);
-      
       // Add security token to the form data
       formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
-      
       fetch(contactForm.action, {
         method: 'POST',
         body: new URLSearchParams(formData),
@@ -1496,17 +1455,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.result === "error") {
           throw new Error(data.message);
         }
-        
         // Show success popup
         if (successPopup && popupOverlay) {
           successPopup.style.display = 'block';
           popupOverlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
         }
-        
         // Reset form
         contactForm.reset();
-        
         // Reset location selections
         if (locationButtons) {
           locationButtons.forEach(btn => btn.classList.remove('selected'));
@@ -1514,25 +1470,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedLocations) {
           selectedLocations.value = '';
         }
-        
         // Reset terms agreement
         if (termsToggle && termsAgreed) {
           termsToggle.classList.remove('selected');
           termsToggle.setAttribute('data-agreed', 'false');
           termsAgreed.value = '';
         }
-        
         // Close the modal
         if (modal) {
           modal.style.display = 'none';
         }
-        
         // TRACK GOOGLE ADS CONVERSION
         try {
-          if (typeof gtag_report_conversion === 'function') {
-            gtag_report_conversion();
-            console.log('Google Ads conversion tracked');
-          }
+          // Send the conversion event to Google Ads
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17362645351/DuGLCNHSzvIaEOfik9dA',
+            'value': 1.0,
+            'currency': 'USD'
+          });
+          console.log('Google Ads conversion tracked');
         } catch (e) {
           console.error('Google Ads conversion tracking error:', e);
         }
@@ -1547,7 +1503,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
   // Close popup handlers
   const closePopupBtn = document.getElementById('close-popup');
   if (closePopupBtn && popupOverlay && successPopup) {
@@ -1556,14 +1511,12 @@ document.addEventListener('DOMContentLoaded', function() {
       popupOverlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
-    
     popupOverlay.addEventListener('click', () => {
       successPopup.style.display = 'none';
       popupOverlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
   }
-
   // View toggle functionality
   const toggleButtons = document.querySelectorAll('.toggle-btn');
   if (toggleButtons) {
@@ -1573,21 +1526,17 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         this.classList.add('active');
-        
         // Get the view to show
         const viewToShow = this.getAttribute('data-view');
-        
         // Hide all view sections
         document.querySelectorAll('.view-section').forEach(section => {
           section.classList.remove('active');
         });
-        
         // Show the selected view section
         const viewSection = document.getElementById(`${viewToShow}-view`);
         if (viewSection) {
           viewSection.classList.add('active');
         }
-        
         // If switching to map view, trigger resize for proper rendering
         if (viewToShow === 'map-view') {
           setTimeout(() => {
@@ -1599,13 +1548,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
   // Calculator toggle functionality
   const mortgageToggle = document.getElementById('mortgage-toggle');
   const dtiToggle = document.getElementById('dti-toggle');
   const mortgageCalc = document.getElementById('mortgage-calculator');
   const dtiCalc = document.getElementById('dti-calculator');
-  
   if (mortgageToggle && dtiToggle && mortgageCalc && dtiCalc) {
     mortgageToggle.addEventListener('click', function() {
       mortgageCalc.style.display = 'flex';
@@ -1615,7 +1562,6 @@ document.addEventListener('DOMContentLoaded', function() {
       dtiToggle.classList.add('btn-secondary');
       dtiToggle.classList.remove('btn-primary');
     });
-    
     dtiToggle.addEventListener('click', function() {
       mortgageCalc.style.display = 'none';
       dtiCalc.style.display = 'flex';
@@ -1625,7 +1571,6 @@ document.addEventListener('DOMContentLoaded', function() {
       mortgageToggle.classList.remove('btn-primary');
     });
   }
-
   // Mortgage Calculator functionality
   const calculateBtn = document.getElementById('calculate-btn');
   if (calculateBtn) {
@@ -1636,7 +1581,6 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateMortgage);
     });
   }
-
   function calculateMortgage() {
     const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
     const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
@@ -1666,7 +1610,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
     document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
   }
-
   // DTI Calculator functionality
   const calculateDtiBtn = document.getElementById('calculate-dti-btn');
   if (calculateDtiBtn) {
@@ -1677,7 +1620,6 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateDTI);
     });
   }
-
   function calculateDTI() {
     const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
     const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
@@ -1697,11 +1639,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('lender-preference').textContent = lenderPreference;
     document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
   }
-
   function formatCurrency(amount) {
     return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
-  
   // Calculate initial values
   calculateMortgage();
   calculateDTI();
