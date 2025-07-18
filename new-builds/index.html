@@ -29,27 +29,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF6721FNMD"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZF6721FNMD');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZF6721FNMD');
   </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17362645351"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17362645351');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-17362645351');
   </script>
   <!-- Buying Buddy IDX Plugin -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
-    var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
-    function mbbMapLoaded() { MBB.googleMaps = true; }
+  var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
+  function mbbMapLoaded() { MBB.googleMaps = true; }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=mbbMapLoaded&libraries=places&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME"></script>
   <script src="https://d2w6u17ngtanmy.cloudfront.net/scripts/my-buying-buddy.5.0.js.gz"></script>
@@ -490,10 +491,16 @@
       padding: 10px;
       background: #f0f0f0;
       border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 5px;
+      display: inline-block;
     }
     .toggle-option.selected {
-      background-color: #4caf50;
+      background-color: var(--primary);
       color: white;
+      border-color: var(--primary);
     }
     .checkbox-group label,
     .toggle-option {
@@ -723,7 +730,7 @@
       flex-wrap: wrap;
       gap: 16px;
       background-color: var(--white);
-     -radius: 10px;
+      border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.06);
       padding: 12px;
     }
@@ -739,7 +746,7 @@
       max-width: 320px;
       gap: 8px;
       display: flex;
- flex-direction: column;
+      flex-direction: column;
     }
     .form-group {
         margin-bottom: 10px;
@@ -778,7 +785,7 @@
     .result-breakdown {
         background-color: var(--light);
         padding: 8px;
-        border-radius: 8px;
+        border-radius:8px;
     }
     .result-breakdown h4 {
         font-size: 0.97rem;
@@ -790,7 +797,7 @@
         justify-content: space-between;
         padding: 4px 0;
         border-bottom: 1px solid #eee;
-        font-size 0.96rem;
+        font-size: 0.96rem;
     }
     .breakdown-item.total {
         font-weight: 600;
@@ -1311,8 +1318,8 @@
             <li><a href="../First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
             <li><a href="../docs/CPN.pdf" target="_blank"><i class="fas fa-shield-alt"></i> TREC Consumer Protection Notice</a></li>
             <li><a href="../docs/IABS.pdf" target="_blank"><i class="fas fa-id-card-alt"></i> TREC Information About Brokerage Services</a></li>
-            <li><a href="../docs/privacy-policy.txt" target="_blank><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-            <li><a href="../docs/disclaimer.txt" target="_blank><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
+            <li><a href="../docs/privacy-policy.txt" target="_blank"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+            <li><a href="../docs/disclaimer.txt" target="_blank"><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
           </ul>
         </div>
         <div class="footer-contact">
@@ -1364,13 +1371,16 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  
   // Modal functionality
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
-  ifcontactBtns && modal) {
+  
+  // FIX: Corrected the syntax error here
+  if (contactBtns && modal) {
     // Open modal for all contact buttons
     contactBtns.forEach(btn => {
       btn.addEventListener('click', function(e) {
@@ -1380,6 +1390,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  
   if (closeBtn && modal) {
     // Close modal
     closeBtn.addEventListener('click', function() {
@@ -1387,6 +1398,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     });
   }
+  
   // Close when clicking outside modal
   window.addEventListener('click', function(e) {
     if (e.target === modal) {
@@ -1394,6 +1406,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     }
   });
+  
   // Location toggle buttons
   const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
   const selectedLocations = document.getElementById('selectedLocations');
@@ -1401,9 +1414,10 @@ document.addEventListener('DOMContentLoaded', function() {
     locationButtons.forEach(button => {
       button.addEventListener('click', function() {
         this.classList.toggle('selected');
-        updateSelectedLocations();
+        updateLocations();
       });
     });
+    
     function updateSelectedLocations() {
       const selected = Array.from(locationButtons)
         .filter(btn => btn.classList.contains('selected'))
@@ -1411,6 +1425,7 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedLocations.value = selected.join(', ');
     }
   }
+  
   // Terms toggle
   const termsToggle = document.getElementById('termsToggle');
   const termsAgreed = document.getElementById('termsAgreed');
@@ -1422,12 +1437,12 @@ document.addEventListener('DOMContentLoaded', function() {
       termsAgreed.value = !agreed ? 'agreed' : '';
     });
   }
+  
   // Form submission with success popup
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
       // Validate terms agreement
       if (termsAgreed.value !== 'agreed') {
         alert('Please agree to the Terms of Service before submitting.');
@@ -1441,7 +1456,6 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Prepare form data
       const formData = new FormData(contactForm);
-      
       // Add security token to the form data
       formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
       
@@ -1462,10 +1476,8 @@ document.addEventListener('DOMContentLoaded', function() {
             popupOverlay.style.display = 'block';
             document.body.style.overflow = 'hidden';
           }
-          
           // Reset form
           contactForm.reset();
-          
           // Reset location selections
           if (locationButtons) {
             locationButtons.forEach(btn => btn.classList.remove('selected'));
@@ -1473,19 +1485,16 @@ document.addEventListener('DOMContentLoaded', function() {
           if (selectedLocations) {
             selectedLocations.value = '';
           }
-          
           // Reset terms agreement
           if (termsToggle && termsAgreed) {
             termsToggle.classList.remove('selected');
             termsToggle.setAttribute('data-agreed', 'false');
             termsAgreed.value = '';
           }
-          
           // Close the modal
           if (modal) {
             modal.style.display = 'none';
           }
-          
           // Track Google Ads conversion
           try {
             gtag('event', 'conversion', {
@@ -1511,6 +1520,22 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  
+  // Close success popup
+  const closePopupBtn = document.getElementById('close-popup');
+  if (closePopupBtn && popupOverlay) {
+    closePopupBtn.addEventListener('click', function() {
+      successPopup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    popupOverlay.addEventListener('click', function() {
+      successPopup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  }
+  
   // View toggle functionality
   const toggleButtons = document.querySelectorAll('.toggle-btn');
   if (toggleButtons) {
@@ -1542,6 +1567,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  
   // Calculator toggle functionality
   const mortgageToggle = document.getElementById('mortgage-toggle');
   const dtiToggle = document.getElementById('dti-toggle');
@@ -1565,6 +1591,7 @@ document.addEventListener('DOMContentLoaded', function() {
       mortgageToggle.classList.remove('btn-primary');
     });
   }
+  
   // Mortgage Calculator functionality
   const calculateBtn = document.getElementById('calculate-btn');
   if (calculateBtn) {
@@ -1575,6 +1602,7 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateMortgage);
     });
   }
+  
   function calculateMortgage() {
     const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
     const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
@@ -1583,18 +1611,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
     const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
     const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
+    
     const loanAmount = homePrice - downPayment;
     const monthlyInterestRate = interestRate / 100 / 12;
     const numberOfPayments = loanTerm * 12;
+    
+    // Monthly mortgage payment calculation
     const monthlyPayment = loanAmount *
       (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
       (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+    
     const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
     const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
     const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
+    
     const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
     const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) +
       (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+    
     document.getElementById('monthly-payment').textContent = formatCurrency(totalMonthlyPayment);
     document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
     document.getElementById('total-cost').textContent = formatCurrency(totalCost);
@@ -1604,6 +1638,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
     document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
   }
+  
   // DTI Calculator functionality
   const calculateDtiBtn = document.getElementById('calculate-dti-btn');
   if (calculateDtiBtn) {
@@ -1614,12 +1649,15 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateDTI);
     });
   }
+  
   function calculateDTI() {
     const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
     const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
     const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
+    
     const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
     const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
+    
     let lenderPreference = 'Poor';
     if (backEndRatio <= 36) {
       lenderPreference = 'Excellent';
@@ -1628,21 +1666,21 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (backEndRatio <= 50) {
       lenderPreference = 'Fair';
     }
+    
     document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(0) + '%';
     document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(0) + '%';
     document.getElementById('lender-preference').textContent = lenderPreference;
     document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
   }
+  
   function formatCurrency(amount) {
     return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
+  
   // Calculate initial values
   calculateMortgage();
   calculateDTI();
 });
 </script>
-  <script>
-    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="RfCRY6zG0cFaXP1SpqUgu";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-  </script>
 </body>
 </html>
