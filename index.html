@@ -51,6 +51,23 @@
   
     gtag('config', 'AW-17362645351');
   </script>
+  
+  <!-- Event snippet for New Builds Lead Converstion conversion page
+  In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-17362645351/DuGLCNHSzvIaEOfik9dA',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
 
   <!-- Buying Buddy plugin v5.02 for General HTML; Authorized Domain: orionhomesearch.com -->
   <!-- ** DO NOT DEFER ** This must load at the top of the page, e.g. in the page head. -->
