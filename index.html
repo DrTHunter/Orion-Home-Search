@@ -1892,319 +1892,320 @@
     </div>
   </footer>
   
-    <script>
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function () {
-          const mobileMenu = document.getElementById('mobile-menu');
-          const navLinks = document.getElementById('nav-links');
-          const mobileOverlay = document.getElementById('mobile-overlay');
-      
-          mobileMenu.addEventListener('click', function () {
+<!-- Full JavaScript Section -->
+<script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        
+        mobileMenu.addEventListener('click', function () {
             navLinks.classList.toggle('active');
             mobileOverlay.classList.toggle('active');
-            mobileMenu.innerHTML = navLinks.classList.contains('active') 
-              ? '<i class="fas fa-times"></i>' 
-              : '<i class="fas fa-bars"></i>';
-          });
-      
-          mobileOverlay.addEventListener('click', () => {
+            mobileMenu.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        mobileOverlay.addEventListener('click', () => {
             navLinks.classList.remove('active');
             mobileOverlay.classList.remove('active');
             mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-          });
-      
-          document.querySelectorAll('.nav-links a').forEach(link => {
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-              navLinks.classList.remove('active');
-              mobileOverlay.classList.remove('active');
-              mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
             });
-          });
         });
 
         // Three-button toggle functionality for property search
-        document.addEventListener('DOMContentLoaded', function () {
-          const toggleButtons = document.querySelectorAll('.search-toggle-btn');
-          const searchContainers = document.querySelectorAll('.search-container');
-
-          toggleButtons.forEach(button => {
+        const toggleButtons = document.querySelectorAll('.search-toggle-btn');
+        const searchContainers = document.querySelectorAll('.search-container');
+        
+        toggleButtons.forEach(button => {
             button.addEventListener('click', function () {
-              // Remove active class from all buttons and containers
-              toggleButtons.forEach(btn => btn.classList.remove('active'));
-              searchContainers.forEach(container => container.classList.remove('active'));
-
-              // Add active class to clicked button
-              this.classList.add('active');
-
-              // Show corresponding container
-              const targetId = this.getAttribute('data-target');
-              document.getElementById(targetId).classList.add('active');
+                // Remove active class from all buttons and containers
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                searchContainers.forEach(container => container.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show corresponding container
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
             });
-          });
+        });
+
+        // Contact Modal Functionality
+        const contactBtn = document.getElementById('contact-btn');
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.querySelector('.close-modal');
+        const successPopup = document.getElementById('success-popup');
+        const popupOverlay = document.getElementById('popup-overlay');
+        
+        // Open modal
+        contactBtn.addEventListener('click', function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         });
         
-        // Contact Modal Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-    // Modal elements
-    const contactBtn = document.getElementById('contact-btn');
-    const modal = document.getElementById('contact-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    const successPopup = document.getElementById('success-popup');
-    const popupOverlay = document.getElementById('popup-overlay');
-
-    // Open modal
-    contactBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close when clicking outside modal
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
+        // Close modal
+        closeBtn.addEventListener('click', function() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Location toggle buttons
-    const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
-    const selectedLocations = document.getElementById('selectedLocations');
-
-    locationButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            this.classList.toggle('selected');
-            updateSelectedLocations();
         });
-    });
-
-    function updateSelectedLocations() {
-        const selected = Array.from(locationButtons)
-            .filter(btn => btn.classList.contains('selected'))
-            .map(btn => btn.dataset.value);
-        selectedLocations.value = selected.join(', ');
-    }
-
-    // Terms toggle
-    const termsToggle = document.getElementById('termsToggle');
-    const termsAgreed = document.getElementById('termsAgreed');
-
-    termsToggle.addEventListener('click', function() {
-        const agreed = this.getAttribute('data-agreed') === 'true';
-        this.setAttribute('data-agreed', !agreed);
-        this.classList.toggle('selected');
-        termsAgreed.value = !agreed ? 'agreed' : '';
-    });
-
-    // Form submission with success popup
-    const contactForm = document.getElementById('contact-form');
-
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Validate terms agreement
-        if (termsAgreed.value !== 'agreed') {
-            alert('Please agree to the Terms of Service before submitting.');
-            return;
-        }
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-        // Prepare form data
-        const formData = new FormData(contactForm);
         
-        // Add security token to the form data
-        formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
-
-        fetch(contactForm.action, {
-            method: 'POST',
-            body: new URLSearchParams(formData),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+        // Close when clicking outside modal
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
             }
-        })
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-        })
-        .then(data => {
-            if (data.result === "error") {
-                throw new Error(data.message);
+        });
+        
+        // Location toggle buttons
+        const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
+        const selectedLocations = document.getElementById('selectedLocations');
+        
+        locationButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('selected');
+                updateSelectedLocations();
+            });
+        });
+        
+        function updateSelectedLocations() {
+            const selected = Array.from(locationButtons)
+                .filter(btn => btn.classList.contains('selected'))
+                .map(btn => btn.dataset.value);
+                
+            selectedLocations.value = selected.join(', ');
+        }
+        
+        // Terms toggle
+        const termsToggle = document.getElementById('termsToggle');
+        const termsAgreed = document.getElementById('termsAgreed');
+        
+        termsToggle.addEventListener('click', function() {
+            const agreed = this.getAttribute('data-agreed') === 'true';
+            this.setAttribute('data-agreed', !agreed);
+            this.classList.toggle('selected');
+            termsAgreed.value = !agreed ? 'agreed' : '';
+        });
+        
+        // Form submission with success popup
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate terms agreement
+            if (termsAgreed.value !== 'agreed') {
+                alert('Please agree to the Terms of Service before submitting.');
+                return;
             }
             
-            // Show success popup
-            successPopup.style.display = 'block';
-            popupOverlay.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset location selections
-            locationButtons.forEach(btn => btn.classList.remove('selected'));
-            selectedLocations.value = '';
-
-            // Reset terms agreement
-            termsToggle.classList.remove('selected');
-            termsToggle.setAttribute('data-agreed', 'false');
-            termsAgreed.value = '';
-
-            // Close the modal
-            modal.style.display = 'none';
-        })
-        .catch(error => {
-            alert('There was an error submitting the form: ' + error.message);
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Prepare form data
+            const formData = new FormData(contactForm);
+            
+            // Add security token to the form data
+            formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ');
+            
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new URLSearchParams(formData),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data.result === "error") {
+                    throw new Error(data.message);
+                }
+                
+                // Show success popup
+                successPopup.style.display = 'block';
+                popupOverlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset location selections
+                locationButtons.forEach(btn => btn.classList.remove('selected'));
+                selectedLocations.value = '';
+                
+                // Reset terms agreement
+                termsToggle.classList.remove('selected');
+                termsToggle.setAttribute('data-agreed', 'false');
+                termsAgreed.value = '';
+                
+                // Close the modal
+                modal.style.display = 'none';
+                
+                // 🔥 Google Ads Conversion Tracking 🔥
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17362645351/WG1uCP2dy_IaEOfik9dA', 
+                    'value': 1.0,
+                    'currency': 'USD'
+                });
+            })
+            .catch(error => {
+                alert('There was an error submitting the form: ' + error.message);
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
         });
-    });
+        
+        // Close popup handlers
+        document.getElementById('close-popup')?.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        popupOverlay?.addEventListener('click', () => {
+            successPopup.style.display = 'none';
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
 
-    // Close popup handlers
-    document.getElementById('close-popup')?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    popupOverlay?.addEventListener('click', () => {
-        successPopup.style.display = 'none';
-        popupOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-});
-      
-          // Calculator Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-          const mortgageToggle = document.getElementById('mortgage-toggle');
-          const dtiToggle = document.getElementById('dti-toggle');
-          const mortgageCalc = document.getElementById('mortgage-calculator');
-          const dtiCalc = document.getElementById('dti-calculator');
-
-          mortgageToggle.addEventListener('click', function () {
+        // Calculator Toggle Functionality
+        const mortgageToggle = document.getElementById('mortgage-toggle');
+        const dtiToggle = document.getElementById('dti-toggle');
+        const mortgageCalc = document.getElementById('mortgage-calculator');
+        const dtiCalc = document.getElementById('dti-calculator');
+        
+        mortgageToggle.addEventListener('click', function () {
             mortgageCalc.style.display = 'flex';
             dtiCalc.style.display = 'none';
             mortgageToggle.className = 'cta-button';
             dtiToggle.className = 'secondary-button';
-          });
-
-          dtiToggle.addEventListener('click', function () {
+        });
+        
+        dtiToggle.addEventListener('click', function () {
             mortgageCalc.style.display = 'none';
             dtiCalc.style.display = 'flex';
             mortgageToggle.className = 'secondary-button';
             dtiToggle.className = 'cta-button';
-          });
-
-          // DTI Calculator Logic
-          const dtiInputs = [
+        });
+        
+        // DTI Calculator Logic
+        const dtiInputs = [
             document.getElementById('monthly-income'),
             document.getElementById('monthly-debts'),
             document.getElementById('proposed-mortgage')
-          ];
-          const dtiForm = dtiCalc.querySelector('.calculator-form');
-          const dtiButton = document.getElementById('calculate-dti-btn');
-
-          function calculateDTI() {
+        ];
+        
+        const dtiForm = dtiCalc.querySelector('.calculator-form');
+        const dtiButton = document.getElementById('calculate-dti-btn');
+        
+        function calculateDTI() {
             const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
             const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
             const proposedMortgage = parseFloat(document.getElementById('proposed-mortgage').value) || 0;
-
+            
             if (monthlyIncome <= 0) {
-              document.getElementById('front-end-ratio').textContent = '--';
-              document.getElementById('back-end-ratio').textContent = '--';
-              document.getElementById('lender-preference').textContent = '--';
-              document.getElementById('your-back-end').textContent = '--';
-              return;
+                document.getElementById('front-end-ratio').textContent = '--';
+                document.getElementById('back-end-ratio').textContent = '--';
+                document.getElementById('lender-preference').textContent = '--';
+                document.getElementById('your-back-end').textContent = '--';
+                return;
             }
-
+            
             // Calculate ratios
             const frontEndRatio = (proposedMortgage / monthlyIncome) * 100;
             const backEndRatio = ((monthlyDebts + proposedMortgage) / monthlyIncome) * 100;
-
+            
             // Determine lender preference
             let preference;
             if (backEndRatio <= 36) {
-              preference = 'Excellent';
+                preference = 'Excellent';
             } else if (backEndRatio <= 43) {
-              preference = 'Good';
+                preference = 'Good';
             } else if (backEndRatio <= 50) {
-              preference = 'Marginal';
+                preference = 'Marginal';
             } else {
-              preference = 'Challenging';
+                preference = 'Challenging';
             }
-
+            
             // Update the UI
             document.getElementById('front-end-ratio').textContent = frontEndRatio.toFixed(1) + '%';
             document.getElementById('back-end-ratio').textContent = backEndRatio.toFixed(1) + '%';
             document.getElementById('lender-preference').textContent = preference;
             document.getElementById('your-back-end').textContent = backEndRatio.toFixed(1) + '%';
-          }
-
-          // Calculate on input change
-          dtiInputs.forEach(input => {
+        }
+        
+        // Calculate on input change
+        dtiInputs.forEach(input => {
             input.addEventListener('input', calculateDTI);
-          });
-
-          // Calculate on pressing Enter in any input
-          dtiInputs.forEach(input => {
+        });
+        
+        // Calculate on pressing Enter in any input
+        dtiInputs.forEach(input => {
             input.addEventListener('keydown', function(e) {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                calculateDTI();
-              }
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    calculateDTI();
+                }
             });
-          });
-
-          // Still allow button click for accessibility
-          dtiButton.addEventListener('click', function(e) {
+        });
+        
+        // Still allow button click for accessibility
+        dtiButton.addEventListener('click', function(e) {
             e.preventDefault();
             calculateDTI();
-          });
-
-          // Prevent form submission if user presses Enter
-          dtiForm.addEventListener('submit', function(e) {
-                       e.preventDefault();
-            calculateDTI();
-          });
-
-          // Initialize DTI calculator
-          calculateDTI();
         });
-      
+        
+        // Prevent form submission if user presses Enter
+        dtiForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateDTI();
+        });
+        
+        // Initialize DTI calculator
+        calculateDTI();
+        
         // Mortgage Calculator Logic
         document.getElementById('calculate-btn').addEventListener('click', calculateMortgage);
-
+        
         // Also calculate when pressing Enter in any input in the mortgage calculator
         const mortgageInputs = [
-          document.getElementById('home-price'),
-          document.getElementById('down-payment'),
-          document.getElementById('loan-term'),
-          document.getElementById('interest-rate'),
-          document.getElementById('property-tax-rate'),
-          document.getElementById('insurance-rate'),
-          document.getElementById('hoa-fee')
+            document.getElementById('home-price'),
+            document.getElementById('down-payment'),
+            document.getElementById('loan-term'),
+            document.getElementById('interest-rate'),
+            document.getElementById('property-tax-rate'),
+            document.getElementById('insurance-rate'),
+            document.getElementById('hoa-fee')
         ];
-
+        
         mortgageInputs.forEach(input => {
-          input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              calculateMortgage();
-            }
-          });
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    calculateMortgage();
+                }
+            });
         });
-
+        
         function calculateMortgage() {
             // Get input values
             const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
@@ -2214,46 +2215,46 @@
             const propertyTaxRate = parseFloat(document.getElementById('property-tax-rate').value) || 0;
             const insuranceRate = parseFloat(document.getElementById('insurance-rate').value) || 0;
             const hoaFee = parseFloat(document.getElementById('hoa-fee').value) || 0;
-
+            
             // Validate inputs
             if (homePrice <= 0 || downPayment < 0 || interestRate <= 0) {
-              alert('Please enter valid values for Home Price, Down Payment, and Interest Rate');
-              return;
+                alert('Please enter valid values for Home Price, Down Payment, and Interest Rate');
+                return;
             }
-
+            
             if (downPayment >= homePrice) {
-              alert('Down payment must be less than home price');
-              return;
+                alert('Down payment must be less than home price');
+                return;
             }
-
+            
             // Calculate loan amount
             const loanAmount = homePrice - downPayment;
-
+            
             // Calculate monthly interest rate
             const monthlyInterestRate = (interestRate / 100) / 12;
-
+            
             // Calculate number of payments
             const numberOfPayments = loanTerm * 12;
-
+            
             // Calculate monthly payment (principal + interest)
             const monthlyPayment = loanAmount *
-              (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
-              (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
-
+                (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+                (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+            
             // Calculate other monthly costs
             const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
             const monthlyInsurance = (homePrice * (insuranceRate / 100)) / 12;
-
+            
             // Calculate totals
             const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFee;
             const totalInterest = (monthlyPayment * numberOfPayments) - loanAmount;
             const totalCost = homePrice + totalInterest + (monthlyPropertyTax * numberOfPayments) +
-              (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
-
+                (monthlyInsurance * numberOfPayments) + (hoaFee * numberOfPayments);
+            
             // Update the UI
             document.getElementById('monthly-payment').textContent = formatCurrency(monthlyPayment);
             document.getElementById('total-interest').textContent = formatCurrency(totalInterest);
-            document.getElementById('total-cost').textContent = formatCurrency(totalCost);
+            document.getElementById('total-cost').textContent = formatCurrency(totalCost);your
             document.getElementById('principal-interest').textContent = formatCurrency(monthlyPayment);
             document.getElementById('property-tax').textContent = formatCurrency(monthlyPropertyTax);
             document.getElementById('home-insurance').textContent = formatCurrency(monthlyInsurance);
@@ -2268,37 +2269,7 @@
         
         // Initialize mortgage calculator
         calculateMortgage();
-
-        // ✅ Chatbase Embed (place once, at the very bottom)
-        (function () {
-          if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-            window.chatbase = (...args) => {
-              if (!window.chatbase.q) window.chatbase.q = [];
-              window.chatbase.q.push(args);
-            };
-            window.chatbase = new Proxy(window.chatbase, {
-              get(target, prop) {
-                if (prop === "q") return target.q;
-                return (...args) => target(prop, ...args);
-              }
-            });
-          }
-      
-          const onLoad = function () {
-            const script = document.createElement("script");
-            script.src = "https://www.chatbase.co/embed.min.js";
-            script.id = "RfCRY6zG0cFaXP1SpqUgu";
-            script.setAttribute("chatbotId", "RfCRY6zG0cFaXP1SpqUgu");
-            script.setAttribute("domain", "www.chatbase.co");
-            document.body.appendChild(script);
-          };
-      
-          if (document.readyState === "complete") {
-            onLoad();
-          } else {
-            window.addEventListener("load", onLoad);
-          }
-        })();
-    </script>  
+    });
+</script>
 </body>
 </html>
