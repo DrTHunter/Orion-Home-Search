@@ -47,7 +47,8 @@
     gtag('js', new Date());
     gtag('config', 'AW-17362645351');
   </script>
-  <!-- Buying Buddy IDX Plugin -->
+<!-- Event snippet for  google adds converstion In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --> <script> function gtag_report_conversion(url) { var callback = function () { if (typeof(url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-17362645351/DuGLCNHSzvIaEOfik9dA', 'event_callback': callback }); return false; } </script>  
+<!-- Buying Buddy IDX Plugin -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
     var MBB = { seo: "false", data: { acid: "iUGUuSwb" } };
@@ -586,7 +587,7 @@
       max-width: 400px;
       display: none;
     }
-    .success-popup i {
+    .-popup i {
       font-size: 3rem;
       color: #4CAF50;
       margin-bottom: 20px;
@@ -618,7 +619,7 @@
       height: 100%;
       background-color: rgba(0,0,0,0.7);
       z-index: 1999;
- display: none;
+display: none;
     }
     /* ====== Footer ====== */
     footer {
@@ -1288,8 +1289,7 @@
             <button id="calculate-dti-btn" class="btn btn-primary" style="width:100%;">Calculate DTI Ratio</button>
           </div>
           <div class="calculator-results">
-            <div class="result-card">
-              <h3>Front-End Ratio</h3>
+            <div class="result-card              <h3>Front-End Ratio</h3>
               <div class="result-amount" id="front-end-ratio">0%</div>
               <p style="font-size:0.9em;">(Mortgage ÷ Income)</p>
             </div>
@@ -1668,6 +1668,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) {
           modal.style.display = 'none';
         }
+        
         // TRACK GOOGLE ADS CONVERSION
         try {
           if (typeof gtag_report_conversion === 'function') {
