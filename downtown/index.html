@@ -1,36 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <!-- Meta Configuration -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta http-equiv="Permissions-Policy" content="autoplay=()" />
-
   <!-- Primary SEO Tags -->
   <title>Downtown San Antonio Homes | Orion AI-Powered Tools</title>
   <meta name="title" content="Downtown San Antonio Homes | Orion AI-Powered Tools" />
   <meta name="description" content="Explore homes in Downtown San Antonio with Orion AI. Real-time listings, smart mortgage tools, and trusted agent matching—all in one intelligent search platform." />
   <link rel="canonical" href="https://www.orionhomesearch.com/downtown/" />
-  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.orionhomesearch.com/downtown/" />
   <meta property="og:title" content="Downtown San Antonio Homes | Orion AI-Powered Tools" />
   <meta property="og:description" content="Find your next home in Downtown San Antonio. AI-curated listings, agent matching, and built-in calculators for smarter decisions." />
   <meta property="og:image" content="https://www.orionhomesearch.com/images/down_town.jpg" />
-  
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.orionhomesearch.com/downtown/" />
   <meta name="twitter:title" content="Downtown San Antonio Homes | Orion AI Tools" />
   <meta name="twitter:description" content="Smarter home search in San Antonio’s urban core. Live listings, agent support, and mortgage tools—powered by Orion AI." />
   <meta name="twitter:image" content="https://www.orionhomesearch.com/images/down_town.jpg" />
-
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://www.orionhomesearch.com/images/favicon.png" />
   <!-- Fonts & Icons -->
@@ -51,9 +48,24 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'AW-17362645351');
-  </script>
+  </script>  
+<!-- Event snippet for New Builds Lead Converstion conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17362645351/DuGLCNHSzvIaEOfik9dA',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
   <!-- Buying Buddy IDX Plugin -->
   <script src="https://www.mbb2.com/version3/css/theme/acid/iUGUuSwb"></script>
   <script>
@@ -145,7 +157,6 @@
       font-size: 14px;
       border-radius: 5px;
     }
-    
     /* View Toggle Styles */
     .view-toggle {
       display: flex;
@@ -157,7 +168,6 @@
       padding: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    
     .toggle-btn {
       padding: 12px 25px;
       background-color: #f0f0f0;
@@ -173,36 +183,29 @@
       font-size: 0.95rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    
     .toggle-btn:hover {
       background-color: #e0e0e0;
       transform: translateY(-2px);
     }
-    
     .toggle-btn.active {
       background-color: var(--primary);
       color: white;
       box-shadow: 0 4px 8px rgba(42,91,132,0.2);
     }
-    
     .toggle-btn i {
       font-size: 1.2rem;
     }
-    
     .view-section {
       display: none;
       animation: fadeIn 0.5s ease;
     }
-    
     .view-section.active {
       display: block;
     }
-    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
     /* ====== Header Styles ====== */
     header {
       background-color: var(--white);
@@ -583,7 +586,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
+     : 100%;
       height: 100%;
       background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
       opacity: 0.05;
@@ -902,27 +905,23 @@
       .social-links {
         justify-content: center;
       }
-      
       /* Mobile toggle adjustments */
       .view-toggle {
         flex-direction: column;
         gap: 5px;
         padding: 10px;
       }
-      
       .toggle-btn {
         width: 100%;
         justify-content: center;
         padding: 12px;
       }
-
       /* Improved footer centering for mobile */
       .footer-container {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
       }
-    
       .footer-about,
       .footer-links,
       .footer-contact {
@@ -930,34 +929,27 @@
         margin: 0 auto;
         text-align: center;
       }
-    
       .footer-links {
         padding-left: 0;
       }
-    
       .footer-links ul {
         display: inline-block;
         text-align: center;
         padding: 0;
       }
-    
       .footer-links li {
         text-align: center;
       }
-    
       .social-links {
         justify-content: center;
       }
-    
       .footer-contact p {
         justify-content: center;
       }
-    
       .copyright {
         text-align: center;
       }
     }
-    
   </style>
 </head>
 <body>
@@ -1011,7 +1003,6 @@
           Browse active listings in Downtown San Antonio, updated with the newest homes first.
         </p>
       </div>
-      
       <!-- Toggle Buttons -->
       <div class="view-toggle">
         <button class="toggle-btn active" data-view="property-list">
@@ -1024,21 +1015,18 @@
           <i class="fas fa-map-marked-alt"></i> Map View
         </button>
       </div>
-      
       <!-- Property List View (Default) -->
       <div id="property-list-view" class="view-section active">
         <div class="search-results-container animate-pop delay-1">
           <div id="MBBv3_FeaturedGallery" filter="shapesearch:29.394961545100102 -98.47858591931153,29.402514103839405 -98.4809033479004,29.4077482213632 -98.47987337963868,29.41073902466665 -98.47987337963868,29.422103274576287 -98.48056002514649,29.426439298065546 -98.48176165478516,29.430027591326137 -98.48073168652344,29.4385492797027 -98.4760968293457,29.440642216566484 -98.48467989819336,29.434662282484844 -98.49686785595703,29.430924644832672 -98.50115939038086,29.414973987197452 -98.50211939941406,29.41042622213356 -98.50830266229704,29.40235082641157 -98.5117358898361,29.396667756017496 -98.5117358898361,29.39606951960529 -98.49422642938688,29.393989392834026 -98.48330660717774,29.394961545100102 -98.47858591931153+mls_id:tx521+listing_status:active+prop_img:true+bedrooms_total_min:1+representation_type:any_listing+limit:12+order:create_dt desc"></div>
         </div>
       </div>
-      
       <!-- Search Tool View -->
       <div id="search-tool-view" class="view-section">
         <div class="search-results-container">
           <div id="MBBv3_SearchForm" filter="show-options:on+mls_id:tx521+listing_status:active+representation_type:any_listing"></div>
         </div>
       </div>
-      
       <!-- Map View -->
       <div id="map-view-view" class="view-section">
         <div class="search-results-container">
@@ -1047,7 +1035,6 @@
       </div>
     </div>
   </main>
-  
   <!-- Mortgage Calculator Section -->
   <section class="calculator">
     <div class="container">
@@ -1281,7 +1268,7 @@
         <div class="form-group">
           <label for="buyerType">What best describes you?</label>
           <select id="buyerType" name="buyerType" required>
-            <option value="">Select</option>
+            <option value=""></option>
             <option value="First-time homebuyer">First-time homebuyer</option>
             <option value="Investor">Investor</option>
             <option value="Relocating from out of state">Relocating from out of state</option>
@@ -1375,7 +1362,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.getElementById('nav-links');
   const mobileOverlay = document.getElementById('mobile-overlay');
-  
   if (mobileMenu && navLinks && mobileOverlay) {
     mobileMenu.addEventListener('click', function() {
       navLinks.classList.toggle('active');
@@ -1386,13 +1372,11 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
-    
     mobileOverlay.addEventListener('click', function() {
       navLinks.classList.remove('active');
       mobileOverlay.classList.remove('active');
       mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
     });
-    
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', function() {
         navLinks.classList.remove('active');
@@ -1401,14 +1385,12 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
   // Modal functionality
   const contactBtns = document.querySelectorAll('.contact-btn');
   const modal = document.getElementById('contact-modal');
   const closeBtn = document.querySelector('.close-modal');
   const successPopup = document.getElementById('success-popup');
   const popupOverlay = document.getElementById('popup-overlay');
-  
   if (contactBtns && modal) {
     // Open modal for all contact buttons
     contactBtns.forEach(btn => {
@@ -1419,7 +1401,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
   if (closeBtn && modal) {
     // Close modal
     closeBtn.addEventListener('click', function() {
@@ -1427,7 +1408,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     });
   }
-  
   // Close when clicking outside modal
   window.addEventListener('click', function(e) {
     if (e.target === modal) {
@@ -1435,7 +1415,6 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'auto';
     }
   });
-  
   // Location toggle buttons
   const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
   const selectedLocations = document.getElementById('selectedLocations');
@@ -1446,7 +1425,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSelectedLocations();
       });
     });
-    
     function updateSelectedLocations() {
       const selected = Array.from(locationButtons)
         .filter(btn => btn.classList.contains('selected'))
@@ -1454,7 +1432,6 @@ document.addEventListener('DOMContentLoaded', function() {
       selectedLocations.value = selected.join(', ');
     }
   }
-  
   // Terms toggle
   const termsToggle = document.getElementById('termsToggle');
   const termsAgreed = document.getElementById('termsAgreed');
@@ -1466,30 +1443,24 @@ document.addEventListener('DOMContentLoaded', function() {
       termsAgreed.value = !agreed ? 'agreed' : '';
     });
   }
-  
   // Form submission with success popup
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
       // Validate terms agreement
       if (termsAgreed.value !== 'agreed') {
         alert('Please agree to the Terms of Service before submitting.');
         return;
       }
-      
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      
       // Prepare form data
       const formData = new FormData(contactForm);
-      
       // Add security token to the form data
       formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
-      
       fetch(contactForm.action, {
         method: 'POST',
         body: new URLSearchParams(formData),
@@ -1505,17 +1476,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.result === "error") {
           throw new Error(data.message);
         }
-        
         // Show success popup
         if (successPopup && popupOverlay) {
           successPopup.style.display = 'block';
           popupOverlay.style.display = 'block';
           document.body.style.overflow = 'hidden';
         }
-        
         // Reset form
         contactForm.reset();
-        
         // Reset location selections
         if (locationButtons) {
           locationButtons.forEach(btn => btn.classList.remove('selected'));
@@ -1523,24 +1491,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (selectedLocations) {
           selectedLocations.value = '';
         }
-        
         // Reset terms agreement
         if (termsToggle && termsAgreed) {
           termsToggle.classList.remove('selected');
           termsToggle.setAttribute('data-agreed', 'false');
           termsAgreed.value = '';
         }
-        
         // Close the modal
         if (modal) {
           modal.style.display = 'none';
         }
         
-        // TRACK GOOGLE ADS CONVERSION
+        // TRACK GOOGLE ADS CONVERSION - UPDATED IMPLEMENTATION
         try {
           if (typeof gtag_report_conversion === 'function') {
-            gtag_report_conversion();
+            // Pass current page URL for better tracking
+            gtag_report_conversion(window.location.href);
             console.log('Google Ads conversion tracked');
+          } else {
+            console.warn('gtag_report_conversion function not found');
           }
         } catch (e) {
           console.error('Google Ads conversion tracking error:', e);
@@ -1556,7 +1525,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-  
   // Close popup handlers
   const closePopupBtn = document.getElementById('close-popup');
   if (closePopupBtn && popupOverlay && successPopup) {
@@ -1565,14 +1533,12 @@ document.addEventListener('DOMContentLoaded', function() {
       popupOverlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
-    
     popupOverlay.addEventListener('click', () => {
       successPopup.style.display = 'none';
       popupOverlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
   }
-
   // View toggle functionality
   const toggleButtons = document.querySelectorAll('.toggle-btn');
   if (toggleButtons) {
@@ -1582,21 +1548,17 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         this.classList.add('active');
-        
         // Get the view to show
         const viewToShow = this.getAttribute('data-view');
-        
         // Hide all view sections
         document.querySelectorAll('.view-section').forEach(section => {
           section.classList.remove('active');
         });
-        
         // Show the selected view section
         const viewSection = document.getElementById(`${viewToShow}-view`);
         if (viewSection) {
           viewSection.classList.add('active');
         }
-        
         // If switching to map view, trigger resize for proper rendering
         if (viewToShow === 'map-view') {
           setTimeout(() => {
@@ -1608,13 +1570,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
   // Calculator toggle functionality
   const mortgageToggle = document.getElementById('mortgage-toggle');
   const dtiToggle = document.getElementById('dti-toggle');
   const mortgageCalc = document.getElementById('mortgage-calculator');
   const dtiCalc = document.getElementById('dti-calculator');
-  
   if (mortgageToggle && dtiToggle && mortgageCalc && dtiCalc) {
     mortgageToggle.addEventListener('click', function() {
       mortgageCalc.style.display = 'flex';
@@ -1624,7 +1584,6 @@ document.addEventListener('DOMContentLoaded', function() {
       dtiToggle.classList.add('btn-secondary');
       dtiToggle.classList.remove('btn-primary');
     });
-    
     dtiToggle.addEventListener('click', function() {
       mortgageCalc.style.display = 'none';
       dtiCalc.style.display = 'flex';
@@ -1634,7 +1593,6 @@ document.addEventListener('DOMContentLoaded', function() {
       mortgageToggle.classList.remove('btn-primary');
     });
   }
-
   // Mortgage Calculator functionality
   const calculateBtn = document.getElementById('calculate-btn');
   if (calculateBtn) {
@@ -1645,7 +1603,6 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateMortgage);
     });
   }
-
   function calculateMortgage() {
     const homePrice = parseFloat(document.getElementById('home-price').value) || 0;
     const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
@@ -1675,7 +1632,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hoa-fee-display').textContent = formatCurrency(hoaFee);
     document.getElementById('total-monthly').textContent = formatCurrency(totalMonthlyPayment);
   }
-
   // DTI Calculator functionality
   const calculateDtiBtn = document.getElementById('calculate-dti-btn');
   if (calculateDtiBtn) {
@@ -1686,7 +1642,6 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('keyup', calculateDTI);
     });
   }
-
   function calculateDTI() {
     const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
     const monthlyDebts = parseFloat(document.getElementById('monthly-debts').value) || 0;
@@ -1706,11 +1661,9 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('lender-preference').textContent = lenderPreference;
     document.getElementById('your-back-end').textContent = backEndRatio.toFixed(0) + '%';
   }
-
   function formatCurrency(amount) {
     return '$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
   }
-  
   // Calculate initial values
   calculateMortgage();
   calculateDTI();
