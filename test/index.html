@@ -63,7 +63,7 @@
         color: var(--dark);
         line-height: 1.6;
         background-color: var(--white);
-        overflow-x: hidden; /* Prevent horizontal scroll */
+        overflow-x: hidden;
       }
       h1, h2, h3, h4 {
         font-family: 'Playfair Display', serif;
@@ -71,7 +71,7 @@
         margin-bottom: 1rem;
       }
       .container {
-        width: 100%;
+        width: auto;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
@@ -185,65 +185,64 @@
       .page-description p {
         color: #73a4d6;
       }
-      /* Search Tools Container Styles - FULL WIDTH ADJUSTMENTS */
+      /* COMPLETELY NATURAL SIZING FOR PROPERTY SEARCH */
       #listings {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        overflow: hidden;
+        width: auto;
+        height: auto;
+        position: static;
+        margin: 0;
+        padding: 0;
+        display: block;
       }
+      /* Let all containers size naturally */
+      .search-toggle-container,
+      .search-container,
+      #MBBv3_FeaturedGallery,
+      #MBBv3_SearchForm,
+      #MBBv3_InteractiveMap {
+        width: auto !important;
+        height: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        min-height: 0 !important;
+        max-height: none !important;
+      }
+      /* Remove all constraints */
+      #map-search-container,
+      #featured-container,
+      #form-search-container {
+        width: auto;
+        height: auto;
+      }
+      /* Buying Buddy elements - no restrictions */
+      .MBBv3_Container,
+      .MBBv3_MapContainer,
+      .MBBv3_ResultsContainer {
+        width: auto !important;
+        height: auto !important;
+      }
+      /* Toggle buttons - minimal styling */
       .search-toggle-container {
-          width: 100%;
-          max-width: 100% !important;
-          display: flex;
-          margin-bottom: 20px;
+        display: flex;
+        margin: 0;
       }
       .search-toggle-btn {
-          flex: 1;
-          padding: 12px 5px;
-          border: none;
-          background: #f0f0f0;
-          color: #333;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s;
-          text-align: center;
-          font-size: 0.9rem;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        flex: 1;
+        padding: 12px 5px;
+        border: none;
+        background: #f0f0f0;
+        color: #333;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
       }
       .search-toggle-btn.active {
-          background: #2a5b84; /* Primary color */
-          color: white;
-      }
-      .search-toggle-btn:first-child {
-          border-radius: 5px 0 0 5px;
-      }
-      .search-toggle-btn:last-child {
-          border-radius: 0 5px 5px 0;
-      }
-      .search-container {
-          display: none;
-          margin-bottom: 30px          width: 100%;
-          max-width: 100% !important;
-          padding: 0 10px;
-          box-sizing: border-box;
-      }
-      .search-container.active {
-          display: block;
-      }
-      #map-search-container {
-          height: 500px;
-          border-radius: 8px;
-          overflow: hidden;
+        background: #2a5b84;
+        color: white;
       }
       /* Map Preview */
       .map-preview {
-        height: 350px;
+        height: auto;
         background-color: #eee;
         border-radius: 8px;
         margin-bottom: 20px;
@@ -734,7 +733,7 @@
           font-size: 0.8rem;
       }
       #map-search-container {
-          height: 400px;
+          height: auto;
       }
       .footer-container {
         display: flex;
@@ -806,7 +805,7 @@
           font-size: 16px;
         }
         .map-preview {
-          height: 250px;
+          height: auto;
         }
         .cta-buttons {
           flex-direction: column;
@@ -949,7 +948,7 @@
           <p>Properties in San Antonio 4-5 bedroom, 4,500+ sq ft, with a pool, no older than 10 years, budget 3-3.5 million, top school district.</p>
         </div>
       </div> <!-- Close container for title/description -->
-      <!-- Property Search Section - Now outside container for full width -->
+      <!-- Property Search Section - Completely natural sizing -->
       <section id="listings">
         <!-- Three Toggle Buttons -->
         <div class="search-toggle-container">
@@ -1309,6 +1308,10 @@
             const targetContainer = document.getElementById(targetId);
             if (targetContainer) {
               targetContainer.classList.add('active');
+            }
+            // Let Buying Buddy handle its own resizing
+            if (window.MBB && typeof MBB.resize === 'function') {
+              setTimeout(() => MBB.resize(), 0);
             }
           });
         });
