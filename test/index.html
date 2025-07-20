@@ -104,17 +104,15 @@ function gtag_report_conversion(url) {
     }
     .container {
       width: 100%;
-      max-width: 100%;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    /* TEST: Let Buying Buddy widgets size themselves (no forced width) */
-    #MBBv3_InteractiveMap,
-    #MBBv3_FeaturedGallery,
-    #MBBv3_SearchForm {
-      width: auto !important;
-      height: auto !important;
-      display: block;
+    .search-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     /* ====== Button Styles ====== */
     /* Base Button Styles */
@@ -345,24 +343,25 @@ function gtag_report_conversion(url) {
     .page-description p {
       color: #73a4d6;
     }
+    /* Search Results Container */
     .search-results-container {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
       background-color: var(--white);
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 20px;
       margin-bottom: 40px;
-      overflow-x: auto;
-      box-sizing: border-box;
-      /* TEST: Let Buying Buddy widgets size themselves (no forced width) */
-      #MBBv3_InteractiveMap,
-      #MBBv3_FeaturedGallery,
-      #MBBv3_SearchForm {
-        width: auto !important;
-        height: auto !important;
-        display: block;
+    }
+    /* Map Preview */
+    .map-preview {
+      height: 350px;
+      background-color: #eee;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=29.416013,-98.502827&zoom=12&size=800x350&maptype=roadmap&path=color:0x2a5b84|weight:5|fillcolor:0x5ef2c240|29.438440970486027,-98.47759324564198|29.439935931386533,-98.48583299173573|29.43305892897451,-98.49887925638417|29.41601391570481,-98.5028274680541|29.406892163929836,-98.51038056864003|29.396872247349016,-98.51192552103261|29.39388103611215,-98.4786232139037|29.402854405882685,-98.48136979593495|29.407938963911718,-98.47999650491933|29.42139686045126,-98.47999650491933|29.42767660219584,-98.48171311868886|29.438440970486027,-98.47759324564198&key=AIzaSyBNolVKe1C5v2BZwPnNT7XvxXtYvlAs0ME');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     /* ====== CTA Section ====== */
     .cta-section {
       padding: 80px 0;
@@ -991,14 +990,14 @@ function gtag_report_conversion(url) {
       <h1>Live Where the Energy Is — Downtown San Antonio</h1>
       <p>Discover fresh listings updated daily. Filter by price, features, or map — and let our AI match you with a top local agent who actually knows the area.</p>
       <div class="hero-cta-buttons">
-          <button class="btn btn-primary contact-btn">🧑‍💼 Get matched with a trusted agent</button>
+          <button class="btn btn-primary contact-btn">Find Your New Home</button>
           <a href="First Time Homebuyers Guide.docx" class="btn btn-secondary" download>First-Time Buyer Guide</a>
       </div>
     </div>
   </section>
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="search-container">
       <!-- Hero Image for Downton -->
       <div class="w-full h-[350px] bg-gray-200 rounded-lg mb-8 shadow-lg bg-center bg-cover"
            style="background-image: url('https://www.orionhomesearch.com/images/down_town.jpg');">
@@ -1204,7 +1203,7 @@ function gtag_report_conversion(url) {
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2 style="margin-bottom: 20px;">Let's Connect</h2>
-      <p style="margin-bottom: 20px;">Share what you're looking for—we'll match you with a trusted local agent and reach out within 24 hours.</p>
+      <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
       <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbw30mh3WRB_BsQo4o2Y9INBD7IKsEVxYdUwOsj2VE6eP5aCpU17zTFqeM8ao7sMm7VDqQ/exec">
         <!-- Full Name -->
         <div class="form-group">
