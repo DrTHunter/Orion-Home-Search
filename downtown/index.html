@@ -108,6 +108,12 @@ function gtag_report_conversion(url) {
       margin: 0 auto;
       padding: 0 20px;
     }
+    .search-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
     /* ====== Button Styles ====== */
     /* Base Button Styles */
     .btn {
@@ -984,14 +990,14 @@ function gtag_report_conversion(url) {
       <h1>Live Where the Energy Is — Downtown San Antonio</h1>
       <p>Discover fresh listings updated daily. Filter by price, features, or map — and let our AI match you with a top local agent who actually knows the area.</p>
       <div class="hero-cta-buttons">
-          <button class="btn btn-primary contact-btn">Find Your New Home</button>
+          <button class="btn btn-primary contact-btn">🧑‍💼 Get Matched with a Trusted Agent</button>
           <a href="First Time Homebuyers Guide.docx" class="btn btn-secondary" download>First-Time Buyer Guide</a>
       </div>
     </div>
   </section>
   <!-- Main Content -->
   <main class="main-content">
-    <div class="container">
+    <div class="search-container">
       <!-- Hero Image for Downton -->
       <div class="w-full h-[350px] bg-gray-200 rounded-lg mb-8 shadow-lg bg-center bg-cover"
            style="background-image: url('https://www.orionhomesearch.com/images/down_town.jpg');">
@@ -1188,7 +1194,7 @@ function gtag_report_conversion(url) {
       <h2>Ready to Discover Your New Build?</h2>
       <p>The best homes don't wait—and neither should you. Orion is here to accelerate your journey, answer your questions, and guide you with clarity. No pressure. Just precision, insight, and honest help.</p>
       <div class="hero-cta-buttons">
-        <button class="btn btn-primary contact-btn">👋 Talk to a Real Estate Agent Now</button>
+        <button class="btn btn-primary contact-btn">🤝 Talk to a Real Estate Agent Now</button>
       </div>
     </div>
   </section>
@@ -1197,7 +1203,7 @@ function gtag_report_conversion(url) {
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2 style="margin-bottom: 20px;">Let's Connect</h2>
-      <p style="margin-bottom: 20px;">Tell us about your real estate needs and we'll get back to you within 24 hours.</p>
+      <p style="margin-bottom: 20px;">Share what you're looking for—we'll match you with a trusted local agent and reach out within 24 hours.</p>
       <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbw30mh3WRB_BsQo4o2Y9INBD7IKsEVxYdUwOsj2VE6eP5aCpU17zTFqeM8ao7sMm7VDqQ/exec">
         <!-- Full Name -->
         <div class="form-group">
@@ -1219,14 +1225,6 @@ function gtag_report_conversion(url) {
           <label>Preferred Locations</label>
           <div class="toggle-group">
             <button type="button" class="toggle-option" data-value="Downtown San Antonio">Downtown</button>
-            <button type="button" class="toggle-option" data-value="Alamo Heights">Alamo Heights</button>
-            <button type="button" class="toggle-option" data-value="Stone Oak">Stone Oak</button>
-            <button type="button" class="toggle-option" data-value="The Dominion">The Dominion</button>
-            <button type="button" class="toggle-option" data-value="Northwest San Antonio">NW San Antonio</button>
-            <button type="button" class="toggle-option" data-value="Bulverde / Spring Branch">Bulverde</button>
-            <button type="button" class="toggle-option" data-value="Schertz / Cibolo">Schertz / Cibolo</button>
-            <button type="button" class="toggle-option" data-value="Alamo Ranch / West San Antonio">Alamo Ranch</button>
-            <button type="button" class="toggle-option" data-value="New Braunfels">New Braunfels</button>
             <button type="button" class="toggle-option" data-value="Other">Other</button>
           </div>
           <input type="hidden" name="locations" id="selectedLocations">
@@ -1252,40 +1250,6 @@ function gtag_report_conversion(url) {
             <option value="$200k - $300k">$200k - $350k</option>
             <option value="$300k - $400k">$350k - $500k</option>
             <option value="$500k+">$500k+</option>
-          </select>
-        </div>
-        <!-- Pre-Approval -->
-        <div class="form-group">
-          <label for="preapproval">Have you been pre-approved by a lender?</label>
-          <select id="preapproval" name="preapproval" required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="Not yet, but planning to">Not yet, but planning to</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        <!-- Buyer Type -->
-        <div class="form-group">
-          <label for="buyerType">What best describes you?</label>
-          <select id="buyerType" name="buyerType" required>
-            <option value=""></option>
-            <option value="First-time homebuyer">First-time homebuyer</option>
-            <option value="Investor">Investor</option>
-            <option value="Relocating from out of state">Relocating from out of state</option>
-            <option value="Looking to upgrade">Looking to upgrade</option>
-            <option value="Military or Veteran">Military or Veteran</option>
-          </select>
-        </div>
-        <!-- Financing Plan -->
-        <div class="form-group">
-          <label for="financingPlan">How do you plan to finance your home?</label>
-          <select id="financingPlan" name="financingPlan" required>
-            <option value="">Select</option>
-            <option value="Conventional loan">Conventional loan</option>
-            <option value="VA loan">VA loan</option>
-            <option value="FHA loan">FHA loan</option>
-            <option value="Cash">Cash</option>
-            <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
         <!-- Updated Terms of Service Toggle -->
@@ -1328,12 +1292,12 @@ function gtag_report_conversion(url) {
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="../blog"><i class="fas fa-blog"></i> Blog</a></li>
-            <li><a href="../First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
-            <li><a href="../docs/CPN.pdf" target="_blank"><i class="fas fa-shield-alt"></i> TREC Consumer Protection Notice</a></li>
-            <li><a href="../docs/IABS.pdf" target="_blank"><i class="fas fa-id-card-alt"></i> TREC Information About Brokerage Services</a></li>
-            <li><a href="../docs/privacy-policy.txt" target="_blank><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
-            <li><a href="../docs/disclaimer.txt" target="_blank><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
+            <li><a href="https://www.orionhomesearch.com/blog"><i class="fas fa-blog"></i> Blog</a></li>
+            <li><a href="https://www.orionhomesearch.com/First Time Homebuyers Guide.docx" download><i class="fas fa-satellite-dish"></i> Buyer's Intel</a></li>
+            <li><a href="https://www.orionhomesearch.com/docs/CPN.pdf" target="_blank"><i class="fas fa-shield-alt"></i> TREC Consumer Protection Notice</a></li>
+            <li><a href="https://www.orionhomesearch.com/docs/IABS.pdf" target="_blank"><i class="fas fa-id-card-alt"></i> TREC Information About Brokerage Services</a></li>
+            <li><a href="https://www.orionhomesearch.com/docs/privacy-policy.txt" target="_blank"><i class="fas fa-user-shield"></i> Privacy Policy</a></li>
+            <li><a href="https://www.orionhomesearch.com/docs/disclaimer.txt" target="_blank"><i class="fas fa-exclamation-circle"></i> Real Estate Disclaimer</a></li>
           </ul>
         </div>
         <div class="footer-contact">
