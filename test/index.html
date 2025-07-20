@@ -86,7 +86,7 @@
     }
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 100%;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -322,26 +322,29 @@
       color: #73a4d6;
     }
 
-    /* Search Results Container - Responsive Fix */
+    /* Search container styling — keep this */
     .search-results-container {
       width: 100%;
       max-width: 100%;
+      height: auto;
       background-color: var(--white);
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       padding: 20px;
       margin-bottom: 40px;
-      overflow-x: auto; /* Optional: helps prevent overflow issues */
+      overflow-x: auto;
+      box-sizing: border-box;
     }
-    
-    /* Ensure Buying Buddy embeds fill available space */
+
+    /* TEST: Let Buying Buddy widgets size themselves (no forced width) */
+    #MBBv3_InteractiveMap,
     #MBBv3_FeaturedGallery,
-    #MBBv3_SearchForm,
-    #MBBv3_InteractiveMap {
-      width: 100% !important;
-      max-width: 100% !important;
+    #MBBv3_SearchForm {
+      width: auto !important;
+      height: auto !important;
       display: block;
     }
+
     /* ====== Featured Blog Post Styles ====== */
     .featured-post {
       padding: 60px 0;
