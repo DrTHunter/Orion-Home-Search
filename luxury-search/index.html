@@ -964,10 +964,15 @@ display: none;
         gap: 5px;
         padding: 10px;
       }
+      .view-toggle {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
       .toggle-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px;
+      justify-content: center;
       }
       /* Improved footer centering for mobile */
       .footer-container {
@@ -1811,4 +1816,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
   
 </html>
-
