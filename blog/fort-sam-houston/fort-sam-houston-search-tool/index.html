@@ -882,7 +882,7 @@ display: none;
     /* ====== Media Queries ====== */
     @media (max-width: 768px) {
       .hero {
-        padding: 100px 0 60px;
+        padding: 150px 0 80px;
       }
       .hero h1 {
         font-size: 2.2rem;
@@ -950,10 +950,11 @@ display: none;
       /* Mobile toggle adjustments */
       .view-toggle {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 10px;
         padding: 10px;
-
+        max-width: 800px;
+        margin: 0 auto;
       }
       .toggle-btn {
         justify-content: center;
