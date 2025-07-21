@@ -334,15 +334,6 @@
       box-sizing: border-box;
     }
 
-    /* TEST: Let Buying Buddy widgets size themselves (no forced width) */
-    #MBBv3_InteractiveMap,
-    #MBBv3_FeaturedGallery,
-    #MBBv3_SearchForm {
-      width: auto !important;
-      height: auto !important;
-      display: block;
-    }
-
     /* ====== Featured Blog Post Styles ====== */
     .featured-post {
       padding: 60px 0;
@@ -891,7 +882,7 @@ display: none;
     /* ====== Media Queries ====== */
     @media (max-width: 768px) {
       .hero {
-        padding: 150px 0 80px;
+        padding: 100px 0 60px;
       }
       .hero h1 {
         font-size: 2.2rem;
@@ -959,11 +950,10 @@ display: none;
       /* Mobile toggle adjustments */
       .view-toggle {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
         padding: 10px;
-        max-width: 800px;
-        margin: 0 auto;
+
       }
       .toggle-btn {
         justify-content: center;
@@ -1046,21 +1036,21 @@ display: none;
     <div class="container">
       <!-- Page Title -->
       <div class="page-title">
-        <h1>Explore AI-Curated Homes Near Fort Sam, Lackland & Randolph AFB</h1>
+        <h1>Explore AI-Curated Homes Near Fort Sam Houston</h1>
         <p class="page-description">
-          Discover handpicked properties located within a 20 minute drive from Fort Sam Houston, Lackland, and Randolph AFB—strategically selected by AI and backed by a concierge-level real estate experience designed for military families and professionals.
+          Discover handpicked properties located within a 20 minute drive from Fort Sam Houston—strategically selected by AI and backed by a concierge-level real estate experience designed for military families and professionals.
         </p>
       </div>
-
       <!-- Toggle Buttons -->
       <div class="view-toggle">
+        
         <!-- Fort Sam Houston Area -->
-        <button class="toggle-btn" data-view="fort-sam-houston">
+        <button class="toggle-btn active" data-view="fort-sam-houston">
           <i class="fas fa-user-shield"></i> All Fort Sam Houston Area
         </button>
-
+        
         <!-- Alamo Heights -->
-        <button class="toggle-btn active" data-view="alamo-heights">
+        <button class="toggle-btn" data-view="alamo-heights">
           <i class="fas fa-city"></i> Alamo Heights
         </button>
 
