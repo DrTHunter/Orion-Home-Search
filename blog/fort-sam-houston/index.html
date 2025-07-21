@@ -1333,187 +1333,206 @@ padding-left: 0;
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu functionality
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.getElementById('nav-links');
-            const mobileOverlay = document.getElementById('mobile-overlay');
-            if (mobileMenu && navLinks && mobileOverlay) {
-                mobileMenu.addEventListener('click', function() {
-                    navLinks.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
-                    if (navLinks.classList.contains('active')) {
-                        mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
-                    } else {
-                        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                });
-                mobileOverlay.addEventListener('click', function() {
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        
+        if (mobileMenu && navLinks && mobileOverlay) {
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileOverlay.classList.toggle('active');
+                if (navLinks.classList.contains('active')) {
+                    mobileMenu.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            mobileOverlay.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
                     mobileOverlay.classList.remove('active');
                     mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
                 });
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        mobileOverlay.classList.remove('active');
-                        mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                    });
-                });
-            }
-              // Modal functionality
-              const contactBtns = document.querySelectorAll('.contact-btn');
-              const modal = document.getElementById('contact-modal');
-              const closeBtn = document.querySelector('.close-modal');
-              const successPopup = document.getElementById('success-popup');
-              const popupOverlay = document.getElementById('popup-overlay');
-              if (contactBtns && modal) {
-                // Open modal for all contact buttons
-                contactBtns.forEach(btn => {
-                  btn.addEventListener('click', function(e) {
+            });
+        }
+        
+        // Modal functionality
+        const contactBtns = document.querySelectorAll('.contact-btn');
+        const modal = document.getElementById('contact-modal');
+        const closeBtn = document.querySelector('.close-modal');
+        const successPopup = document.getElementById('success-popup');
+        const popupOverlay = document.getElementById('popup-overlay');
+        
+        if (contactBtns && modal) {
+            // Open modal for all contact buttons
+            contactBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     modal.style.display = 'block';
                     document.body.style.overflow = 'hidden';
-                  });
                 });
-              }
-              if (closeBtn && modal) {
-                // Close modal
-                closeBtn.addEventListener('click', function() {
-                  modal.style.display = 'none';
-                  document.body.style.overflow = 'auto';
-                });
-              }
-              // Close when clicking outside modal
-              window.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                  modal.style.display = 'none';
-                  document.body.style.overflow = 'auto';
-                }
-              });
-              // Location toggle buttons
-              const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
-              const selectedLocations = document.getElementById('selectedLocations');
-              if (locationButtons && selectedLocations) {
-                locationButtons.forEach(button => {
-                  button.addEventListener('click', function() {
+            });
+        }
+        
+        if (closeBtn && modal) {
+            // Close modal
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // Close when clicking outside modal
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Location toggle buttons
+        const locationButtons = document.querySelectorAll('.toggle-group .toggle-option');
+        const selectedLocations = document.getElementById('selectedLocations');
+        
+        if (locationButtons && selectedLocations) {
+            locationButtons.forEach(button => {
+                button.addEventListener('click', function() {
                     this.classList.toggle('selected');
                     updateSelectedLocations();
-                  });
                 });
-                function updateSelectedLocations() {
-                  const selected = Array.from(locationButtons)
+            });
+            
+            function updateSelectedLocations() {
+                const selected = Array.from(locationButtons)
                     .filter(btn => btn.classList.contains('selected'))
                     .map(btn => btn.dataset.value);
-                  selectedLocations.value = selected.join(', ');
-                }
-              }
-              // Terms toggle
-              const termsToggle = document.getElementById('termsToggle');
-              const termsAgreed = document.getElementById('termsAgreed');
-              if (termsToggle && termsAgreed) {
-                termsToggle.addEventListener('click', function() {
-                  const agreed = this.getAttribute('data-agreed') === 'true';
-                  this.setAttribute('data-agreed', !agreed);
-                  this.classList.toggle('selected');
-                  termsAgreed.value = !agreed ? 'agreed' : '';
-                });
-              }
-              // Form submission with success popup
-              const contactForm = document.getElementById('contact-form');
-              if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                  e.preventDefault();
-                  // Validate terms agreement
-                  if (termsAgreed.value !== 'agreed') {
+                selectedLocations.value = selected.join(', ');
+            }
+        }
+        
+        // Terms toggle
+        const termsToggle = document.getElementById('termsToggle');
+        const termsAgreed = document.getElementById('termsAgreed');
+        
+        if (termsToggle && termsAgreed) {
+            termsToggle.addEventListener('click', function() {
+                const agreed = this.getAttribute('data-agreed') === 'true';
+                this.setAttribute('data-agreed', !agreed);
+                this.classList.toggle('selected');
+                termsAgreed.value = !agreed ? 'agreed' : '';
+            });
+        }
+        
+        // Form submission with success popup
+        const contactForm = document.getElementById('contact-form');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Validate terms agreement
+                if (termsAgreed.value !== 'agreed') {
                     alert('Please agree to the Terms of Service before submitting.');
                     return;
-                  }
-                  const submitBtn = contactForm.querySelector('button[type="submit"]');
-                  const originalText = submitBtn.innerHTML;
-                  submitBtn.disabled = true;
-                  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                  // Prepare form data
-                  const formData = new FormData(contactForm);
-                  // Add security token to the form data
-                  formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
-                  fetch(contactForm.action, {
+                }
+                
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                // Prepare form data
+                const formData = new FormData(contactForm);
+                // Add security token to the form data
+                formData.append('securityToken', 'xTk9F#2pLq$8zRn!7vYw*5sBm@4dGc%1hJ'); // Same token as in Apps Script
+                
+                fetch(contactForm.action, {
                     method: 'POST',
                     body: new URLSearchParams(formData),
                     headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded'
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     }
-                  })
-                  .then(response => {
+                })
+                .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
-                  })
-                  .then(data => {
+                })
+                .then(data => {
                     if (data.result === "error") {
-                      throw new Error(data.message);
+                        throw new Error(data.message);
                     }
                     // Show success popup
                     if (successPopup && popupOverlay) {
-                      successPopup.style.display = 'block';
-                      popupOverlay.style.display = 'block';
-                      document.body.style.overflow = 'hidden';
+                        successPopup.style.display = 'block';
+                        popupOverlay.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
                     }
                     // Reset form
                     contactForm.reset();
                     // Reset location selections
                     if (locationButtons) {
-                      locationButtons.forEach(btn => btn.classList.remove('selected'));
+                        locationButtons.forEach(btn => btn.classList.remove('selected'));
                     }
                     if (selectedLocations) {
-                      selectedLocations.value = '';
+                        selectedLocations.value = '';
                     }
                     // Reset terms agreement
                     if (termsToggle && termsAgreed) {
-                      termsToggle.classList.remove('selected');
-                      termsToggle.setAttribute('data-agreed', 'false');
-                      termsAgreed.value = '';
+                        termsToggle.classList.remove('selected');
+                        termsToggle.setAttribute('data-agreed', 'false');
+                        termsAgreed.value = '';
                     }
                     // Close the modal
                     if (modal) {
-                      modal.style.display = 'none';
+                        modal.style.display = 'none';
                     }
                     
                     // TRACK GOOGLE ADS CONVERSION
                     try {
-                      if (typeof gtag_report_conversion === 'function') {
-                        gtag_report_conversion();
-                        console.log('Google Ads conversion tracked');
-                      }
+                        if (typeof gtag_report_conversion === 'function') {
+                            gtag_report_conversion();
+                            console.log('Google Ads conversion tracked');
+                        }
                     } catch (e) {
-                      console.error('Google Ads conversion tracking error:', e);
+                        console.error('Google Ads conversion tracking error:', e);
                     }
-                  })
-                  .catch(error => {
+                })
+                .catch(error => {
                     alert('There was an error submitting the form: ' + error.message);
                     console.error('Error:', error);
-                  })
-                  .finally(() => {
+                })
+                .finally(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
-                  });
                 });
-              }
-              // Close popup handlers
-              const closePopupBtn = document.getElementById('close-popup');
-              if (closePopupBtn && popupOverlay && successPopup) {
-                closePopupBtn.addEventListener('click', () => {
-                  successPopup.style.display = 'none';
-                  popupOverlay.style.display = 'none';
-                  document.body.style.overflow = 'auto';
-                });
-                popupOverlay.addEventListener('click', () => {
-                  successPopup.style.display = 'none';
-                  popupOverlay.style.display = 'none';
-                  document.body.style.overflow = 'auto';
-                });
-              }
-3
+            });
+        }
+        
+        // Close popup handlers
+        const closePopupBtn = document.getElementById('close-popup');
+        
+        if (closePopupBtn && popupOverlay && successPopup) {
+            closePopupBtn.addEventListener('click', () => {
+                successPopup.style.display = 'none';
+                popupOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            popupOverlay.addEventListener('click', () => {
+                successPopup.style.display = 'none';
+                popupOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
         });
     </script>
 </body>
