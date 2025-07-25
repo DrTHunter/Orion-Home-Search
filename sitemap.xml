@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <!-- Core Pages -->
   <url>
     <loc>https://orionhomesearch.com/</loc>
@@ -32,14 +31,12 @@
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
-
   <!-- Blog Root -->
   <url>
     <loc>https://orionhomesearch.com/blog/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
-
   <!-- Blog Articles -->
   <url>
     <loc>https://orionhomesearch.com/blog/best-neighborhoods/</loc>
@@ -71,7 +68,13 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
-
+  <!-- NEW BLOG ARTICLE ADDED -->
+  <url>
+    <loc>https://www.orionhomesearch.com/blog/fort-sam-houston/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
   <!-- Sub-location Tools -->
   <url>
     <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/lackland-af-base-search-tool/</loc>
@@ -80,6 +83,12 @@
   </url>
   <url>
     <loc>https://orionhomesearch.com/blog/best-neighborhoods-near-military-bases/fort-sam-houston-search-tool/</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- NEW SEARCH TOOL ADDED -->
+  <url>
+    <loc>https://www.orionhomesearch.com/blog/fort-sam-houston/fort-sam-houston-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -113,5 +122,4 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
-
 </urlset>
