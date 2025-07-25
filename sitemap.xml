@@ -21,12 +21,14 @@
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
-  <!-- Blog Root -->
+  
+  <!-- Blog Section -->
   <url>
     <loc>https://www.orionhomesearch.com/blog/</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
+  
   <!-- Blog Articles -->
   <url>
     <loc>https://www.orionhomesearch.com/blog/best-neighborhoods/</loc>
@@ -44,7 +46,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.orionhomesearch.com/blog/san-antonio's-hidden-gem-neighborhoods/</loc>
+    <loc>https://www.orionhomesearch.com/blog/san-antonio-hidden-gem-neighborhoods/</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -64,24 +66,19 @@
     <changefreq>monthly</changefreq>
   </url>
   
-  <!-- Sub-location Tools -->
+  <!-- Neighborhood Search Tools -->
   <url>
     <loc>https://www.orionhomesearch.com/blog/best-neighborhoods-near-military-bases/lackland-af-base-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.orionhomesearch.com/blog/best-neighborhoods-near-military-bases/fort-sam-houston-search-tool/</loc>
+    <loc>https://www.orionhomesearch.com/blog/best-neighborhoods-near-military-bases/randolph-afb-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.orionhomesearch.com/blog/fort-sam-houston/fort-sam-houston-search-tool/</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.orionhomesearch.com/blog/best-neighborhoods-near-military-bases/randolph-afb-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -101,7 +98,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.orionhomesearch.com/blog/san-antonio-2025-housing-market-forecast/alamo-ranch-search-tool/</loc>
+    <loc>https://www.orionhomesearch.com/blog/san-antonio-hidden-gem-neighborhoods/alamo-ranch-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -109,5 +106,27 @@
     <loc>https://www.orionhomesearch.com/blog/san-antonio-2025-housing-market-forecast/stone-oak-search-tool/</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
+  </url>
+  
+  <!-- Additional Verified Pages -->
+  <url>
+    <loc>https://www.orionhomesearch.com/about/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.orionhomesearch.com/contact/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.orionhomesearch.com/privacy-policy/</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.orionhomesearch.com/terms-of-service/</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
 </urlset>
